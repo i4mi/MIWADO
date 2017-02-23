@@ -1,12 +1,9 @@
-import { UserRole } from '../lib/midata.js/src/api';
-
-import { Midata } from '../../lib/midata.js';
+import { Midata } from 'midata';
 import * as MidataTypes from './typings/MIDATA_Types';
 import * as MiwadoTypes from './typings/MIWADO_Types';
 
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
+ 
 /*----------------------------------------------------------------------------*/
 /* MidataPersitence (^.^)
 /* isels1
@@ -47,7 +44,7 @@ export class MidataPersistence {
   //            The user Role can be 'member', 'provider', 'developer' or 'research'
   login(un: string, pw: string, role: string){
     // Casting role from string to UserRole with "<UserRole> role"
-    return this.md.login(un, pw , <UserRole> role).then(result => {
+    return this.md.login(un, pw , role).then(result => {
       console.log("login successful");
 
       this.authResponse =

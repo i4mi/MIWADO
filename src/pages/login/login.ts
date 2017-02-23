@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 
-import { Midata } from '../../lib/midata.js';
-
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
