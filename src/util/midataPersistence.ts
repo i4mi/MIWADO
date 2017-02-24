@@ -3,9 +3,9 @@ import * as MidataTypes from './typings/MIDATA_Types';
 import * as MiwadoTypes from './typings/MIWADO_Types';
 
 import { Injectable } from '@angular/core';
- 
+
 /*----------------------------------------------------------------------------*/
-/* MidataPersitence (^.^)
+/* MidataPersitence (^.^) (not realy persistence... but almost)
 /* isels1
 /* This class is meant to be the "LINK" between your code and the midata.js library
 /* It should handle all "search queries" and map the result from
@@ -20,6 +20,9 @@ export class MidataPersistence {
   private appname = 'MIWADO';
   private appsecr = 'g82xlcisy4zneu5n9k3dgxgcifr6vfmx';
   private server = 'https://test.midata.coop:9000';
+  private role: string;
+  private username: string;
+  private password: string;
 
   private authResponse: MidataTypes.MIDATA_authResponse;
 
@@ -36,15 +39,22 @@ export class MidataPersistence {
     return this.mp;
   }
 
+  // Set the role of the user to login.
+  setRole(r: string) {
+    this.role = r;
+  }
+
   // Login function (call it with MidataPersistence.login(un, pw, role))
   // Returns the authResponse
   // -->  un:   Unsername
   // -->  pw:   Passwort
   // -->  role: User-role
   //            The user Role can be 'member', 'provider', 'developer' or 'research'
-  login(un: string, pw: string, role: string){
+  login(un: string, pw: string){
+    this.username = un;
+    this.password = pw;
     // Casting role from string to UserRole with "<UserRole> role"
-    return this.md.login(un, pw , role).then(result => {
+    return this.md.login(un, pw , this.role).then(result => {
       console.log("login successful");
 
       this.authResponse =

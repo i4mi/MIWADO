@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Willkommen</ion-title> <!--ToDo: Laguage File-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon name="{{item.icon}}" item-left></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>
+
+<ion-view view-title="Willkommen bei" cache-view="false" hide-back-button="true">
+    <ion-content scroll="false">
+        <section class="bg-container">
+            <div class="content-container">
+            <div class="col header text-center login-img-container">
+                <img class="login-img" src="./img/Logo2.0.png"/>
+                 <div class="list login-list">
+                    <div class="type-img-div">
+                    <img class="type-img" src="./img/patient-icon-black.png" ng-click="choosePatient()"/>
+                    <p>Zum Patienten Login</p>
+                    </div>
+                    <div class="type-img-div">
+                    <img class="type-img" src="./img/doctor-icon-color.png" ng-click="chooseHealthProf()"/>
+                    <p>Zum Mitarbeiter Login</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div>
+              <span ng-click="showImpressum()">Impressum</span>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>
