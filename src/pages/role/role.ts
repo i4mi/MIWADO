@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
+import { LANGUAGE } from '../../util/language';
 
 
 @Component({
@@ -12,15 +13,18 @@ import { LoginPage } from '../login/login';
 })
 
 export class RolePage {
+  private lang = LANGUAGE.getInstance();
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(private nav: NavController) {
+    console.log(this.nav);
   }
 
   chooseRole(event, role){
     var mp = MidataPersistence.getInstance();
     mp.setRole(role);
+    console.log(this.nav)
+    console.log('role is set to: ' + role);
 
-    this.navCtrl.push(LoginPage);
+    this.nav.push(LoginPage);
   }
 }

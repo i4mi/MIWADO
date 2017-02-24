@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Willkommen</ion-title> <!--ToDo: Laguage File-->
+    <ion-title>{{ lang.role_View_Title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,21 +11,18 @@
   <section class="bg-container">
       <div class="content-container">
       <div class="col header text-center login-img-container">
-          <img class="login-img" src="./img/Logo2.0.png"/>
+          <img class="login-img" src="./img/logo2.0.png"/>
            <div class="list login-list">
               <div class="type-img-div">
-              <img class="type-img" src="./img/patient-icon-black.png" ng-click="choosePatient()"/>
-              <p>Zum Patienten Login</p>
+              <img class="type-img" src="./img/patient-icon-color.png" (click)="chooseRole($event, 'member')"/>
+              <p>{{ lang.role_View_Pat }}</p>
               </div>
               <div class="type-img-div">
-              <img class="type-img" src="./img/doctor-icon-color.png" ng-click="chooseHealthProf()"/>
-              <p>Zum Mitarbeiter Login</p>
+              <img class="type-img" src="./img/doctor-icon-color.png" (click)="chooseRole($event, 'provider')"/>
+              <p>{{ lang.role_View_Hp }}</p>
               </div>
           </div>
       </div>
-      </div>
-      <div>
-        <span ng-click="showImpressum()">Impressum</span>
       </div>
   </section>
 </ion-content>

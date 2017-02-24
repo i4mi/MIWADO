@@ -15,7 +15,7 @@ export class LoginPage {
   // icons: string[];
   // items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public nav: NavController) {
     /*if (this.role == 'member') {
       this.username = 'Patient1@midata.coop';
       this.password = 'Patient123456!';
@@ -24,12 +24,12 @@ export class LoginPage {
       this.password = 'Hp123456!';
     }*/
 
-    this.input.push(
+    /*this.input.push(
       {
         user: this.username,
         pw: this.password
       }
-    );
+    );*/
   //   // If we navigated to this page, we will have an item available as a nav param
   //   this.selectedItem = navParams.get('item');
   //

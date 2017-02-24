@@ -7,6 +7,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = HelloIonicPage;
+  rootPage: any = RolePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -29,7 +30,7 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
-      { title: 'MIWADO', component: RolePage }
+      { title: 'MIWADO', component: RolePage },
     ];
   }
 
@@ -38,7 +39,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      Splashscreen.hide();
+      //Splashscreen.hide();
     });
   }
 

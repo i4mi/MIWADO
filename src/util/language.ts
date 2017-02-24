@@ -21,7 +21,7 @@ export class LANGUAGE {
   }
 
   public static getInstance() {
-    if(this.lang = null) {
+    if(this.lang == null) {
       this.lang = new LANGUAGE();
     }
     return this.lang;
