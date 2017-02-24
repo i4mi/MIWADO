@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
-import { TypePage } from '../pages/type/type';
+import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 
 
@@ -14,7 +14,7 @@ import { LoginPage } from '../pages/login/login';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    TypePage,
+    RolePage,
     LoginPage
   ],
   imports: [
@@ -26,7 +26,7 @@ import { LoginPage } from '../pages/login/login';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    TypePage,
+    RolePage,
     LoginPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

@@ -6,7 +6,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
-import { TypePage } from '../pages/type/type';
+import { RolePage } from '../pages/role/role';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
-      { title: 'MIWADO', component: TypePage }
+      { title: 'MIWADO', component: RolePage }
     ];
   }
 
