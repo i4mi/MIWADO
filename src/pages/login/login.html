@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+        <button class="backToRoleButton" (click)="backToRole()">
+            {{ lang.login_View_Button_Role }}
+        </button>
+    <ion-title>{{ lang.login_View_Title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content ng-controller="LoginCtrl" scroll="false">
+        <div class="content-container">
+        <div class="col header text-center login-img-container">
+            <img class="login-img" src="./img/Logo2.0.png"/>
+            <div class="list login-list" ng-class="hideLogin">
+              <p>{{login_View_Username}}</p>
+              <input class="login-list input" type="text" ng-model="input.user">
+              <p>{{login_View_Password}}</p>
+              <input class="login-list input" type="password" ng-model="input.pw"/>
+              <button class="button button-full button-positive" ng-click="newLogin()">Login</button>
+            </div>
+        </div>
+        </div>
+</ion-content>
