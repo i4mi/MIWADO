@@ -7,6 +7,8 @@ import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
+import { SettingPage } from '../pages/setting/setting';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { PatList } from '../pages/patlist/patlist';
     ListPage,
     RolePage,
     LoginPage,
-    PatList
+    PatList,
+    SettingPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +33,8 @@ import { PatList } from '../pages/patlist/patlist';
     ListPage,
     RolePage,
     LoginPage,
-    PatList
+    PatList,
+    SettingPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

@@ -16,7 +16,6 @@ export class RolePage {
   private lang = LANGUAGE.getInstance();
 
   constructor(private nav: NavController) {
-    console.log(this.nav);
   }
 
   chooseRole(event, role){

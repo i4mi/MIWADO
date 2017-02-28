@@ -1,0 +1,23 @@
+page-setting {
+  //Settings Header
+    ion-title{
+      text-align: center;
+      margin-right: 23%;
+      height: 100%;
+      margin-top: 3%;
+    }
+    .backToRoleButton{
+      float: left;
+      text-align: center;
+      max-width: 70%;
+      max-height: 70%;
+      margin-left: -4%;
+    }
+    .backToRoleButtonText{
+      float: left;
+      text-align: center;
+      color: #000;
+      font-size: 4vw;
+      margin-left: -5%;
+    }
+}

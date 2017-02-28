@@ -8,31 +8,26 @@
     </button>
     <ion-title>{{ lang.login_View_Title }}</ion-title>
   </ion-navbar>
+  <button ion-button clear (click)="goToSettings()">
+    <img class="backToRoleButton" src="./img/Settings.png" alt=" "/>
+  </button>
 </ion-header>
 
 <ion-content ng-controller="LoginCtrl" scroll="false">
   <form [formGroup]="myForm">
-  <div class="content-container">
-    <div class="col header text-center login-img-container">
+    <div class="content-container">
       <img class="login-img" src="./img/Logo2.0.png"/>
-      <div class="list login-list" ng-class="hideLogin">
-        <div class="loginForm">
-          <p class="input loginFormText">
-            {{ lang.login_View_Username }}
-          </p>
-          <input class="input loginFormInput" formControlName="username" type="text" ng-model="input.user">
-        </div>
-        <div class="loginForm">
-          <p class="input loginFormText">
-            {{ lang.login_View_Password }}
-          </p>
-          <input class="input loginFormInput" formControlName="password" type="password" ng-model="input.pw"/>
-        </div>
-        <div class="loginForm">
-          <button class="loginFormButton" ng-click="loginMIWADO(myForm.value)">Login</button>
-        </div>
-      </div>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>{{ lang.login_View_Username }}</ion-label>
+          <ion-input formControlName="username" type="text" ng-model="input.user"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>{{ lang.login_View_Password }}</ion-label>
+          <ion-input formControlName="username" type="password" ng-model="input.user"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button class="loginFormButton" (click)="loginMIWADO(myForm.value)">Login</button>
     </div>
-  </div>
   </form>
 </ion-content>

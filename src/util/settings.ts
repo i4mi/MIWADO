@@ -1,9 +1,11 @@
+import { SettingPage } from '../pages/setting/setting';
+
 export class Settings {
 
   private static s:Settings;
   private lang: string;
 
-  private construcot(){};
+  private constructor(){};
 
   public static getInstance() {
     if (this.s == null){

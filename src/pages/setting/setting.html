@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button clear class="backToRoleButton" (click)="backToPatList()">
+      <img class="backToRoleButton" src="./img/BackButton.png" alt=" "/>
+      <p class="backToRoleButtonText">
+        {{ lang.settings_View_Button_Back }}
+      </p>
+    </button>
+    <ion-title>{{ lang.settings_View_Title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list radio-group>
+    <ion-list-header>
+      {{ lang.setting_Language }}
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>{{ lang.settings_Radio_German }}</ion-label>
+      <ion-radio (click)="setLanguage('de')" value="language_german"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ lang.settings_Radio_French }}</ion-label>
+      <ion-radio (click)="setLanguage('fr')" value="language_french"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ lang.settings_Radio_English }}</ion-label>
+      <ion-radio  (click)="setLanguage('en')" checked="true" value="language_english"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-content>
