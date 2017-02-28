@@ -3,6 +3,7 @@ import * as MidataTypes from './MIDATA_Types';
 export interface MIWADO_Person {
   id:string;
   displayName:string;
+  fcmToken:string;
 }
 
 export interface MIWADO_HP extends MIWADO_Person {
@@ -12,6 +13,8 @@ export interface MIWADO_HP extends MIWADO_Person {
 
 export interface MIWADO_Patient extends MIWADO_Person {
   commThreadId:string;
+  gender:string;
+  icon:string;
 }
 
 export interface MIWADO_User {
@@ -19,7 +22,7 @@ export interface MIWADO_User {
   username:string;
   password:string;
   auth:MidataTypes.MIDATA_authResponse;
-  messageList:Array<MIWADO_Message>
+  messageList:Array<MIWADO_Message>;
 }
 
 export interface MIWADO_Message {

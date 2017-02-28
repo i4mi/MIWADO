@@ -3,6 +3,7 @@ import * as MidataTypes from './typings/MIDATA_Types';
 import * as MiwadoTypes from './typings/MIWADO_Types';
 
 import { Injectable } from '@angular/core';
+import { TestPatients } from './testObj/testPatients';
 
 /*----------------------------------------------------------------------------*/
 /* MidataPersitence (^.^) (not realy persistence... but almost)
@@ -67,6 +68,7 @@ export class MidataPersistence {
 
       console.log("the result:");
       console.log(result);
+      console.log("Bearer " + result.authToken);
       console.log("mapped:");
 
       return this.authResponse;
@@ -246,6 +248,48 @@ export class MidataPersistence {
   // is MidataTypes.MIDATA_HL7CommRes_Payload_Refernce
   private instanceofContentReference(object: any): object is MidataTypes.MIDATA_HL7CommRes_Payload_Refernce {
     return true;
+  }
+
+  public retreivePatients(callback: any){
+    //normally a search query
+    this.search('Patient').then(function(result) {
+      callback(result)
+    });
+
+    //for testing reasons now "static"
+    /*var testObj = new TestPatients();
+    var fakeResponse = testObj.getTestPatients();
+
+    var testPats = new Array<MiwadoTypes.MIWADO_Patient>();
+    for (var i = 0; i < fakeResponse.length; i++)
+    {
+      testPats.push(
+        this.convertPatToTS(fakeResponse[i])
+      );
+    }
+
+    callback(testPats);*/
+  }
+
+  private convertPatToTS(JSON): MiwadoTypes.MIWADO_Patient {
+    var TS:MiwadoTypes.MIWADO_Patient;
+
+    TS = {
+      id: JSON.identifier,
+      displayName: JSON.name,
+      gender: JSON.gender,
+      icon: 'none',
+    } as MiwadoTypes.MIWADO_Patient;
+
+    if (JSON.gender == 'm') {
+      TS.icon = './img/pat-m-w.png';
+    } else if (JSON.gender == 'f') {
+      TS.icon = './img/pat-f-b.ico';
+    } else {
+      TS.icon = './img/pat-m-w.png';
+    }
+
+    return TS;
   }
 
 }
