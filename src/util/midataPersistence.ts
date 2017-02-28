@@ -96,7 +96,7 @@ export class MidataPersistence {
   //                    mp.search("Person", {}).then(function(personList) {
   //                      console.log(personList);
   //                    });
-  search(resourceType, params) {
+  search(resourceType: string, params?: any) {
     return this.md.search(resourceType, params);
   }
 
