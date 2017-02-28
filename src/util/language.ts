@@ -50,9 +50,9 @@ export class LANGUAGE {
   }
 
   private langFR(){
-    this.role_View_Title = 'none';
-    this.role_View_Pat = 'none';
-    this.role_View_Hp = 'none';
+    this.role_View_Title = 'Bienvenue';
+    this.role_View_Pat = 'Je suis un patient';
+    this.role_View_Hp = 'Je suis un professionnel de la Santé';
 
     this.login_View_Title = 'Login';
     this.login_View_Username = "nom d'utilisateur";
@@ -64,8 +64,8 @@ export class LANGUAGE {
 
   private langEN(){
     this.role_View_Title = 'Welcome';
-    this.role_View_Pat = 'Patient';
-    this.role_View_Hp = 'Health professional';
+    this.role_View_Pat = "I'm a Patient";
+    this.role_View_Hp = "I'm a Health Professional";
 
     this.login_View_Title = 'Login';
     this.login_View_Username = 'Username';
@@ -74,5 +74,4 @@ export class LANGUAGE {
 
     this.patlist_View_title = 'My patients';
   }
-
 }
