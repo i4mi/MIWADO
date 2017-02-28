@@ -8,6 +8,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
+import { PatList } from '../pages/patlist/patlist';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class MyApp {
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
       { title: 'MIWADO', component: RolePage },
+      { title: 'patList', component: PatList }
     ];
   }
 
