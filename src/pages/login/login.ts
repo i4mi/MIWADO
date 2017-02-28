@@ -39,8 +39,6 @@ export class LoginPage {
   }
 
   loginMIWADO(formData){
-
-
     var mp = MidataPersistence.getInstance();
     mp.login(formData.username, formData.password);
     console.log()

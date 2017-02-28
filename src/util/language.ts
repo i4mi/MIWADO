@@ -16,6 +16,7 @@ export class LANGUAGE {
   public login_View_Button_Role: string;
   public login_View_PopUp_Title : string;
   public login_View_PopUp_Text : string;
+  public login_View_Login_Button : string;
 
   //Language variables for the settings view
   public settings_View_Title: string;
@@ -24,6 +25,13 @@ export class LANGUAGE {
   public settings_Radio_English : string;
   public settings_Radio_German : string;
   public setting_Language : string;
+  public setting_Logout : string;
+  public setting_Logout_Button : string;
+  public settings_PopUp_Title : string;
+  public settings_PopUp_Text : string;
+  public settings_PopUp_Cancel : string;
+  public settings_PopUp_Confirm : string;
+
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -57,6 +65,7 @@ export class LANGUAGE {
     this.login_View_Button_Role = 'Rolle auswählen';
     this.login_View_PopUp_Title = 'Login fehlgeschlagen';
     this.login_View_PopUp_Text = 'Benutzername oder Passwort ist ungültig';
+    this.login_View_Login_Button = 'Login';
 
     this.settings_View_Title = 'Einstellungen';
     this.settings_View_Button_Back = 'Zurück';
@@ -64,6 +73,12 @@ export class LANGUAGE {
     this.settings_Radio_German = 'Deutsch';
     this.settings_Radio_English = 'Englisch';
     this.setting_Language = 'Sprache';
+    this.setting_Logout = 'Logout';
+    this.setting_Logout_Button = 'Logout';
+    this.settings_PopUp_Title = 'Logout';
+    this.settings_PopUp_Text = 'Möchten Sie sich wirklich abmelden?';
+    this.settings_PopUp_Cancel = 'Abbrechen';
+    this.settings_PopUp_Confirm = 'Bestätigen';
 
     this.patlist_View_title = 'Meine Patienten';
   }
@@ -80,6 +95,7 @@ export class LANGUAGE {
     this.login_View_Button_Role = 'Choisir rôle';
     this.login_View_PopUp_Title = 'Login échoué';
     this.login_View_PopUp_Text = "Nom d'utilisateur ou mot de passe incorrect";
+    this.login_View_Login_Button = 'Login';
 
     this.settings_View_Title = 'none';
     this.settings_View_Button_Back = 'Dos';
@@ -87,6 +103,12 @@ export class LANGUAGE {
     this.settings_Radio_German = 'Allemand';
     this.settings_Radio_English = 'Anglais';
     this.setting_Language = 'Langue';
+    this.setting_Logout = 'Logout';
+    this.setting_Logout_Button = 'Logout';
+    this.settings_PopUp_Title = 'Logout';
+    this.settings_PopUp_Text = 'Voulez-vous vraiment vous déconnecter?';
+    this.settings_PopUp_Cancel = 'Annuler';
+    this.settings_PopUp_Confirm = 'Confirmer';
 
     this.patlist_View_title = 'Mes patients ';
   }
@@ -102,12 +124,20 @@ export class LANGUAGE {
     this.login_View_Button_Role = 'Choose role';
     this.login_View_PopUp_Title = 'Login failed';
     this.login_View_PopUp_Text = 'Invalid username or password';
+    this.login_View_Login_Button = 'Login';
 
     this.settings_View_Title = 'Settings';
     this.settings_View_Button_Back = 'Back';
     this.settings_Radio_French = 'French';
     this.settings_Radio_German = 'German';
     this.settings_Radio_English = 'English';
+    this.setting_Language = 'Language';
+    this.setting_Logout = 'Logout';
+    this.setting_Logout_Button = 'Logout';
+    this.settings_PopUp_Title = 'Logout';
+    this.settings_PopUp_Text = 'Do you really want to log out?';
+    this.settings_PopUp_Cancel = 'Cancel';
+    this.settings_PopUp_Confirm = 'Confirm';
 
     this.patlist_View_title = 'My patients';
   }

@@ -31,4 +31,10 @@
       <ion-radio  (click)="setLanguage('en')" checked="true" value="language_english"></ion-radio>
     </ion-item>
   </ion-list>
+
+  <ion-list-header>
+    {{ lang.setting_Logout }}
+  </ion-list-header>
+  <button class="logoutFormButton" (click)="logout()">{{ lang.setting_Logout }}</button>
+
 </ion-content>
