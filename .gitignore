@@ -5,7 +5,7 @@
 *.sw[mnpcod]
 *.log
 *.tmp
-*.tmp.*
+.tmp.
 log.txt
 *.sublime-project
 *.sublime-workspace
@@ -26,15 +26,8 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
-www/
+www
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
-UserInterfaceState.xcuserstate
-
-*.map
-www/build/main.js.map
-www/build/main.css
-www/build/main.js
-node_modules/.bin/node-sass
