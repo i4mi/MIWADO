@@ -1,23 +1,38 @@
 <ion-header>
   <ion-navbar hideBackButton>
-        <button class="backToRoleButton" (click)="backToRole()">
-            {{ lang.login_View_Button_Role }}
-        </button>
+    <button ion-button clear class="backToRoleButton" (click)="backToRole()">
+      <img class="backToRoleButton" src="./img/BackButton.png" alt=" "/>
+      <p class="backToRoleButtonText">
+        {{ lang.login_View_Button_Role }}
+      </p>
+    </button>
     <ion-title>{{ lang.login_View_Title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content ng-controller="LoginCtrl" scroll="false">
-        <div class="content-container">
-        <div class="col header text-center login-img-container">
-            <img class="login-img" src="./img/Logo2.0.png"/>
-            <div class="list login-list" ng-class="hideLogin">
-              <p>{{login_View_Username}}</p>
-              <input class="login-list input" type="text" ng-model="input.user">
-              <p>{{login_View_Password}}</p>
-              <input class="login-list input" type="password" ng-model="input.pw"/>
-              <button class="button button-full button-positive" ng-click="newLogin()">Login</button>
-            </div>
+  <form [formGroup]="myForm">
+  <div class="content-container">
+    <div class="col header text-center login-img-container">
+      <img class="login-img" src="./img/Logo2.0.png"/>
+      <div class="list login-list" ng-class="hideLogin">
+        <div class="loginForm">
+          <p class="input loginFormText">
+            {{ lang.login_View_Username }}
+          </p>
+          <input class="input loginFormInput" formControlName="username" type="text" ng-model="input.user">
         </div>
+        <div class="loginForm">
+          <p class="input loginFormText">
+            {{ lang.login_View_Password }}
+          </p>
+          <input class="input loginFormInput" formControlName="password" type="password" ng-model="input.pw"/>
         </div>
+        <div class="loginForm">
+          <button class="loginFormButton" ng-click="loginMIWADO(myForm.value)">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
 </ion-content>

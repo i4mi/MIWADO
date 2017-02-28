@@ -22,7 +22,11 @@ export class PatList {
     // auto-login for debug reason
     if (!this.mp.loggedIn()) {
       this.mp.setRole('provider');
-      this.mp.login('donald.mallard@midata.coop', 'Hp123456!').then(this.retreivePatientList());
+      this.mp.login('donald.mallard@midata.coop', 'Hp123456!').then(
+        function(res) {
+          console.log("Bearer " + res.authToken);
+          this.retreivePatientList();
+        });
     } else {
       this.retreivePatientList();
     }
@@ -32,13 +36,17 @@ export class PatList {
     console.log('logged in...');
     console.log('...now retreive Patient List...');
 
-    this.mp.search('Patient').then(function(res) {
-      this.addPatientList(res);
-    });
+    if (this.mp.loggedIn()) {
+      this.mp.retreivePatients(this.addPatientList);
+    }
+    /*.then(function (res) {
+      this.addPatientList(res)
+    });*/
   }
 
   addPatientList(response) {
-    console.log('response is: ' + response);
+    console.log('response is: ' + JSON.stringify(response));
+    this.patList.push(response);
   }
 
 }

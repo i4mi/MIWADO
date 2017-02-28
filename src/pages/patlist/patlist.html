@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <button ion-item *ngFor="let pat of patList" (click)="asd()">
+      <ion-icon name="{{ pat.icon }}" item-left></ion-icon>
+      {{ pat.displayName }}
+      <div class="item-note" item-right>
+        bla
+      </div>
+    </button>
+  </ion-list>
 </ion-content>
