@@ -9,11 +9,14 @@ export class LANGUAGE {
   public role_View_Pat: string;
   public role_View_Hp: string;
 
-  //Language variables for the role view
+  //Language variables for the login view
   public login_View_Title: string;
   public login_View_Username: string;
   public login_View_Password: string;
   public login_View_Button_Role: string;
+
+  //Language variables for the
+  public patlist_View_title: string;
 
   private constructor() {
     var s = Settings.getInstance();
@@ -37,30 +40,39 @@ export class LANGUAGE {
     this.role_View_Title = 'Willkommen';
     this.role_View_Pat = 'Ich bin Patient';
     this.role_View_Hp = 'Ich bin Mitarbeiter';
+
     this.login_View_Title = 'Login';
     this.login_View_Username = 'Benutzername';
     this.login_View_Password = 'Passwort';
     this.login_View_Button_Role = 'Rolle auswählen';
+
+    this.patlist_View_title = 'Meine Patienten';
   }
 
   private langFR(){
     this.role_View_Title = 'none';
     this.role_View_Pat = 'none';
     this.role_View_Hp = 'none';
+
     this.login_View_Title = 'Login';
     this.login_View_Username = "nom d'utilisateur";
     this.login_View_Password = 'mots de passe';
     this.login_View_Button_Role = 'Choisir rôle';
+
+    this.patlist_View_title = 'none';
   }
 
   private langEN(){
     this.role_View_Title = 'Welcome';
     this.role_View_Pat = 'Patient';
-    this.role_View_Hp = 'Health Professional';
+    this.role_View_Hp = 'Health professional';
+
     this.login_View_Title = 'Login';
     this.login_View_Username = 'Username';
     this.login_View_Password = 'Password';
     this.login_View_Button_Role = 'Choose role';
+
+    this.patlist_View_title = 'My patients';
   }
 
 }
