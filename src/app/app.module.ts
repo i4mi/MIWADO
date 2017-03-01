@@ -8,6 +8,7 @@ import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
+import { CommThreadPage } from '../pages/commThread/commThread';
 
 
 
@@ -20,7 +21,8 @@ import { SettingPage } from '../pages/setting/setting';
     RolePage,
     LoginPage,
     PatList,
-    SettingPage
+    SettingPage,
+    CommThreadPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -34,7 +36,8 @@ import { SettingPage } from '../pages/setting/setting';
     RolePage,
     LoginPage,
     PatList,
-    SettingPage
+    SettingPage,
+    CommThreadPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

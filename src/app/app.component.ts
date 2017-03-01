@@ -10,6 +10,7 @@ import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
+import { CommThreadPage } from '../pages/commThread/commThread';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,7 +34,9 @@ export class MyApp {
       { title: 'My First List', component: ListPage },
       { title: 'MIWADO', component: RolePage },
       { title: 'patList', component: PatList },
-      { title: 'setting', component: SettingPage }
+      { title: 'setting', component: SettingPage },
+      { title: 'commThread', component: CommThreadPage },
+
     ];
   }
 

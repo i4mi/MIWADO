@@ -3,6 +3,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { AlertController } from 'ionic-angular';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
@@ -13,10 +14,17 @@ import { Settings } from '../../util/settings';
   })
 
 export class SettingPage {
+  myForm: FormGroup;
+  private radioButton_Language : any;
   private lang = LANGUAGE.getInstance();
   private settings = Settings.getInstance();
 
-  constructor(public nav: NavController, public alertCtrl: AlertController) {
+
+  constructor(public nav: NavController, private builder: FormBuilder, public alertCtrl: AlertController) {
+    this.myForm = builder.group({
+      'radioButton_Language' : this.settings.getLanguage()
+    })
+    this.radioButton_Language = this.myForm.value;
    }
 
   backToPatList(){
@@ -47,6 +55,7 @@ export class SettingPage {
   }
 
   setLanguage(language_code){
-    this.settings.setLanguage(language_code)
+    this.settings.setLanguage(language_code);
+    this.lang.changeLanguage();
   }
 }
