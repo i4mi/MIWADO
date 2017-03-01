@@ -12,10 +12,10 @@ This is the bachelor thesis of the two students zyssm4 and isels1. We both study
 ------------------------------------------
 
 THESIS in GERMAN:
-MIWADO 2.0: Einsatz und Evaluation einer mHealth-App für eine effiziente Kommun¡kation zw¡schen Patienten und
+MIWADO 2.0: Einsatz und Evaluation einer mHealth-App für eine effiziente Kommikation zwischen Patienten und
 Diabetologischem Behandlungsteam.
 
 THESIS in ENGLISH:
-MIWADO 2.0: Use and evaluation of an mHealth-App for an efficient communication between patients and health professionals (for diabetes).
+MIWADO 2.0: Use and evaluation of a mHealth-App for an efficient communication between patients and health professionals (for diabetes).
 
 ------------------------------------------
