@@ -250,10 +250,19 @@ export class MidataPersistence {
     return true;
   }
 
-  public retreivePatients(callback: any){
-    //normally a search query
-    this.search('Patient').then(function(result) {
-      callback(result)
+  public retreivePatients(){
+    //normally a search query callback: any
+    return this.search('Patient').then((result) => {
+      var patList = new Array<MiwadoTypes.MIWADO_Patient>();
+      for(var i = 0; i < result.length; i++)
+      {
+        console.log('loop round ' + i + ' to convert');
+        var asd = this.convertPatToTS(result[i]);
+
+        console.log('converted it to: ' + asd);
+        patList.push(asd);
+      }
+      return patList;
     });
 
     //for testing reasons now "static"
@@ -274,19 +283,28 @@ export class MidataPersistence {
   private convertPatToTS(JSON): MiwadoTypes.MIWADO_Patient {
     var TS:MiwadoTypes.MIWADO_Patient;
 
+    console.log('beginn with convert JSON to TS...');
+    console.log('JSON is: ' + JSON);
+    var displayName = '';
+
+    for(var i = 0; i < JSON.name.length; i++){
+      displayName += JSON.name[i].family + " ";
+      displayName += JSON.name[i].given[0];
+    }
+
     TS = {
-      id: JSON.identifier,
-      displayName: JSON.name,
+      id: JSON.id,
+      displayName: displayName,
       gender: JSON.gender,
       icon: 'none',
     } as MiwadoTypes.MIWADO_Patient;
 
-    if (JSON.gender == 'm') {
-      TS.icon = './img/pat-m-w.png';
-    } else if (JSON.gender == 'f') {
-      TS.icon = './img/pat-f-b.ico';
+    if (JSON.gender == 'male') {
+      TS.icon = 'img/pat-m-w.png';
+    } else if (JSON.gender == 'female') {
+      TS.icon = 'img/pat-f-b.ico';
     } else {
-      TS.icon = './img/pat-m-w.png';
+      TS.icon = 'img/pat-m-w.png';
     }
 
     return TS;

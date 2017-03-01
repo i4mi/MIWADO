@@ -14,10 +14,12 @@ import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 export class PatList {
   private lang = LANGUAGE.getInstance();
   private mp = MidataPersistence.getInstance();
-  private patList: Array<MiwadoTypes.MIWADO_Patient>
+  private patList: Array<MiwadoTypes.MIWADO_Patient>;
 
   constructor(private nav: NavController) {
     console.log(this.nav);
+
+    this.patList = new Array<MiwadoTypes.MIWADO_Patient>();
 
     // auto-login for debug reason
     if (!this.mp.loggedIn()) {
@@ -37,16 +39,19 @@ export class PatList {
     console.log('...now retreive Patient List...');
 
     if (this.mp.loggedIn()) {
-      this.mp.retreivePatients(this.addPatientList);
+      this.mp.retreivePatients().then((result) => {
+        this.addPatientList(result);
+      });
     }
-    /*.then(function (res) {
-      this.addPatientList(res)
-    });*/
   }
 
-  addPatientList(response) {
+  addPatientList(response: Array<MiwadoTypes.MIWADO_Patient>) {
     console.log('response is: ' + JSON.stringify(response));
-    this.patList.push(response);
+    for (var i = 0; i < response.length; i++) {
+        this.patList.push(response[i]);
+    }
+
+    console.log(this.patList);
   }
 
 }
