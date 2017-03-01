@@ -14,6 +14,7 @@ import { SettingPage } from '../pages/setting/setting';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
