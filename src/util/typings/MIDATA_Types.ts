@@ -56,7 +56,7 @@ export interface DateToValue
    sent:Date;
    received:Date;
    reason:Array<any>;
-   subject:string;
+   subject:any;
    requestDetail:any;
  }
 

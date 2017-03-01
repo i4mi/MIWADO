@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let pat of patList" (click)="asd()">
+    <button ion-item *ngFor="let pat of patList" (click)="commThread(pat)">
       <ion-icon name="" item-left><img src='{{ pat.icon }}' /></ion-icon>
       {{ pat.displayName }}
       <div class="item-note" item-right>

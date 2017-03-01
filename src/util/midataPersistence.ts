@@ -102,15 +102,103 @@ export class MidataPersistence {
     return this.md.search(resourceType, params);
   }
 
+  retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
+    return this.search('Communication', { "patient": pat.id }).then((result) => {
+      console.log("resources" + JSON.stringify(result));
+      console.log("breakpoint goes here");
+
+      var commRes = new Array<MidataTypes.MIDATA_HL7CommRes>();
+      for(var i = 0; i < result.length; i++)
+      {
+        console.log('loop round ' + i + ' to convert');
+        var asd = this.convertCommResToTS(result[i]);
+
+        console.log('converted it to: ' + asd);
+        commRes.push(asd);
+      }
+      return commRes;
+    });
+  }
+
+  retreivePatients(){
+    //normally a search query callback: any
+    return this.search('Patient').then((result) => {
+      var patList = new Array<MiwadoTypes.MIWADO_Patient>();
+      for(var i = 0; i < result.length; i++)
+      {
+        console.log('loop round ' + i + ' to convert');
+        var asd = this.convertPatToTS(result[i]);
+
+        console.log('converted it to: ' + asd);
+        patList.push(asd);
+      }
+      return patList;
+    });
+  }
+
+  // Private helper to convert a HL7 FHIR Patient
+  // Object JSON into the MiwadoTypes.MIWADO_Patient.
+  // -->  return: TS (MiwadoTypes.MIWADO_Patient)
+  private convertPatToTS(JSON): MiwadoTypes.MIWADO_Patient {
+    var TS:MiwadoTypes.MIWADO_Patient;
+
+    console.log('beginn with convert JSON to TS...');
+    console.log('JSON is: ' + JSON);
+    var displayName = '';
+
+    for(var i = 0; i < JSON.name.length; i++){
+      displayName += JSON.name[i].family + " ";
+      displayName += JSON.name[i].given[0];
+    }
+
+    TS = {
+      id: JSON.id,
+      displayName: displayName,
+      gender: JSON.gender,
+      icon: 'none',
+    } as MiwadoTypes.MIWADO_Patient;
+
+    if (JSON.gender == 'male') {
+      TS.icon = 'img/pat-m-w.png';
+    } else if (JSON.gender == 'female') {
+      TS.icon = 'img/pat-f-b.ico';
+    } else {
+      TS.icon = 'img/pat-m-w.png';
+    }
+
+    return TS;
+  }
+
   // Private helper to convert a HL7 Communication resource JSON
   // into the MIDATA_Types.MIDATA_HL7CommRes.
   // -->  return: MIDATA_Types.MIDATA_HL7CommRes Object
   private convertCommResToTS(JSON){
     var TS:MidataTypes.MIDATA_HL7CommRes;
+    var s:MidataTypes.MIDATA_HL7CommRes_Person;
+
+    TS = {
+      resourceType: '',
+      category: '',
+      sender: s,
+      status: '',
+      recipient: [],
+      payload: [],
+      medium: [],
+      encounter: '',
+      sent: new Date(),
+      received: new Date(),
+      reason: [],
+      subject: s,
+      requestDetail: ''
+    };
+
     TS.resourceType = JSON.resourceType;
     TS.category = JSON.category;
 
-    var s:MidataTypes.MIDATA_HL7CommRes_Person;
+    s = {
+      reference: '',
+      display: ''
+    }
     s.reference = JSON.sender.reference;
     s.display = JSON.sender.display;
     TS.sender = s;
@@ -119,6 +207,10 @@ export class MidataPersistence {
     // Convert all "recipients"
     for (var i = 0; i < JSON.recipient.length; i++) {
       var r:MidataTypes.MIDATA_HL7CommRes_Person;
+      r = {
+        reference: '',
+        display: ''
+      }
       r.reference = JSON.recipient[i].reference;
       r.display = JSON.recipient[i].display;
       TS.recipient.push(r);
@@ -129,27 +221,36 @@ export class MidataPersistence {
     // -->  contentAttachment
     // -->  contentRefernce
     for (var i = 0; i < JSON.payload.length; i++) {
-      if (JSON.payload.hasOwnProperty('contentString')) {
+      if (JSON.payload[i].hasOwnProperty('contentString')) {
         var cS:MidataTypes.MIDATA_HL7CommRes_Payload_String;
+        cS = { contentString: '' }
         cS = JSON.payload[i].contentString;
         TS.payload.push(cS);
-      } else if (JSON.payload.hasOwnProperty('contentAttachment')) {
+      } else if (JSON.payload[i].hasOwnProperty('contentAttachment')) {
         var cA:MidataTypes.MIDATA_HL7CommRes_Payload_Attachment;
+        cA = { contentAttachment: '' }
         cA = JSON.payload[i].contentAttachment;
         TS.payload.push(cA);
-      } else if (JSON.payload.hasOwnProperty('contentRefernce')) {
+      } else if (JSON.payload[i].hasOwnProperty('contentRefernce')) {
         var cR:MidataTypes.MIDATA_HL7CommRes_Payload_Refernce;
+        cR = { contentRefernce: '' }
         cR = JSON.payload[i].contentRefernce;
         TS.payload.push(cR);
       }
     }
 
-    // Converts medium to MIDATA_HL7CommRes_Medium
-    for (var i = 0; i < JSON.medium.length; i++) {
-      var m:MidataTypes.MIDATA_HL7CommRes_Medium;
-      m.type = JSON.medium[i].type;
-      m.name = JSON.medium[i].name;
-      TS.medium.push(m);
+    if(JSON.medium) {
+      // Converts medium to MIDATA_HL7CommRes_Medium
+      for (var i = 0; i < JSON.medium.length; i++) {
+        var m:MidataTypes.MIDATA_HL7CommRes_Medium;
+        m = {
+          type: '',
+          name: ''
+        }
+        m.type = JSON.medium[i].type;
+        m.name = JSON.medium[i].name;
+        TS.medium.push(m);
+      }
     }
 
     TS.encounter = JSON.encounter;
@@ -250,64 +351,5 @@ export class MidataPersistence {
     return true;
   }
 
-  public retreivePatients(){
-    //normally a search query callback: any
-    return this.search('Patient').then((result) => {
-      var patList = new Array<MiwadoTypes.MIWADO_Patient>();
-      for(var i = 0; i < result.length; i++)
-      {
-        console.log('loop round ' + i + ' to convert');
-        var asd = this.convertPatToTS(result[i]);
-
-        console.log('converted it to: ' + asd);
-        patList.push(asd);
-      }
-      return patList;
-    });
-
-    //for testing reasons now "static"
-    /*var testObj = new TestPatients();
-    var fakeResponse = testObj.getTestPatients();
-
-    var testPats = new Array<MiwadoTypes.MIWADO_Patient>();
-    for (var i = 0; i < fakeResponse.length; i++)
-    {
-      testPats.push(
-        this.convertPatToTS(fakeResponse[i])
-      );
-    }
-
-    callback(testPats);*/
-  }
-
-  private convertPatToTS(JSON): MiwadoTypes.MIWADO_Patient {
-    var TS:MiwadoTypes.MIWADO_Patient;
-
-    console.log('beginn with convert JSON to TS...');
-    console.log('JSON is: ' + JSON);
-    var displayName = '';
-
-    for(var i = 0; i < JSON.name.length; i++){
-      displayName += JSON.name[i].family + " ";
-      displayName += JSON.name[i].given[0];
-    }
-
-    TS = {
-      id: JSON.id,
-      displayName: displayName,
-      gender: JSON.gender,
-      icon: 'none',
-    } as MiwadoTypes.MIWADO_Patient;
-
-    if (JSON.gender == 'male') {
-      TS.icon = 'img/pat-m-w.png';
-    } else if (JSON.gender == 'female') {
-      TS.icon = 'img/pat-f-b.ico';
-    } else {
-      TS.icon = 'img/pat-m-w.png';
-    }
-
-    return TS;
-  }
 
 }
