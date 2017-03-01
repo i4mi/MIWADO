@@ -15,21 +15,22 @@
     <ion-list-header>
       {{ lang.setting_Language }}
     </ion-list-header>
+    <form [formGroup]="myForm">
+      <ion-item>
+        <ion-label>{{ lang.settings_Radio_German }}</ion-label>
+        <ion-radio (click)="setLanguage('de')" [checked]="radioButton_Language.radioButton_Language == 'de'" value="de"></ion-radio>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>{{ lang.settings_Radio_German }}</ion-label>
-      <ion-radio (click)="setLanguage('de')" value="language_german"></ion-radio>
-    </ion-item>
+      <ion-item>
+        <ion-label>{{ lang.settings_Radio_French }}</ion-label>
+        <ion-radio (click)="setLanguage('fr')" [checked]="radioButton_Language.radioButton_Language == 'fr'" value="fr"></ion-radio>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>{{ lang.settings_Radio_French }}</ion-label>
-      <ion-radio (click)="setLanguage('fr')" value="language_french"></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>{{ lang.settings_Radio_English }}</ion-label>
-      <ion-radio  (click)="setLanguage('en')" checked="true" value="language_english"></ion-radio>
-    </ion-item>
+      <ion-item>
+        <ion-label>{{ lang.settings_Radio_English }}</ion-label>
+        <ion-radio  (click)="setLanguage('en')" [checked]="radioButton_Language.radioButton_Language == 'en'" value="en"></ion-radio>
+      </ion-item>
+    </form>
   </ion-list>
 
   <ion-list-header>

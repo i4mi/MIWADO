@@ -37,6 +37,18 @@ export class LANGUAGE {
   public patlist_View_title: string;
 
   private constructor() {
+    this.changeLanguage();
+  }
+
+
+  public static getInstance() {
+    if(this.lang == null) {
+      this.lang = new LANGUAGE();
+    }
+    return this.lang;
+  }
+
+  changeLanguage() {
     var s = Settings.getInstance();
     if (s.getLanguage() == 'de') {
       this.langDE();
@@ -45,13 +57,6 @@ export class LANGUAGE {
     } else {
       this.langEN();
     }
-  }
-
-  public static getInstance() {
-    if(this.lang == null) {
-      this.lang = new LANGUAGE();
-    }
-    return this.lang;
   }
 
   private langDE(){
@@ -97,7 +102,7 @@ export class LANGUAGE {
     this.login_View_PopUp_Text = "Nom d'utilisateur ou mot de passe incorrect";
     this.login_View_Login_Button = 'Login';
 
-    this.settings_View_Title = 'none';
+    this.settings_View_Title = 'Réglage';
     this.settings_View_Button_Back = 'Dos';
     this.settings_Radio_French = 'Français';
     this.settings_Radio_German = 'Allemand';
