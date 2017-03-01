@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar hideBackButton>
     <button ion-button clear class="backToRoleButton" (click)="backToRole()">
-      <img class="backToRoleButton" src="./img/BackButton.png" alt=" "/>
+      <img class="backToRoleButton" src="./assets/img/BackButton.png" alt=" "/>
       <p class="backToRoleButtonText">
         {{ lang.login_View_Button_Role }}
       </p>
@@ -9,14 +9,14 @@
     <ion-title>{{ lang.login_View_Title }}</ion-title>
   </ion-navbar>
   <button ion-button clear (click)="goToSettings()">
-    <img class="backToRoleButton" src="./img/Settings.png" alt=" "/>
+    <img class="backToRoleButton" src="./assets/img/Settings.png" alt=" "/>
   </button>
 </ion-header>
 
 <ion-content ng-controller="LoginCtrl" scroll="false">
   <form [formGroup]="myForm">
     <div class="content-container">
-      <img class="login-img" src="./img/Logo2.0.png"/>
+      <img class="login-img" src="./assets/img/Logo2.0.png"/>
       <ion-list>
         <ion-item>
           <ion-label stacked>{{ lang.login_View_Username }}</ion-label>

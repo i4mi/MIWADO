@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
-
+import { CommThreadPage } from '../commThread/commThread';
 import { LANGUAGE } from '../../util/language';
 import { MidataPersistence } from '../../util/midataPersistence';
-import { CommThreadPage } from '../commThread/commThread';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
 @Component({

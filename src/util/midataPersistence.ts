@@ -159,11 +159,11 @@ export class MidataPersistence {
     } as MiwadoTypes.MIWADO_Patient;
 
     if (JSON.gender == 'male') {
-      TS.icon = 'img/pat-m-w.png';
+      TS.icon = './assets/img/pat-m-w.png';
     } else if (JSON.gender == 'female') {
-      TS.icon = 'img/pat-f-b.ico';
+      TS.icon = './assets/img/pat-f-b.png';
     } else {
-      TS.icon = 'img/pat-m-w.png';
+      TS.icon = './assets/img/pat-m-b.png';
     }
 
     return TS;
