@@ -1,2 +1,11 @@
 page-commThread {
+  .select-text{
+    max-width: auto !important;
+    box-sizing: initial;
+  }
+  .select{
+    max-width: auto !important;
+    box-sizing: initial;
+    min-width: 100%;
+  }
 }

@@ -1,11 +1,19 @@
-<ion-header>
+ <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ lang.role_View_Title }}</ion-title>
+    <ion-title>{{ pat.displayName }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <div>
+  </div>
+  <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
+  <ion-item>
+    <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock();">
+      <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-content>

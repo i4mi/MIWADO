@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
 import { CommThreadPage } from '../pages/commThread/commThread';
-
+import { TextBlockPage } from '../pages/textBlock/textBlock';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { CommThreadPage } from '../pages/commThread/commThread';
     LoginPage,
     PatList,
     SettingPage,
-    CommThreadPage
+    CommThreadPage,
+    TextBlockPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -37,7 +38,8 @@ import { CommThreadPage } from '../pages/commThread/commThread';
     LoginPage,
     PatList,
     SettingPage,
-    CommThreadPage
+    CommThreadPage,
+    TextBlockPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

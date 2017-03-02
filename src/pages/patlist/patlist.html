@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon item-left name="menu"></ion-icon>
     </button>
     <ion-title>{{ lang.patlist_View_title }}</ion-title>
   </ion-navbar>
@@ -10,13 +10,7 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let pat of patList" (click)="commThread(pat)">
-      <ion-icon name="" item-left>
-        <img src=" {{ pat.icon }} " />
-      </ion-icon>
-      {{ pat.displayName }}
-      <div class="item-note" item-right>
-        bla
-      </div>
+      <img item-left  src="{{ pat.icon }}" /> {{ pat.displayName }}  <div class="item-note" item-right>bla</div>
     </button>
   </ion-list>
 </ion-content>

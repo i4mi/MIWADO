@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
 import { CommThreadPage } from '../pages/commThread/commThread';
+import { TextBlockPage } from '../pages/textBlock/textBlock';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,7 +38,7 @@ export class MyApp {
       { title: 'patList', component: PatList },
       { title: 'setting', component: SettingPage },
       { title: 'commThread', component: CommThreadPage },
-
+      { title: 'textBlock', component: TextBlockPage }
     ];
   }
 

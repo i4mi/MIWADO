@@ -32,6 +32,17 @@ export class LANGUAGE {
   public settings_PopUp_Cancel : string;
   public settings_PopUp_Confirm : string;
 
+  //Language variables for the commThread
+  public commThread_TextBlock_Title_NewAppointment : string;
+  public commThread_TextBlock_Title_Confirmation : string;
+  public commThread_TextBlock_Title_Change_BackOffice : string;
+  public commThread_TextBlock_Title_Cancellation_Pat_Calling : string;
+  public commThread_TextBlock_Title_Cancellation_Pat_New_Date : string;
+  public commThread_TextBlock_Title_Reminder : string;
+  public commThread_Button_Choose_MessageType : string;
+  public commThread_TextBlock_Alert_Title : string;
+
+
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -86,6 +97,15 @@ export class LANGUAGE {
     this.settings_PopUp_Confirm = 'Bestätigen';
 
     this.patlist_View_title = 'Meine Patienten';
+
+    this.commThread_TextBlock_Title_NewAppointment = 'Neuer Termin';
+    this.commThread_TextBlock_Title_Confirmation = 'Bestätigung';
+    this.commThread_TextBlock_Title_Change_BackOffice = 'Termin verschieben';
+    this.commThread_TextBlock_Title_Cancellation_Pat_Calling = 'Absage, neuer Termin telefonisch';
+    this.commThread_TextBlock_Title_Cancellation_Pat_New_Date = 'Absage, neues Datum senden';
+    this.commThread_TextBlock_Title_Reminder = 'Erinnerung';
+    this.commThread_Button_Choose_MessageType = 'Nachricht auswählen';
+    this.commThread_TextBlock_Alert_Title = 'Nachrichtentyp';
   }
 
 
@@ -116,6 +136,15 @@ export class LANGUAGE {
     this.settings_PopUp_Confirm = 'Confirmer';
 
     this.patlist_View_title = 'Mes patients ';
+
+    this.commThread_TextBlock_Title_NewAppointment = 'none';
+    this.commThread_TextBlock_Title_Confirmation = 'none';
+    this.commThread_TextBlock_Title_Change_BackOffice = 'none';
+    this.commThread_TextBlock_Title_Cancellation_Pat_Calling = 'none';
+    this.commThread_TextBlock_Title_Cancellation_Pat_New_Date = 'none';
+    this.commThread_TextBlock_Title_Reminder = 'none';
+    this.commThread_Button_Choose_MessageType = 'Choisir Messagostypos';
+    this.commThread_TextBlock_Alert_Title = 'Messagostypos';
   }
 
   private langEN(){
@@ -145,5 +174,14 @@ export class LANGUAGE {
     this.settings_PopUp_Confirm = 'Confirm';
 
     this.patlist_View_title = 'My patients';
+
+    this.commThread_TextBlock_Title_NewAppointment = 'New appointment';
+    this.commThread_TextBlock_Title_Confirmation = 'Confirmation';
+    this.commThread_TextBlock_Title_Change_BackOffice = 'Change appointment';
+    this.commThread_TextBlock_Title_Cancellation_Pat_Calling = 'Cancel, call for new Appointment';
+    this.commThread_TextBlock_Title_Cancellation_Pat_New_Date = 'Cancel, give new Date ';
+    this.commThread_TextBlock_Title_Reminder = 'Reminder';
+    this.commThread_Button_Choose_MessageType = 'Please choose message';
+    this.commThread_TextBlock_Alert_Title = 'Messagetype';
   }
 }

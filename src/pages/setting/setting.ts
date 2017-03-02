@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
+import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
+
 
   @Component({
     selector: 'page-setting',
