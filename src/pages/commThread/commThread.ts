@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular/index';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
-import { AlertController } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 import {Overlay} from 'angular2-modal';
 
 import { TextBlockPage } from '../textBlock/textBlock';
@@ -19,7 +19,7 @@ import { LANGUAGE } from '../../util/language';
 
 
 export class CommThreadPage {
-  private lang = LANGUAGE.getInstance();
+  private lang = LANGUAGE.getInstance(this.platform);
   private mp = MidataPersistence.getInstance();
 
   private pat:MiwadoTypes.MIWADO_Patient;
@@ -28,7 +28,7 @@ export class CommThreadPage {
   private TextBlock: any;
   private options: Array<any>;
 
-  constructor(private nav: NavController, public navParams: NavParams) {
+  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform) {
     this.pat = navParams.get('pat');
 
     console.log('comm thread of patient: ' + this.pat.displayName);

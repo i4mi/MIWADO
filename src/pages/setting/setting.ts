@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
-import { AlertController } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -18,11 +18,18 @@ import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
 export class SettingPage {
   myForm: FormGroup;
   private radioButton_Language : any;
-  private lang = LANGUAGE.getInstance();
-  private settings = Settings.getInstance();
+  private lang = LANGUAGE.getInstance(this.platform);
+  private settings = Settings.getInstance(this.platform);
+  private disabled = false;
 
+  constructor(public nav: NavController, private builder: FormBuilder,
+              public alertCtrl: AlertController, private platform: Platform) {
 
-  constructor(public nav: NavController, private builder: FormBuilder, public alertCtrl: AlertController) {
+    var deviceLang = window.navigator.language;
+    if (this.platform.is('ios') && this.platform.is('mobile')){
+      this.disabled = true;
+    }
+
     this.myForm = builder.group({
       'radioButton_Language' : this.settings.getLanguage()
     })

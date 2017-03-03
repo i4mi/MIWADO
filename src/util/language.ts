@@ -1,8 +1,11 @@
 import { Settings } from './settings';
+import { Platform } from 'ionic-angular';
+
 
 export class LANGUAGE {
 
   private static lang:LANGUAGE;
+  private platform: Platform;
 
   // Language variables for the role view
   public role_View_Title: string;
@@ -31,6 +34,7 @@ export class LANGUAGE {
   public settings_PopUp_Text : string;
   public settings_PopUp_Cancel : string;
   public settings_PopUp_Confirm : string;
+  public settings_IOS_NotChange : string;
 
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
@@ -47,20 +51,21 @@ export class LANGUAGE {
   //Language variables for the PatList
   public patlist_View_title: string;
 
-  private constructor() {
+  private constructor(p: Platform) {
+    this.platform = p;
     this.changeLanguage();
   }
 
 
-  public static getInstance() {
+  public static getInstance(p: Platform) {
     if(this.lang == null) {
-      this.lang = new LANGUAGE();
+      this.lang = new LANGUAGE(p);
     }
     return this.lang;
   }
 
   changeLanguage() {
-    var s = Settings.getInstance();
+    var s = Settings.getInstance(this.platform);
     if (s.getLanguage() == 'de') {
       this.langDE();
     } else if (s.getLanguage() == 'fr') {
@@ -95,6 +100,7 @@ export class LANGUAGE {
     this.settings_PopUp_Text = 'Möchten Sie sich wirklich abmelden?';
     this.settings_PopUp_Cancel = 'Abbrechen';
     this.settings_PopUp_Confirm = 'Bestätigen';
+    this.settings_IOS_NotChange = 'Bitte stellen Sie die Systemsprache um, damit bie IOS Geräten die in-App Sprache angepasst wird.';
 
     this.patlist_View_title = 'Meine Patienten';
 
@@ -134,6 +140,7 @@ export class LANGUAGE {
     this.settings_PopUp_Text = 'Voulez-vous vraiment vous déconnecter?';
     this.settings_PopUp_Cancel = 'Annuler';
     this.settings_PopUp_Confirm = 'Confirmer';
+    this.settings_IOS_NotChange = 'NONE';
 
     this.patlist_View_title = 'Mes patients ';
 
@@ -172,6 +179,7 @@ export class LANGUAGE {
     this.settings_PopUp_Text = 'Do you really want to log out?';
     this.settings_PopUp_Cancel = 'Cancel';
     this.settings_PopUp_Confirm = 'Confirm';
+    this.settings_IOS_NotChange = 'NONE';
 
     this.patlist_View_title = 'My patients';
 

@@ -18,17 +18,17 @@
     <form [formGroup]="myForm">
       <ion-item>
         <ion-label>{{ lang.settings_Radio_German }}</ion-label>
-        <ion-radio (click)="setLanguage('de')" [checked]="radioButton_Language.radioButton_Language == 'de'" value="de"></ion-radio>
+        <ion-radio (click)="setLanguage('de')" [checked]="radioButton_Language.radioButton_Language == 'de'" value="de" disabled="{{ disabled }}"></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>{{ lang.settings_Radio_French }}</ion-label>
-        <ion-radio (click)="setLanguage('fr')" [checked]="radioButton_Language.radioButton_Language == 'fr'" value="fr"></ion-radio>
+        <ion-radio (click)="setLanguage('fr')" [checked]="radioButton_Language.radioButton_Language == 'fr'" value="fr" disabled="{{ disabled }}"></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>{{ lang.settings_Radio_English }}</ion-label>
-        <ion-radio  (click)="setLanguage('en')" [checked]="radioButton_Language.radioButton_Language == 'en'" value="en"></ion-radio>
+        <ion-radio  (click)="setLanguage('en')" [checked]="radioButton_Language.radioButton_Language == 'en'" value="en" disabled="{{ disabled }}"></ion-radio>
       </ion-item>
     </form>
   </ion-list>

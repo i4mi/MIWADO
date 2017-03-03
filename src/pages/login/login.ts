@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController} from 'ionic-angular';
 import { MidataPersistence } from '../../util/midataPersistence';
-import { AlertController } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 
 import { PatList } from '../patlist/patlist';
 import { SettingPage } from '../setting/setting';
@@ -19,10 +19,11 @@ export class LoginPage {
   private username: string;
   private password: string;
   private input: any;
-  private lang = LANGUAGE.getInstance();
+  private lang = LANGUAGE.getInstance(this.platform);
 
 
-  constructor(public nav: NavController,  private builder: FormBuilder, public alertCtrl: AlertController) {
+  constructor(public nav: NavController,  private builder: FormBuilder,
+              public alertCtrl: AlertController, private platform: Platform) {
       this.myForm = builder.group({
       'username': '',
       'password': ''
