@@ -18,7 +18,6 @@ import { PatientCancelationNewDate } from '../util/textMessages/patientCancelati
 import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
 import { Reminder } from '../util/textMessages/reminder/reminder';
 
-
 @NgModule({
   declarations: [
     MyApp,

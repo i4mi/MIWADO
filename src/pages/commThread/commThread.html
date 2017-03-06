@@ -10,6 +10,10 @@
 </ion-header>
 
 <ion-content>
+
+</ion-content>
+
+<ion-footer>
   <div>
     <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
     <confirmation id="confirmation" hidden></confirmation>
@@ -19,10 +23,16 @@
     <reminder id="reminder" hidden></reminder>
     <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
   </div>
+  
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
-  <ion-item>
-    <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock();">
-      <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
-    </ion-select>
-  </ion-item>
-</ion-content>
+  <ion-row>
+    <ion-item>
+      <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock();">
+        <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button icon-only>
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-row>
+</ion-footer>
