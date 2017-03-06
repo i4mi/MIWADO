@@ -86,33 +86,26 @@ export class CommThreadPage {
     ]
   }
 
-
-
-
-
   retreiveCommRes() {
-    this.mp.retreiveCommRes(this.pat);
+    this.mp.retreiveCommRes(this.pat).then((res) => {
+      console.log(res);
+    }).catch((ex) => {
+    console.error('Error fetching users', ex);
+    });
   }
 
   optionsTextBlock() {
     console.log(this.TextBlock.tag)
-
 
     if(this.TextBlockChoosen != ""){
       document.getElementById(this.TextBlockChoosen).hidden = true;
       document.getElementById(this.TextBlock.tag).hidden = false;
       this.TextBlockChoosen = this.TextBlock.tag;
     }else{
-    document.getElementById(this.TextBlock.tag).hidden = false;
-    this.TextBlockChoosen = this.TextBlock.tag;
+      document.getElementById(this.TextBlock.tag).hidden = false;
+      this.TextBlockChoosen = this.TextBlock.tag;
+    }
   }
-//this.innerHtmlVar = '<changeBackoffice></changeBackoffice>';
-    //unhide the html tags
-
-    /*this.nav.push(TextBlockPage, {
-      textBlockType: this.TextBlock.name
-    });*/
-   }
 
    openSettings(){
      this.nav.push(SettingPage);
