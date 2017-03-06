@@ -40,6 +40,7 @@ export class CommThreadPage {
   private hideBackButton = false;
 
   constructor(private nav: NavController, public navParams: NavParams, private platform: Platform, private storage: Storage) {
+	this.TextBlockChoosen = "";
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
