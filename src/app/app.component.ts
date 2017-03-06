@@ -11,7 +11,14 @@ import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
 import { CommThreadPage } from '../pages/commThread/commThread';
-import { TextBlockPage } from '../pages/textBlock/textBlock';
+import { CancelationPatient } from '../util/textMessages/cancelationPatient/cancelationPatient';
+import { ChangeBackoffice } from '../util/textMessages/changeBackoffice/changeBackoffice';
+import { Confirmation } from '../util/textMessages/confirmation/confirmation';
+import { NewAppointment } from '../util/textMessages/newAppointment/newAppointment';
+import { PatientCancelationNewDate } from '../util/textMessages/patientCancelationNewDate/patientCancelationNewDate';
+import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
+import { Reminder } from '../util/textMessages/reminder/reminder';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -38,7 +45,13 @@ export class MyApp {
       { title: 'patList', component: PatList },
       { title: 'setting', component: SettingPage },
       { title: 'commThread', component: CommThreadPage },
-      { title: 'textBlock', component: TextBlockPage }
+      { title: 'cancelationPatient', component: CancelationPatient },
+      { title: 'changeBackoffice', component: ChangeBackoffice },
+      { title: 'confirmation', component: Confirmation },
+      { title: 'newAppointment', component: NewAppointment },
+      { title: 'patientCancelationNewDate', component: PatientCancelationNewDate },
+      { title: 'patientCancelationWillCall', component: PatientCancelationWillCall },
+      { title: 'reminder', component: Reminder }
     ];
   }
 
