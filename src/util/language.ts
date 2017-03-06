@@ -35,6 +35,9 @@ export class LANGUAGE {
   public settings_PopUp_Cancel : string;
   public settings_PopUp_Confirm : string;
   public settings_IOS_NotChange : string;
+  public settings_ChkBox_StoreCred : string;
+  public setting_DeleteCredetials : string;
+  public setting_Credentials : string;
 
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
@@ -101,6 +104,9 @@ export class LANGUAGE {
     this.settings_PopUp_Cancel = 'Abbrechen';
     this.settings_PopUp_Confirm = 'Bestätigen';
     this.settings_IOS_NotChange = 'Bitte stellen Sie die Systemsprache um, damit bie IOS Geräten die in-App Sprache angepasst wird.';
+    this.settings_ChkBox_StoreCred = 'Zugangsdaten speichern';
+    this.setting_DeleteCredetials = 'Zugangsdaten löschen';
+    this.setting_Credentials = 'Zugangsdaten';
 
     this.patlist_View_title = 'Meine Patienten';
 
@@ -141,6 +147,9 @@ export class LANGUAGE {
     this.settings_PopUp_Cancel = 'Annuler';
     this.settings_PopUp_Confirm = 'Confirmer';
     this.settings_IOS_NotChange = 'NONE';
+    this.settings_ChkBox_StoreCred = 'NONE';
+    this.setting_DeleteCredetials = 'NONE';
+    this.setting_Credentials = 'NONE';
 
     this.patlist_View_title = 'Mes patients ';
 
@@ -180,6 +189,9 @@ export class LANGUAGE {
     this.settings_PopUp_Cancel = 'Cancel';
     this.settings_PopUp_Confirm = 'Confirm';
     this.settings_IOS_NotChange = 'NONE';
+    this.settings_ChkBox_StoreCred = 'Store credentials';
+    this.setting_DeleteCredetials = 'Delete credentials';
+    this.setting_Credentials = 'Credentials';
 
     this.patlist_View_title = 'My patients';
 
