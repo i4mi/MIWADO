@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { Storage } from '@ionic/storage';
 import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
@@ -35,7 +36,7 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
     NewAppointment,
     PatientCancelationNewDate,
     PatientCancelationWillCall,
-    Reminder   
+    Reminder
   ],
   imports: [
     IonicModule.forRoot(MyApp)
