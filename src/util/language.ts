@@ -56,6 +56,7 @@ export class LANGUAGE {
   //Language variables for the TextBlocks
 
   //Used for all
+  public TextBlock_Patient_Welcome : string;
   public TextBlock_Welcome : string;
   public TextBlock_at : string;
   public TextBlock_Sincere_regards: string;
@@ -183,6 +184,7 @@ export class LANGUAGE {
     this.commThread_my_chat = 'Meine Nachrichten';
 
     this.TextBlock_Welcome = 'Guten Tag';
+    this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
     this.TextBlock_at = 'um';
     this.TextBlock_Sincere_regards = 'Mit freundlichen Grüssen';
     this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
@@ -223,6 +225,7 @@ export class LANGUAGE {
 
   private langFR(){
     this.role_View_Title = 'Bienvenue';
+    this.TextBlock_Patient_Welcome = 'Bienvenue, UDEM';
     this.role_View_Pat = 'Je suis un patient';
     this.role_View_Hp = 'Je suis un professionnel de la Santé';
 
@@ -304,6 +307,7 @@ export class LANGUAGE {
 
   private langEN(){
     this.role_View_Title = 'Welcome';
+    this.TextBlock_Patient_Welcome = 'Welcome, UDEM';
     this.role_View_Pat = "I'm a Patient";
     this.role_View_Hp = "I'm a Health Professional";
 

@@ -9,7 +9,14 @@ import * as MidataTypes from '../../util/typings/MIDATA_Types';
 import { AlertController, Platform } from 'ionic-angular';
 import { Overlay } from 'angular2-modal';
 
-import { TextBlockPage } from '../textBlock/textBlock';
+import { CancelationPatient } from '../../util/textMessages/cancelationPatient/cancelationPatient';
+import { ChangeBackoffice } from '../../util/textMessages/changeBackoffice/changeBackoffice';
+import { Confirmation } from '../../util/textMessages/confirmation/confirmation';
+import { NewAppointment } from '../../util/textMessages/newAppointment/newAppointment';
+import { PatientCancelationNewDate } from '../../util/textMessages/patientCancelationNewDate/patientCancelationNewDate';
+import { PatientCancelationWillCall } from '../../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
+import { Reminder } from '../../util/textMessages/reminder/reminder';
+
 import { LANGUAGE } from '../../util/language';
 
 @Component({
@@ -28,6 +35,7 @@ export class CommThreadPage {
 
   private TextBlockPopUp: { title: string, subTitle: string };
   private TextBlock: any;
+  private TextBlockChoosen : string;
   private options: Array<any>;
   private hideBackButton = false;
 
@@ -47,32 +55,57 @@ export class CommThreadPage {
 
     this.options =[
         {
-          "name" : this.lang.commThread_TextBlock_Title_NewAppointment
+          "name" : this.lang.commThread_TextBlock_Title_NewAppointment,
+          "tag" : "newAppointment"
         },
         {
-          "name" : this.lang.commThread_TextBlock_Title_Confirmation
+          "name" : this.lang.commThread_TextBlock_Title_Confirmation,
+          "tag" : "confirmation"
         },
         {
-          "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice
+          "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice,
+          "tag" : "changeBackoffice"
         },
         {
-          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling
+          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling,
+          "tag" : "patientCancelationWillCall"
         },
         {
-          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date
+          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date,
+          "tag" : "patientCancelationNewDate"
         },
         {
-          "name" : this.lang.commThread_TextBlock_Title_Reminder
+          "name" : this.lang.commThread_TextBlock_Title_Reminder,
+          "tag" : "reminder"
         },
+        {
+          "name" : this.lang.commThread_TextBlock_Title_Cancellation,
+          "tag" : "cancelationPatient"
+        }
     ]
   }
+
+
+
+
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat);
   }
 
   optionsTextBlock() {
-    //this.innerHtmlVar = '<back-button></back-button>';
+    console.log(this.TextBlock.tag)
+
+
+    if(this.TextBlockChoosen != ""){
+      document.getElementById(this.TextBlockChoosen).hidden = true;
+      document.getElementById(this.TextBlock.tag).hidden = false;
+      this.TextBlockChoosen = this.TextBlock.tag;
+    }else{
+    document.getElementById(this.TextBlock.tag).hidden = false;
+    this.TextBlockChoosen = this.TextBlock.tag;
+  }
+//this.innerHtmlVar = '<changeBackoffice></changeBackoffice>';
     //unhide the html tags
 
     /*this.nav.push(TextBlockPage, {
