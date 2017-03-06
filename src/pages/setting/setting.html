@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar hideBackButton>
-    <button ion-button clear class="backToRoleButton" (click)="backToPatList()">
+  <ion-navbar>
+    <!--<button ion-button clear class="backToRoleButton" (click)="backToPatList()">
       <img class="backToRoleButton" src="./assets/img/BackButton.png" alt=" "/>
       <p class="backToRoleButtonText">
         {{ lang.settings_View_Button_Back }}
       </p>
-    </button>
+    </button>-->
     <ion-title>{{ lang.settings_View_Title }}</ion-title>
   </ion-navbar>
 </ion-header>
@@ -45,6 +45,6 @@
   <ion-list-header>
     {{ lang.setting_Logout }}
   </ion-list-header>
-  <button class="logoutFormButton" (click)="logout()">{{ lang.setting_Logout }}</button>
+  <button class="logoutFormButton" (click)="logout()" [disabled]="disableLogout">{{ lang.setting_Logout }}</button>
 
 </ion-content>

@@ -1,16 +1,18 @@
 <ion-header>
-  <ion-navbar hideBackButton>
-    <button ion-button clear class="backToRoleButton" (click)="backToRole()">
+  <ion-navbar>
+    <!--<button ion-button clear class="backToRoleButton" (click)="backToRole()">
       <img class="backToRoleButton" src="./assets/img/BackButton.png" alt=" "/>
       <p class="backToRoleButtonText">
         {{ lang.login_View_Button_Role }}
       </p>
-    </button>
+    </button>-->
     <ion-title>{{ lang.login_View_Title }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openSettings()" ion-button icon-only>
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-  <button ion-button clear (click)="goToSettings()">
-    <img class="backToRoleButton" src="./assets/img/Settings.png" alt=" "/>
-  </button>
 </ion-header>
 
 <ion-content ng-controller="LoginCtrl" scroll="false">

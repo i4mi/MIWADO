@@ -25,10 +25,14 @@ export class LoginPage {
   private input: any;
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
+  private mp = MidataPersistence.getInstance();
 
   constructor(public nav: NavController,  private builder: FormBuilder,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
 
+      if(this.mp.loggedIn()) {
+        this.nav.push(PatList);
+      }
 
       if(this.settings.getStoreCred()){
         var user: MiwadoTypes.MIWADO_User;
@@ -47,10 +51,9 @@ export class LoginPage {
 
    }
 
-   goToSettings(){
+   openSettings(){
      this.nav.push(SettingPage);
    }
-
 
   backToRole(){
     this.nav.pop(LoginPage);
@@ -58,25 +61,28 @@ export class LoginPage {
 
   loginMIWADO(formData){
     var mp = MidataPersistence.getInstance();
-    mp.login(formData.username, formData.password);
-    console.log()
-    if(mp.loggedIn() == true){
-      if(this.settings.getStoreCred()){
-        this.settings.setUser(formData.username, formData.password);
-      } else {
-        formData.username = '';
-        formData.password = '';
+    mp.login(formData.username, formData.password).then((res) => {
+      console.log('logged in with auth response: ' + JSON.stringify(res));
+      if(mp.loggedIn() == true){
+        if(this.settings.getStoreCred()){
+          this.settings.setUser(formData.username, formData.password);
+        } else {
+          formData.username = '';
+          formData.password = '';
+        }
+        this.nav.push(PatList);
       }
-      this.nav.push(PatList);
-    }else{
-      let alert = this.alertCtrl.create({
-        title: this.lang.login_View_PopUp_Title,
-        subTitle: this.lang.login_View_PopUp_Text,
-        buttons: ['OK']
-      });
+    }).catch((ex) => {
+    console.error('Error fetching users', ex);
+    let alert = this.alertCtrl.create({
+      title: this.lang.login_View_PopUp_Title,
+      subTitle: this.lang.login_View_PopUp_Text,
+      buttons: ['OK']
+    });
 
-      alert.present();
-    }
+    alert.present();
+    });;
+
   }
 
   storeCredentials() {

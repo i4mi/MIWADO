@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
+import { SettingPage } from '../setting/setting';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -28,11 +29,21 @@ export class CommThreadPage {
   private TextBlockPopUp: { title: string, subTitle: string };
   private TextBlock: any;
   private options: Array<any>;
+  private hideBackButton = false;
 
   constructor(private nav: NavController, public navParams: NavParams, private platform: Platform, private storage: Storage) {
-    this.pat = navParams.get('pat');
-    console.log('comm thread of patient: ' + this.pat.displayName);
-    this.retreiveCommRes();
+    if(this.mp.getRole() != 'member') {
+      this.pat = navParams.get('pat');
+      console.log('comm thread of patient: ' + this.pat.displayName);
+      this.retreiveCommRes();
+    } else{
+      this.hideBackButton = true;
+      this.pat = {
+          id: '',
+          displayName: this.lang.commThread_my_chat,
+          gender: 'none'
+      }
+    }
 
     this.options =[
         {
@@ -67,6 +78,10 @@ export class CommThreadPage {
     /*this.nav.push(TextBlockPage, {
       textBlockType: this.TextBlock.name
     });*/
+   }
+
+   openSettings(){
+     this.nav.push(SettingPage);
    }
 
   }

@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon item-left name="menu"></ion-icon>
-    </button>
+  <ion-navbar hideBackButton>
     <ion-title>{{ lang.patlist_View_title }}</ion-title>
+    <ion-buttons end>
+      <button (click)="openSettings()" ion-button icon-only>
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

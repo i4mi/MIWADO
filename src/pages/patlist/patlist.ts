@@ -5,6 +5,7 @@ import { NavController, NavParams, Platform } from 'ionic-angular';
 import { CommThreadPage } from '../commThread/commThread';
 import { LANGUAGE } from '../../util/language';
 import { MidataPersistence } from '../../util/midataPersistence';
+import { SettingPage } from '../setting/setting';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
 @Component({
@@ -20,19 +21,19 @@ export class PatList {
   constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
     console.log(this.nav);
 
+    if(this.mp.getRole() == 'member') {
+      this.nav.push(CommThreadPage);
+    }
+
     this.patList = new Array<MiwadoTypes.MIWADO_Patient>();
 
-    // auto-login for debug reason
-    if (!this.mp.loggedIn()) {
-      this.mp.setRole('provider');
-      this.mp.login('donald.mallard@midata.coop', 'Hp123456!').then(
-        function(res) {
-          console.log("Bearer " + res.authToken);
-          this.retreivePatientList();
-        });
-    } else {
+    if(this.mp.getRole() == 'provider') {
       this.retreivePatientList();
     }
+  }
+
+  openSettings(){
+    this.nav.push(SettingPage);
   }
 
   retreivePatientList() {
@@ -42,6 +43,8 @@ export class PatList {
     if (this.mp.loggedIn()) {
       this.mp.retreivePatients().then((result) => {
         this.addPatientList(result);
+      }).catch((ex) => {
+      console.error('Error fetching users', ex);
       });
     }
   }

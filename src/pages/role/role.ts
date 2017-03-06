@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { SettingPage } from '../setting/setting';
 
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -27,5 +28,9 @@ export class RolePage {
     console.log('role is set to: ' + role);
 
     this.nav.push(LoginPage);
+  }
+
+  openSettings(){
+    this.nav.push(SettingPage);
   }
 }

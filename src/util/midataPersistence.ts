@@ -45,6 +45,10 @@ export class MidataPersistence {
     this.role = r;
   }
 
+  getRole() : string {
+    return this.role;
+  }
+
   // Login function (call it with MidataPersistence.login(un, pw, role))
   // Returns the authResponse
   // -->  un:   Unsername

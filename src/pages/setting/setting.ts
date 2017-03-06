@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
+import { RolePage } from '../role/role';
 import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
 
 
@@ -21,7 +22,9 @@ export class SettingPage {
   private radioButton_Language : any;
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
+  private mp = MidataPersistence.getInstance();
   private disabled = false;
+  private disableLogout = true;
 
   constructor(public nav: NavController, private builder: FormBuilder,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
@@ -35,15 +38,13 @@ export class SettingPage {
       'radioButton_Language' : this.settings.getLanguage()
     })
     this.radioButton_Language = this.myForm.value;
+
+    if(this.mp.loggedIn()) {
+      this.disableLogout = false;
+    }
    }
 
-  backToPatList(){
-    this.nav.pop();
-  }
-
   logout(){
-    var mp = MidataPersistence.getInstance();
-
     let alert = this.alertCtrl.create({
     title: this.lang.settings_PopUp_Title,
     message: this.lang.settings_PopUp_Text,
@@ -56,7 +57,8 @@ export class SettingPage {
       {
         text: this.lang.settings_PopUp_Confirm,
         handler: () => {
-          mp.logout();
+          this.mp.logout();
+          this.nav.push(RolePage);
         }
       }
     ]

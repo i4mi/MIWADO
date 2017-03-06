@@ -50,6 +50,7 @@ export class LANGUAGE {
   public commThread_TextBlock_Title_Reminder : string;
   public commThread_Button_Choose_MessageType : string;
   public commThread_TextBlock_Alert_Title : string;
+  public commThread_my_chat : string;
 
 
   //Language variables for the TextBlocks
@@ -179,6 +180,7 @@ export class LANGUAGE {
     this.commThread_Button_Choose_MessageType = 'Nachricht auswählen';
     this.commThread_TextBlock_Alert_Title = 'Nachrichtentyp';
     this.commThread_TextBlock_Title_Cancellation = 'Absage';
+    this.commThread_my_chat = 'Meine Nachrichten';
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_at = 'um';
@@ -260,6 +262,7 @@ export class LANGUAGE {
     this.commThread_Button_Choose_MessageType = 'Choisir Messagostypos';
     this.commThread_TextBlock_Alert_Title = 'Messagostypos';
     this.commThread_TextBlock_Title_Cancellation = 'Annulation';
+    this.commThread_my_chat = 'none';
 
     this.TextBlock_Welcome = 'none';
     this.TextBlock_at = 'none';
@@ -340,6 +343,7 @@ export class LANGUAGE {
     this.commThread_Button_Choose_MessageType = 'Please choose message';
     this.commThread_TextBlock_Alert_Title = 'Messagetype';
     this.commThread_TextBlock_Title_Cancellation = 'Cancellation';
+    this.commThread_my_chat = 'My Messages';
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';
