@@ -38,10 +38,6 @@
   </ion-list-header>
   <ion-list>
     <ion-item>
-      <ion-label>{{ lang.settings_ChkBox_StoreCred }}</ion-label>
-      <ion-checkbox (click)="storeCredentials()" [checked]="settings.getStoreCred() == true"></ion-checkbox>
-    </ion-item>
-    <ion-item>
       <button (click)="deleteCredentials()">{{ lang.setting_DeleteCredetials }}</button>
     </ion-item>
   </ion-list>

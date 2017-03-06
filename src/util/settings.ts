@@ -1,18 +1,18 @@
 import { SettingPage } from '../pages/setting/setting';
 import { Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import * as MiwadoTypes from './typings/MIWADO_Types';
 
 export class Settings {
 
   private static s:Settings;
   private lang: string;
-  private platform: Platform;
   private storeCredentials = false;
   private user: MiwadoTypes.MIWADO_User;
 
-  private constructor(p: Platform){
-      this.platform = p;
-      if(p.is('ios') && p.is('mobile')) {
+  private constructor(private platform: Platform, private storage: Storage){
+      if(platform.is('ios') && platform.is('mobile')) {
         this.setLanguage(window.navigator.language)
       }
 
@@ -22,9 +22,9 @@ export class Settings {
       }
   }
 
-  public static getInstance(p: Platform) {
+  public static getInstance(p: Platform, s: Storage) {
     if (this.s == null){
-      this.s = new Settings(p);
+      this.s = new Settings(p, s);
     }
     return this.s;
   }
@@ -46,10 +46,15 @@ export class Settings {
   setUser(un: string, pw: string) {
     this.user.username = un;
     this.user.password = pw;
+
+    this.storage.set('user', JSON.stringify(this.user));
   }
 
   getUser() {
-    return this.user;
+    return this.storage.get('user').then((user) => {
+      this.user = JSON.parse(user);
+      return this.user;
+    });
   }
 
   setStoreCred(b: boolean) {

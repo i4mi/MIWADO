@@ -1,5 +1,6 @@
 import { Settings } from './settings';
 import { Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 export class LANGUAGE {
@@ -113,21 +114,21 @@ export class LANGUAGE {
   //Language variables for the PatList
   public patlist_View_title: string;
 
-  private constructor(p: Platform) {
+  private constructor(p: Platform, private storage: Storage) {
     this.platform = p;
     this.changeLanguage();
   }
 
 
-  public static getInstance(p: Platform) {
+  public static getInstance(p: Platform, s: Storage) {
     if(this.lang == null) {
-      this.lang = new LANGUAGE(p);
+      this.lang = new LANGUAGE(p, s);
     }
     return this.lang;
   }
 
   changeLanguage() {
-    var s = Settings.getInstance(this.platform);
+    var s = Settings.getInstance(this.platform, this.storage);
     if (s.getLanguage() == 'de') {
       this.langDE();
     } else if (s.getLanguage() == 'fr') {

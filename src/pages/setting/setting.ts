@@ -4,6 +4,7 @@ import { AlertController, Platform } from 'ionic-angular';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
@@ -18,12 +19,12 @@ import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
 export class SettingPage {
   myForm: FormGroup;
   private radioButton_Language : any;
-  private lang = LANGUAGE.getInstance(this.platform);
-  private settings = Settings.getInstance(this.platform);
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
+  private settings = Settings.getInstance(this.platform, this.storage);
   private disabled = false;
 
   constructor(public nav: NavController, private builder: FormBuilder,
-              public alertCtrl: AlertController, private platform: Platform) {
+              public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
 
     var deviceLang = window.navigator.language;
     if (this.platform.is('ios') && this.platform.is('mobile')){
@@ -38,14 +39,6 @@ export class SettingPage {
 
   backToPatList(){
     this.nav.pop();
-  }
-
-  storeCredentials() {
-    if (this.settings.getStoreCred()) {
-      this.settings.setStoreCred(false);
-    } else {
-      this.settings.setStoreCred(true);
-    }
   }
 
   logout(){
@@ -74,5 +67,9 @@ export class SettingPage {
   setLanguage(language_code){
     this.settings.setLanguage(language_code);
     this.lang.changeLanguage();
+  }
+
+  deleteCredentials(){
+    this.settings.setUser('', '');
   }
 }

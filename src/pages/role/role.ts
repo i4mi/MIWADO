@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence';
 import { Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -14,9 +15,9 @@ import { LANGUAGE } from '../../util/language';
 })
 
 export class RolePage {
-  private lang = LANGUAGE.getInstance(this.platform);
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
 
-  constructor(private nav: NavController, private platform: Platform) {
+  constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
   }
 
   chooseRole(event, role){

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { CommThreadPage } from '../commThread/commThread';
@@ -12,11 +13,11 @@ import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 })
 
 export class PatList {
-  private lang = LANGUAGE.getInstance(this.platform);
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
   private patList: Array<MiwadoTypes.MIWADO_Patient>;
 
-  constructor(private nav: NavController, private platform: Platform) {
+  constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
     console.log(this.nav);
 
     this.patList = new Array<MiwadoTypes.MIWADO_Patient>();

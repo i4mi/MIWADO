@@ -24,7 +24,11 @@
         </ion-item>
         <ion-item>
           <ion-label stacked>{{ lang.login_View_Password }}</ion-label>
-          <ion-input formControlName="username" type="password" ng-model="input.user"></ion-input>
+          <ion-input formControlName="password" type="password" ng-model="input.user"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ lang.settings_ChkBox_StoreCred }}</ion-label>
+          <ion-checkbox (click)="storeCredentials()" [checked]="settings.getStoreCred() == true"></ion-checkbox>
         </ion-item>
       </ion-list>
       <button class="loginFormButton" (click)="loginMIWADO(myForm.value)">{{ lang.login_View_Login_Button }}</button>

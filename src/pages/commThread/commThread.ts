@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
+import { Storage } from '@ionic/storage';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -18,7 +19,7 @@ import { LANGUAGE } from '../../util/language';
 
 export class CommThreadPage {
 
-  private lang = LANGUAGE.getInstance(this.platform);
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
   private innerHtmlVar: string;
 
@@ -28,7 +29,7 @@ export class CommThreadPage {
   private TextBlock: any;
   private options: Array<any>;
 
-  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform) {
+  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform, private storage: Storage) {
     this.pat = navParams.get('pat');
     console.log('comm thread of patient: ' + this.pat.displayName);
     this.retreiveCommRes();

@@ -3,10 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController} from 'ionic-angular';
 import { MidataPersistence } from '../../util/midataPersistence';
 import { AlertController, Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
+
 
 import { PatList } from '../patlist/patlist';
 import { SettingPage } from '../setting/setting';
 import { LANGUAGE } from '../../util/language';
+import { Settings } from '../../util/settings';
 
 
 @Component({
@@ -19,15 +23,28 @@ export class LoginPage {
   private username: string;
   private password: string;
   private input: any;
-  private lang = LANGUAGE.getInstance(this.platform);
-
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
+  private settings = Settings.getInstance(this.platform, this.storage);
 
   constructor(public nav: NavController,  private builder: FormBuilder,
-              public alertCtrl: AlertController, private platform: Platform) {
-      this.myForm = builder.group({
-      'username': '',
-      'password': ''
-     })
+              public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
+
+
+      if(this.settings.getStoreCred()){
+        var user: MiwadoTypes.MIWADO_User;
+        this.settings.getUser().then((res) => {
+          user = res;
+          this.myForm = builder.group({
+          'username': user.username,
+          'password': user.password
+         })
+        });
+      }
+        this.myForm = builder.group({
+        'username': '',
+        'password': ''
+       })
+
    }
 
    goToSettings(){
@@ -44,6 +61,12 @@ export class LoginPage {
     mp.login(formData.username, formData.password);
     console.log()
     if(mp.loggedIn() == true){
+      if(this.settings.getStoreCred()){
+        this.settings.setUser(formData.username, formData.password);
+      } else {
+        formData.username = '';
+        formData.password = '';
+      }
       this.nav.push(PatList);
     }else{
       let alert = this.alertCtrl.create({
@@ -53,6 +76,14 @@ export class LoginPage {
       });
 
       alert.present();
+    }
+  }
+
+  storeCredentials() {
+    if (this.settings.getStoreCred()) {
+      this.settings.setStoreCred(false);
+    } else {
+      this.settings.setStoreCred(true);
     }
   }
 }
