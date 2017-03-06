@@ -18,11 +18,11 @@ export interface MIWADO_Patient extends MIWADO_Person {
 }
 
 export interface MIWADO_User {
-  type:MIWADO_HP|MIWADO_Patient;
+  //type:MIWADO_HP|MIWADO_Patient;
   username:string;
   password:string;
-  auth:MidataTypes.MIDATA_authResponse;
-  messageList:Array<MIWADO_Message>;
+  auth?:MidataTypes.MIDATA_authResponse;
+  messageList?:Array<MIWADO_Message>;
 }
 
 export interface MIWADO_Message {

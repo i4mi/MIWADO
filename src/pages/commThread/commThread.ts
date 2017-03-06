@@ -5,22 +5,22 @@ import { NavController, NavParams } from 'ionic-angular/index';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
 import { AlertController, Platform } from 'ionic-angular';
-import {Overlay} from 'angular2-modal';
+import { Overlay } from 'angular2-modal';
 
 import { TextBlockPage } from '../textBlock/textBlock';
 import { LANGUAGE } from '../../util/language';
 
-
-
 @Component({
   selector: 'page-commThread',
-  templateUrl: 'commThread.html',
+  templateUrl: 'commThread.html'
 })
 
 
 export class CommThreadPage {
+
   private lang = LANGUAGE.getInstance(this.platform);
   private mp = MidataPersistence.getInstance();
+  private innerHtmlVar: string;
 
   private pat:MiwadoTypes.MIWADO_Patient;
 
@@ -30,7 +30,6 @@ export class CommThreadPage {
 
   constructor(private nav: NavController, public navParams: NavParams, private platform: Platform) {
     this.pat = navParams.get('pat');
-
     console.log('comm thread of patient: ' + this.pat.displayName);
     this.retreiveCommRes();
 
@@ -60,10 +59,13 @@ export class CommThreadPage {
     this.mp.retreiveCommRes(this.pat);
   }
 
-  public optionsTextBlock() {
-    this.nav.push(TextBlockPage, {
+  optionsTextBlock() {
+    //this.innerHtmlVar = '<back-button></back-button>';
+    //unhide the html tags
+
+    /*this.nav.push(TextBlockPage, {
       textBlockType: this.TextBlock.name
-    });
+    });*/
    }
 
   }

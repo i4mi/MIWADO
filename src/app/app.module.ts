@@ -10,6 +10,7 @@ import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
 import { CommThreadPage } from '../pages/commThread/commThread';
 import { TextBlockPage } from '../pages/textBlock/textBlock';
+import { BackButtonComponent } from '../util/test.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TextBlockPage } from '../pages/textBlock/textBlock';
     PatList,
     SettingPage,
     CommThreadPage,
-    TextBlockPage
+    TextBlockPage,
+    BackButtonComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -39,7 +41,8 @@ import { TextBlockPage } from '../pages/textBlock/textBlock';
     PatList,
     SettingPage,
     CommThreadPage,
-    TextBlockPage
+    TextBlockPage,
+    BackButtonComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

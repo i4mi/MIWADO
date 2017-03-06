@@ -40,6 +40,14 @@ export class SettingPage {
     this.nav.pop();
   }
 
+  storeCredentials() {
+    if (this.settings.getStoreCred()) {
+      this.settings.setStoreCred(false);
+    } else {
+      this.settings.setStoreCred(true);
+    }
+  }
+
   logout(){
     var mp = MidataPersistence.getInstance();
 
