@@ -42,6 +42,7 @@ export class LANGUAGE {
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
   public commThread_TextBlock_Title_Confirmation : string;
+  public commThread_TextBlock_Title_Cancellation : string;
   public commThread_TextBlock_Title_Change_BackOffice : string;
   public commThread_TextBlock_Title_Cancellation_Pat_Calling : string;
   public commThread_TextBlock_Title_Cancellation_Pat_New_Date : string;
@@ -49,6 +50,64 @@ export class LANGUAGE {
   public commThread_Button_Choose_MessageType : string;
   public commThread_TextBlock_Alert_Title : string;
 
+
+  //Language variables for the TextBlocks
+
+  //Used for all
+  public TextBlock_Welcome : string;
+  public TextBlock_at : string;
+  public TextBlock_Sincere_regards: string;
+  public TextBlock_cancelation: string;
+  public TextBlock_cancelation_Costs: string;
+  public TextBlock_Phonenumber: string;
+  public TextBlock_Place: string;
+  public TextBlock_on : string;
+
+
+  //Reminder
+  public TextBlock_Reminder_1 : string;
+  public TextBlock_Reminder_2 : string;
+  public TextBlock_Reminder_3 : string;
+  public TextBlock_Reminder_4 : string;
+  public TextBlock_Reminder_5 : string;
+
+  //new Appointment
+  public TextBlock_newAppointment_1 : string;
+  public TextBlock_newAppointment_2 : string;
+  public TextBlock_newAppointment_3 : string;
+  public TextBlock_newAppointment_4 : string;
+
+  //Patient cancelation, will Call
+  public TextBlock_PatientWillCall_1 : string;
+  public TextBlock_PatientWillCall_2 : string;
+
+  //Patient cancelation, new Date
+  public TextBlock_PatientAfterDate_1 : string;
+  public TextBlock_PatientAfterDate_2 : string;
+  public TextBlock_PatientAfterDate_3 : string;
+
+  //Change Backoffice
+  public TextBlock_Change_Backoffice_1 : string;
+  public TextBlock_Change_Backoffice_2 : string;
+  public TextBlock_Change_Backoffice_3 : string;
+  public TextBlock_Change_Backoffice_4 : string;
+  public TextBlock_Change_Backoffice_5 : string;
+
+  //Patient will not come
+  public TextBlock_PatientwillnotCome_1 : string;
+  public TextBlock_PatientwillnotCome_2 : string;
+
+  //Accept Appointment
+  public TextBlock_AcceptAppointment_1 : string;
+
+
+  //Dropdowm Items
+  public TextBlock_Man : string;
+  public TextBlock_Woman : string;
+  public TextBlock_Diabetology : string;
+  public TextBlock_endocrinology : string;
+  public TextBlock_nutritional_medicine : string;
+  public TextBlock_metabolism : string;
 
 
   //Language variables for the PatList
@@ -118,6 +177,44 @@ export class LANGUAGE {
     this.commThread_TextBlock_Title_Reminder = 'Erinnerung';
     this.commThread_Button_Choose_MessageType = 'Nachricht auswählen';
     this.commThread_TextBlock_Alert_Title = 'Nachrichtentyp';
+    this.commThread_TextBlock_Title_Cancellation = 'Absage';
+
+    this.TextBlock_Welcome = 'Guten Tag';
+    this.TextBlock_at = 'um';
+    this.TextBlock_Sincere_regards = 'Mit freundlichen Grüssen';
+    this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
+    this.TextBlock_cancelation_Costs = 'Absagen, welche später erfolgen, müssen wir Ihnen leider verrechnen.';
+    this.TextBlock_Phonenumber = 'Sie erreichen uns unter 031 632 40 70.';
+    this.TextBlock_Place = 'Kinderklinik, Eingang 31, Stockwerk G';
+    this.TextBlock_on = 'am';
+    this.TextBlock_Reminder_1 = 'Ihr nächster Termin ist am';
+    this.TextBlock_Reminder_2 = 'Bitte seien Sie um';
+    this.TextBlock_Reminder_3 = 'in der';
+    this.TextBlock_Reminder_4 = 'Bitte erscheinen Sie nüchtern, das heisst ohne Frühstück.';
+    this.TextBlock_Reminder_5 = 'Jedoch sollten die Morgenmedikamente eingenommen werden ausser, wenn vom Arzt anders angeordnet.';
+    this.TextBlock_newAppointment_1 = 'Sie haben am';
+    this.TextBlock_newAppointment_2 = 'einen Termin in der Abteilung';
+    this.TextBlock_newAppointment_3 = 'Wir befinden uns in der';
+    this.TextBlock_newAppointment_4 = 'Bitte nehmen Sie ihre Medikamentenliste und Versichertenkarte mit.';
+    this.TextBlock_PatientWillCall_1 = 'Dieser Termin geht für mich leider nicht.';
+    this.TextBlock_PatientWillCall_2 = 'Ich melde mich bei Ihnen für einen neuen Termin.';
+    this.TextBlock_PatientAfterDate_1 = 'Dieser Termin geht für mich leider nicht.';
+    this.TextBlock_PatientAfterDate_2 = 'Bitte senden Sie mir einen neuen Termin nach';
+    this.TextBlock_PatientAfterDate_3 = 'dem';
+    this.TextBlock_Change_Backoffice_1 = 'Wir müssen Sie leider Informieren, dass der Termin';
+    this.TextBlock_Change_Backoffice_2 = 'vom';
+    this.TextBlock_Change_Backoffice_3 = 'verschoben werden';
+    this.TextBlock_Change_Backoffice_4 = 'muss. Ein möglicher anderer Termin wäre der';
+    this.TextBlock_Change_Backoffice_5 = 'Bitte bestätigen Sie diesen Termin.';
+    this.TextBlock_PatientwillnotCome_1 = 'Ich muss mich leider für den Termin';
+    this.TextBlock_PatientwillnotCome_2 = 'abmelden.';
+    this.TextBlock_AcceptAppointment_1 = 'Vielen Dank, gerne bestätige den Termin';
+    this.TextBlock_Man = 'Herr';
+    this.TextBlock_Woman = 'Frau';
+    this.TextBlock_Diabetology = 'Diabetologie';
+    this.TextBlock_endocrinology = 'Endokrinologie';
+    this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
+    this.TextBlock_metabolism = 'Metabolismus';
   }
 
 
@@ -161,6 +258,44 @@ export class LANGUAGE {
     this.commThread_TextBlock_Title_Reminder = 'none';
     this.commThread_Button_Choose_MessageType = 'Choisir Messagostypos';
     this.commThread_TextBlock_Alert_Title = 'Messagostypos';
+    this.commThread_TextBlock_Title_Cancellation = 'Annulation';
+
+    this.TextBlock_Welcome = 'none';
+    this.TextBlock_at = 'none';
+    this.TextBlock_Sincere_regards = 'none';
+    this.TextBlock_cancelation = 'none';
+    this.TextBlock_cancelation_Costs = 'none';
+    this.TextBlock_Phonenumber = 'none';
+    this.TextBlock_Place = 'none';
+    this.TextBlock_on = 'none';
+    this.TextBlock_Reminder_1 = 'none';
+    this.TextBlock_Reminder_2 = 'none';
+    this.TextBlock_Reminder_3 = 'none';
+    this.TextBlock_Reminder_4 = 'none';
+    this.TextBlock_Reminder_5 = 'none';
+    this.TextBlock_newAppointment_1 = 'none';
+    this.TextBlock_newAppointment_2 = 'none';
+    this.TextBlock_newAppointment_3 = 'none';
+    this.TextBlock_newAppointment_4 = 'none';
+    this.TextBlock_PatientWillCall_1 = 'none';
+    this.TextBlock_PatientWillCall_2 = 'none';
+    this.TextBlock_PatientAfterDate_1 = 'none';
+    this.TextBlock_PatientAfterDate_2 = 'none';
+    this.TextBlock_PatientAfterDate_3 = 'none';
+    this.TextBlock_Change_Backoffice_1 = 'none';
+    this.TextBlock_Change_Backoffice_2 = 'none';
+    this.TextBlock_Change_Backoffice_3 = 'none';
+    this.TextBlock_Change_Backoffice_5 = 'none';
+    this.TextBlock_Change_Backoffice_4 = 'none';
+    this.TextBlock_PatientwillnotCome_1 = 'none';
+    this.TextBlock_PatientwillnotCome_2 = 'none';
+    this.TextBlock_AcceptAppointment_1 = 'none';
+    this.TextBlock_Man = 'none';
+    this.TextBlock_Woman = 'none';
+    this.TextBlock_Diabetology = 'none';
+    this.TextBlock_endocrinology = 'none';
+    this.TextBlock_nutritional_medicine = 'none';
+    this.TextBlock_metabolism = 'none';
   }
 
   private langEN(){
@@ -203,5 +338,43 @@ export class LANGUAGE {
     this.commThread_TextBlock_Title_Reminder = 'Reminder';
     this.commThread_Button_Choose_MessageType = 'Please choose message';
     this.commThread_TextBlock_Alert_Title = 'Messagetype';
+    this.commThread_TextBlock_Title_Cancellation = 'Cancellation';
+
+    this.TextBlock_Welcome = 'Welcome';
+    this.TextBlock_at = 'at';
+    this.TextBlock_Sincere_regards = 'Sincere regards';
+    this.TextBlock_cancelation = 'none';
+    this.TextBlock_cancelation_Costs = 'none';
+    this.TextBlock_Phonenumber = 'none';
+    this.TextBlock_Place = 'none';
+    this.TextBlock_on = 'none';
+    this.TextBlock_Reminder_1 = 'none';
+    this.TextBlock_Reminder_2 = 'none';
+    this.TextBlock_Reminder_3 = 'none';
+    this.TextBlock_Reminder_4 = 'none';
+    this.TextBlock_Reminder_5 = 'none';
+    this.TextBlock_newAppointment_1 = 'none';
+    this.TextBlock_newAppointment_2 = 'none';
+    this.TextBlock_newAppointment_3 = 'none';
+    this.TextBlock_newAppointment_4 = 'none';
+    this.TextBlock_PatientWillCall_1 = 'none';
+    this.TextBlock_PatientWillCall_2 = 'none';
+    this.TextBlock_PatientAfterDate_1 = 'none';
+    this.TextBlock_PatientAfterDate_2 = 'none';
+    this.TextBlock_PatientAfterDate_3 = 'none';
+    this.TextBlock_Change_Backoffice_1 = 'none';
+    this.TextBlock_Change_Backoffice_2 = 'none';
+    this.TextBlock_Change_Backoffice_3 = 'none';
+    this.TextBlock_Change_Backoffice_5 = 'none';
+    this.TextBlock_Change_Backoffice_4 = 'none';
+    this.TextBlock_PatientwillnotCome_1 = 'none';
+    this.TextBlock_PatientwillnotCome_2 = 'none';
+    this.TextBlock_AcceptAppointment_1 = 'none';
+    this.TextBlock_Man = 'none';
+    this.TextBlock_Woman = 'none';
+    this.TextBlock_Diabetology = 'none';
+    this.TextBlock_endocrinology = 'none';
+    this.TextBlock_nutritional_medicine = 'none';
+    this.TextBlock_metabolism = 'none';
   }
 }
