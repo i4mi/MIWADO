@@ -51,7 +51,8 @@ export class LANGUAGE {
   public commThread_Button_Choose_MessageType : string;
   public commThread_TextBlock_Alert_Title : string;
   public commThread_my_chat : string;
-
+  public commTread_No_Message_Choosen : string;
+  public commTread_No_Message_Choosen_Title : string;
 
   //Language variables for the TextBlocks
 
@@ -182,6 +183,8 @@ export class LANGUAGE {
     this.commThread_TextBlock_Alert_Title = 'Nachrichtentyp';
     this.commThread_TextBlock_Title_Cancellation = 'Absage';
     this.commThread_my_chat = 'Meine Nachrichten';
+    this.commTread_No_Message_Choosen = 'Bitte wähle eine Nachricht aus.';
+    this.commTread_No_Message_Choosen_Title = 'Keine Nachricht ausgewählt';
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -266,6 +269,8 @@ export class LANGUAGE {
     this.commThread_TextBlock_Alert_Title = 'Messagostypos';
     this.commThread_TextBlock_Title_Cancellation = 'Annulation';
     this.commThread_my_chat = 'none';
+    this.commTread_No_Message_Choosen = 'none';
+    this.commTread_No_Message_Choosen_Title = 'none';
 
     this.TextBlock_Welcome = 'none';
     this.TextBlock_at = 'none';
@@ -348,6 +353,8 @@ export class LANGUAGE {
     this.commThread_TextBlock_Alert_Title = 'Messagetype';
     this.commThread_TextBlock_Title_Cancellation = 'Cancellation';
     this.commThread_my_chat = 'My Messages';
+    this.commTread_No_Message_Choosen = 'Please choose a message.';
+    this.commTread_No_Message_Choosen_Title = 'No message choosen';
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';

@@ -91,6 +91,11 @@ export class MidataPersistence {
     console.log("logged out");
   }
 
+  getLoggedInId(){
+    console.log('logged in id... ' + this.authResponse);
+    return this.authResponse.owner;
+  }
+
   // Search function (call it with MidataPersistence.search(Resource, {}))
   // Searches for a resrouce with a defined type
   // If the params are defined, it will look up for the resource with the given params

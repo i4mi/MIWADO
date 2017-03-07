@@ -15,23 +15,38 @@
 
 <ion-footer>
   <div>
-    <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
-    <confirmation id="confirmation" hidden></confirmation>
-    <newAppointment id="newAppointment" hidden></newAppointment>
-    <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
-    <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
-    <reminder id="reminder" hidden></reminder>
-    <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
+    <div #cancelationPatient>
+      <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
+    </div>
+    <div #confirmation>
+      <confirmation id="confirmation" hidden></confirmation>
+    </div>
+    <div #newAppointment>
+      <newAppointment id="newAppointment" hidden></newAppointment>
+    </div>
+    <div #patientCancelationNewDate>
+      <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
+    </div>
+    <div #patientCancelationWillCall>
+      <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
+    </div>
+    <div #reminder>
+      <reminder id="reminder" hidden></reminder>
+    </div>
+    <div #changeBackoffice>
+      <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
+    </div>
   </div>
-  
+
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
   <ion-row>
     <ion-item>
+      <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
       <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock();">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button icon-only>
+    <button ion-button icon-only (click)="storeCommRes()">
       <ion-icon name="send"></ion-icon>
     </button>
   </ion-row>
