@@ -27,7 +27,13 @@ import { LANGUAGE } from '../../util/language';
 
 
 export class CommThreadPage {
+  @ViewChild('cancelationPatient') cancelationPatient:ElementRef;
   @ViewChild('confirmation') confirmation:ElementRef;
+  @ViewChild('newAppointment') newAppointment:ElementRef;
+  @ViewChild('patientCancelationNewDate') patientCancelationNewDate:ElementRef;
+  @ViewChild('patientCancelationWillCall') patientCancelationWillCall:ElementRef;
+  @ViewChild('reminder') reminder:ElementRef;
+  @ViewChild('changeBackoffice') changeBackoffice:ElementRef;
 
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
@@ -44,7 +50,8 @@ export class CommThreadPage {
 
   constructor(private nav: NavController, public navParams: NavParams, private platform: Platform,
               private storage: Storage, public alertCtrl: AlertController) {
-	this.TextBlockChoosen = "";
+
+  this.TextBlockChoosen = "";
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
@@ -194,8 +201,24 @@ export class CommThreadPage {
     }*/
   }
 
-  getText(): string{
-    console.log(this.confirmation.nativeElement);
+  getText(): string {
+    if (this.TextBlockChoosen == 'cancelationPatient') {
+      console.log(this.cancelationPatient.nativeElement);
+    } else if (this.TextBlockChoosen == 'confirmation') {
+      console.log(this.confirmation.nativeElement);
+    } else if (this.TextBlockChoosen == 'newAppointment') {
+      console.log(this.newAppointment.nativeElement);
+    } else if (this.TextBlockChoosen == 'patientCancelationNewDate') {
+      console.log(this.patientCancelationNewDate.nativeElement);
+    } else if (this.TextBlockChoosen == 'patientCancelationWillCall') {
+      console.log(this.patientCancelationWillCall.nativeElement);
+    } else if (this.TextBlockChoosen == 'reminder') {
+      console.log(this.reminder.nativeElement);
+    } else if (this.TextBlockChoosen == 'changeBackoffice') {
+      console.log(this.changeBackoffice.nativeElement);
+    }
+
+    document.getElementById(this.TextBlockChoosen).hidden = true;
     return '';
   }
 
