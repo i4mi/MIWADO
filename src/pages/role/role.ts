@@ -8,6 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { LANGUAGE } from '../../util/language';
+import { ShareService } from '../../util/shareService';
 
 
 @Component({
@@ -18,11 +19,22 @@ import { LANGUAGE } from '../../util/language';
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
-
-  constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
     if(this.mp.loggedIn()) {
       this.nav.push(LoginPage);
+  private disabledRoleHp = true;
+  private disabledRolePatient = true;
+
+  constructor(private nav: NavController, private shareService: ShareService, private platform: Platform,  private storage: Storage) {
+
+    if(shareService.getRole() == "provider"){
+      this.disabledRoleHp = false
+    }else if(shareService.getRole() == "member"){
+      this.disabledRolePatient = false
+    }else{
+      this.disabledRoleHp = false
+      this.disabledRolePatient = false
     }
+
   }
 
   chooseRole(event, role){

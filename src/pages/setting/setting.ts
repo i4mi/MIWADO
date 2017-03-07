@@ -10,6 +10,7 @@ import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { RolePage } from '../role/role';
 import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
+import { ShareService } from '../../util/shareService';
 
 
   @Component({
@@ -26,7 +27,7 @@ export class SettingPage {
   private disabled = false;
   private disableLogout = true;
 
-  constructor(public nav: NavController, private builder: FormBuilder,
+  constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
 
     var deviceLang = window.navigator.language;
@@ -59,6 +60,7 @@ export class SettingPage {
         handler: () => {
           this.mp.logout();
           this.nav.push(RolePage);
+          this.shareService.setRole("");
         }
       }
     ]

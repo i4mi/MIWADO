@@ -1,26 +1,28 @@
 <div>
-  {{ lang.TextBlock_Welcome }}
-  <select class="selectGender">
-    <option>---</option>
-    <option>{{ lang.TextBlock_Man }}</option>
-    <option>{{ lang.TextBlock_Woman }}</option>
-  </select>
-  <ion-input type="text" class="headerNameField" placeholder="Patientenname"></ion-input>
-  {{ lang.TextBlock_newAppointment_1 }}
-  <ion-input type="date" class="selectDate"></ion-input>
-  {{ lang.TextBlock_at }}
-  <ion-input type="time" class="selectTime"></ion-input>
-  {{ lang.TextBlock_newAppointment_2 }}
-  <select class="selectSection">
+  <ion-row class="row">
+    {{ lang.TextBlock_Welcome }}
+    {{ this.displayGender }}
+    {{ this.displayName }}
+  </ion-row>
+  <ion-row class="row">
+    {{ lang.TextBlock_newAppointment_1 }}
+    <ion-input type="date" class="selectDate"></ion-input>
+    {{ lang.TextBlock_at }}
+    <ion-input type="time" class="selectTime"></ion-input>
+    {{ lang.TextBlock_newAppointment_2 }}
+    <select class="selectSection">
     <option>---</option>
     <option>{{ lang.TextBlock_Diabetology }}</option>
     <option>{{ lang.TextBlock_endocrinology }}</option>
     <option>{{ lang.TextBlock_nutritional_medicine }}</option>
     <option>{{ lang.TextBlock_metabolism }}</option>
-  </select>
-  {{ lang.TextBlock_newAppointment_3 }} {{ lang.TextBlock_Place }}
-  {{ lang.TextBlock_newAppointment_4 }} {{ lang.TextBlock_cancelation }}
-  {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
-  {{ lang.TextBlock_Sincere_regards }}
-  <ion-input type="text" class="senderName" placeholder="Absendername"></ion-input>
+    </select>
+    {{ lang.TextBlock_newAppointment_3 }} {{ lang.TextBlock_Place }}
+    {{ lang.TextBlock_newAppointment_4 }} {{ lang.TextBlock_cancelation }}
+    {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
+  </ion-row>
+  <ion-row class="row">
+    {{ lang.TextBlock_Sincere_regards }}
+    {{ lang.TextBlock_PlaceholderName }}
+  </ion-row>
 </div>

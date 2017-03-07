@@ -1,9 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
-import { Settings } from '../../util/settings';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -19,6 +18,8 @@ import { PatientCancelationWillCall } from '../../util/textMessages/patientCance
 import { Reminder } from '../../util/textMessages/reminder/reminder';
 
 import { LANGUAGE } from '../../util/language';
+import { ShareService } from '../../util/shareService';
+
 
 @Component({
   selector: 'page-commThread',
@@ -48,14 +49,19 @@ export class CommThreadPage {
   private options: Array<any>;
   private hideBackButton = false;
 
-  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform,
-              private storage: Storage, public alertCtrl: AlertController) {
+  constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams, private platform: Platform, private storage: Storage) {
 
-  this.TextBlockChoosen = "";
+
+
+
+	  this.TextBlockChoosen = "";
+
+
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
       this.retreiveCommRes();
+      shareService.setPatient(this.pat.displayName, this.pat.gender);
     } else{
       this.hideBackButton = true;
       this.pat = {
@@ -64,6 +70,7 @@ export class CommThreadPage {
           gender: 'none'
       }
     }
+
 
     this.options =[
         {

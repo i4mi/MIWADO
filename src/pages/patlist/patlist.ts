@@ -8,6 +8,9 @@ import { MidataPersistence } from '../../util/midataPersistence';
 import { SettingPage } from '../setting/setting';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
+import { ShareService } from '../../util/shareService';
+
+
 @Component({
   selector: 'patlist-page',
   templateUrl: 'patlist.html'
@@ -18,9 +21,8 @@ export class PatList {
   private mp = MidataPersistence.getInstance();
   private patList: Array<MiwadoTypes.MIWADO_Patient>;
 
-  constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
-    console.log(this.nav);
-
+  constructor(private nav: NavController, private shareService: ShareService, private platform: Platform, private storage: Storage) {
+    shareService.setRole(this.mp.getRole());
     if(this.mp.getRole() == 'member') {
       this.nav.push(CommThreadPage);
     }

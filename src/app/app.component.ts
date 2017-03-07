@@ -18,10 +18,13 @@ import { NewAppointment } from '../util/textMessages/newAppointment/newAppointme
 import { PatientCancelationNewDate } from '../util/textMessages/patientCancelationNewDate/patientCancelationNewDate';
 import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
 import { Reminder } from '../util/textMessages/reminder/reminder';
+import { ShareService } from '../util/shareService';
+
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [ShareService]
 })
 
 export class MyApp {
@@ -33,9 +36,11 @@ export class MyApp {
 
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
+    private shareService: ShareService
   ) {
     this.initializeApp();
+      shareService.setPatient('','');
 
     // set our app's pages
     this.pages = [

@@ -5,6 +5,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { Platform } from 'ionic-angular';
 
 import { LANGUAGE } from '../../language.ts';
+import { ShareService } from '../../shareService';
 
 
 @Component({
@@ -15,9 +16,21 @@ import { LANGUAGE } from '../../language.ts';
 export class ChangeBackoffice {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
+  private displayName : string;
+  private displayGender : string;
+  private gender : string;
 
-  constructor(private nav: NavController, private platform: Platform) {
+  constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
+    this.gender = shareService.getPatientGender();
+    this.displayName =  shareService.getPatientDisplayname();
 
+    if(this.gender == "male"){
+      this.displayGender = this.lang.TextBlock_Man;
+    } else if(this.gender == "female"){
+      this.displayGender = this.lang.TextBlock_Woman;
+    }else{
+      this.displayGender = "";
+    }
   }
 
   }

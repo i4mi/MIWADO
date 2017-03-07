@@ -15,9 +15,7 @@ import { LANGUAGE } from '../../language.ts';
 export class CancelationPatient {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
-
   constructor(private nav: NavController, private platform: Platform) {
-
   }
 
   }
