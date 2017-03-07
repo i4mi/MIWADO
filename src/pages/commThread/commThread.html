@@ -16,16 +16,26 @@
 <ion-footer>
   <div>
     <div #cancelationPatient>
-    <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
+      <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
     </div>
     <div #confirmation>
       <confirmation id="confirmation" hidden></confirmation>
     </div>
-    <newAppointment id="newAppointment" hidden></newAppointment>
-    <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
-    <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
-    <reminder id="reminder" hidden></reminder>
-    <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
+    <div #newAppointment>
+      <newAppointment id="newAppointment" hidden></newAppointment>
+    </div>
+    <div #patientCancelationNewDate>
+      <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
+    </div>
+    <div #patientCancelationWillCall>
+      <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
+    </div>
+    <div #reminder>
+      <reminder id="reminder" hidden></reminder>
+    </div>
+    <div #changeBackoffice>
+      <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
+    </div>
   </div>
 
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
