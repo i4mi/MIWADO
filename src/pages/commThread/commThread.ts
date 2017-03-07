@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
@@ -18,6 +18,7 @@ import { PatientCancelationWillCall } from '../../util/textMessages/patientCance
 import { Reminder } from '../../util/textMessages/reminder/reminder';
 
 import { LANGUAGE } from '../../util/language';
+import { Settings } from '../../util/settings';
 import { ShareService } from '../../util/shareService';
 
 
@@ -49,7 +50,7 @@ export class CommThreadPage {
   private options: Array<any>;
   private hideBackButton = false;
 
-  constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams, private platform: Platform, private storage: Storage) {
+  constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams, private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
 
 
 

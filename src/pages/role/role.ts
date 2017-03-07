@@ -19,8 +19,6 @@ import { ShareService } from '../../util/shareService';
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
-    if(this.mp.loggedIn()) {
-      this.nav.push(LoginPage);
   private disabledRoleHp = true;
   private disabledRolePatient = true;
 
