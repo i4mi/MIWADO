@@ -49,7 +49,7 @@ export interface DateToValue
    category:string;
    sender:MIDATA_HL7CommRes_Person;
    status:string;
-   recipient:Array<MIDATA_HL7CommRes_Person>;
+   recipient:Array<any>;
    payload:Array<MIDATA_HL7CommRes_Payload_String|MIDATA_HL7CommRes_Payload_Attachment|MIDATA_HL7CommRes_Payload_Refernce>;
    medium:Array<MIDATA_HL7CommRes_Medium>;
    encounter:any;

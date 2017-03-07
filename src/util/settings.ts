@@ -3,6 +3,8 @@ import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import * as MiwadoTypes from './typings/MIWADO_Types';
+import * as MidataTypes from './typings/MIDATA_Types';
+
 
 export class Settings {
 
@@ -43,9 +45,10 @@ export class Settings {
     return this.lang;
   }
 
-  setUser(un: string, pw: string) {
+  setUser(un: string, pw: string, auth?: any) {
     this.user.username = un;
     this.user.password = pw;
+    this.user.auth = <MidataTypes.MIDATA_authResponse> auth;
 
     this.storage.set('user', JSON.stringify(this.user));
   }

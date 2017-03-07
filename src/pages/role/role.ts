@@ -17,8 +17,12 @@ import { LANGUAGE } from '../../util/language';
 
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
+  private mp = MidataPersistence.getInstance();
 
   constructor(private nav: NavController, private platform: Platform, private storage: Storage) {
+    if(this.mp.loggedIn()) {
+      this.nav.push(LoginPage);
+    }
   }
 
   chooseRole(event, role){

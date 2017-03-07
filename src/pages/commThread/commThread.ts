@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
+import { Settings } from '../../util/settings';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -26,8 +27,10 @@ import { LANGUAGE } from '../../util/language';
 
 
 export class CommThreadPage {
+  @ViewChild('confirmation') confirmation:ElementRef;
 
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
+  private settings = Settings.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
   private innerHtmlVar: string;
 
@@ -39,7 +42,8 @@ export class CommThreadPage {
   private options: Array<any>;
   private hideBackButton = false;
 
-  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform, private storage: Storage) {
+  constructor(private nav: NavController, public navParams: NavParams, private platform: Platform,
+              private storage: Storage, public alertCtrl: AlertController) {
 	this.TextBlockChoosen = "";
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
@@ -94,6 +98,50 @@ export class CommThreadPage {
     });
   }
 
+  storeCommRes() {
+    console.log('store started');
+
+    if(this.TextBlock == undefined) {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commTread_No_Message_Choosen_Title,
+        subTitle: this.lang.commTread_No_Message_Choosen,
+        buttons: ['OK']
+      });
+
+      return alert.present();
+    }
+
+    this.mp.search('Group').then((res) => {
+          var group: any;
+          for(var i = 0; i < res.length; i++) {
+            console.log('Group nr: ' + i + ' name: ' + res[i].name);
+            //TODO: SETTINGS FIELD TO ENTER GROUP NAME!!
+            if(res[i].name == 'TestHpGrp01') {
+              group = res[i];
+              this.settings.getUser().then((user) => {
+                var commRes = this.defineCommRes(user.auth.owner, group);
+              });
+            }
+          }
+          /*this.settings.getUser().then((user) =>{
+            for(var i = 0; i < member.length; i++) {
+              console.log("Group member nr: " + i + " name: " + member[i].entity.display + " id: " + member[i].entity.reference);
+              if(member[i].entity.reference.includes(user.auth.owner)){
+                console.log('this is logged in user: ' + member[i].entity);
+              } else {
+                console.log('users (member of group) to add to receipient: ' + member[i].entity);
+              }
+            }
+          }).catch((ex) => {
+          console.error('Error fetching group members', ex);
+        });*/
+
+    }).catch((ex) => {
+      console.error('Error fetching group members', ex);
+    })
+
+  }
+
   optionsTextBlock() {
     console.log(this.TextBlock.tag)
 
@@ -105,6 +153,50 @@ export class CommThreadPage {
       document.getElementById(this.TextBlock.tag).hidden = false;
       this.TextBlockChoosen = this.TextBlock.tag;
     }
+  }
+
+  defineCommRes(usrId: string, grp: any){
+    var commRes:MidataTypes.MIDATA_HL7CommRes;
+    var sendr:MidataTypes.MIDATA_HL7CommRes_Person;
+    var rec = new Array<any>();
+    var content = new Array<any>();
+
+    sendr = {
+      reference: '',
+      display: ''
+    }
+
+    if(this.mp.getRole() == 'provider') {
+      sendr.reference = 'Practitioner/' + usrId;
+      rec.push({"reference":"Patient/" + this.pat.id, "display": this.pat.displayName });
+    } else {
+      sendr.reference = 'Patient/' + usrId;
+    }
+
+    rec.push(grp);
+
+    content.push(this.getText());
+
+    /*commRes = {
+      resourceType: 'Communication',
+      category: this.TextBlock.tag,
+      sender:sendr,
+      status:'in-progress',
+      recipient:rec,
+      payload:content,
+      medium:Array<MIDATA_HL7CommRes_Medium>;
+      encounter:any;
+      sent:Date;
+      received:Date;
+      reason:Array<any>;
+      subject:any;
+      requestDetail:any;
+    }*/
+  }
+
+  getText(): string{
+    console.log(this.confirmation.nativeElement);
+    return '';
   }
 
    openSettings(){

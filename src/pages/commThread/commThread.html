@@ -15,23 +15,28 @@
 
 <ion-footer>
   <div>
+    <div #cancelationPatient>
     <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
-    <confirmation id="confirmation" hidden></confirmation>
+    </div>
+    <div #confirmation>
+      <confirmation id="confirmation" hidden></confirmation>
+    </div>
     <newAppointment id="newAppointment" hidden></newAppointment>
     <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
     <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
     <reminder id="reminder" hidden></reminder>
     <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
   </div>
-  
+
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
   <ion-row>
     <ion-item>
+      <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
       <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock();">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button icon-only>
+    <button ion-button icon-only (click)="storeCommRes()">
       <ion-icon name="send"></ion-icon>
     </button>
   </ion-row>
