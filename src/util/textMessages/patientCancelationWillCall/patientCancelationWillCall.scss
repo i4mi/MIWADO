@@ -1,0 +1,146 @@
+// iOS Style
+.platform-ios{
+  .dateTimeStyler{
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  .selectDateCancelation{
+    align-items: center;
+    width: auto;
+    float: left;
+    margin-left: -1%;
+    margin-top: -4%;
+    margin-bottom: -4%;
+  }
+
+  p{
+    float: left;
+    max-height: inherit;
+  }
+
+  .textBlockCancelation{
+    margin-left: 1%;
+  }
+
+  .selectSectionCancelation{
+    width: 100%;
+    float: right;
+    margin-top: -6%;
+    margin-left: -1%;
+  }
+
+  .datePickerCancelation{
+    width: auto;
+    float: left;
+    padding-left: 2%;
+    max-width: 100%;
+    min-width: 100%;
+
+  }
+
+  .timePickerCancelation{
+    width: auto;
+    float: left;
+    padding-left: 2%;
+    max-width: 100%;
+    min-width: 100%;
+
+  }
+}
+
+//Android Style
+.platform-android{
+  .dateTimeStyler{
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  .selectDateCancelation{
+    align-items: center;
+    width: auto;
+    float: left;
+    margin-left: -1%;
+    margin-top: -4%;
+    margin-bottom: -6%;
+  }
+
+  p{
+    float: left;
+    max-height: inherit;
+  }
+
+  .textBlock{
+    margin-left: 1%;
+  }
+
+  .selectSectionCancelation{
+    width: 100%;
+    float: right;
+    margin-top: -6%;
+    margin-left: -1%;
+
+  }
+  .datePickerCancelation{
+    width: auto;
+    float: left;
+    padding-left: 2%;
+    max-width: 100%;
+    min-width: 100%;
+
+  }
+
+  .timePickerCancelation{
+    width: auto;
+    float: left;
+    padding-left: 2%;
+    max-width: 100%;
+    min-width: 100%;
+
+  }
+}
+
+
+//Browser Style
+.dateTimeStyler{
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.selectDateCancelation{
+  align-items: center;
+  width: auto;
+  float: left;
+  margin-top: -5%;
+  margin-left: -1%;
+}
+
+p{
+  float: left;
+  max-height: inherit;
+}
+
+.textBlock{
+  margin-left: 1%;
+}
+
+.selectSectionCancelation{
+  width: 100%;
+  float: right;
+
+}
+.datePickerCancelation{
+  width: auto;
+  float: left;
+  padding-left: 2%;
+  max-width: 100%;
+  min-width: 100%;
+
+}
+
+.timePickerCancelation{
+  width: auto;
+  float: left;
+  padding-left: 2%;
+  max-width: 100%;
+  min-width: 100%;
+
+}

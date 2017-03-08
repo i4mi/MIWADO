@@ -1,0 +1,54 @@
+// iOS Style
+.platform-ios{
+  .rowStyleConfirmation{
+    align-items: center;
+  }
+  .datePickerConfirmation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 30%;
+    min-width: 30%;
+  }
+}
+
+//Android Style
+.platform-android{
+  .rowStyleConfirmation{
+    align-items: center;
+  }
+  .datePickerConfirmation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 30%;
+    min-width: 30%;
+  }
+}
+
+//Browser Style
+.rowStyleConfirmation{
+  align-items: center;
+}
+.datePickerConfirmation{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-top: -3%;
+  max-width: 30%;
+  min-width: 30%;
+}

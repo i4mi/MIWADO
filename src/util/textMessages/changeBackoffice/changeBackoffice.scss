@@ -1,0 +1,90 @@
+// iOS Style
+.platform-ios{
+  .rowStyleChangeBackoffice{
+    align-items: center;
+  }
+  .datePickerChangeBackoffice{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 70%;
+    min-width: 70%;
+  }
+  .timePickerChangeBackoffice{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 50%;
+    min-width: 50%;
+  }
+}
+
+//Android Style
+.platform-android{
+  .rowStyleChangeBackoffice{
+    align-items: center;
+  }
+  .datePickerChangeBackoffice{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 70%;
+    min-width: 70%;
+  }
+  .timePickerChangeBackoffice{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 50%;
+    min-width: 50%;
+  }
+}
+
+//Browser Style
+.rowStyleChangeBackoffice{
+  align-items: center;
+}
+.datePickerChangeBackoffice{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-top: -3%;
+  max-width: 70%;
+  min-width: 70%;
+}
+.timePickerChangeBackoffice{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-top: -3%;
+  max-width: 50%;
+  min-width: 50%;
+}

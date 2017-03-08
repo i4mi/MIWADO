@@ -1,21 +1,34 @@
 <div>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_Welcome }}
     {{ this.displayGender }}
     {{ this.displayName }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_Change_Backoffice_1 }}
-    {{ lang.TextBlock_Change_Backoffice_2 }}
-    <ion-input type="date" class="selectDate"></ion-input>
-    {{ lang.TextBlock_Change_Backoffice_3 }}
-    {{ lang.TextBlock_Change_Backoffice_4 }}
-    <ion-input type="date" class="selectDate"></ion-input>
-    {{ lang.TextBlock_at }}
-    <ion-input type="time" class="selectTime"></ion-input>
-    {{ lang.TextBlock_Change_Backoffice_5 }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row class="rowStyleChangeBackoffice">
+    <ion-col>
+      <ion-datetime displayFormat="DD/MM/YY" class="datePickerChangeBackoffice"></ion-datetime>
+    </ion-col>
+    {{ lang.TextBlock_Change_Backoffice_2 }}
+  </ion-row>
+  <ion-row>
+    {{ lang.TextBlock_Change_Backoffice_3 }}
+  </ion-row>
+  <ion-row class="rowStyleChangeBackoffice">
+    <ion-col>
+      <ion-datetime displayFormat="DD/MM/YY" class="datePickerChangeBackoffice"></ion-datetime>
+    </ion-col>
+    {{ lang.TextBlock_at }}
+    <ion-col>
+      <ion-datetime displayFormat="HH:mm" class="timePickerChangeBackoffice"></ion-datetime>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    {{ lang.TextBlock_Change_Backoffice_4 }}
+  </ion-row>
+  <ion-row>
     {{ lang.TextBlock_Sincere_regards }}
     {{ lang.TextBlock_PlaceholderName }}
   </ion-row>

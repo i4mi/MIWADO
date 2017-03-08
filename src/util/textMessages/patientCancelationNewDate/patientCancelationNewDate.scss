@@ -1,0 +1,40 @@
+// iOS Style
+.platform-ios{
+  .datePickerCancelationWillCall{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 40%;
+    min-width: 40%;
+  }
+
+}
+
+//Android Style
+.platform-android{
+  .datePickerCancelationWillCall{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+  }
+}
+
+//Browser Style
+.datePickerCancelationWillCall{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}

@@ -1,0 +1,150 @@
+// iOS Style
+.platform-ios{
+  .dateTimeStyler{
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  .selectDateCancelation{
+    align-items: center;
+    width: auto;
+    float: left;
+    margin-left: -1%;
+    margin-top: -4%;
+    margin-bottom: -4%;
+  }
+
+  .textCancelation{
+    padding-right: 15%;
+  }
+
+  .textBlockCancelation{
+    margin-left: 1%;
+  }
+
+  .selectSectionCancelation{
+    width: 100%;
+    float: right;
+    margin-top: -6%;
+    margin-left: -1%;
+  }
+
+  .datePickerCancelation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+  }
+
+  .timePickerCancelation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+  }
+}
+
+//Android Style
+.platform-android{
+  .dateTimeStyler{
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  .selectDateCancelation{
+    align-items: center;
+    width: auto;
+    float: left;
+    margin-left: -1%;
+    margin-top: -4%;
+    margin-bottom: -4%;
+  }
+
+  .textCancelation{
+    padding-right: 15%;
+  }
+
+  .textBlockCancelation{
+    margin-left: 1%;
+  }
+
+  .selectSectionCancelation{
+    width: 100%;
+    float: right;
+    margin-top: -6%;
+    margin-left: -1%;
+  }
+
+  .datePickerCancelation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+  }
+
+  .timePickerCancelation{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    }
+}
+
+//Browser
+.dateTimeStyler{
+  align-items: center;
+  margin-bottom: 2%;
+}
+.selectDateCancelation{
+  align-items: center;
+  width: auto;
+  float: left;
+  margin-left: -1%;
+  margin-top: -4%;
+  margin-bottom: -4%;
+}
+
+.textCancelation{
+  padding-right: 15%;
+}
+
+.textBlockCancelation{
+  margin-left: 1%;
+}
+
+.selectSectionCancelation{
+  width: 100%;
+  float: right;
+  margin-top: -6%;
+  margin-left: -1%;
+}
+
+.datePickerCancelation{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
+
+.timePickerCancelation{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}

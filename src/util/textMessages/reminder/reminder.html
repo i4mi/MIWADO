@@ -1,20 +1,26 @@
 <div>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_Welcome }}
     {{ this.displayGender }}
     {{ this.displayName }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row class="rowStyleReminder">
     {{ lang.TextBlock_Reminder_1 }}
-    <ion-input type="date" class="selectDate"></ion-input>
+    <ion-col>
+      <ion-datetime displayFormat="DD/MM/YY" class="datePickerReminder"></ion-datetime>
+    </ion-col>
+  </ion-row>
+  <ion-row class="rowStyleReminder">
     {{ lang.TextBlock_Reminder_2 }}
-    <ion-input type="time" class="selectTime"></ion-input>
+    <ion-col>
+      <ion-datetime displayFormat="HH:mm" class="datePickerReminder"></ion-datetime>
+    </ion-col>
     {{ lang.TextBlock_Reminder_3 }}
     {{ lang.TextBlock_Place }} {{ lang.TextBlock_Reminder_4 }}
     {{ lang.TextBlock_Reminder_5 }} {{ lang.TextBlock_cancelation }}
     {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_Sincere_regards }}
     {{ lang.TextBlock_PlaceholderName }}
   </ion-row>

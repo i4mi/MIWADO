@@ -1,16 +1,21 @@
 <div>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_Patient_Welcome }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row>
     {{ lang.TextBlock_PatientwillnotCome_1 }}
-    {{ lang.TextBlock_on }}
-    <ion-input type="date" class="selectDate"></ion-input>
-    {{ lang.TextBlock_at }}
-    <ion-input type="time" class="selectTime"></ion-input>
-    {{ lang.TextBlock_PatientwillnotCome_2 }}
   </ion-row>
-  <ion-row class="row">
+  <ion-row class="dateTimeStyler">
+    <ion-col>
+      <ion-datetime displayFormat="DD/MM/YY" class="datePickerCancelation"></ion-datetime>
+    </ion-col>
+    {{ lang.TextBlock_at }}
+    <ion-col>
+      <ion-datetime displayFormat="HH:mm" class="timePickerCancelation"></ion-datetime>
+    </ion-col>
+    <p class="textCancelation">{{ lang.TextBlock_PatientwillnotCome_2 }}</p>
+  </ion-row>
+  <ion-row>
     {{ lang.TextBlock_Sincere_regards }}
     {{ lang.TextBlock_PlaceholderName }}
   </ion-row>
