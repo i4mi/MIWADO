@@ -1,5 +1,11 @@
 // iOS Style
 .platform-ios{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .rowStyleChangeBackoffice{
     align-items: center;
   }
@@ -31,6 +37,12 @@
 
 //Android Style
 .platform-android{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .rowStyleChangeBackoffice{
     align-items: center;
   }

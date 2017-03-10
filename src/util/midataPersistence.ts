@@ -96,6 +96,10 @@ export class MidataPersistence {
     return this.authResponse.owner;
   }
 
+  save(res: any) {
+    return this.md.save(res);
+  }
+
   // Search function (call it with MidataPersistence.search(Resource, {}))
   // Searches for a resrouce with a defined type
   // If the params are defined, it will look up for the resource with the given params

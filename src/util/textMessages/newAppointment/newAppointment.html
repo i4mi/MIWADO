@@ -1,8 +1,8 @@
 <div>
   <ion-row>
     {{ lang.TextBlock_Welcome }}
-    {{ this.displayGender }}
-    {{ this.displayName }}
+    {{ displayGender }}
+    {{ displayName }}
   </ion-row>
   <ion-row class="rowStyleNewAppointment">
     {{ lang.TextBlock_newAppointment_1 }}
@@ -17,14 +17,14 @@
   <ion-row>
     {{ lang.TextBlock_newAppointment_2 }}
     <ion-col>
-    <select class="selectSection">
-      <option>---</option>
-      <option>{{ lang.TextBlock_Diabetology }}</option>
-      <option>{{ lang.TextBlock_endocrinology }}</option>
-      <option>{{ lang.TextBlock_nutritional_medicine }}</option>
-      <option>{{ lang.TextBlock_metabolism }}</option>
-    </select>
-  </ion-col>
+      <select class="selectSection">
+        <option>---</option>
+        <option>{{ lang.TextBlock_Diabetology }}</option>
+        <option>{{ lang.TextBlock_endocrinology }}</option>
+        <option>{{ lang.TextBlock_nutritional_medicine }}</option>
+        <option>{{ lang.TextBlock_metabolism }}</option>
+      </select>
+    </ion-col>
     {{ lang.TextBlock_newAppointment_3 }} {{ lang.TextBlock_Place }}
     {{ lang.TextBlock_newAppointment_4 }} {{ lang.TextBlock_cancelation }}
     {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
