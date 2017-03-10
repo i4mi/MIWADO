@@ -50,13 +50,10 @@ export class CommThreadPage {
   private options: Array<any>;
   private hideBackButton = false;
 
-  constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams, private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
-
-
-
+  constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
+              private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
 
 	  this.TextBlockChoosen = "";
-
 
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
@@ -72,37 +69,41 @@ export class CommThreadPage {
       }
     }
 
-
-    this.options =[
-        {
-          "name" : this.lang.commThread_TextBlock_Title_NewAppointment,
-          "tag" : "newAppointment"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Confirmation,
-          "tag" : "confirmation"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice,
-          "tag" : "changeBackoffice"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling,
-          "tag" : "patientCancelationWillCall"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date,
-          "tag" : "patientCancelationNewDate"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Reminder,
-          "tag" : "reminder"
-        },
-        {
-          "name" : this.lang.commThread_TextBlock_Title_Cancellation,
-          "tag" : "cancelationPatient"
-        }
-    ]
+    if (this.mp.getRole() == 'provider') {
+      this.options = [
+          {
+            "name" : this.lang.commThread_TextBlock_Title_NewAppointment,
+            "tag" : "newAppointment"
+          },
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice,
+            "tag" : "changeBackoffice"
+          },
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Reminder,
+            "tag" : "reminder"
+          }
+      ]
+    } else {
+      this.options =[
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Confirmation,
+            "tag" : "confirmation"
+          },
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling,
+            "tag" : "patientCancelationWillCall"
+          },
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date,
+            "tag" : "patientCancelationNewDate"
+          },
+          {
+            "name" : this.lang.commThread_TextBlock_Title_Cancellation,
+            "tag" : "cancelationPatient"
+          }
+      ]
+    }
   }
 
   retreiveCommRes() {
@@ -210,24 +211,146 @@ export class CommThreadPage {
   }
 
   getText(): string {
-    if (this.TextBlockChoosen == 'cancelationPatient') {
-      console.log(this.cancelationPatient.nativeElement);
-    } else if (this.TextBlockChoosen == 'confirmation') {
-      console.log(this.confirmation.nativeElement);
-    } else if (this.TextBlockChoosen == 'newAppointment') {
-      console.log(this.newAppointment.nativeElement);
-    } else if (this.TextBlockChoosen == 'patientCancelationNewDate') {
-      console.log(this.patientCancelationNewDate.nativeElement);
+    var innerHTML: any;
+    var retVal: string;
+    if (this.TextBlockChoosen == 'confirmation') {
+      // BESTÄTIGUNG --> NR 1 PAT
+      innerHTML = this.confirmation.nativeElement.getElementsByTagName( 'div' )[0];
+
+      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText; //.getElementsByTagName('input')[0].getAttribute('ng-reflect-model');
+      console.log(dateInput);
+      if(dateInput == "") {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_Date_Choosen_Title,
+          subTitle: this.lang.commThread_No_Date_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+               this.lang.TextBlock_AcceptAppointment_1 + ' ' +
+               this.lang.TextBlock_on + ' ' +
+               '<date>' + dateInput + '</date> ' +
+               this.lang.TextBlock_Sincere_regards + ' ' +
+               this.lang.TextBlock_PlaceholderName + '.';
+
     } else if (this.TextBlockChoosen == 'patientCancelationWillCall') {
-      console.log(this.patientCancelationWillCall.nativeElement);
+      // ABSAGE, NEU TELEFON --> NR 2 PAT
+
+      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+               this.lang.TextBlock_PatientWillCall_1 + ' ' +
+               this.lang.TextBlock_PatientWillCall_2 + ' ' +
+               this.lang.TextBlock_Sincere_regards + ' ' +
+               this.lang.TextBlock_PlaceholderName + '.';
+
+    } else if (this.TextBlockChoosen == 'patientCancelationNewDate') {
+      // ABSAGE, NEU TERMIN --> NR 3 PAT
+      innerHTML = this.patientCancelationNewDate.nativeElement.getElementsByTagName( 'div' )[0];
+
+      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+      console.log(dateInput);
+      if(dateInput == '') {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_Date_Choosen_Title,
+          subTitle: this.lang.commThread_No_Date_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+               this.lang.TextBlock_PatientAfterDate_1 + ' ' +
+               this.lang.TextBlock_PatientAfterDate_2 + ' ' +
+               '<date>' + dateInput + '</date> ' +
+               this.lang.TextBlock_Sincere_regards + ' ' +
+               this.lang.TextBlock_PlaceholderName + '.';
+
+    } else if (this.TextBlockChoosen == 'cancelationPatient') {
+      // ABSAGE --> NR 4 PAT
+      innerHTML = this.cancelationPatient.nativeElement.getElementsByTagName( 'div' )[0];
+
+      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+      console.log(dateInput);
+      if(dateInput == "") {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_Date_Choosen_Title,
+          subTitle: this.lang.commThread_No_Date_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+               this.lang.TextBlock_PatientwillnotCome_1 + ' ' +
+               this.lang.TextBlock_on + ' ' +
+               '<date>' + dateInput + '</date> ';
+
+      var timeInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+      console.log(timeInput);
+      if(timeInput == "") {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_Time_Choosen_Title,
+          subTitle: this.lang.commThread_No_Time_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      retVal += this.lang.TextBlock_at + ' ' +
+                '<time>' + timeInput + '</time> ' +
+                this.lang.TextBlock_PatientwillnotCome_2 + ' ' +
+                this.lang.TextBlock_Sincere_regards + ' ' +
+                this.lang.TextBlock_PlaceholderName + '.';
+
+    } else if (this.TextBlockChoosen == 'newAppointment') {
+      innerHTML = this.newAppointment.nativeElement.getElementsByTagName( 'div' )[0];
+
+      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+      console.log(dateInput);
+      if(dateInput == null) {
+        //TODO: here comes error dingens
+        alert('noDate');
+        return '';
+      }
+
+      var timeInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+      console.log(timeInput);
+      if(timeInput == null) {
+        //TODO: here comes error dingens
+        alert('noTime');
+        return '';
+      }
+
+      var selectSection = innerHTML.getElementsByClassName('selectSection');
+      console.log(selectSection);
+      if(selectSection == null) {
+        //TODO: here comes error dingens
+        alert('noSection');
+        return '';
+      }
+
     } else if (this.TextBlockChoosen == 'reminder') {
-      console.log(this.reminder.nativeElement);
+      innerHTML = this.reminder.nativeElement.getElementsByTagName( 'div' )[0];
     } else if (this.TextBlockChoosen == 'changeBackoffice') {
-      console.log(this.changeBackoffice.nativeElement);
+      innerHTML = this.changeBackoffice.nativeElement.getElementsByTagName( 'div' )[0];
     }
 
+    console.log(innerHTML);
+    console.log(retVal);
     document.getElementById(this.TextBlockChoosen).hidden = true;
-    return '';
+    this.TextBlockChoosen = '';
+    this.TextBlock = null;
+
+    return retVal;
   }
 
    openSettings(){

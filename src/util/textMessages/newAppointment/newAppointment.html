@@ -7,22 +7,23 @@
   <ion-row class="rowStyleNewAppointment">
     {{ lang.TextBlock_newAppointment_1 }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" class="datePickerNewAppointment"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" class="datePickerNewAppointment selectDate"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_at }}
     <ion-col>
-      <ion-datetime displayFormat="HH:mm" class="timePickerNewAppointment"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm" class="timePickerNewAppointment selectTime"></ion-datetime>
     </ion-col>
   </ion-row>
   <ion-row>
     {{ lang.TextBlock_newAppointment_2 }}
-    <select class="selectSection">
-      <option>---</option>
-      <option>{{ lang.TextBlock_Diabetology }}</option>
-      <option>{{ lang.TextBlock_endocrinology }}</option>
-      <option>{{ lang.TextBlock_nutritional_medicine }}</option>
-      <option>{{ lang.TextBlock_metabolism }}</option>
-    </select>
+    <ion-col>
+      <ion-select  class="departmentPickerNewAppointment selectSection" multiple="false">
+        <ion-option>{{ lang.TextBlock_Diabetology }}</ion-option>
+        <ion-option>{{ lang.TextBlock_endocrinology }}</ion-option>
+        <ion-option>{{ lang.TextBlock_nutritional_medicine }}</ion-option>
+        <ion-option>{{ lang.TextBlock_metabolism }}</ion-option>
+      </ion-select>
+    </ion-col>
     {{ lang.TextBlock_newAppointment_3 }} {{ lang.TextBlock_Place }}
     {{ lang.TextBlock_newAppointment_4 }} {{ lang.TextBlock_cancelation }}
     {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}

@@ -53,7 +53,10 @@ export class LANGUAGE {
   public commThread_my_chat : string;
   public commTread_No_Message_Choosen : string;
   public commTread_No_Message_Choosen_Title : string;
-
+  public commThread_No_Date_Choosen : string;
+  public commThread_No_Date_Choosen_Title : string;
+  public commThread_No_Time_Choosen : string;
+  public commThread_No_Time_Choosen_Title : string;
 
   //Language variables for the TextBlocks
 
@@ -185,6 +188,10 @@ export class LANGUAGE {
     this.commThread_my_chat = 'Meine Nachrichten';
     this.commTread_No_Message_Choosen = 'Bitte wähle eine Nachricht aus.';
     this.commTread_No_Message_Choosen_Title = 'Keine Nachricht ausgewählt';
+    this.commThread_No_Date_Choosen = 'Bitte selektiere ein Datum';
+    this.commThread_No_Date_Choosen_Title = 'Kein Datum angegeben';
+    this.commThread_No_Time_Choosen = 'Bitte selektiere die Zeit.';
+    this.commThread_No_Time_Choosen_Title = 'Keine Zeit angegeben';
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
