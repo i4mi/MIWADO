@@ -116,6 +116,17 @@ export class CommThreadPage {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       console.log(res);
       for(var i = 0; i < res.length; i++) {
+        //Sender ID
+        var sId = res[i].sender.reference;
+        sId = sId.replace("Patient/", "");
+        sId = sId.replace("Practitioner/", "");
+
+        if(this.mp.getLoggedInId() == sId) {
+          res[i].ownership = 'mine';
+        } else {
+          res[i].ownership = 'other';
+
+        }
         this.messages.push(res[i]);
       }
     }).catch((ex) => {

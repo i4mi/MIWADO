@@ -203,7 +203,8 @@ export class MidataPersistence {
       received: new Date(),
       reason: [],
       subject: s,
-      requestDetail: ''
+      requestDetail: '',
+      ownership:''
     };
 
     TS.resourceType = JSON.resourceType;

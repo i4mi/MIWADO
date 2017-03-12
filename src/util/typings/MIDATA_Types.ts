@@ -58,6 +58,7 @@ export interface DateToValue
    reason:Array<any>;
    subject:any;
    requestDetail:any;
+   ownership?:string;
  }
 
  export interface MIDATA_HL7CommRes_Person {
