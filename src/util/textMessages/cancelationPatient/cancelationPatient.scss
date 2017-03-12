@@ -1,5 +1,11 @@
 // iOS Style
 .platform-ios{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .dateTimeStyler{
     align-items: center;
     margin-bottom: 2%;
@@ -51,6 +57,12 @@
 
 //Android Style
 .platform-android{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .dateTimeStyler{
     align-items: center;
     margin-bottom: 2%;
