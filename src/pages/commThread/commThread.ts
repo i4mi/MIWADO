@@ -114,6 +114,7 @@ export class CommThreadPage {
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
+      res = res.reverse();
       console.log(res);
       for(var i = 0; i < res.length; i++) {
         //Sender ID
