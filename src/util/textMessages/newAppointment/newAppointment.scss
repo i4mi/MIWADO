@@ -9,6 +9,18 @@
   .rowStyleNewAppointment{
     align-items: center;
   }
+  .departmentPickerNewAppointment{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 100%;
+    min-width: 100%;
+  }
   .datePickerNewAppointment{
     width: auto;
     float: left;
@@ -30,8 +42,8 @@
     border-bottom-style: solid;
     border-bottom-color: black;
     margin-top: -3%;
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 75%;
+    min-width: 75%;
   }
 }
 
@@ -46,6 +58,18 @@
   .rowStyleNewAppointment{
     align-items: center;
   }
+  .departmentPickerNewAppointment{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 100%;
+    min-width: 100%;
+  }
   .datePickerNewAppointment{
     width: auto;
     float: left;
@@ -67,14 +91,26 @@
     border-bottom-style: solid;
     border-bottom-color: black;
     margin-top: -3%;
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 75%;
+    min-width: 75%;
   }
 }
 
 //Browser Style
 .rowStyleNewAppointment{
   align-items: center;
+}
+.departmentPickerNewAppointment{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-top: -3%;
+  max-width: 100%;
+  min-width: 100%;
 }
 .datePickerNewAppointment{
   width: auto;
@@ -97,6 +133,6 @@
   border-bottom-style: solid;
   border-bottom-color: black;
   margin-top: -3%;
-  max-width: 50%;
-  min-width: 50%;
+  max-width: 75%;
+  min-width: 75%;
 }

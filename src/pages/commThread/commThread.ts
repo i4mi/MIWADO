@@ -49,9 +49,9 @@ export class CommThreadPage {
   private TextBlockChoosen : string;
   private options: Array<any>;
   private hideBackButton = false;
+
   private displayName : string;
   private displayGender : string;
-
 
   constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
               private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
@@ -366,7 +366,8 @@ export class CommThreadPage {
       }
       retVal += '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_newAppointment_2 + ' ';
-//TODO CHECK SELECT
+
+      //TODO CHECK SELECT
       var selectSection = innerHTML.getElementsByClassName('selectSection')[0].getElementsByTagName('input')[0];
       console.log(selectSection);
       if(selectSection == "") {
