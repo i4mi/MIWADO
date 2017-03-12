@@ -49,6 +49,7 @@ export class CommThreadPage {
   private TextBlockChoosen : string;
   private options: Array<any>;
   private hideBackButton = false;
+  private messages = new Array<any>();
 
   private displayName : string;
   private displayGender : string;
@@ -61,12 +62,11 @@ export class CommThreadPage {
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
-      this.retreiveCommRes();
       shareService.setPatient(this.pat.displayName, this.pat.gender);
     } else{
       this.hideBackButton = true;
       this.pat = {
-          id: '',
+          id: this.mp.getLoggedInId(),
           displayName: this.lang.commThread_my_chat,
           gender: 'none'
       }
@@ -107,11 +107,17 @@ export class CommThreadPage {
           }
       ]
     }
+
+    this.retreiveCommRes();
+
   }
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       console.log(res);
+      for(var i = 0; i < res.length; i++) {
+        this.messages.push(res[i]);
+      }
     }).catch((ex) => {
     console.error('Error fetching users', ex);
     });
@@ -142,19 +148,6 @@ export class CommThreadPage {
               });
             }
           }
-          /*this.settings.getUser().then((user) =>{
-            for(var i = 0; i < member.length; i++) {
-              console.log("Group member nr: " + i + " name: " + member[i].entity.display + " id: " + member[i].entity.reference);
-              if(member[i].entity.reference.includes(user.auth.owner)){
-                console.log('this is logged in user: ' + member[i].entity);
-              } else {
-                console.log('users (member of group) to add to receipient: ' + member[i].entity);
-              }
-            }
-          }).catch((ex) => {
-          console.error('Error fetching group members', ex);
-        });*/
-
     }).catch((ex) => {
       console.error('Error fetching group members', ex);
     })
@@ -196,9 +189,7 @@ export class CommThreadPage {
     if (text == '') {
       return '';
     }
-
-    content.push(text);
-
+    content.push({'contentString' : text});
 
     var med = {
       type: 'APP',
@@ -216,7 +207,7 @@ export class CommThreadPage {
       payload:content,
       medium:meds,
       encounter:'',
-      sent: sent,
+      sent:sent,
       received:'',
       reason:[{}],
       subject:subj,
@@ -367,15 +358,20 @@ export class CommThreadPage {
       retVal += '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_newAppointment_2 + ' ';
 
-      //TODO CHECK SELECT
-      var selectSection = innerHTML.getElementsByClassName('selectSection')[0].getElementsByTagName('input')[0];
+      var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
       console.log(selectSection);
       if(selectSection == "") {
-        //TODO: here comes error dingens
-        alert('noSection');
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_Section_Choosen_Title,
+          subTitle: this.lang.commThread_No_Section_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
         return '';
-      } //TODO: add selectinput to text
-      retVal += this.lang.TextBlock_newAppointment_3 + ' ' +
+      }
+      retVal += '<section>' + selectSection + '</section> ' +
+                this.lang.TextBlock_newAppointment_3 + ' ' +
                 this.lang.TextBlock_Place + ' ' +
                 this.lang.TextBlock_newAppointment_4 + ' ' +
                 this.lang.TextBlock_cancelation + ' ' +

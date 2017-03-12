@@ -92,7 +92,7 @@ export class MidataPersistence {
   }
 
   getLoggedInId(){
-    console.log('logged in id... ' + this.authResponse);
+    console.log('logged in id... ' + this.authResponse.owner);
     return this.authResponse.owner;
   }
 
@@ -116,7 +116,7 @@ export class MidataPersistence {
   }
 
   retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
-    return this.search('Communication', { "patient": pat.id }).then((result) => {
+    return this.search('Communication', { /*"patient": pat.id*/ }).then((result) => {
       console.log("resources" + JSON.stringify(result));
       console.log("breakpoint goes here");
 
@@ -186,6 +186,7 @@ export class MidataPersistence {
   // into the MIDATA_Types.MIDATA_HL7CommRes.
   // -->  return: MIDATA_Types.MIDATA_HL7CommRes Object
   private convertCommResToTS(JSON){
+    console.log(JSON);
     var TS:MidataTypes.MIDATA_HL7CommRes;
     var s:MidataTypes.MIDATA_HL7CommRes_Person;
 
@@ -225,7 +226,6 @@ export class MidataPersistence {
         display: ''
       }
       r.reference = JSON.recipient[i].reference;
-      r.display = JSON.recipient[i].display;
       TS.recipient.push(r);
     }
 
@@ -233,23 +233,28 @@ export class MidataPersistence {
     // -->  contentString
     // -->  contentAttachment
     // -->  contentRefernce
-    for (var i = 0; i < JSON.payload.length; i++) {
-      if (JSON.payload[i].hasOwnProperty('contentString')) {
-        var cS:MidataTypes.MIDATA_HL7CommRes_Payload_String;
-        cS = { contentString: '' }
-        cS = JSON.payload[i].contentString;
-        TS.payload.push(cS);
-      } else if (JSON.payload[i].hasOwnProperty('contentAttachment')) {
-        var cA:MidataTypes.MIDATA_HL7CommRes_Payload_Attachment;
-        cA = { contentAttachment: '' }
-        cA = JSON.payload[i].contentAttachment;
-        TS.payload.push(cA);
-      } else if (JSON.payload[i].hasOwnProperty('contentRefernce')) {
-        var cR:MidataTypes.MIDATA_HL7CommRes_Payload_Refernce;
-        cR = { contentRefernce: '' }
-        cR = JSON.payload[i].contentRefernce;
-        TS.payload.push(cR);
+    if(JSON.payload != undefined) {
+      for (var i = 0; i < JSON.payload.length; i++) {
+        if (JSON.payload[i].hasOwnProperty('contentString')) {
+          var cS:MidataTypes.MIDATA_HL7CommRes_Payload_String;
+          cS = { contentString: '' }
+          cS = JSON.payload[i].contentString;
+          TS.payload.push(cS);
+        } else if (JSON.payload[i].hasOwnProperty('contentAttachment')) {
+          var cA:MidataTypes.MIDATA_HL7CommRes_Payload_Attachment;
+          cA = { contentAttachment: '' }
+          cA = JSON.payload[i].contentAttachment;
+          TS.payload.push(cA);
+        } else if (JSON.payload[i].hasOwnProperty('contentRefernce')) {
+          var cR:MidataTypes.MIDATA_HL7CommRes_Payload_Refernce;
+          cR = { contentRefernce: '' }
+          cR = JSON.payload[i].contentRefernce;
+          TS.payload.push(cR);
+        }
       }
+    } else {
+      cS = { contentString: '' }
+      TS.payload.push(cS);
     }
 
     if(JSON.medium) {

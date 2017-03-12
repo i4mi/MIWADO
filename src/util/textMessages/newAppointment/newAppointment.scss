@@ -1,10 +1,13 @@
 // iOS Style
 .platform-ios{
+  ion-select {
+    position: relative;
+  }
   ion-row {
     flex-wrap:wrap;
   }
   ion-datetime {
-  position: relative;
+    position: relative;
   }
   .rowStyleNewAppointment{
     align-items: center;
@@ -49,11 +52,14 @@
 
 //Android Style
 .platform-android{
+  ion-select {
+    position: relative;
+  }
   ion-row {
     flex-wrap:wrap;
   }
   ion-datetime {
-  position: relative;
+    position: relative;
   }
   .rowStyleNewAppointment{
     align-items: center;
