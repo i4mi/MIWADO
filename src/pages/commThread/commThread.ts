@@ -50,6 +50,7 @@ export class CommThreadPage {
   private options: Array<any>;
   private hideBackButton = false;
   private messages = new Array<any>();
+  private resource = new Array<any>();
 
   private displayName : string;
   private displayGender : string;
@@ -66,10 +67,13 @@ export class CommThreadPage {
     } else{
       this.hideBackButton = true;
       this.pat = {
-          id: this.mp.getLoggedInId(),
+          id: '',
           displayName: this.lang.commThread_my_chat,
           gender: 'none'
       }
+      this.settings.getUser().then((user) => {
+        this.pat.id = user.auth.owner;
+      });
     }
 
     if (this.mp.getRole() == 'provider') {
@@ -114,22 +118,25 @@ export class CommThreadPage {
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
-      res = res.reverse();
+      this.resource = res.reverse();
       console.log(res);
-      for(var i = 0; i < res.length; i++) {
-        //Sender ID
-        var sId = res[i].sender.reference;
-        sId = sId.replace("Patient/", "");
-        sId = sId.replace("Practitioner/", "");
 
-        if(this.mp.getLoggedInId() == sId) {
-          res[i].ownership = 'mine';
-        } else {
-          res[i].ownership = 'other';
+      this.settings.getUser().then((user) => {
+        for(var i = 0; i < this.resource.length; i++) {
+          //Sender ID
+          var sId = this.resource[i].sender.reference;
+          sId = sId.replace("Patient/", "");
+          sId = sId.replace("Practitioner/", "");
 
+          if(user.auth.owner == sId) {
+            this.resource[i].ownership = 'mine';
+          } else {
+            this.resource[i].ownership = 'other';
+          }
+          this.messages.push(this.resource[i]);
         }
-        this.messages.push(res[i]);
-      }
+      });
+
     }).catch((ex) => {
     console.error('Error fetching users', ex);
     });
