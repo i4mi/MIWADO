@@ -201,7 +201,7 @@ export class CommThreadPage {
     var content = new Array<any>();
     var meds = new Array<MidataTypes.MIDATA_HL7CommRes_Medium>();
     var sent = new Date();
-    var subj = "Patient/" + this.pat.id;
+    var subj = {"reference":"Patient/" + this.pat.id};
     var tg = this.TextBlockChoosen;
     var sendr = "";
 
@@ -229,7 +229,7 @@ export class CommThreadPage {
 
     var commRes = {
       resourceType:'Communication',
-      category:tg,
+      category:{tg},
       sender:sendr,
       status:'in-progress',
       recipient:rec,
@@ -243,10 +243,12 @@ export class CommThreadPage {
       requestDetail:{}
     }
 
+    console.log(commRes);
     this.mp.save(commRes).then((res) => {
       console.log('stored?? ');
       console.log(res);
       //TODO HERE NOTIFY
+      this.retreiveCommRes();
     }).catch((ex) => {
       console.error('Error while saving comm res: ', ex);
     });
