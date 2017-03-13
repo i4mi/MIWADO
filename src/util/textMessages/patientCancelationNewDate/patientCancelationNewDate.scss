@@ -1,5 +1,11 @@
 // iOS Style
 .platform-ios{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .datePickerCancelationWillCall{
     width: auto;
     float: left;
@@ -17,6 +23,12 @@
 
 //Android Style
 .platform-android{
+  ion-row {
+    flex-wrap:wrap;
+  }
+  ion-datetime {
+  position: relative;
+  }
   .datePickerCancelationWillCall{
     width: auto;
     float: left;

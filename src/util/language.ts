@@ -57,6 +57,8 @@ export class LANGUAGE {
   public commThread_No_Date_Choosen_Title : string;
   public commThread_No_Time_Choosen : string;
   public commThread_No_Time_Choosen_Title : string;
+  public commThread_No_Section_Choosen_Title : string;
+  public commThread_No_Section_Choosen : string;
 
   //Language variables for the TextBlocks
 
@@ -192,6 +194,8 @@ export class LANGUAGE {
     this.commThread_No_Date_Choosen_Title = 'Kein Datum angegeben';
     this.commThread_No_Time_Choosen = 'Bitte selektiere die Zeit.';
     this.commThread_No_Time_Choosen_Title = 'Keine Zeit angegeben';
+    this.commThread_No_Section_Choosen_Title = 'Keine Abteilung ausgewählt';
+    this.commThread_No_Section_Choosen = 'Bitte wähle eine Abteilung aus.';
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -277,6 +281,8 @@ export class LANGUAGE {
     this.commTread_No_Message_Choosen = 'none';
     this.commTread_No_Message_Choosen_Title = 'none';
     this.commThread_my_chat = 'Mes messages';
+    this.commThread_No_Section_Choosen_Title = 'none';
+    this.commThread_No_Section_Choosen = 'none';
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -360,6 +366,8 @@ export class LANGUAGE {
     this.commThread_my_chat = 'My Messages';
     this.commTread_No_Message_Choosen = 'Please choose a message.';
     this.commTread_No_Message_Choosen_Title = 'No message choosen';
+    this.commThread_No_Section_Choosen_Title = 'none';
+    this.commThread_No_Section_Choosen = 'none';
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';
