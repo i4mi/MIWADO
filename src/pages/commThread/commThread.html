@@ -47,7 +47,7 @@
   </div>
 
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
-  <ion-row>
+  <ion-row class="message-item-wrapper">
     <ion-item class="message-editor">
       <ion-select class="message-select-typ" [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock()">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>

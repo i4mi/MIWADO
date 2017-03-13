@@ -19,10 +19,12 @@ export class ChangeBackoffice {
   private displayName : string;
   private displayGender : string;
   private gender : string;
+  private senderName: string;
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
     this.gender = shareService.getPatientGender();
     this.displayName =  shareService.getPatientDisplayname();
+    this.senderName = shareService.getSenderName();
 
     if(this.gender == "male"){
       this.displayGender = this.lang.TextBlock_Man;

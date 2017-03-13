@@ -71,7 +71,8 @@
       &.message-mine {
         float: right;
         background-color: #DCF8C6;
-        left: 10px;
+        left: 0px;
+        margin: 10px;
 
         &::before {
           right: -11px;
@@ -82,7 +83,8 @@
       &.message-other {
         float: left;
         background-color: #FFF;
-        right: 10px;
+        right: 0px;
+        margin: 10px;
 
         &::before {
           left: -11px;
@@ -120,10 +122,13 @@
     .message-send-button{
       max-width: 12%;
       min-width: 10%;
+      right: 2px;
+      bottom: 1px;
+      position: absolute;
     }
     .message-select-typ{
-      max-width: 80%;
-      min-width: 80%;
+      max-width: 70%;
+      min-width: 70%;
     }
     .message-select-label{
       max-width: 70%;
@@ -132,27 +137,21 @@
     .messages-page-footer {
     padding-right: 0;
     padding-top: 2%;
-    margin-left: 2%;
     background-color: white;
 
     .message-editor {
       margin-left: 2px;
       background: white;
-      max-width: 80%;
-      min-width: 80%;
+      max-width: 70%;
+      min-width: 70%;
       border-radius: 3px;
       float: left;
     }
 
     .message-editor-button {
       box-shadow: none;
-      width: 50px;
-      height: 50px;
-      font-size: 17px;
       max-width: 20%;
       min-width: 20%;
-      margin: auto;
-      float: left;
     }
     }
   }
@@ -231,7 +230,8 @@
         float: right;
         right: 1px;
         background-color: #DCF8C6;
-        left: 10px;
+        left: 0px;
+        margin: 10px;
 
         &::before {
           right: -11px;
@@ -242,7 +242,8 @@
       &.message-other {
         float: left;
         background-color: #FFF;
-        right: 10px;
+        right: 0px;
+        margin: 10px;
 
         &::before {
           left: -11px;
@@ -280,10 +281,13 @@
     .message-send-button{
       max-width: 12%;
       min-width: 10%;
+      right: 2px;
+      bottom: 1px;
+      position: absolute;
     }
     .message-select-typ{
-      max-width: 80%;
-      min-width: 80%;
+      max-width: 70%;
+      min-width: 70%;
     }
     .message-select-label{
       max-width: 70%;
@@ -292,27 +296,21 @@
     .messages-page-footer {
     padding-right: 0;
     padding-top: 2%;
-    margin-left: 2%;
     background-color: white;
 
     .message-editor {
       margin-left: 2px;
       background: white;
-      max-width: 80%;
-      min-width: 80%;
+      max-width: 70%;
+      min-width: 70%;
       border-radius: 3px;
       float: left;
     }
 
     .message-editor-button {
       box-shadow: none;
-      width: 50px;
-      height: 50px;
-      font-size: 17px;
       max-width: 20%;
       min-width: 20%;
-      margin: auto;
-      float: left;
     }
     }
   }
@@ -382,7 +380,8 @@ page-commThread {
       float: right;
       background-color: #DCF8C6;
       clear: both;
-      left: 10px;
+      left: 0px;
+      margin: 10px;
 
       &::before {
         right: -11px;
@@ -394,7 +393,8 @@ page-commThread {
       float: left;
       background-color: #FFF;
       clear: both;
-      right: 10px;
+      right: 0px;
+      margin: 10px;
 
       &::before {
         left: -11px;
@@ -433,10 +433,13 @@ page-commThread {
   .message-send-button{
     max-width: 12%;
     min-width: 10%;
+    right: 2px;
+    bottom: 1px;
+    position: absolute;
   }
   .message-select-typ{
-    max-width: 80%;
-    min-width: 80%;
+    max-width: 70%;
+    min-width: 70%;
   }
   .message-select-label{
     max-width: 70%;
@@ -445,27 +448,21 @@ page-commThread {
   .messages-page-footer {
   padding-right: 0;
   padding-top: 2%;
-  margin-left: 2%;
   background-color: white;
 
   .message-editor {
     margin-left: 2px;
     background: white;
-    max-width: 80%;
-    min-width: 80%;
+    max-width: 70%;
+    min-width: 70%;
     border-radius: 3px;
     float: left;
   }
 
   .message-editor-button {
     box-shadow: none;
-    width: 50px;
-    height: 50px;
-    font-size: 17px;
     max-width: 20%;
     min-width: 20%;
-    margin: auto;
-    float: left;
   }
   }
 }

@@ -5,6 +5,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { Platform } from 'ionic-angular';
 
 import { LANGUAGE } from '../../language.ts';
+import { ShareService } from '../../shareService';
 
 
 @Component({
@@ -15,7 +16,10 @@ import { LANGUAGE } from '../../language.ts';
 export class CancelationPatient {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
-  constructor(private nav: NavController, private platform: Platform) {
+  private patientSenderName : string ;
+  constructor(private nav: NavController,  private shareService: ShareService, private platform: Platform) {
+    this.patientSenderName =   shareService.getSenderPatient();
+
   }
 
   }

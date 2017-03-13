@@ -54,11 +54,13 @@ export class CommThreadPage {
 
   private displayName : string;
   private displayGender : string;
+  private displaysender : string;
 
   constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
               private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
 
 	  this.TextBlockChoosen = "";
+  
 
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
