@@ -55,12 +55,15 @@ export class CommThreadPage {
   private displayName : string;
   private displayGender : string;
   private displaysender : string;
+  private senderHealthProfesionalName : string;
+  private senderPatientName : string;
 
   constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
               private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
 
 	  this.TextBlockChoosen = "";
-  
+    this.senderPatientName = shareService.getSenderPatient();
+    this.senderHealthProfesionalName = shareService.getSenderName();
 
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
@@ -279,7 +282,7 @@ export class CommThreadPage {
                this.lang.TextBlock_on + ' ' +
                '<date>' + dateInput + '</date> ' +
                this.lang.TextBlock_Sincere_regards + ' ' +
-               this.lang.TextBlock_PlaceholderName + '.';
+               this.senderPatientName + '.';
 
     } else if (this.TextBlockChoosen == 'patientCancelationWillCall') {
       // ABSAGE, NEU TELEFON --> NR 2 PAT
@@ -287,7 +290,7 @@ export class CommThreadPage {
                this.lang.TextBlock_PatientWillCall_1 + ' ' +
                this.lang.TextBlock_PatientWillCall_2 + ' ' +
                this.lang.TextBlock_Sincere_regards + ' ' +
-               this.lang.TextBlock_PlaceholderName + '.';
+               this.senderPatientName + '.';
 
     } else if (this.TextBlockChoosen == 'patientCancelationNewDate') {
       // ABSAGE, NEU TERMIN --> NR 3 PAT
@@ -308,7 +311,7 @@ export class CommThreadPage {
                this.lang.TextBlock_PatientAfterDate_2 + ' ' +
                '<date>' + dateInput + '</date> ' +
                this.lang.TextBlock_Sincere_regards + ' ' +
-               this.lang.TextBlock_PlaceholderName + '.';
+               this.senderPatientName + '.';
 
     } else if (this.TextBlockChoosen == 'cancelationPatient') {
       // ABSAGE --> NR 4 PAT
@@ -343,7 +346,7 @@ export class CommThreadPage {
                 '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_PatientwillnotCome_2 + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
-                this.lang.TextBlock_PlaceholderName + '.';
+                this.senderPatientName + '.';
 
     } else if (this.TextBlockChoosen == 'newAppointment') {
       // NEUER TERMIN --> NR 1 HP
@@ -411,7 +414,7 @@ export class CommThreadPage {
                 this.lang.TextBlock_cancelation_Costs + ' ' +
                 this.lang.TextBlock_Phonenumber + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
-                this.lang.TextBlock_PlaceholderName + '.';
+                this.senderHealthProfesionalName + '.';
 
     } else if (this.TextBlockChoosen == 'changeBackoffice') {
       // Verschieben --> NR 2 HP
@@ -475,7 +478,7 @@ export class CommThreadPage {
       retVal += '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_Change_Backoffice_4 + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
-                this.lang.TextBlock_PlaceholderName + '.';
+                this.senderHealthProfesionalName + '.';
 
     } else if (this.TextBlockChoosen == 'reminder') {
       // ERINNERUNG --> NR 3 HP
@@ -529,7 +532,7 @@ export class CommThreadPage {
                 this.lang.TextBlock_cancelation_Costs + ' ' +
                 this.lang.TextBlock_Phonenumber + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
-                this.lang.TextBlock_PlaceholderName + '.';
+                this.senderHealthProfesionalName + '.';
     }
 
     console.log(innerHTML);
