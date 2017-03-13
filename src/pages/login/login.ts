@@ -64,9 +64,8 @@ export class LoginPage {
     mp.login(formData.username, formData.password).then((res) => {
       console.log('logged in with auth response: ' + JSON.stringify(res));
       if(mp.loggedIn() == true){
-        if(this.settings.getStoreCred()){
-          this.settings.setUser(formData.username, formData.password, res);
-        } else {
+        this.settings.setUser(formData.username, formData.password, res);
+        if(!this.settings.getStoreCred()) {
           formData.username = '';
           formData.password = '';
         }

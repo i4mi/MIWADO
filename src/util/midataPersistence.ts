@@ -116,7 +116,7 @@ export class MidataPersistence {
   }
 
   retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
-    return this.search('Communication', { /*"patient": pat.id*/ }).then((result) => {
+    return this.search('Communication', { "patient": pat.id }).then((result) => {
       console.log("resources" + JSON.stringify(result));
       console.log("breakpoint goes here");
 
