@@ -174,17 +174,27 @@ export class CommThreadPage {
   }
 
   optionsTextBlock() {
-    console.log(this.TextBlock.tag)
+    if(this.TextBlock == undefined){
+      let alert = this.alertCtrl.create({
+        title: this.lang.commTread_No_Message_Choosen_Title,
+        subTitle: this.lang.commTread_No_Message_Choosen,
+        buttons: ['OK']
+      });
 
-    if(this.TextBlockChoosen != ""){
-      document.getElementById(this.TextBlockChoosen).hidden = true;
-      document.getElementById(this.TextBlock.tag).hidden = false;
-      this.TextBlockChoosen = this.TextBlock.tag;
+      return alert.present();
+
     }else{
-      document.getElementById(this.TextBlock.tag).hidden = false;
-      this.TextBlockChoosen = this.TextBlock.tag;
+      if(this.TextBlockChoosen != ""){
+        document.getElementById(this.TextBlockChoosen).hidden = true;
+        document.getElementById(this.TextBlock.tag).hidden = false;
+        this.TextBlockChoosen = this.TextBlock.tag;
+      }else{
+        document.getElementById(this.TextBlock.tag).hidden = false;
+        this.TextBlockChoosen = this.TextBlock.tag;
+      }
     }
   }
+
 
   defineCommRes(usrId: string, grp: any){
     var rec = new Array<any>();

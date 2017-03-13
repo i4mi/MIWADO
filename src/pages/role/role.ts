@@ -19,21 +19,11 @@ import { ShareService } from '../../util/shareService';
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
-  private disabledRoleHp = true;
-  private disabledRolePatient = true;
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform,  private storage: Storage) {
-
-    if(shareService.getRole() == "provider"){
-      this.disabledRoleHp = false
-    }else if(shareService.getRole() == "member"){
-      this.disabledRolePatient = false
-    }else{
-      this.disabledRoleHp = false
-      this.disabledRolePatient = false
     }
 
-  }
+  
 
   chooseRole(event, role){
     var mp = MidataPersistence.getInstance();

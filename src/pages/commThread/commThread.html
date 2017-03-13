@@ -13,7 +13,7 @@
   <ion-scroll scrollY="true" class="messages">
     <div *ngFor="let message of messages" class="day-wrapper">
         <div [class]="'message message-' + message.ownership">
-          <div>{{message.sender.display}}</div>
+          <div class="message-sendername">{{message.sender.display}}</div>
           <div class="message-content message-content-text">{{message.payload[0]}}</div>
           <span class="message-timestamp">{{ message.sent }}</span>
       </div>
@@ -49,12 +49,11 @@
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
   <ion-row>
     <ion-item class="message-editor">
-      <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
-      <ion-select [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock()">
+      <ion-select class="message-select-typ" [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock()">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button icon-only (click)="storeCommRes()" ass="message-editor-button">
+    <button ion-button icon-only class="message-send-button" (click)="storeCommRes()" ass="message-editor-button">
       <ion-icon name="send"></ion-icon>
     </button>
   </ion-row>
