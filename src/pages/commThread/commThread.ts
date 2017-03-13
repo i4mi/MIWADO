@@ -238,6 +238,7 @@ export class CommThreadPage {
       console.log('stored?? ');
       console.log(res);
       //TODO HERE NOTIFY
+      this.retreiveCommRes();
     }).catch((ex) => {
       console.error('Error while saving comm res: ', ex);
     });
