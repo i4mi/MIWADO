@@ -15,11 +15,11 @@
       <div class="col header text-center login-img-container">
           <img class="login-img" src="./assets/img/logo2.0.png"/>
            <div class="list login-list">
-              <button class="type-img-div" [disabled]="disabledRolePatient">
+              <button class="type-img-div">
               <img class="type-img" src="./assets/img/patient-icon-color.png" (click)="chooseRole($event, 'member')" />
               <p>{{ lang.role_View_Pat }}</p>
               </button>
-              <button class="type-img-div" [disabled]="disabledRoleHp">
+              <button class="type-img-div">
               <img class="type-img" src="./assets/img/doctor-icon-color.png" (click)="chooseRole($event, 'provider')" />
               <p>{{ lang.role_View_Hp }}</p>
               </button>

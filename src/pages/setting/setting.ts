@@ -60,7 +60,6 @@ export class SettingPage {
         handler: () => {
           this.mp.logout();
           this.nav.push(RolePage);
-          this.shareService.setRole("");
         }
       }
     ]

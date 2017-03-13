@@ -1,3 +1,96 @@
+// iOS Style
+.platform-ios{
+  page-login{
+
+  //Login Header
+    ion-title{
+      text-align: center;
+      margin-right: 35%;
+      height: 100%;
+      margin-top: 3%;
+    }
+    .backToRoleButton{
+      float: left;
+      text-align: center;
+      max-width: 70%;
+      max-height: 70%;
+      margin-left: -4%;
+    }
+    .backToRoleButtonText{
+      float: left;
+      text-align: center;
+      color: #000;
+      font-size: 3.5vw;
+      margin-left: -5%;
+    }
+
+  //Login Form
+    .login-img{
+      display: block;
+      margin: auto;
+      max-width: 50%;
+      max-height: 50%;
+    }
+    .loginFormButton{
+      margin-left: 5%;
+      margin-top: 10%;
+      width: 90%;
+      background-color: #268ba3;
+      color: #FFF;
+      font-size: 4vh;
+      padding: 2%;
+      border-radius: 5px;
+
+    }
+  }
+}
+//Android Style
+.platform-android{
+  page-login{
+
+  //Login Header
+    ion-title{
+      text-align: center;
+      margin-right: 35%;
+      height: 100%;
+      margin-top: 3%;
+    }
+    .backToRoleButton{
+      float: left;
+      text-align: center;
+      max-width: 70%;
+      max-height: 70%;
+      margin-left: -4%;
+    }
+    .backToRoleButtonText{
+      float: left;
+      text-align: center;
+      color: #000;
+      font-size: 3.5vw;
+      margin-left: -5%;
+    }
+
+  //Login Form
+    .login-img{
+      display: block;
+      margin: auto;
+      max-width: 50%;
+      max-height: 50%;
+    }
+    .loginFormButton{
+      margin-left: 5%;
+      margin-top: 10%;
+      width: 90%;
+      background-color: #268ba3;
+      color: #FFF;
+      font-size: 4vh;
+      padding: 2%;
+      border-radius: 5px;
+
+    }
+  }
+}
+
 page-login{
 
 //Login Header
@@ -23,9 +116,14 @@ page-login{
   }
 
 //Login Form
+  .login-img{
+    display: block;
+    margin: auto;
+    max-width: 20%;
+    max-height: 20%;
+  }
   .loginFormButton{
     margin-left: 5%;
-    margin-top: 10%;
     width: 90%;
     background-color: #268ba3;
     color: #FFF;
