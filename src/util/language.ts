@@ -87,6 +87,10 @@ export class LANGUAGE {
   public TextBlock_Reminder_3 : string;
   public TextBlock_Reminder_4 : string;
   public TextBlock_Reminder_5 : string;
+  public TextBlock_not_fasting :string;
+  public TextBlock_fasting :string;
+  public commThread_No_FastingStatus_Choosen_Title :string;
+  public commThread_No_FastingStatus_Choosen :string;
 
   //new Appointment
   public TextBlock_newAppointment_1 : string;
@@ -243,7 +247,11 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endokrinologie';
     this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
     this.TextBlock_metabolism = 'Metabolismus';
-    this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_PlaceholderName = 'Lehrmann';
+    this.TextBlock_not_fasting = "Nicht nüchtern";
+    this.TextBlock_fasting = "Nüchtern";
+    this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
+    this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
   }
 
 
@@ -337,6 +345,10 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = "Médecine de nutrition";
     this.TextBlock_metabolism = 'Métabolisme';
     this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_not_fasting = "not none";
+    this.TextBlock_fasting = "none";
+    this.commThread_No_FastingStatus_Choosen_Title ="none";
+    this.commThread_No_FastingStatus_Choosen = "none";
   }
 
   private langEN(){
@@ -428,5 +440,9 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = 'none';
     this.TextBlock_metabolism = 'none';
     this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_not_fasting = "Not fasting";
+    this.TextBlock_fasting = "Fasting";
+    this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
+    this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
   }
 }

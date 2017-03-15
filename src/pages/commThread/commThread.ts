@@ -589,6 +589,7 @@ export class CommThreadPage {
         this.displayGender = this.lang.TextBlock_Woman;
       }
 
+
       retVal = this.lang.TextBlock_Welcome + ' ' +
                this.displayGender + ' ' +
                this.displayName + ' ' +
@@ -608,6 +609,19 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
+
+      if(this.shareService.getFastingStatus() != "fasting" || this.shareService.getFastingStatus() != "notfasting") {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_FastingStatus_Choosen_Title,
+          subTitle: this.lang.commThread_No_FastingStatus_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      if( this.shareService.getFastingStatus() == "fasting"){
       retVal += '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_Reminder_3 + ' ' +
                 this.lang.TextBlock_Place + ' ' +
@@ -618,6 +632,16 @@ export class CommThreadPage {
                 this.lang.TextBlock_Phonenumber + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
                 this.senderHealthProfesionalName + '.';
+      }else if(this.shareService.getFastingStatus() == "notfasting"){
+        retVal += '<time>' + timeInput + '</time> ' +
+                  this.lang.TextBlock_Reminder_3 + ' ' +
+                  this.lang.TextBlock_Place + ' ' +
+                  this.lang.TextBlock_cancelation + ' ' +
+                  this.lang.TextBlock_cancelation_Costs + ' ' +
+                  this.lang.TextBlock_Phonenumber + ' ' +
+                  this.lang.TextBlock_Sincere_regards + ' ' +
+                  this.senderHealthProfesionalName + '.';
+      }
     }
 
     console.log(innerHTML);

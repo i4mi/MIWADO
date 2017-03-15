@@ -35,4 +35,8 @@ export class Reminder {
       this.displayGender = "";
     }
   }
+
+  fastingStatusAction(value){
+    this.shareService.setFastingStatus(value);
+  }
 }
