@@ -8,7 +8,7 @@
   <ion-row class="rowStyleConfirmation">
     {{ lang.TextBlock_on }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" class="datePickerConfirmation selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerConfirmation selectDate"></ion-datetime>
     </ion-col>
   </ion-row>
   <ion-row >

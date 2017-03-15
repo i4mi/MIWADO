@@ -20,6 +20,8 @@ export class ChangeBackoffice {
   private displayGender : string;
   private gender : string;
   private senderName: string;
+  myDate : String = new Date().toISOString();
+
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
     this.gender = shareService.getPatientGender();

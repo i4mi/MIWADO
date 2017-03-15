@@ -59,6 +59,12 @@ export class LANGUAGE {
   public commThread_No_Time_Choosen_Title : string;
   public commThread_No_Section_Choosen_Title : string;
   public commThread_No_Section_Choosen : string;
+  public commThread_exportAppointment_PopUp_Title : string;
+  public commThread_exportAppointment_PopUp_Text : string;
+  public commThread_exportAppointment_Title : string;
+  public commThread_exportAppointment_Location :string;
+  public commThread_exportAppointment_Body :string;
+
 
   //Language variables for the TextBlocks
 
@@ -196,6 +202,11 @@ export class LANGUAGE {
     this.commThread_No_Time_Choosen_Title = 'Keine Zeit angegeben';
     this.commThread_No_Section_Choosen_Title = 'Keine Abteilung ausgewählt';
     this.commThread_No_Section_Choosen = 'Bitte wähle eine Abteilung aus.';
+    this.commThread_exportAppointment_PopUp_Title = "Termin exportieren";
+    this.commThread_exportAppointment_PopUp_Text = "Wollen Sie diesen Termin in Ihren Kalender exportieren?";
+    this.commThread_exportAppointment_Title = "MIWADO Termin";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Termin";
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -283,6 +294,13 @@ export class LANGUAGE {
     this.commThread_my_chat = 'Mes messages';
     this.commThread_No_Section_Choosen_Title = 'none';
     this.commThread_No_Section_Choosen = 'none';
+    this.commThread_exportAppointment_PopUp_Title = "none";
+    this.commThread_exportAppointment_PopUp_Text = "none";
+    this.commThread_exportAppointment_Title = "MIWADO Rendez-vous";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Rendez-vous";
+
+
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -368,6 +386,12 @@ export class LANGUAGE {
     this.commTread_No_Message_Choosen_Title = 'No message choosen';
     this.commThread_No_Section_Choosen_Title = 'none';
     this.commThread_No_Section_Choosen = 'none';
+    this.commThread_exportAppointment_PopUp_Title = "Export Appointment";
+    this.commThread_exportAppointment_PopUp_Text = "Do you want to export this appointment into your calendar?";
+    this.commThread_exportAppointment_Title = "MIWADO Appointment";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Appointment";
+
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';

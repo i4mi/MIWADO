@@ -7,13 +7,13 @@
   <ion-row class="rowStyleReminder">
     {{ lang.TextBlock_Reminder_1 }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" class="datePickerReminder selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerReminder selectDate"></ion-datetime>
     </ion-col>
   </ion-row>
   <ion-row class="rowStyleReminder">
     {{ lang.TextBlock_Reminder_2 }}
     <ion-col>
-      <ion-datetime displayFormat="HH:mm" class="datePickerReminder selectTime"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="datePickerReminder selectTime"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_Reminder_3 }}
     {{ lang.TextBlock_Place }} {{ lang.TextBlock_Reminder_4 }}

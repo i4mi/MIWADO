@@ -7,11 +7,11 @@
   <ion-row class="rowStyleNewAppointment">
     {{ lang.TextBlock_newAppointment_1 }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" class="datePickerNewAppointment selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY"  [(ngModel)]="myDate" class="datePickerNewAppointment selectDate"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_at }}
     <ion-col>
-      <ion-datetime displayFormat="HH:mm" class="timePickerNewAppointment selectTime"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerNewAppointment selectTime"></ion-datetime>
     </ion-col>
   </ion-row>
   <ion-row>
