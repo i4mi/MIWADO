@@ -64,6 +64,7 @@ export class LANGUAGE {
   public commThread_exportAppointment_Title : string;
   public commThread_exportAppointment_Location :string;
   public commThread_exportAppointment_Body :string;
+  public commThread_Choose_Message_PopUp : string;
 
 
   //Language variables for the TextBlocks
@@ -211,6 +212,10 @@ export class LANGUAGE {
     this.commThread_exportAppointment_Title = "MIWADO Termin";
     this.commThread_exportAppointment_Location = "UDEM";
     this.commThread_exportAppointment_Body = "Termin";
+    this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
+    this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
+    this.commThread_Choose_Message_PopUp = 'Nachricht auswählen';
+
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -250,8 +255,6 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
-    this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
-    this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
   }
 
 
@@ -307,7 +310,9 @@ export class LANGUAGE {
     this.commThread_exportAppointment_Title = "MIWADO Rendez-vous";
     this.commThread_exportAppointment_Location = "UDEM";
     this.commThread_exportAppointment_Body = "Rendez-vous";
-
+    this.commThread_Choose_Message_PopUp = 'Choisir message';
+    this.commThread_No_FastingStatus_Choosen_Title ="none";
+    this.commThread_No_FastingStatus_Choosen = "none";
 
 
     this.TextBlock_Welcome = 'Bonjour';
@@ -347,8 +352,6 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "not none";
     this.TextBlock_fasting = "none";
-    this.commThread_No_FastingStatus_Choosen_Title ="none";
-    this.commThread_No_FastingStatus_Choosen = "none";
   }
 
   private langEN(){
@@ -403,6 +406,9 @@ export class LANGUAGE {
     this.commThread_exportAppointment_Title = "MIWADO Appointment";
     this.commThread_exportAppointment_Location = "UDEM";
     this.commThread_exportAppointment_Body = "Appointment";
+    this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
+    this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
+    this.commThread_Choose_Message_PopUp = 'Please choose message';
 
 
     this.TextBlock_Welcome = 'Welcome';
@@ -442,7 +448,5 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
-    this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
-    this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
   }
 }
