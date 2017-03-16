@@ -7,7 +7,7 @@
   <ion-row class="rowStyleNewAppointment">
     {{ lang.TextBlock_newAppointment_1 }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY"  [(ngModel)]="myDate" class="datePickerNewAppointment selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}}  [(ngModel)]="myDate" class="datePickerNewAppointment selectDate"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_at }}
     <ion-col>

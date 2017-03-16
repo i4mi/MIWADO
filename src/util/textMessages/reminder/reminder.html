@@ -7,7 +7,7 @@
   <ion-row class="rowStyleReminder">
     {{ lang.TextBlock_Reminder_1 }}
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerReminder selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerReminder selectDate"></ion-datetime>
     </ion-col>
   </ion-row>
   <ion-row class="rowStyleReminder">

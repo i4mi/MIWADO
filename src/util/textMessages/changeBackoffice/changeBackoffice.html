@@ -9,7 +9,7 @@
   </ion-row>
   <ion-row class="rowStyleChangeBackoffice">
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDate"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_Change_Backoffice_2 }}
   </ion-row>
@@ -18,7 +18,7 @@
   </ion-row>
   <ion-row class="rowStyleChangeBackoffice">
     <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDateTwo"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDateTwo"></ion-datetime>
     </ion-col>
     {{ lang.TextBlock_at }}
     <ion-col>

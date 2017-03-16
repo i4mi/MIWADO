@@ -21,6 +21,8 @@ export class NewAppointment {
   private gender : string;
   private senderName : string;
   myDate : String = new Date().toISOString();
+  myDateYear : any;
+  myDateYearFutur : any;
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
     this.gender = shareService.getPatientGender();
@@ -28,6 +30,9 @@ export class NewAppointment {
     this.senderName = shareService.getSenderName();
     console.log(shareService.getPatientDisplayname());
 
+
+    this.myDateYear = this.myDate.substr(0,4);
+    this.myDateYearFutur = (parseInt(this.myDateYear) + 20).toString();
 
     if(this.gender == "male"){
       this.displayGender = this.lang.TextBlock_Man;
