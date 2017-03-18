@@ -3,7 +3,6 @@ import * as MidataTypes from './typings/MIDATA_Types';
 import * as MiwadoTypes from './typings/MIWADO_Types';
 
 import { Injectable } from '@angular/core';
-import { TestPatients } from './testObj/testPatients';
 
 /*----------------------------------------------------------------------------*/
 /* MidataPersitence (^.^) (not realy persistence... but almost)
@@ -146,6 +145,16 @@ export class MidataPersistence {
         patList.push(asd);
       }
       return patList;
+    });
+  }
+
+  retreiveFCMToken(){
+    return this.search('Device').then((result) => {
+      console.log('token resources:');
+      console.log(result);
+      return result;
+    }).catch((error) => {
+        console.error('Error fetching users', error);
     });
   }
 

@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { AlertController, Platform } from 'ionic-angular';
-
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { RolePage } from '../role/role';
-import { WriteMessagePage } from '../pages/writeMessage/writeMessage';
 import { ShareService } from '../../util/shareService';
-
 
   @Component({
     selector: 'page-setting',
@@ -26,6 +22,8 @@ export class SettingPage {
   private mp = MidataPersistence.getInstance();
   private disabled = false;
   private disableLogout = true;
+  private groups = new Array<any>();
+  private selectedGroup: string;
 
   constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
@@ -34,6 +32,19 @@ export class SettingPage {
     if (this.platform.is('ios') && this.platform.is('mobile')){
       this.disabled = true;
     }
+
+    this.mp.search("Group").then((res) => {
+      for(var i = 0; i < res.length; i++) {
+        console.log('Group nr: ' + i + ' name: ' + res[i].name);
+        this.groups.push(res[i]);
+      }
+      if (!this.selectedGroup && res) {
+        this.selectedGroup = res[0].name;
+        this.setGroup();
+      }
+    });
+
+    this.selectedGroup = this.settings.getGroup();
 
     this.myForm = builder.group({
       'radioButton_Language' : this.settings.getLanguage()
@@ -74,5 +85,9 @@ export class SettingPage {
 
   deleteCredentials(){
     this.settings.setUser('', '');
+  }
+
+  setGroup(){
+    this.settings.setGroup(this.selectedGroup);
   }
 }

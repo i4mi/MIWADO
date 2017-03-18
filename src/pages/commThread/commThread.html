@@ -9,7 +9,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="messages-page-content">
+<ion-content padding class="messages-page-content" #messageWindow>
   <ion-scroll scrollY="true" class="messages">
     <div *ngFor="let message of messages" class="day-wrapper">
         <div [class]="'message message-' + message.ownership">

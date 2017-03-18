@@ -1,4 +1,3 @@
-import { SettingPage } from '../pages/setting/setting';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
@@ -12,6 +11,7 @@ export class Settings {
   private lang: string;
   private storeCredentials = false;
   private user: MiwadoTypes.MIWADO_User;
+  private selectedGroup: string;
 
   private constructor(private platform: Platform, private storage: Storage){
       if(platform.is('ios') && platform.is('mobile')) {
@@ -66,5 +66,13 @@ export class Settings {
 
   getStoreCred(): boolean {
     return this.storeCredentials;
+  }
+
+  setGroup(group: string) {
+    this.selectedGroup = group;
+  }
+
+  getGroup(): string {
+    return this.selectedGroup;
   }
 }

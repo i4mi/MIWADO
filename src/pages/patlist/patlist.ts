@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 import { CommThreadPage } from '../commThread/commThread';
 import { LANGUAGE } from '../../util/language';
 import { MidataPersistence } from '../../util/midataPersistence';
 import { SettingPage } from '../setting/setting';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
+import { NotificationService } from '../../util/notification/notification';
 
 import { Settings } from '../../util/settings';
 import { ShareService } from '../../util/shareService';
@@ -24,7 +25,10 @@ export class PatList {
   private patList: Array<MiwadoTypes.MIWADO_Patient>;
   private displaysender : string;
 
-  constructor(private nav: NavController, private shareService: ShareService, private platform: Platform, private storage: Storage) {
+  constructor(private nav: NavController, private shareService: ShareService,
+              private platform: Platform, private storage: Storage, private notificationService : NotificationService,
+              private alertCtrl: AlertController) {
+
     shareService.setRole(this.mp.getRole());
     if(this.mp.getRole() == 'member') {
       this.nav.push(CommThreadPage);
@@ -44,17 +48,30 @@ export class PatList {
 
       this.mp.search(resource).then((res) => {
         if(resource == 'Group'){
-      for (var i = 0; i < res[0].member.length; i++) {
-          if(res[0].member[i].entity.reference == "Practitioner/" + user.auth.owner) {
-            this.displaysender = res[0].member[i].entity.display;
-            shareService.setSender(this.displaysender);
+          for (var i = 0; i < res[0].member.length; i++) {
+              if(res[0].member[i].entity.reference == "Practitioner/" + user.auth.owner) {
+                this.displaysender = res[0].member[i].entity.display;
+                shareService.setSender(this.displaysender);
+              }
           }
+          notificationService.initNotification();
+        } else{
+          shareService.setSenderPatient(res["0"].name["0"].given["0"], res["0"].name["0"].family)
         }
-    }else{
-      shareService.setSenderPatient(res["0"].name["0"].given["0"], res["0"].name["0"].family)
+      });
+    });
+
+    if(!this.settings.getGroup()) {
+      console.log('no group choosen in settings');
+
+      let alert = this.alertCtrl.create({
+        title: this.lang.commTread_No_Group_Choosen_Title,
+        subTitle: this.lang.commTread_No_Group_Choosen,
+        buttons: ['OK']
+      });
+
+      alert.present();
     }
-    });
-    });
 
     this.patList = new Array<MiwadoTypes.MIWADO_Patient>();
     if(this.mp.getRole() == 'provider') {

@@ -6,7 +6,7 @@ import { SettingPage } from '../setting/setting';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
-import { AlertController, Platform } from 'ionic-angular';
+import { AlertController, Platform, Content } from 'ionic-angular';
 import { Overlay } from 'angular2-modal';
 
 import { CancelationPatient } from '../../util/textMessages/cancelationPatient/cancelationPatient';
@@ -36,6 +36,7 @@ export class CommThreadPage {
   @ViewChild('patientCancelationWillCall') patientCancelationWillCall:ElementRef;
   @ViewChild('reminder') reminder:ElementRef;
   @ViewChild('changeBackoffice') changeBackoffice:ElementRef;
+  @ViewChild('messageWindow') messageWindow:Content;
 
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
@@ -139,6 +140,7 @@ export class CommThreadPage {
             this.resource[i].ownership = 'other';
           }
           this.messages.push(this.resource[i]);
+          this.messageWindow.scrollToBottom();
         }
       });
 
@@ -164,8 +166,18 @@ export class CommThreadPage {
           var group: any;
           for(var i = 0; i < res.length; i++) {
             console.log('Group nr: ' + i + ' name: ' + res[i].name);
-            //TODO: SETTINGS FIELD TO ENTER GROUP NAME!!
-            if(res[i].name == 'TestHpGrp01') {
+            if(!this.settings.getGroup()) {
+              console.log('no group choosen in settings');
+
+              let alert = this.alertCtrl.create({
+                title: this.lang.commTread_No_Group_Choosen_Title,
+                subTitle: this.lang.commTread_No_Group_Choosen,
+                buttons: ['OK']
+              });
+
+              return alert.present();
+
+            } else if(res[i].name == this.settings.getGroup()) {
               group = res[i];
               this.settings.getUser().then((user) => {
                 var commRes = this.defineCommRes(user.auth.owner, group);

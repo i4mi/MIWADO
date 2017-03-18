@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1007591350635",
+    "firebase_url": "https://miwado-25680.firebaseio.com",
+    "project_id": "miwado-25680",
+    "storage_bucket": "miwado-25680.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007591350635:android:376fd9095a6d0558",
+        "android_client_info": {
+          "package_name": "ch.bfh.miwado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007591350635-5gk04f207ovjuqo7f6gcipp76qm3afi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoqa0GZMk8jZgJ0ZMyKo4TZDZrkIFzxLk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

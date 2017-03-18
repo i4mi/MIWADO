@@ -34,6 +34,17 @@
   </ion-list>
 
   <ion-list-header>
+    {{ lang.setting_Choose_Group }}
+  </ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="selectedGroup" multiple="false" (ngModelChange)="setGroup()">
+        <ion-option *ngFor="let g of groups" [value]="g.name" [selected]="selectedGroup == g.name">{{g.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>
     {{ lang.setting_Credentials }}
   </ion-list-header>
   <ion-list>

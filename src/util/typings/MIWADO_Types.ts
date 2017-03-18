@@ -32,3 +32,24 @@ export interface MIWADO_Message {
   content:any;
   time:Date;
 }
+
+/**
+ *  Structure of a notification after all the decryption and unwrapping
+ *  has been done.
+ */
+export interface Notification {
+    title: string;
+    type: string;
+    payload?: any;
+}
+
+
+/** Structure of a notification payload sent via FCM */
+export interface FCMNotificationData {
+    // The encrypted inner payload. A stringified and encrypted object
+    // of type `Notification`.
+    secure?: string;
+    // If the notification was tapped in the
+    // OS' notification center.
+    wasTapped?: boolean;
+}
