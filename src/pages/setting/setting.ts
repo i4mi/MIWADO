@@ -24,6 +24,7 @@ export class SettingPage {
   private disableLogout = true;
   private groups = new Array<any>();
   private selectedGroup: string;
+  private noStoredCred = false;
 
   constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
@@ -33,17 +34,19 @@ export class SettingPage {
       this.disabled = true;
     }
 
-    this.mp.search("Group").then((res) => {
-      for(var i = 0; i < res.length; i++) {
-        console.log('Group nr: ' + i + ' name: ' + res[i].name);
-        this.groups.push(res[i]);
-      }
-      if (!this.selectedGroup && res) {
-        this.selectedGroup = res[0].name;
-        this.setGroup();
-      }
-    });
-
+    if (this.mp.loggedIn()) {
+      this.disableLogout = false;
+      this.mp.search("Group").then((res) => {
+        for(var i = 0; i < res.length; i++) {
+          console.log('Group nr: ' + i + ' name: ' + res[i].name);
+          this.groups.push(res[i]);
+        }
+        if (!this.selectedGroup && res) {
+          this.selectedGroup = res[0].name;
+          this.setGroup();
+        }
+      });
+    }
     this.selectedGroup = this.settings.getGroup();
 
     this.myForm = builder.group({
@@ -51,9 +54,11 @@ export class SettingPage {
     })
     this.radioButton_Language = this.myForm.value;
 
-    if(this.mp.loggedIn()) {
-      this.disableLogout = false;
-    }
+    this.settings.getUser().then((res) => {
+      if (!res && !this.settings.getStoreCred()) {
+        this.noStoredCred = true;
+      }
+    });
    }
 
   logout(){

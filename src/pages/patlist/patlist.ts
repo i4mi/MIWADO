@@ -54,7 +54,6 @@ export class PatList {
                 shareService.setSender(this.displaysender);
               }
           }
-          notificationService.initNotification();
         } else{
           shareService.setSenderPatient(res["0"].name["0"].given["0"], res["0"].name["0"].family)
         }

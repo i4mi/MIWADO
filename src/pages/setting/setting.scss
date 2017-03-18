@@ -2,47 +2,33 @@
 .platform-ios{
   page-setting {
     //Settings Header
-      ion-title{
-        text-align: center;
-        margin-right: 23%;
-        height: 100%;
-        margin-top: 3%;
-      }
-      .backToRoleButton{
-        float: left;
-        text-align: center;
-        max-width: 70%;
-        max-height: 70%;
-        margin-left: -4%;
-      }
-      .backToRoleButtonText{
-        float: left;
-        text-align: center;
-        color: #000;
-        font-size: 4vw;
-        margin-left: -5%;
-      }
-      //Logout Form
-        .logoutFormButton{
-          margin-left: 5%;
-          width: 90%;
-          background-color: #268ba3;
-          color: #FFF;
-          font-size: 4vh;
-          padding: 2%;
-          border-radius: 5px;
-
-        }
-        .deleteCredentialsFormButton{
-          margin-left: 5%;
-          width: 90%;
-          background-color: #268ba3;
-          color: #FFF;
-          font-size: 4vh;
-          padding: 2%;
-          border-radius: 5px;
-
-        }
+    ion-title{
+      text-align: center;
+      margin-right: 23%;
+      height: 100%;
+      margin-top: 3%;
+    }
+    ion-select {
+      width: 100%;
+    }
+    .backToRoleButton{
+      float: left;
+      text-align: center;
+      max-width: 70%;
+      max-height: 70%;
+      margin-left: -4%;
+    }
+    .backToRoleButtonText{
+      float: left;
+      text-align: center;
+      color: #000;
+      font-size: 4vw;
+      margin-left: -5%;
+    }
+    .miwadoButton{
+      background-color: #268ba3 !important;
+      color: #FFF !important;
+    }
   }
 }
 //Android Style
@@ -55,6 +41,10 @@
         height: 100%;
         margin-top: 3%;
       }
+      ion-select {
+        width: 100%;
+      }
+      
       .backToRoleButton{
         float: left;
         text-align: center;
@@ -69,27 +59,10 @@
         font-size: 4vw;
         margin-left: -5%;
       }
-      //Logout Form
-        .logoutFormButton{
-          margin-left: 5%;
-          width: 90%;
-          background-color: #268ba3;
-          color: #FFF;
-          font-size: 4vh;
-          padding: 2%;
-          border-radius: 5px;
-
-        }
-        .deleteCredentialsFormButton{
-          margin-left: 5%;
-          width: 90%;
-          background-color: #268ba3;
-          color: #FFF;
-          font-size: 4vh;
-          padding: 2%;
-          border-radius: 5px;
-
-        }
+      .miwadoButton{
+        background-color: #268ba3 !important;
+        color: #FFF !important;
+      }
   }
 }
 page-setting {

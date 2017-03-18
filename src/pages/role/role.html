@@ -11,20 +11,32 @@
 
 <ion-content>
   <section class="bg-container">
+    <ion-grid>
       <div class="content-container">
-      <div class="col header text-center login-img-container">
-          <img class="login-img" src="./assets/img/logo2.0.png"/>
-           <div class="list login-list">
-              <button class="type-img-div">
-              <img class="type-img" src="./assets/img/patient-icon-color.png" (click)="chooseRole($event, 'member')" />
-              <p class="type-text-patient">{{ lang.role_View_Pat }}</p>
-              </button>
-              <button class="type-img-div">
-              <img class="type-img" src="./assets/img/doctor-icon-color.png" (click)="chooseRole($event, 'provider')" />
-              <p class="type-text-hp">{{ lang.role_View_Hp }}</p>
-              </button>
+        <ion-row>
+          <div class="col header text-center login-img-container">
+            <img class="login-img" src="./assets/img/logo2.0.png"/>
           </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+             <button item-left>
+               <img class="type-img" src="./assets/img/patient-icon-color.png" (click)="chooseRole($event, 'member')" />
+               <p>{{ lang.role_View_Pat }}</p>
+             </button>
+           </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <button item-left>
+                <img class="type-img" src="./assets/img/doctor-icon-color.png" (click)="chooseRole($event, 'provider')" />
+                <p>{{ lang.role_View_Hp }}</p>
+              </button>
+            </ion-item>
+          </ion-col>
+        </ion-row>
       </div>
-      </div>
+    </ion-grid>
   </section>
 </ion-content>

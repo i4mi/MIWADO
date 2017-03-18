@@ -27,7 +27,11 @@
           <ion-checkbox (click)="storeCredentials()" [checked]="settings.getStoreCred() == true"></ion-checkbox>
         </ion-item>
       </ion-list>
-      <button class="loginFormButton" (click)="loginMIWADO(myForm.value)">{{ lang.login_View_Login_Button }}</button>
+      <ion-list>
+        <ion-item>
+          <button ion-button block class="miwadoButton" (click)="loginMIWADO(myForm.value)">{{ lang.login_View_Login_Button }}</button>
+        </ion-item>
+      </ion-list>
     </div>
   </form>
 </ion-content>

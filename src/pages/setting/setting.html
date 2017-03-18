@@ -32,6 +32,7 @@
   </ion-list-header>
   <ion-list>
     <ion-item>
+      <ion-label>{{ lang.setting_Selected_Group }}</ion-label>
       <ion-select [(ngModel)]="selectedGroup" multiple="false" (ngModelChange)="setGroup()">
         <ion-option *ngFor="let g of groups" [value]="g.name" [selected]="selectedGroup == g.name">{{g.name}}</ion-option>
       </ion-select>
@@ -43,13 +44,17 @@
   </ion-list-header>
   <ion-list>
     <ion-item>
-      <button class="deleteCredentialsFormButton" (click)="deleteCredentials()">{{ lang.setting_DeleteCredetials }}</button>
+      <button ion-button block class="miwadoButton" (click)="deleteCredentials()" [disabled]="noStoredCred">{{ lang.setting_DeleteCredetials }}</button>
     </ion-item>
   </ion-list>
 
   <ion-list-header>
     {{ lang.setting_Logout }}
   </ion-list-header>
-  <button class="logoutFormButton" (click)="logout()" [disabled]="disableLogout">{{ lang.setting_Logout }}</button>
+  <ion-list>
+    <ion-item>
+      <button ion-button block class="miwadoButton" (click)="logout()" [disabled]="disableLogout">{{ lang.setting_Logout }}</button>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
