@@ -1,5 +1,5 @@
  <ion-header>
-  <ion-navbar [hideBackButton]="hideBackButton">
+  <ion-navbar [hideBackButton]="hideBackButton" class="navbar-content">
     <ion-title>{{ pat.displayName }}</ion-title>
     <ion-buttons end>
       <button (click)="openSettings()" ion-button icon-only>
@@ -11,7 +11,7 @@
 
 <ion-content padding class="messages-page-content" #messageWindow>
   <ion-scroll scrollY="true" class="messages">
-    <div *ngFor="let message of messages" class="day-wrapper">
+    <div *ngFor="let message of messages" class="day-wrapper" (click)="addToCalendar(message, message.payload[0])" >
         <div [class]="'message message-' + message.ownership">
           <div class="message-sendername">{{message.sender.display}}</div>
           <div class="message-content message-content-text">{{message.payload[0]}}</div>
@@ -49,6 +49,7 @@
   <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
   <ion-row class="message-item-wrapper">
     <ion-item class="message-editor">
+      <ion-label class="label-message-popUp">{{ lang.commThread_Choose_Message_PopUp }}</ion-label>
       <ion-select class="message-select-typ" [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock()">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
       </ion-select>

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton>
+  <ion-navbar hideBackButton class="navbar-content">
     <ion-title>{{ lang.role_View_Title }}</ion-title>
     <ion-buttons end>
       <button (click)="openSettings()" ion-button icon-only>
@@ -17,11 +17,11 @@
            <div class="list login-list">
               <button class="type-img-div">
               <img class="type-img" src="./assets/img/patient-icon-color.png" (click)="chooseRole($event, 'member')" />
-              <p>{{ lang.role_View_Pat }}</p>
+              <p class="type-text-patient">{{ lang.role_View_Pat }}</p>
               </button>
               <button class="type-img-div">
               <img class="type-img" src="./assets/img/doctor-icon-color.png" (click)="chooseRole($event, 'provider')" />
-              <p>{{ lang.role_View_Hp }}</p>
+              <p class="type-text-hp">{{ lang.role_View_Hp }}</p>
               </button>
           </div>
       </div>

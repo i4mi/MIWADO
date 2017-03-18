@@ -5,9 +5,17 @@ export class ShareService {
     role : string;
     senderName : string;
     senderPatientName : string;
+    fastingStatus : string;
 
     constructor() {
 
+    }
+    setFastingStatus(status){
+      this.fastingStatus = status;
+    }
+
+    getFastingStatus(){
+      return this.fastingStatus;
     }
 
     setPatient(displayName, gender) {

@@ -21,6 +21,8 @@ export class PatientCancelationNewDate {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
   private patientSenderName : string ;
+  myDate : String = new Date().toISOString();
+
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
     this.patientSenderName =   shareService.getSenderPatient()

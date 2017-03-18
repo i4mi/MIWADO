@@ -60,8 +60,18 @@ export class LANGUAGE {
   public commThread_No_Time_Choosen_Title : string;
   public commThread_No_Section_Choosen_Title : string;
   public commThread_No_Section_Choosen : string;
+<<<<<<< HEAD
   public commTread_No_Group_Choosen_Title : string;
   public commTread_No_Group_Choosen : string;
+=======
+  public commThread_exportAppointment_PopUp_Title : string;
+  public commThread_exportAppointment_PopUp_Text : string;
+  public commThread_exportAppointment_Title : string;
+  public commThread_exportAppointment_Location :string;
+  public commThread_exportAppointment_Body :string;
+  public commThread_Choose_Message_PopUp : string;
+
+>>>>>>> cb14395bf2252841ed5b659547288d7fe6101e44
 
   //Language variables for the TextBlocks
 
@@ -84,6 +94,10 @@ export class LANGUAGE {
   public TextBlock_Reminder_3 : string;
   public TextBlock_Reminder_4 : string;
   public TextBlock_Reminder_5 : string;
+  public TextBlock_not_fasting :string;
+  public TextBlock_fasting :string;
+  public commThread_No_FastingStatus_Choosen_Title :string;
+  public commThread_No_FastingStatus_Choosen :string;
 
   //new Appointment
   public TextBlock_newAppointment_1 : string;
@@ -201,6 +215,15 @@ export class LANGUAGE {
     this.commThread_No_Time_Choosen_Title = 'Keine Zeit angegeben';
     this.commThread_No_Section_Choosen_Title = 'Keine Abteilung ausgewählt';
     this.commThread_No_Section_Choosen = 'Bitte wähle eine Abteilung aus.';
+    this.commThread_exportAppointment_PopUp_Title = "Termin exportieren";
+    this.commThread_exportAppointment_PopUp_Text = "Wollen Sie diesen Termin in Ihren Kalender exportieren?";
+    this.commThread_exportAppointment_Title = "MIWADO Termin";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Termin";
+    this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
+    this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
+    this.commThread_Choose_Message_PopUp = 'Nachricht auswählen';
+
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -237,7 +260,9 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endokrinologie';
     this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
     this.TextBlock_metabolism = 'Metabolismus';
-    this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_PlaceholderName = 'Lehrmann';
+    this.TextBlock_not_fasting = "Nicht nüchtern";
+    this.TextBlock_fasting = "Nüchtern";
   }
 
 
@@ -291,6 +316,14 @@ export class LANGUAGE {
     this.commThread_No_Section_Choosen = 'none';
     this.commTread_No_Group_Choosen_Title = 'none';
     this.commTread_No_Group_Choosen = 'none';
+    this.commThread_exportAppointment_PopUp_Title = "none";
+    this.commThread_exportAppointment_PopUp_Text = "none";
+    this.commThread_exportAppointment_Title = "MIWADO Rendez-vous";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Rendez-vous";
+    this.commThread_Choose_Message_PopUp = 'Choisir message';
+    this.commThread_No_FastingStatus_Choosen_Title ="none";
+    this.commThread_No_FastingStatus_Choosen = "none";
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -327,6 +360,8 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = "Médecine de nutrition";
     this.TextBlock_metabolism = 'Métabolisme';
     this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_not_fasting = "not none";
+    this.TextBlock_fasting = "none";
   }
 
   private langEN(){
@@ -379,6 +414,14 @@ export class LANGUAGE {
     this.commThread_No_Section_Choosen = 'none';
     this.commTread_No_Group_Choosen_Title = 'No group choosen';
     this.commTread_No_Group_Choosen = 'Please select a group to communicate with.';
+    this.commThread_exportAppointment_PopUp_Title = "Export Appointment";
+    this.commThread_exportAppointment_PopUp_Text = "Do you want to export this appointment into your calendar?";
+    this.commThread_exportAppointment_Title = "MIWADO Appointment";
+    this.commThread_exportAppointment_Location = "UDEM";
+    this.commThread_exportAppointment_Body = "Appointment";
+    this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
+    this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
+    this.commThread_Choose_Message_PopUp = 'Please choose message';
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';
@@ -415,5 +458,7 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = 'none';
     this.TextBlock_metabolism = 'none';
     this.TextBlock_PlaceholderName = 'Lehrmann'
+    this.TextBlock_not_fasting = "Not fasting";
+    this.TextBlock_fasting = "Fasting";
   }
 }

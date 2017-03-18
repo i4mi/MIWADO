@@ -4,6 +4,11 @@
     ion-scroll{
       margin:0 !important;
     }
+    .label-message-popUp{
+      width: 0px;
+      max-width: 0px;
+      min-width: 0px;
+    }
     .scroll-content {
       padding:0 !important;
     }
@@ -161,6 +166,11 @@
   page-commThread {
     ion-scroll{
       margin:0 !important;
+    }
+    .label-message-popUp{
+      width: 0px;
+      max-width: 0px;
+      min-width: 0px;
     }
     .scroll-content {
       padding:0 !important;
@@ -321,6 +331,11 @@ page-commThread {
     max-width: auto !important;
     box-sizing: initial;
   }
+  .label-message-popUp{
+    width: 0px;
+    max-width: 0px;
+    min-width: 0px;
+  }
   .select{
     max-width: auto !important;
     box-sizing: initial;
@@ -464,5 +479,8 @@ page-commThread {
     max-width: 20%;
     min-width: 20%;
   }
-  }
+}
+.navbar-content{
+  align-items: center;
+}
 }

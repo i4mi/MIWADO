@@ -20,11 +20,18 @@ export class ChangeBackoffice {
   private displayGender : string;
   private gender : string;
   private senderName: string;
+  myDate : String = new Date().toISOString();
+  myDateYear : any;
+  myDateYearFutur : any;
+
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform) {
     this.gender = shareService.getPatientGender();
     this.displayName =  shareService.getPatientDisplayname();
     this.senderName = shareService.getSenderName();
+
+    this.myDateYear = this.myDate.substr(0,4);
+    this.myDateYearFutur = (parseInt(this.myDateYear) + 20).toString();
 
     if(this.gender == "male"){
       this.displayGender = this.lang.TextBlock_Man;

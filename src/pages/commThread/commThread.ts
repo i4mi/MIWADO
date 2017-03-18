@@ -3,6 +3,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
+import {Calendar} from 'ionic-native';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -70,6 +71,7 @@ export class CommThreadPage {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
       shareService.setPatient(this.pat.displayName, this.pat.gender);
+      this.retreiveCommRes();
     } else{
       this.hideBackButton = true;
       this.pat = {
@@ -79,6 +81,8 @@ export class CommThreadPage {
       }
       this.settings.getUser().then((user) => {
         this.pat.id = user.auth.owner;
+
+        this.retreiveCommRes();
       });
     }
 
@@ -118,9 +122,88 @@ export class CommThreadPage {
       ]
     }
 
-    this.retreiveCommRes();
-
   }
+
+  addToCalendar(message, messagepayload){
+    if(this.mp.getRole() == 'member'){
+      var date : any;
+      var dateDay : any;
+      var dateMonth : any;
+      var dateYear : any;
+      var time : any;
+      var timeHour: any;
+      var timeMinute : any;
+      var timeSeconds = 0;
+      var timeMiliSeconds = 0;
+      var startdate : any;
+      var enddate : any;
+
+      if(messagepayload.indexOf("<date2>") > 0){
+        date = messagepayload.substr(messagepayload.indexOf("<date>")+ 6, 8);
+        time =messagepayload.substr(messagepayload.indexOf("<time>") + 6, 5);
+
+        dateDay = date.substr(0,2)
+        dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
+        dateYear = (parseInt(date.substr(6,2)) + 2000).toString();
+
+        timeHour = time.substr(0,2);
+        timeMinute = time.substr(3,2);
+
+
+      }else{
+        date = messagepayload.substr(messagepayload.indexOf("<date>")+ 6, 8);
+        time = messagepayload.substr(messagepayload.indexOf("<time>") + 6, 5);
+
+        dateDay = date.substr(0,2)
+        dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
+        dateYear = (parseInt(date.substr(6,2)) + 2000).toString();
+
+        timeHour = time.substr(0,2);
+        timeMinute = time.substr(3,2);
+
+      }
+      startdate = new Date(dateYear, dateMonth, dateDay)
+      enddate = new Date(dateYear, dateMonth, dateDay)
+
+      startdate.setHours(parseInt(timeHour));
+      startdate.setMinutes(parseInt(timeMinute));
+      enddate.setHours(parseInt(timeHour));
+      enddate.setMinutes(parseInt(timeMinute));
+      if( messagepayload.indexOf("<date>") > 0 && messagepayload.indexOf("<time>") > 0 || messagepayload.indexOf("<time>") > 0 && messagepayload.indexOf("<date2>") > 0){
+      let alert = this.alertCtrl.create({
+      title: this.lang.commThread_exportAppointment_PopUp_Title,
+      message: this.lang.commThread_exportAppointment_PopUp_Text,
+      buttons: [
+        {
+          text: this.lang.settings_PopUp_Cancel,
+          handler: () => {
+          }
+        },
+        {
+          text: this.lang.settings_PopUp_Confirm,
+          handler: () => {
+            Calendar.createEvent(
+              this.lang.commThread_exportAppointment_Title,
+              this.lang.commThread_exportAppointment_Location,
+              this.lang.commThread_exportAppointment_Body,
+              startdate,
+              enddate
+            ).then(function (result) {
+              console.log(startdate)
+              console.log(enddate)
+                console.log('success');console.dir(result);
+              }, function (err) {
+                console.log('error');console.dir(err);
+              });
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  }
+  }
+
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
@@ -128,6 +211,7 @@ export class CommThreadPage {
       console.log(res);
 
       this.settings.getUser().then((user) => {
+        this.messages = []
         for(var i = 0; i < this.resource.length; i++) {
           //Sender ID
           var sId = this.resource[i].sender.reference;
@@ -141,6 +225,7 @@ export class CommThreadPage {
           }
           this.messages.push(this.resource[i]);
           this.messageWindow.scrollToBottom();
+          console.log(this.messages);
         }
       });
 
@@ -187,7 +272,6 @@ export class CommThreadPage {
     }).catch((ex) => {
       console.error('Error fetching group members', ex);
     })
-
   }
 
   optionsTextBlock() {
@@ -516,6 +600,7 @@ export class CommThreadPage {
         this.displayGender = this.lang.TextBlock_Woman;
       }
 
+
       retVal = this.lang.TextBlock_Welcome + ' ' +
                this.displayGender + ' ' +
                this.displayName + ' ' +
@@ -535,6 +620,19 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
+
+      if(this.shareService.getFastingStatus() != "fasting" || this.shareService.getFastingStatus() != "notfasting") {
+        let alert = this.alertCtrl.create({
+          title: this.lang.commThread_No_FastingStatus_Choosen_Title,
+          subTitle: this.lang.commThread_No_FastingStatus_Choosen,
+          buttons: ['OK']
+        });
+
+        alert.present();
+        return '';
+      }
+
+      if( this.shareService.getFastingStatus() == "fasting"){
       retVal += '<time>' + timeInput + '</time> ' +
                 this.lang.TextBlock_Reminder_3 + ' ' +
                 this.lang.TextBlock_Place + ' ' +
@@ -545,6 +643,16 @@ export class CommThreadPage {
                 this.lang.TextBlock_Phonenumber + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
                 this.senderHealthProfesionalName + '.';
+      }else if(this.shareService.getFastingStatus() == "notfasting"){
+        retVal += '<time>' + timeInput + '</time> ' +
+                  this.lang.TextBlock_Reminder_3 + ' ' +
+                  this.lang.TextBlock_Place + ' ' +
+                  this.lang.TextBlock_cancelation + ' ' +
+                  this.lang.TextBlock_cancelation_Costs + ' ' +
+                  this.lang.TextBlock_Phonenumber + ' ' +
+                  this.lang.TextBlock_Sincere_regards + ' ' +
+                  this.senderHealthProfesionalName + '.';
+      }
     }
 
     console.log(innerHTML);

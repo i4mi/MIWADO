@@ -21,6 +21,18 @@
     max-width: 70%;
     min-width: 70%;
   }
+  .fastingPickerReminder{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 100%;
+    min-width: 100%;
+  }
   .timePickerReminder{
     width: auto;
     float: left;
@@ -58,6 +70,18 @@
     max-width: 70%;
     min-width: 70%;
   }
+  .fastingPickerReminder{
+    width: auto;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    margin-top: -3%;
+    max-width: 100%;
+    min-width: 100%;
+  }
   .timePickerReminder{
     width: auto;
     float: left;
@@ -85,4 +109,16 @@
   border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: black;
+}
+.fastingPickerReminder{
+  width: auto;
+  float: left;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin-top: -3%;
+  max-width: 100%;
+  min-width: 100%;
 }
