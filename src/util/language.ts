@@ -60,18 +60,14 @@ export class LANGUAGE {
   public commThread_No_Time_Choosen_Title : string;
   public commThread_No_Section_Choosen_Title : string;
   public commThread_No_Section_Choosen : string;
-<<<<<<< HEAD
   public commTread_No_Group_Choosen_Title : string;
   public commTread_No_Group_Choosen : string;
-=======
   public commThread_exportAppointment_PopUp_Title : string;
   public commThread_exportAppointment_PopUp_Text : string;
   public commThread_exportAppointment_Title : string;
   public commThread_exportAppointment_Location :string;
   public commThread_exportAppointment_Body :string;
   public commThread_Choose_Message_PopUp : string;
-
->>>>>>> cb14395bf2252841ed5b659547288d7fe6101e44
 
   //Language variables for the TextBlocks
 
