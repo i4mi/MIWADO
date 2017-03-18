@@ -64,12 +64,13 @@ export class LoginPage {
     mp.login(formData.username, formData.password).then((res) => {
       console.log('logged in with auth response: ' + JSON.stringify(res));
       if(mp.loggedIn() == true){
-        this.settings.setUser(formData.username, formData.password, res);
-        if(!this.settings.getStoreCred()) {
-          formData.username = '';
-          formData.password = '';
-        }
-        this.nav.push(PatList);
+        this.settings.setUser(formData.username, formData.password, res).then((res) => {
+          if(!this.settings.getStoreCred()) {
+            formData.username = '';
+            formData.password = '';
+          }
+          this.nav.push(PatList);
+        });
       }
     }).catch((ex) => {
     console.error('Error fetching users', ex);

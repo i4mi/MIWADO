@@ -17,16 +17,15 @@ export class Settings {
       if(platform.is('ios') && platform.is('mobile')) {
         this.setLanguage(window.navigator.language)
       }
-
       this.user = {
         username: '',
         password: '',
-      }
+      } as MiwadoTypes.MIWADO_User;
   }
 
-  public static getInstance(p: Platform, s: Storage) {
+  public static getInstance(p: Platform, st: Storage) {
     if (this.s == null){
-      this.s = new Settings(p, s);
+      this.s = new Settings(p, st);
     }
     return this.s;
   }
@@ -46,11 +45,18 @@ export class Settings {
   }
 
   setUser(un: string, pw: string, auth?: any) {
+    if(this.user == null) {
+      this.user = {
+        username: '',
+        password: '',
+      } as MiwadoTypes.MIWADO_User;
+    }
+
     this.user.username = un;
     this.user.password = pw;
     this.user.auth = <MidataTypes.MIDATA_authResponse> auth;
 
-    this.storage.set('user', JSON.stringify(this.user));
+    return this.storage.set('user', JSON.stringify(this.user));
   }
 
   getUser() {

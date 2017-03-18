@@ -40,6 +40,7 @@ export class LANGUAGE {
   public setting_DeleteCredetials : string;
   public setting_Credentials : string;
   public setting_Choose_Group : string;
+  public setting_Selected_Group: string;
 
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
@@ -188,6 +189,7 @@ export class LANGUAGE {
     this.setting_DeleteCredetials = 'Zugangsdaten löschen';
     this.setting_Credentials = 'Zugangsdaten';
     this.setting_Choose_Group = 'Gruppe auswählen';
+
     this.commTread_No_Group_Choosen_Title = 'Keine Gruppe ausgewählt';
     this.commTread_No_Group_Choosen = 'Bitte wähle eine verfügbare Gruppe in den Einstellungen aus.';
 
@@ -293,6 +295,7 @@ export class LANGUAGE {
     this.setting_DeleteCredetials = 'Effacer les identifiants';
     this.setting_Credentials = 'Identifiants';
     this.setting_Choose_Group = 'none';
+    this.setting_Selected_Group = 'none';
 
     this.patlist_View_title = 'Mes patients ';
 
@@ -390,7 +393,8 @@ export class LANGUAGE {
     this.settings_ChkBox_StoreCred = 'Store credentials';
     this.setting_DeleteCredetials = 'Delete credentials';
     this.setting_Credentials = 'Credentials';
-    this.setting_Choose_Group = 'Choose group';
+    this.setting_Choose_Group = 'Select group';
+    this.setting_Selected_Group = 'Choosen group';
 
     this.patlist_View_title = 'My patients';
 

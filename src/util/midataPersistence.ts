@@ -116,16 +116,14 @@ export class MidataPersistence {
 
   retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
     return this.search('Communication', { "patient": pat.id }).then((result) => {
-      console.log("resources" + JSON.stringify(result));
-      console.log("breakpoint goes here");
-
+      //console.log("resources" + JSON.stringify(result));
+      //console.log("breakpoint goes here");
       var commRes = new Array<MidataTypes.MIDATA_HL7CommRes>();
       for(var i = 0; i < result.length; i++)
       {
-        console.log('loop round ' + i + ' to convert');
+        //console.log('loop round ' + i + ' to convert');
         var asd = this.convertCommResToTS(result[i]);
-
-        console.log('converted it to: ' + asd);
+        //console.log('converted it to: ' + asd);
         commRes.push(asd);
       }
       return commRes;
@@ -138,10 +136,9 @@ export class MidataPersistence {
       var patList = new Array<MiwadoTypes.MIWADO_Patient>();
       for(var i = 0; i < result.length; i++)
       {
-        console.log('loop round ' + i + ' to convert');
+        //console.log('loop round ' + i + ' to convert');
         var asd = this.convertPatToTS(result[i]);
-
-        console.log('converted it to: ' + asd);
+        //console.log('converted it to: ' + asd);
         patList.push(asd);
       }
       return patList;
@@ -164,8 +161,8 @@ export class MidataPersistence {
   private convertPatToTS(JSON): MiwadoTypes.MIWADO_Patient {
     var TS:MiwadoTypes.MIWADO_Patient;
 
-    console.log('beginn with convert JSON to TS...');
-    console.log('JSON is: ' + JSON);
+    //console.log('beginn with convert JSON to TS...');
+    //console.log('JSON is: ' + JSON);
     var displayName = '';
 
     for(var i = 0; i < JSON.name.length; i++){
@@ -195,7 +192,7 @@ export class MidataPersistence {
   // into the MIDATA_Types.MIDATA_HL7CommRes.
   // -->  return: MIDATA_Types.MIDATA_HL7CommRes Object
   private convertCommResToTS(JSON){
-    console.log(JSON);
+    //console.log(JSON);
     var TS:MidataTypes.MIDATA_HL7CommRes;
     var s:MidataTypes.MIDATA_HL7CommRes_Person;
 
