@@ -47,6 +47,14 @@
         "is_top_level": true,
         "variables": {}
     },
+    "cordova-plugin-fcm": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-fcm@~2.1.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
     "cordova-plugin-calendar": {
         "source": {
             "type": "registry",

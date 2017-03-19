@@ -39,6 +39,8 @@ export class LANGUAGE {
   public settings_ChkBox_StoreCred : string;
   public setting_DeleteCredetials : string;
   public setting_Credentials : string;
+  public setting_Choose_Group : string;
+  public setting_Selected_Group: string;
 
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
@@ -59,13 +61,14 @@ export class LANGUAGE {
   public commThread_No_Time_Choosen_Title : string;
   public commThread_No_Section_Choosen_Title : string;
   public commThread_No_Section_Choosen : string;
+  public commTread_No_Group_Choosen_Title : string;
+  public commTread_No_Group_Choosen : string;
   public commThread_exportAppointment_PopUp_Title : string;
   public commThread_exportAppointment_PopUp_Text : string;
   public commThread_exportAppointment_Title : string;
   public commThread_exportAppointment_Location :string;
   public commThread_exportAppointment_Body :string;
   public commThread_Choose_Message_PopUp : string;
-
 
   //Language variables for the TextBlocks
 
@@ -138,7 +141,6 @@ export class LANGUAGE {
     this.changeLanguage();
   }
 
-
   public static getInstance(p: Platform, s: Storage) {
     if(this.lang == null) {
       this.lang = new LANGUAGE(p, s);
@@ -186,6 +188,10 @@ export class LANGUAGE {
     this.settings_ChkBox_StoreCred = 'Zugangsdaten speichern';
     this.setting_DeleteCredetials = 'Zugangsdaten löschen';
     this.setting_Credentials = 'Zugangsdaten';
+    this.setting_Choose_Group = 'Gruppe auswählen';
+
+    this.commTread_No_Group_Choosen_Title = 'Keine Gruppe ausgewählt';
+    this.commTread_No_Group_Choosen = 'Bitte wähle eine verfügbare Gruppe in den Einstellungen aus.';
 
     this.patlist_View_title = 'Meine Patienten';
 
@@ -288,6 +294,8 @@ export class LANGUAGE {
     this.settings_ChkBox_StoreCred = 'Stocker les identifiants';
     this.setting_DeleteCredetials = 'Effacer les identifiants';
     this.setting_Credentials = 'Identifiants';
+    this.setting_Choose_Group = 'none';
+    this.setting_Selected_Group = 'none';
 
     this.patlist_View_title = 'Mes patients ';
 
@@ -305,6 +313,8 @@ export class LANGUAGE {
     this.commThread_my_chat = 'Mes messages';
     this.commThread_No_Section_Choosen_Title = 'none';
     this.commThread_No_Section_Choosen = 'none';
+    this.commTread_No_Group_Choosen_Title = 'none';
+    this.commTread_No_Group_Choosen = 'none';
     this.commThread_exportAppointment_PopUp_Title = "none";
     this.commThread_exportAppointment_PopUp_Text = "none";
     this.commThread_exportAppointment_Title = "MIWADO Rendez-vous";
@@ -313,7 +323,6 @@ export class LANGUAGE {
     this.commThread_Choose_Message_PopUp = 'Choisir message';
     this.commThread_No_FastingStatus_Choosen_Title ="none";
     this.commThread_No_FastingStatus_Choosen = "none";
-
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -384,6 +393,8 @@ export class LANGUAGE {
     this.settings_ChkBox_StoreCred = 'Store credentials';
     this.setting_DeleteCredetials = 'Delete credentials';
     this.setting_Credentials = 'Credentials';
+    this.setting_Choose_Group = 'Select group';
+    this.setting_Selected_Group = 'Choosen group';
 
     this.patlist_View_title = 'My patients';
 
@@ -401,6 +412,8 @@ export class LANGUAGE {
     this.commTread_No_Message_Choosen_Title = 'No message choosen';
     this.commThread_No_Section_Choosen_Title = 'none';
     this.commThread_No_Section_Choosen = 'none';
+    this.commTread_No_Group_Choosen_Title = 'No group choosen';
+    this.commTread_No_Group_Choosen = 'Please select a group to communicate with.';
     this.commThread_exportAppointment_PopUp_Title = "Export Appointment";
     this.commThread_exportAppointment_PopUp_Text = "Do you want to export this appointment into your calendar?";
     this.commThread_exportAppointment_Title = "MIWADO Appointment";
@@ -409,7 +422,6 @@ export class LANGUAGE {
     this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
     this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
     this.commThread_Choose_Message_PopUp = 'Please choose message';
-
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_at = 'at';

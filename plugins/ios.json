@@ -8,26 +8,44 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "cordova-plugin-fcm": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "ch.bfh.miwado"
         },
         "cordova-plugin-calendar": {
             "CALENDAR_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "ch.bfh.miwado"
         }
     },
     "dependent_plugins": {}

@@ -1,9 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
 import { StatusBar, Splashscreen } from 'ionic-native';
-
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
@@ -19,12 +16,11 @@ import { PatientCancelationNewDate } from '../util/textMessages/patientCancelati
 import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
 import { Reminder } from '../util/textMessages/reminder/reminder';
 import { ShareService } from '../util/shareService';
-
-
+import { NotificationService } from '../util/notification/notification';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ShareService]
+  providers: [ShareService, NotificationService]
 })
 
 export class MyApp {
