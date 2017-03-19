@@ -39,21 +39,7 @@ export class MyApp {
       shareService.setPatient('','');
 
     // set our app's pages
-    this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-      { title: 'MIWADO', component: RolePage },
-      { title: 'patList', component: PatList },
-      { title: 'setting', component: SettingPage },
-      { title: 'commThread', component: CommThreadPage },
-      { title: 'cancelationPatient', component: CancelationPatient },
-      { title: 'changeBackoffice', component: ChangeBackoffice },
-      { title: 'confirmation', component: Confirmation },
-      { title: 'newAppointment', component: NewAppointment },
-      { title: 'patientCancelationNewDate', component: PatientCancelationNewDate },
-      { title: 'patientCancelationWillCall', component: PatientCancelationWillCall },
-      { title: 'reminder', component: Reminder }
-    ];
+  
   }
 
   initializeApp() {
