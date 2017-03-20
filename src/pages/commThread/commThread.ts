@@ -248,7 +248,7 @@ export class CommThreadPage {
             minutes = "0" + minutes;
           }
 
-          this.resource[i].sent = hours + ":" + minutes + " - " + 
+          this.resource[i].sent = hours + ":" + minutes + " - " +
                                   day + "." + month + "." + years;
 
           this.messages.push(this.resource[i]);
@@ -277,21 +277,24 @@ export class CommThreadPage {
     this.mp.search('Group').then((res) => {
       var group: any;
       for(var i = 0; i < res.length; i++) {
+        var j = i;
         //console.log('Group nr: ' + i + ' name: ' + res[i].name);
-        if(!this.settings.getGroup()) {
-          //console.log('no group choosen in settings');
-          let alert = this.alertCtrl.create({
-            title: this.lang.commTread_No_Group_Choosen_Title,
-            subTitle: this.lang.commTread_No_Group_Choosen,
-            buttons: ['OK']
-          });
-          return alert.present();
-        } else if(res[i].name == this.settings.getGroup()) {
-          group = res[i];
-          this.settings.getUser().then((user) => {
-            var commRes = this.defineCommRes(user.auth.owner, group);
-          });
-        }
+        this.settings.getGroup().then((group) => {
+          if(!group) {
+            //console.log('no group choosen in settings');
+            let alert = this.alertCtrl.create({
+              title: this.lang.commTread_No_Group_Choosen_Title,
+              subTitle: this.lang.commTread_No_Group_Choosen,
+              buttons: ['OK']
+            });
+            return alert.present();
+          } else if(res[j].name == group) {
+            group = res[j];
+            this.settings.getUser().then((user) => {
+              var commRes = this.defineCommRes(user.auth.owner, group);
+            });
+          }
+        });
       }
     }).catch((ex) => {
       console.error('Error fetching group members', ex);

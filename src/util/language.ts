@@ -154,8 +154,10 @@ export class LANGUAGE {
       this.langDE();
     } else if (s.getLanguage() == 'fr') {
       this.langFR();
-    } else {
+    } else if (s.getLanguage() == 'en') {
       this.langEN();
+    } else {
+      this.langDE();
     }
   }
 
