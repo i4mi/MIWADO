@@ -21,10 +21,11 @@ export class SettingPage {
   private settings = Settings.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
   private disabled = false;
-  private disableLogout = true;
+//  private disableLogout = true;
   private groups = new Array<any>();
   private selectedGroup: string;
   private noStoredCred = false;
+
 
   constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
@@ -35,7 +36,7 @@ export class SettingPage {
     }
 
     if (this.mp.loggedIn()) {
-      this.disableLogout = false;
+//      this.disableLogout = false;
       this.mp.search("Group").then((res) => {
         for(var i = 0; i < res.length; i++) {
           console.log('Group nr: ' + i + ' name: ' + res[i].name);
@@ -43,12 +44,13 @@ export class SettingPage {
         }
         if (!this.selectedGroup && res) {
           this.selectedGroup = res[0].name;
-          this.setGroup();
+          this.settings.setGroup(this.selectedGroup);
         }
       });
     }
-    this.selectedGroup = this.settings.getGroup();
-
+    this.settings.getGroup().then((selectedGroup) => {
+      this.selectedGroup = selectedGroup;
+    });
     this.myForm = builder.group({
       'radioButton_Language' : this.settings.getLanguage()
     })
@@ -91,8 +93,7 @@ export class SettingPage {
   deleteCredentials(){
     this.settings.setUser('', '');
   }
-
-  setGroup(){
+  setGroup(selectedGroup){
     this.settings.setGroup(this.selectedGroup);
   }
 }

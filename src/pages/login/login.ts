@@ -23,14 +23,17 @@ export class LoginPage {
   private username: string;
   private password: string;
   private input: any;
+  private groups = new Array<any>();
+  private selectedGroup: string;
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
+  private group : any;
 
   constructor(public nav: NavController,  private builder: FormBuilder,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
 
-      if(this.mp.loggedIn()) {
+      if(this.mp.loggedIn() && this.settings.getGroup != undefined) {
         this.nav.push(PatList);
       }
 
@@ -69,6 +72,18 @@ export class LoginPage {
             formData.username = '';
             formData.password = '';
           }
+//PICK FIRST GROUP AND SET IT AS STANDART
+          this.mp.search("Group").then((res) => {
+            for(var i = 0; i < res.length; i++) {
+              console.log('Group nr: ' + i + ' name: ' + res[i].name);
+              this.groups.push(res[i]);
+            }
+            if (!this.selectedGroup && res) {
+              this.selectedGroup = res[0].name;
+              this.settings.setGroup(this.selectedGroup);
+            }
+          });
+
           this.nav.push(PatList);
         });
       }

@@ -33,7 +33,7 @@
   <ion-list>
     <ion-item>
       <ion-label>{{ lang.setting_Selected_Group }}</ion-label>
-      <ion-select [(ngModel)]="selectedGroup" multiple="false" (ngModelChange)="setGroup()">
+      <ion-select [(ngModel)]="selectedGroup" multiple="false" (ngModelChange)="setGroup(selectedGroup)">
         <ion-option *ngFor="let g of groups" [value]="g.name" [selected]="selectedGroup == g.name">{{g.name}}</ion-option>
       </ion-select>
     </ion-item>
@@ -53,7 +53,7 @@
   </ion-list-header>
   <ion-list>
     <ion-item>
-      <button ion-button block class="miwadoButton" (click)="logout()" [disabled]="disableLogout">{{ lang.setting_Logout }}</button>
+      <button ion-button block class="miwadoButton" (click)="logout()">{{ lang.setting_Logout }}</button>
     </ion-item>
   </ion-list>
 

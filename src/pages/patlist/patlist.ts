@@ -24,10 +24,12 @@ export class PatList {
   private mp = MidataPersistence.getInstance();
   private patList: Array<MiwadoTypes.MIWADO_Patient>;
   private displaysender : string;
+  private selectedGroup: string;
 
   constructor(private nav: NavController, private shareService: ShareService,
               private platform: Platform, private storage: Storage, private notificationService : NotificationService,
               private alertCtrl: AlertController) {
+
 
     shareService.setRole(this.mp.getRole());
     if(this.mp.getRole() == 'member') {
@@ -59,8 +61,9 @@ export class PatList {
         }
       });
     });
-
-    if(!this.settings.getGroup()) {
+    this.settings.getGroup().then((selectedGroup) => {
+      this.selectedGroup = selectedGroup;
+    if(this.selectedGroup == undefined) {
       console.log('no group choosen in settings');
 
       let alert = this.alertCtrl.create({
@@ -71,6 +74,7 @@ export class PatList {
 
       alert.present();
     }
+  })
 
     this.patList = new Array<MiwadoTypes.MIWADO_Patient>();
     if(this.mp.getRole() == 'provider') {

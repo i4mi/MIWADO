@@ -48,8 +48,7 @@
 
   .messages {
     height: 100%;
-    background-image: url(/assets/img/chat-background.jpg);
-    background-color: #E0DAD6;
+    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -130,6 +129,7 @@
       right: 2px;
       bottom: 1px;
       position: absolute;
+      background-color: #268ba3 !important;
     }
     .message-select-typ{
       max-width: 70%;
@@ -211,8 +211,7 @@
 
   .messages {
     height: 100%;
-    background-image: url(/assets/img/chat-background.jpg);
-    background-color: #E0DAD6;
+    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -294,6 +293,7 @@
       right: 2px;
       bottom: 1px;
       position: absolute;
+      background-color: #268ba3 !important;
     }
     .message-select-typ{
       max-width: 70%;
@@ -364,8 +364,7 @@ page-commThread {
 
 .messages {
   height: 100%;
-  background-image: url(/assets/img/chat-background.jpg);
-  background-color: #E0DAD6;
+  background-color: #ebe7e5;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -393,7 +392,7 @@ page-commThread {
 
     &.message-mine {
       float: right;
-      background-color: #DCF8C6;
+      background-color: #c4f5ff;
       clear: both;
       left: 0px;
       margin: 10px;

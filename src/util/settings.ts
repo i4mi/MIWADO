@@ -12,6 +12,7 @@ export class Settings {
   private storeCredentials = false;
   private user: MiwadoTypes.MIWADO_User;
   private selectedGroup: string;
+  private group : any;
 
   private constructor(private platform: Platform, private storage: Storage){
       if(platform.is('ios') && platform.is('mobile')) {
@@ -74,11 +75,14 @@ export class Settings {
     return this.storeCredentials;
   }
 
-  setGroup(group: string) {
-    this.selectedGroup = group;
+  setGroup(selectedGroup) {
+    this.storage.set('group', selectedGroup);
   }
 
-  getGroup(): string {
-    return this.selectedGroup;
+  getGroup(){
+    return this.storage.get('group').then((group) => {
+      this.group = group;
+      return this.group;
+    });
   }
-}
+  }
