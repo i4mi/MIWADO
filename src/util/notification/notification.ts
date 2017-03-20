@@ -92,13 +92,18 @@ export class NotificationService {
 
   getFCMTokenToNotifyMIDATA(patId: string){
     console.log(patId);
-    return this.mp.search('Device' ).then((res) => {
+    var tokens = new Array<any>();
+    return this.mp.search('Device').then((res) => {
       for (var i = 0; i < res.length; i++) {
         console.log('token to notify is here???')
         console.log(res[i]);
+        if (res[i].manufacturer == patId) {
+          tokens.push(res[i]);
+        }
       }
-      return res;
-    })
+
+      return tokens;
+    });
   }
 
   notify(message: MiwadoTypes.Notification, receiverToken: MiwadoTypes.FCMToken_Device) {
@@ -145,12 +150,12 @@ export class NotificationService {
     headers.append('Authorization', 'key=' + legacyServerKey);
 
     return new Promise((resolve, reject) => {
-        /*this.http.post(link, payload, { headers })
+        this.http.post(link, payload, { headers })
         .subscribe(response => {
             resolve('Success');
         }, error => {
             reject('Error while sending message: ' + error);
-        });*/
+        });
     });
   }
 
@@ -294,8 +299,6 @@ export class NotificationService {
         var tk:any;
         for(var i = 0; i < tokens.length; i++) {
           var owner = tokens[i].manufacturer;
-          owner = owner.replace("Patient/", "");
-          owner = owner.replace("Practitioner/", "");
           if(tokens[i].manufacturer == userId) {
             tk = tokens[i];
           }

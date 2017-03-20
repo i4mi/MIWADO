@@ -376,23 +376,27 @@ export class CommThreadPage {
       console.log('stored?? ');
       console.log(res);
 
-      this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
-        console.log('in Comm Thread page');
-        console.log(res);
+      if (this.mp.getRole() != 'member') {
+        this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
+          console.log('in Comm Thread page');
+          console.log(res);
 
-        let not = { //TODO: language files!!!
-          title: 'New message',
-          type: 'NEWMSG',
-        } as MiwadoTypes.Notification;
-        this.notificationService.notify(not, res).then((result) => {
-          console.log('done notify');
+          let not = { //TODO: language files!!!
+            title: 'New message',
+            type: 'NEWMSG'
+          } as MiwadoTypes.Notification;
+
+          for(var i = 0; i < res.length; i++) {
+            this.notificationService.notify(not, res[i]).then((result) => {
+              console.log('done notify');
+            }).catch((ex) => {
+              console.error('Error while send notification', ex)
+            });
+          }
         }).catch((ex) => {
-          console.error('Error while send notification', ex)
+          console.error('Error while get FCM token: ', ex);
         });
-      }).catch((ex) => {
-        console.error('Error while get FCM token: ', ex);
-      });
-
+      }
       this.retreiveCommRes();
     }).catch((ex) => {
       console.error('Error while saving comm res: ', ex);
