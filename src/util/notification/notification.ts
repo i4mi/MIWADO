@@ -49,7 +49,7 @@ export class NotificationService {
   initNotification(){
     this.cancelListenerSubscriptions();
     this.platform.ready().then((ret) => {
-      if(this.platform.is('mobile')) {
+      if(this.platform.is('mobile') && this.mp.getRole() == 'member') {
         this.mobileSetup();
         this.didSetup = true;
       } else {
@@ -68,15 +68,16 @@ export class NotificationService {
     });
   }
 
-  storeFCMTokenMIDATA(token: string) : any {
-    this.settings.getUser().then((user) => {
+  storeFCMTokenMIDATA(token: string) : Promise<MiwadoTypes.FCMToken_Device> {
+    return this.settings.getUser().then((user) => {
       let userId = user.auth.owner;
       var tk = {
+        resourceType: "Device",
         lotNumber: token,
         type: 'FCMToken',
         status: 'available',
         manufacturer: userId
-      }
+      } as MiwadoTypes.FCMToken_Device;
 
       this.mp.save(tk).then((result) =>{
         console.log('token saved');
@@ -89,12 +90,68 @@ export class NotificationService {
     });
   }
 
-  getFCMTokenToNotifyMIDATA(){
-
+  getFCMTokenToNotifyMIDATA(patId: string){
+    console.log(patId);
+    return this.mp.search('Device' ).then((res) => {
+      for (var i = 0; i < res.length; i++) {
+        console.log('token to notify is here???')
+        console.log(res[i]);
+      }
+      return res;
+    })
   }
 
-  notify() {
+  notify(message: MiwadoTypes.Notification, receiverToken: MiwadoTypes.FCMToken_Device) {
+    let encryptedMessage = this.encrypt(message);
+    let payload = JSON.stringify({
+        // Target apps running in background or closed
+        priority: 'high',
+        // Receiver token
+        to: receiverToken.lotNumber,
+        // to: "/topics/all",
+        notification:{
+            title: 'MIWADO',
+            body: message.title,
+            sound: 'default',
+            // Open app when app is closed
+            click_action: 'FCM_PLUGIN_ACTIVITY',
+            icon: '/assets/img/logo.png'
+        },
+        // Data to be received by app notification handler
+        data: {
+            secure: encryptedMessage
+        }
+    });
+    let link = 'https://fcm.googleapis.com/fcm/send';
+    let headers = new Headers();
+    // TODO: This server key is taken from the Firebase console at
+    // https://console.firebase.google.com/project/karegenda-ff31f
+    // under Settings > Cloud Messagning > Project Credentials
+    // It should be quite easy to get this key from the headers of
+    // outgoing requests. If somebody has this key he can send
+    // messages to user devices given that he ALSO KNOWS THEIR
+    // DEVICE TOKEN.
+    // *** OR ***
+    // If devices are NOT UNSUBSCRIBED FROM `/topics/all` the user
+    // that extracted the server key CAN SEND NOTIFICATIONS TO
+    // THOSE DEVIES EVEN WITHOUT KNOWING THE DEVICE TOKENS.
+    // ***
+    // These messages should be sent from an app server to the FCM
+    // server.
+    let serverKey = 'AAAA6pkf4Ws:APA91bFyBztIfFhX5CkhRnvWYCFd69EGJVVi6FplFVeUGOpyRET8q4gmFknFZw8aJVj7D1YUdzAPt4S3okJJaNsFcS7yq8dm26q_W1khkpybCEP_8eZV1PVWQQ8mXHvXUdpUyQ4k7qJO';
+    // Currently only the legacy key works, why's that?
+    let legacyServerKey = 'AIzaSyDK1LOucWUaiU4RCUZgdEL2L5YED2ku-Vk';
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'key=' + legacyServerKey);
 
+    return new Promise((resolve, reject) => {
+        /*this.http.post(link, payload, { headers })
+        .subscribe(response => {
+            resolve('Success');
+        }, error => {
+            reject('Error while sending message: ' + error);
+        });*/
+    });
   }
 
   /*

@@ -21,6 +21,7 @@ import { Reminder } from '../../util/textMessages/reminder/reminder';
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { ShareService } from '../../util/shareService';
+import { NotificationService } from '../../util/notification/notification';
 
 
 @Component({
@@ -61,11 +62,13 @@ export class CommThreadPage {
   private senderPatientName : string;
 
   constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
-              private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
+              private platform: Platform, private storage: Storage, public alertCtrl: AlertController,
+              private notificationService: NotificationService) {
 
 	  this.TextBlockChoosen = "";
     this.senderPatientName = shareService.getSenderPatient();
     this.senderHealthProfesionalName = shareService.getSenderName();
+    notificationService.initNotification();
 
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
@@ -121,7 +124,10 @@ export class CommThreadPage {
           }
       ]
     }
-
+    this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
+      console.log('in Comm Thread page');
+      console.log(res);
+    });
   }
 
   addToCalendar(message, messagepayload){
@@ -200,16 +206,14 @@ export class CommThreadPage {
       ]
     });
     alert.present();
+    }
+    }
   }
-  }
-  }
-
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       this.resource = res.reverse();
-      console.log(res);
-
+      //console.log(res);
       this.settings.getUser().then((user) => {
         this.messages = []
         for(var i = 0; i < this.resource.length; i++) {
@@ -223,9 +227,33 @@ export class CommThreadPage {
           } else {
             this.resource[i].ownership = 'other';
           }
+
+          var date = new Date(this.resource[i].sent);
+          var day = date.getDate().toString();
+          var month = date.getMonth().toString();
+          var years = date.getFullYear().toString();
+          var hours = date.getHours().toString();
+          var minutes = date.getMinutes().toString();
+
+          if (day.length == 1) {
+            day = "0" + day;
+          }
+          if (month.length == 1) {
+            month = "0" + month;
+          }
+          if (hours.length == 1) {
+            hours = "0" + hours;
+          }
+          if (minutes.length == 1) {
+            minutes = "0" + minutes;
+          }
+
+          this.resource[i].sent = hours + ":" + minutes + " - " + 
+                                  day + "." + month + "." + years;
+
           this.messages.push(this.resource[i]);
           this.messageWindow.scrollToBottom();
-          console.log(this.messages);
+          //console.log(this.messages);
         }
       });
 
@@ -235,8 +263,7 @@ export class CommThreadPage {
   }
 
   storeCommRes() {
-    console.log('store started');
-
+    //console.log('store started');
     if(this.TextBlock == undefined) {
       let alert = this.alertCtrl.create({
         title: this.lang.commTread_No_Message_Choosen_Title,
@@ -248,27 +275,24 @@ export class CommThreadPage {
     }
 
     this.mp.search('Group').then((res) => {
-          var group: any;
-          for(var i = 0; i < res.length; i++) {
-            console.log('Group nr: ' + i + ' name: ' + res[i].name);
-            if(!this.settings.getGroup()) {
-              console.log('no group choosen in settings');
-
-              let alert = this.alertCtrl.create({
-                title: this.lang.commTread_No_Group_Choosen_Title,
-                subTitle: this.lang.commTread_No_Group_Choosen,
-                buttons: ['OK']
-              });
-
-              return alert.present();
-
-            } else if(res[i].name == this.settings.getGroup()) {
-              group = res[i];
-              this.settings.getUser().then((user) => {
-                var commRes = this.defineCommRes(user.auth.owner, group);
-              });
-            }
-          }
+      var group: any;
+      for(var i = 0; i < res.length; i++) {
+        //console.log('Group nr: ' + i + ' name: ' + res[i].name);
+        if(!this.settings.getGroup()) {
+          //console.log('no group choosen in settings');
+          let alert = this.alertCtrl.create({
+            title: this.lang.commTread_No_Group_Choosen_Title,
+            subTitle: this.lang.commTread_No_Group_Choosen,
+            buttons: ['OK']
+          });
+          return alert.present();
+        } else if(res[i].name == this.settings.getGroup()) {
+          group = res[i];
+          this.settings.getUser().then((user) => {
+            var commRes = this.defineCommRes(user.auth.owner, group);
+          });
+        }
+      }
     }).catch((ex) => {
       console.error('Error fetching group members', ex);
     })
@@ -344,11 +368,28 @@ export class CommThreadPage {
       requestDetail:{}
     }
 
-    console.log(commRes);
+    //console.log(commRes);
     this.mp.save(commRes).then((res) => {
       console.log('stored?? ');
       console.log(res);
-      //TODO HERE NOTIFY
+
+      this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
+        console.log('in Comm Thread page');
+        console.log(res);
+
+        let not = { //TODO: language files!!!
+          title: 'New message',
+          type: 'NEWMSG',
+        } as MiwadoTypes.Notification;
+        this.notificationService.notify(not, res).then((result) => {
+          console.log('done notify');
+        }).catch((ex) => {
+          console.error('Error while send notification', ex)
+        });
+      }).catch((ex) => {
+        console.error('Error while get FCM token: ', ex);
+      });
+
       this.retreiveCommRes();
     }).catch((ex) => {
       console.error('Error while saving comm res: ', ex);
@@ -654,9 +695,8 @@ export class CommThreadPage {
                   this.senderHealthProfesionalName + '.';
       }
     }
-
-    console.log(innerHTML);
-    console.log(retVal);
+    //console.log(innerHTML);
+    //console.log(retVal);
     document.getElementById(this.TextBlockChoosen).hidden = true;
     this.TextBlockChoosen = '';
     this.TextBlock = null;

@@ -32,6 +32,8 @@
     .message-sendername{
       margin-left: 1%;
       margin-top: 1%;
+      font-weight: bolder;
+      font-size: smaller;
     }
     .day-wrapper .day-timestamp {
     margin-left: calc(50% - 64px);
@@ -118,7 +120,7 @@
       }
 
       .message-timestamp {
-        right: 5px;
+        margin-right: 5px;
         font-size: 10px;
         color: gray;
       }
@@ -195,6 +197,8 @@
     .message-sendername{
       margin-left: 1%;
       margin-top: 1%;
+      font-weight: bolder;
+      font-size: smaller;
     }
     .day-wrapper .day-timestamp {
     margin-left: calc(50% - 64px);
@@ -282,7 +286,7 @@
       }
 
       .message-timestamp {
-        right: 5px;
+        margin-right: 5px;
         font-size: 10px;
         color: gray;
       }
@@ -348,6 +352,8 @@ page-commThread {
   .message-sendername{
     margin-left: 1%;
     margin-top: 1%;
+    font-weight: bolder;
+    font-size: smaller;
   }
   .day-wrapper .day-timestamp {
   margin-left: calc(50% - 64px);
@@ -438,7 +444,7 @@ page-commThread {
     }
 
     .message-timestamp {
-      right: 5px;
+      margin-right: 5px;
       font-size: 10px;
       color: gray;
       float: right;
