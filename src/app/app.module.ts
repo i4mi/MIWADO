@@ -1,10 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { Storage } from '@ionic/storage';
-import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
@@ -21,9 +18,6 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolePage,
     LoginPage,
     PatList,
@@ -43,9 +37,6 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolePage,
     LoginPage,
     PatList,
