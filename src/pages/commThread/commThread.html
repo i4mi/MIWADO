@@ -9,8 +9,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="messages-page-content" #messageWindow>
-  <ion-scroll scrollY="true" class="messages">
+<ion-content padding class="messages-page-content messages" #messageWindow>
     <div *ngFor="let message of messages" class="day-wrapper" (click)="addToCalendar(message, message.payload[0])" >
         <div [class]="'message message-' + message.ownership">
           <div class="message-sendername">{{message.sender.display}}</div>
@@ -18,7 +17,9 @@
           <span class="message-timestamp">{{ message.sent }}</span>
       </div>
     </div>
-  </ion-scroll>
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>-->
 </ion-content>
 
 <ion-footer>

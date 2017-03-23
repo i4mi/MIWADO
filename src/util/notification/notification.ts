@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Http, Headers } from '@angular/http';
-import { Platform } from 'ionic-angular';
+import { Platform, AlertController } from 'ionic-angular';
 import { Settings } from '../../util/settings';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -37,7 +37,8 @@ export class NotificationService {
 
   constructor(private platform: Platform,
               private storage: Storage,
-              private http: Http){
+              private http: Http,
+              private alertCtrl: AlertController){
 
     window['not'] = this;
 
@@ -68,26 +69,68 @@ export class NotificationService {
     });
   }
 
-  storeFCMTokenMIDATA(token: string) : Promise<MiwadoTypes.FCMToken_Device> {
+  storeFCMTokenMIDATA(token: string, update: boolean) : Promise<MiwadoTypes.FCMToken_Device> {
     return this.settings.getUser().then((user) => {
       let userId = user.auth.owner;
-      var tk = {
-        resourceType: "Device",
-        lotNumber: token,
-        type: 'FCMToken',
-        status: 'available',
-        manufacturer: userId
-      } as MiwadoTypes.FCMToken_Device;
+    /*  if(update) {
+        this.mp.retreiveFCMToken().then((token) => {
+          for(var i = 0; i < token.length; i++) {
+            if (token[i].manufacturer == userId) {
+              var tk = {
+                id: token[i].id,
+                resourceType: "Device",
+                lotNumber: token,
+                type: { 'type': 'FCMToken'},
+                status: 'available',
+                manufacturer: userId,
+              } as MiwadoTypes.FCMToken_Device;
+              this.saveFCMTokenMIDATA(tk).then((token) => {
+                return tk;
+              });
+            }
+          }
+        });
+      } */
+        var tk = {
+          resourceType: "Device",
+          lotNumber: token,
+          type: { 'type': 'FCMToken'},
+          status: 'available',
+          manufacturer: userId
+        } as MiwadoTypes.FCMToken_Device;
+        this.saveFCMTokenMIDATA(tk).then((token) => {
+          return tk;
+        });
 
-      this.mp.save(tk).then((result) =>{
-        console.log('token saved');
-        console.log(result);
-      }).catch((error) => {
-        console.log('ERROR: ' + error);
-      });
-
-      return tk;
     });
+  }
+
+  saveFCMTokenMIDATA(tk: any){
+    return this.mp.save(tk).then((result) =>{
+       console.log('token saved');
+       console.log(result);
+     }).catch((error) => {
+       console.log('ERROR: ' + error);
+     });
+  }
+
+  deleteFCMTokenMIDATA(patId: string){
+    console.log('patId to delete token from: ' + patId);
+
+    return this.getFCMTokenToNotifyMIDATA(patId).then((userTokenFound) => {
+        let deleted = new Promise((resolve, reject) => {
+          this.fcm.getToken((token: string) => {
+            for(var i = 0; i < userTokenFound.length; i++) {
+              let userTokenToDelete = userTokenFound[i] && token == userTokenFound[i].lotNumber;
+              if(userTokenToDelete) {
+                console.log('token to delete found:');
+                console.log(userTokenFound[i]);
+                //this.mp.delete();
+              }
+            }
+          });
+        });
+      });
   }
 
   getFCMTokenToNotifyMIDATA(patId: string){
@@ -189,11 +232,11 @@ export class NotificationService {
                 // If no token found at all, save a new token
                 if (!userTokenFound) {
                   if(this.mp.getRole() != 'provider') {
-                    resolve(this.storeFCMTokenMIDATA(token));
+                    resolve(this.storeFCMTokenMIDATA(token, false));
                   }
                 } else if (userTokenChanged) {
                   if(this.mp.getRole() != 'provider') {
-                    resolve(this.storeFCMTokenMIDATA(token));
+                    resolve(this.storeFCMTokenMIDATA(token, true));
                   }
                 } else {
                     resolve(userToken);
@@ -222,7 +265,7 @@ export class NotificationService {
     this.fcm.onNotification(
         this.onNotify,
         (msg) => {
-            console.log('onNotification callback successfully registered: ' + msg);
+          console.log('onNotification callback successfully registered: ' + msg);
         },
         (err) => {
             console.log('Error registering onNotification callback: ' + err);
@@ -248,6 +291,13 @@ export class NotificationService {
       if (data.secure) {
           let message: MiwadoTypes.Notification = this.decrypt(data.secure);
           this.notificationsSubj.next(<MiwadoTypes.Notification> message);
+          let alert = this.alertCtrl.create({
+            title: message.title,
+            subTitle: message.title,
+            buttons: ['OK']
+          });
+
+          alert.present();
       } else {
           console.log('Unknown notification from FCM');
           console.log(data);

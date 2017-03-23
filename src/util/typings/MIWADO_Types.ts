@@ -34,9 +34,10 @@ export interface MIWADO_Message {
 }
 
 export interface FCMToken_Device {
+  id?: string;
   resourceType: string;
   lotNumber: string;
-  type: string;
+  type: any;
   status: string;
   manufacturer: string;
 }

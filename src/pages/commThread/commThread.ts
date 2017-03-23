@@ -3,7 +3,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
-import {Calendar} from 'ionic-native';
+import { Calendar } from 'ionic-native';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -54,6 +54,8 @@ export class CommThreadPage {
   private hideBackButton = false;
   private messages = new Array<any>();
   private resource = new Array<any>();
+  private scrollAt : number;
+  private messageSend = false;
 
   private displayName : string;
   private displayGender : string;
@@ -84,7 +86,8 @@ export class CommThreadPage {
       }
       this.settings.getUser().then((user) => {
         this.pat.id = user.auth.owner;
-
+        //SCROLL
+        this.scrollAt = 0;
         this.retreiveCommRes();
       });
     }
@@ -213,6 +216,7 @@ export class CommThreadPage {
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       this.resource = res.reverse();
+      //this.resource = res;
       //console.log(res);
       this.settings.getUser().then((user) => {
         this.messages = []
@@ -252,15 +256,64 @@ export class CommThreadPage {
                                   day + "." + month + "." + years;
 
           this.messages.push(this.resource[i]);
-          this.messageWindow.scrollToBottom();
-          //console.log(this.messages);
+
+          /*for (var j = this.scrollAt; j < 5; j++) {
+            if (this.scrollAt < this.resource.length) {
+              this.messages.push(this.resource[j]);
+              this.scrollAt ++;
+            } else {
+              this.scrollAt = this.resource.length;
+            }
+          }*/
+          //this.messageWindow.scrollToBottom(300);
         }
+
+        if (this.messageSend) {
+          this.messageSend = false;
+          let alert = this.alertCtrl.create({
+            title: this.lang.commThread_Message_Sent_Title,
+            subTitle: this.lang.commThread_Message_Sent,
+            buttons: ['OK']
+          });
+
+          alert.present();
+        }
+
+        setTimeout(() => {
+          this.messageWindow.scrollToBottom();
+        }, 500);
       });
 
     }).catch((ex) => {
     console.error('Error fetching users', ex);
     });
   }
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    infiniteScroll.position = "top";
+
+    setTimeout(() => {
+      let max = this.scrollAt + 3;
+      for (var i = this.scrollAt; i < max; i++) {
+        if (this.scrollAt < this.resource.length) {
+          this.messages.push(this.resource[i]);
+          this.scrollAt ++;
+          this.messageWindow.scrollToBottom(300);
+        } else {
+          this.scrollAt = this.resource.length;
+          infiniteScroll.enable(false);
+        }
+      }
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 200);
+
+    /*setTimeout(() => {
+      this.messageWindow.scrollToBottom(300);
+    }, 500);*/
+  }
+
 
   storeCommRes() {
     //console.log('store started');
@@ -290,6 +343,7 @@ export class CommThreadPage {
           } else if(res[i].name == group) {
             group = res[i];
             this.settings.getUser().then((user) => {
+              this.messageSend = true;
               var commRes = this.defineCommRes(user.auth.owner, group);
             });
           }
@@ -381,8 +435,8 @@ export class CommThreadPage {
           console.log('in Comm Thread page');
           console.log(res);
 
-          let not = { //TODO: language files!!!
-            title: 'New message',
+          let not = {
+            title: this.lang.commThread_Message_Received_Title,
             type: 'NEWMSG'
           } as MiwadoTypes.Notification;
 

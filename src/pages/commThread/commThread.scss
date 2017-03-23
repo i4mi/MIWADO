@@ -10,6 +10,7 @@
       min-width: 0px;
     }
     .scroll-content {
+      background-color: #ebe7e5;
       padding:0 !important;
     }
     .select-text{
@@ -50,7 +51,6 @@
 
   .messages {
     height: 100%;
-    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -82,7 +82,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine.png)
+          background-image: url(/assets/img/message-mine2.png)
         }
       }
 
@@ -175,6 +175,7 @@
       min-width: 0px;
     }
     .scroll-content {
+      background-color: #ebe7e5;
       padding:0 !important;
     }
     .select-text{
@@ -215,7 +216,6 @@
 
   .messages {
     height: 100%;
-    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -248,7 +248,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine.png)
+          background-image: url(/assets/img/message-mine2.png)
         }
       }
 
@@ -346,6 +346,10 @@ page-commThread {
     min-width: 100%;
   }
 
+  .scroll-content {
+    background-color: #ebe7e5;
+    padding: 0 !important;
+  }
   scroll-zoom-wrapper{
     padding: 0px;
   }
@@ -370,7 +374,6 @@ page-commThread {
 
 .messages {
   height: 100%;
-  background-color: #ebe7e5;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -405,7 +408,7 @@ page-commThread {
 
       &::before {
         right: -11px;
-        background-image: url(/assets/img/message-mine.png)
+        background-image: url(/assets/img/message-mine2.png)
       }
     }
 

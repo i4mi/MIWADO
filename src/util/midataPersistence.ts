@@ -114,6 +114,10 @@ export class MidataPersistence {
     return this.md.search(resourceType, params);
   }
 
+  delete(resourceType: string, id: string) {
+    return this.md.delete(resourceType, id);
+  }
+
   retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
     return this.search('Communication', { "patient": pat.id }).then((result) => {
       //console.log("resources" + JSON.stringify(result));
@@ -148,6 +152,16 @@ export class MidataPersistence {
   retreiveFCMToken(){
     return this.search('Device').then((result) => {
       console.log('token resources:');
+      console.log(result);
+      return result;
+    }).catch((error) => {
+        console.error('Error fetching users', error);
+    });
+  }
+
+  deleteFCMToken(id: string) {
+    return this.delete('Device', id).then((result) => {
+      console.log('deleted token resource:');
       console.log(result);
       return result;
     }).catch((error) => {
