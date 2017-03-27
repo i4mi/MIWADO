@@ -2,7 +2,20 @@ import { Settings } from './settings';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-
+/*
+* Class LANGUAGE
+* This class contains all string variables
+* to be displayed in different lanugages.
+*
+* The language can be one of the following:
+* - DE for German (default)
+* - FR for France
+* - EN for English
+*
+* Version:    1.0 Test Version 
+* Author(s):  isels1, zyssm4
+* Date:       Builded 24.03.2017
+*/
 export class LANGUAGE {
 
   private static lang:LANGUAGE;
