@@ -147,9 +147,9 @@ export class CommThreadPage {
       var startdate : any;
       var enddate : any;
 
-      if(messagepayload.indexOf("<date2>") > 0){
-        date = messagepayload.substr(messagepayload.indexOf("<date>")+ 6, 8);
-        time =messagepayload.substr(messagepayload.indexOf("<time>") + 6, 5);
+      if(messagepayload.indexOf("'") > 0){
+        date = messagepayload.substr(messagepayload.indexOf("'")+ 1, 8);
+        time =messagepayload.substr(messagepayload.indexOf("`") + 1, 5);
 
         dateDay = date.substr(0,2)
         dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
@@ -160,8 +160,8 @@ export class CommThreadPage {
 
 
       }else{
-        date = messagepayload.substr(messagepayload.indexOf("<date>")+ 6, 8);
-        time = messagepayload.substr(messagepayload.indexOf("<time>") + 6, 5);
+        date = messagepayload.substr(messagepayload.indexOf("¨")+ 1, 8);
+        time = messagepayload.substr(messagepayload.indexOf("`") + 1, 5);
 
         dateDay = date.substr(0,2)
         dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
@@ -178,7 +178,7 @@ export class CommThreadPage {
       startdate.setMinutes(parseInt(timeMinute));
       enddate.setHours(parseInt(timeHour));
       enddate.setMinutes(parseInt(timeMinute));
-      if( messagepayload.indexOf("<date>") > 0 && messagepayload.indexOf("<time>") > 0 || messagepayload.indexOf("<time>") > 0 && messagepayload.indexOf("<date2>") > 0){
+      if( messagepayload.indexOf("¨") > 0 && messagepayload.indexOf("`") > 0 || messagepayload.indexOf("`") > 0 && messagepayload.indexOf("'") > 0){
       let alert = this.alertCtrl.create({
       title: this.lang.commThread_exportAppointment_PopUp_Title,
       message: this.lang.commThread_exportAppointment_PopUp_Text,
@@ -478,7 +478,7 @@ export class CommThreadPage {
       retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
                this.lang.TextBlock_AcceptAppointment_1 + ' ' +
                this.lang.TextBlock_on + ' ' +
-               '<date>' + dateInput + '</date> ' +
+               '¨' + dateInput + '¨' +
                this.lang.TextBlock_Sincere_regards + ' ' +
                this.senderPatientName + '.';
 
@@ -507,7 +507,7 @@ export class CommThreadPage {
       retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
                this.lang.TextBlock_PatientAfterDate_1 + ' ' +
                this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-               '<date>' + dateInput + '</date> ' +
+               '¨' + dateInput + '¨' +
                this.lang.TextBlock_Sincere_regards + ' ' +
                this.senderPatientName + '.';
 
@@ -528,7 +528,7 @@ export class CommThreadPage {
       retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
                this.lang.TextBlock_PatientwillnotCome_1 + ' ' +
                this.lang.TextBlock_on + ' ' +
-               '<date>' + dateInput + '</date> ';
+               '¨' + dateInput + '¨';
       var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
       console.log(timeInput);
       if(timeInput == "") {
@@ -541,7 +541,7 @@ export class CommThreadPage {
         return '';
       }
       retVal += this.lang.TextBlock_at + ' ' +
-                '<time>' + timeInput + '</time> ' +
+                '`' + timeInput + '`' +
                 this.lang.TextBlock_PatientwillnotCome_2 + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
                 this.senderPatientName + '.';
@@ -574,7 +574,7 @@ export class CommThreadPage {
                this.displayGender + ' ' +
                this.displayName + ' ' +
                this.lang.TextBlock_newAppointment_1 + ' ' +
-               '<date>' + dateInput + '</date> ' +
+               '¨' + dateInput + '¨' +
                this.lang.TextBlock_at + ' ';
 
       var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
@@ -589,7 +589,7 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
-      retVal += '<time>' + timeInput + '</time> ' +
+      retVal += '`' + timeInput + '`' +
                 this.lang.TextBlock_newAppointment_2 + ' ';
 
       var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
@@ -604,7 +604,7 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
-      retVal += '<section>' + selectSection + '</section> ' +
+      retVal += selectSection +
                 this.lang.TextBlock_newAppointment_3 + ' ' +
                 this.lang.TextBlock_Place + ' ' +
                 this.lang.TextBlock_newAppointment_4 + ' ' +
@@ -642,7 +642,7 @@ export class CommThreadPage {
                this.displayGender + ' ' +
                this.displayName + ' ' +
                this.lang.TextBlock_Change_Backoffice_1 + ' ' +
-               '<date>' + dateInput + '</date> ' +
+               '¨' + dateInput + '¨' +
                this.lang.TextBlock_Change_Backoffice_2 + ' ' +
                this.lang.TextBlock_Change_Backoffice_3 + ' ';
 
@@ -658,7 +658,7 @@ export class CommThreadPage {
          return '';
        }
 
-      retVal += '<date2>' + dateInput + '</date2> ' +
+      retVal += "'" + dateInput + "'" +
                 this.lang.TextBlock_at + ' ';
 
       var timeInput = innerHTML.getElementsByClassName('datetime-text')[2].innerText;
@@ -673,7 +673,7 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
-      retVal += '<time>' + timeInput + '</time> ' +
+      retVal += '`' + timeInput + '`' +
                 this.lang.TextBlock_Change_Backoffice_4 + ' ' +
                 this.lang.TextBlock_Sincere_regards + ' ' +
                 this.senderHealthProfesionalName + '.';
@@ -707,7 +707,7 @@ export class CommThreadPage {
                this.displayGender + ' ' +
                this.displayName + ' ' +
                this.lang.TextBlock_Reminder_1 + ' ' +
-               '<date>' + dateInput + '</date> ' +
+               '¨' + dateInput + '¨' +
                this.lang.TextBlock_Reminder_2 + ' ';
 
       var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
@@ -735,7 +735,7 @@ export class CommThreadPage {
       }
 
       if( this.shareService.getFastingStatus() == "fasting"){
-      retVal += '<time>' + timeInput + '</time> ' +
+      retVal += '`' + timeInput + '`' +
                 this.lang.TextBlock_Reminder_3 + ' ' +
                 this.lang.TextBlock_Place + ' ' +
                 this.lang.TextBlock_Reminder_4 + ' ' +
@@ -746,7 +746,7 @@ export class CommThreadPage {
                 this.lang.TextBlock_Sincere_regards + ' ' +
                 this.senderHealthProfesionalName + '.';
       }else if(this.shareService.getFastingStatus() == "notfasting"){
-        retVal += '<time>' + timeInput + '</time> ' +
+        retVal += '`' + timeInput + '`' +
                   this.lang.TextBlock_Reminder_3 + ' ' +
                   this.lang.TextBlock_Place + ' ' +
                   this.lang.TextBlock_cancelation + ' ' +
