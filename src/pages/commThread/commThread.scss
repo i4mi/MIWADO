@@ -331,6 +331,9 @@
 }
 
 page-commThread {
+  ion-select {
+    position: relative;
+  }
   .select-text{
     max-width: auto !important;
     box-sizing: initial;

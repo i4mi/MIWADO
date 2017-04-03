@@ -722,8 +722,8 @@ export class CommThreadPage {
         alert.present();
         return '';
       }
-
-      if(this.shareService.getFastingStatus() != "fasting" || this.shareService.getFastingStatus() != "notfasting") {
+      var fastingState = this.shareService.getFastingStatus();
+      if(!fastingState) {
         let alert = this.alertCtrl.create({
           title: this.lang.commThread_No_FastingStatus_Choosen_Title,
           subTitle: this.lang.commThread_No_FastingStatus_Choosen,

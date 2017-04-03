@@ -2,32 +2,43 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Http, Headers } from '@angular/http';
 import { Platform, AlertController } from 'ionic-angular';
-import { Settings } from '../../util/settings';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-
 import { MidataPersistence } from '../../util/midataPersistence'
-
+import { Settings } from '../../util/settings';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
 declare var FCMPlugin;
 
+/*
+* Class NotificationService
+* This class all the stuff that needs to be done to
+* - get a token to notify
+* - save a token to notify
+* - retreives tokens to notify
+* - notifies
+*
+* This class needs the MidataPersistence class,
+* Settings class and the MIWADO_Types!
+*
+* Version:    1.0 Test Version
+* Author(s):  isels1, zyssm4
+* Date:       Builded 24.03.2017
+*/
 @Injectable()
 export class NotificationService {
 
   private notificationsSubj = new Subject<MiwadoTypes.Notification>();
-  notifications: Observable<MiwadoTypes.Notification> = this.notificationsSubj.asObservable();
-
+          notifications: Observable<MiwadoTypes.Notification> = this.notificationsSubj.asObservable();
   private settings = Settings.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
+  private listenerSubscriptions: any[] = [];
+  private didSetup = false;
 
   // Flag to indicate whether the service currently tries to update the token
   // on the MIDATA server. If that's the case there should be no other update
   // since otherwise the service might create multiple copies of the token!
   private updateUserTokenInProgress = false;
-
-  private listenerSubscriptions: any[] = [];
-  private didSetup = false;
 
   // The firebase cloud messaging API object (obtained through
   // cordova-plugin-fcm). Be sure to add the necessary config files to the
@@ -41,7 +52,6 @@ export class NotificationService {
               private alertCtrl: AlertController){
 
     window['not'] = this;
-
     this.notifications.subscribe(n => {
         console.log('Received notification: ', JSON.stringify(n));
     });
@@ -72,25 +82,6 @@ export class NotificationService {
   storeFCMTokenMIDATA(token: string, update: boolean) : Promise<MiwadoTypes.FCMToken_Device> {
     return this.settings.getUser().then((user) => {
       let userId = user.auth.owner;
-    /*  if(update) {
-        this.mp.retreiveFCMToken().then((token) => {
-          for(var i = 0; i < token.length; i++) {
-            if (token[i].manufacturer == userId) {
-              var tk = {
-                id: token[i].id,
-                resourceType: "Device",
-                lotNumber: token,
-                type: { 'type': 'FCMToken'},
-                status: 'available',
-                manufacturer: userId,
-              } as MiwadoTypes.FCMToken_Device;
-              this.saveFCMTokenMIDATA(tk).then((token) => {
-                return tk;
-              });
-            }
-          }
-        });
-      } */
         var tk = {
           resourceType: "Device",
           lotNumber: token,
@@ -116,21 +107,20 @@ export class NotificationService {
 
   deleteFCMTokenMIDATA(patId: string){
     console.log('patId to delete token from: ' + patId);
-
     return this.getFCMTokenToNotifyMIDATA(patId).then((userTokenFound) => {
-        let deleted = new Promise((resolve, reject) => {
-          this.fcm.getToken((token: string) => {
-            for(var i = 0; i < userTokenFound.length; i++) {
-              let userTokenToDelete = userTokenFound[i] && token == userTokenFound[i].lotNumber;
-              if(userTokenToDelete) {
-                console.log('token to delete found:');
-                console.log(userTokenFound[i]);
-                //this.mp.delete();
-              }
+      let deleted = new Promise((resolve, reject) => {
+        this.fcm.getToken((token: string) => {
+          for(var i = 0; i < userTokenFound.length; i++) {
+            let userTokenToDelete = userTokenFound[i] && token == userTokenFound[i].lotNumber;
+            if(userTokenToDelete) {
+              console.log('token to delete found:');
+              console.log(userTokenFound[i]);
+              //this.mp.delete();
             }
-          });
+          }
         });
       });
+    });
   }
 
   getFCMTokenToNotifyMIDATA(patId: string){
@@ -144,7 +134,6 @@ export class NotificationService {
           tokens.push(res[i]);
         }
       }
-
       return tokens;
     });
   }
@@ -248,7 +237,6 @@ export class NotificationService {
           });
         });
       });
-
       // Make sure to set the flag back to false.
       return token.then(tk => {
           this.updateUserTokenInProgress = false;
