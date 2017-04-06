@@ -23,7 +23,7 @@
 </ion-content>
 
 <ion-footer>
-  <div class="messages-page-footer">
+  <!--<div class="messages-page-footer">
     <div #cancelationPatient>
       <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
     </div>
@@ -45,11 +45,10 @@
     <div #changeBackoffice>
       <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
     </div>
-  </div>
+  </div>-->
 
-  <ion-label>{{ lang.commThread_Button_Choose_MessageType }}</ion-label>
   <ion-row class="message-item-wrapper">
-    <ion-item class="message-editor">
+    <!--<ion-item class="message-editor">
       <ion-label class="label-message-popUp">{{ lang.commThread_Choose_Message_PopUp }}</ion-label>
       <ion-select class="message-select-typ" [(ngModel)]="TextBlock" (ionChange)="optionsTextBlock()">
         <ion-option [value]="item" *ngFor="let item of options">{{item.name}}</ion-option>
@@ -57,6 +56,12 @@
     </ion-item>
     <button ion-button icon-only class="message-send-button" (click)="storeCommRes()" ass="message-editor-button">
       <ion-icon name="send"></ion-icon>
-    </button>
+    </button>-->
+    <ion-item class="message-send-button-container">
+      <button ion-button block iocon-right class="message-send-button" (click)="chooseMsg()">
+        {{ lang.commThread_Button_Choose_MessageType }}
+        <ion-icon name="document"></ion-icon>
+      </button>
+    </ion-item>
   </ion-row>
 </ion-footer>

@@ -6,6 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
 import { SettingPage } from '../pages/setting/setting';
 import { CommThreadPage } from '../pages/commThread/commThread';
+import { ChooseMsg } from '../pages/chooseMsg/chooseMsg';
 import { CancelationPatient } from '../util/textMessages/cancelationPatient/cancelationPatient';
 import { ChangeBackoffice } from '../util/textMessages/changeBackoffice/changeBackoffice';
 import { Confirmation } from '../util/textMessages/confirmation/confirmation';

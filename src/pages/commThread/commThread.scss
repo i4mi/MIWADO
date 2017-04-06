@@ -4,6 +4,9 @@
     ion-scroll{
       margin:0 !important;
     }
+    ion-icon {
+      padding-left: 5px !important;
+    }
     .label-message-popUp{
       width: 0px;
       max-width: 0px;
@@ -125,11 +128,20 @@
         color: gray;
       }
     }
+
+    .message-send-button-container {
+      padding-left: 0px !important;
+    }
+
     .message-send-button{
-      max-width: 12%;
-      min-width: 10%;
-      right: 2px;
-      bottom: 1px;
+      //max-width: 12%;
+      //min-width: 10%;
+      //right: 2px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      //width: 90%;
+      bottom: 5px;
       position: absolute;
       background-color: #268ba3 !important;
     }
@@ -168,6 +180,9 @@
   page-commThread {
     ion-scroll{
       margin:0 !important;
+    }
+    ion-icon {
+      padding-left: 5px !important;
     }
     .label-message-popUp{
       width: 0px;
@@ -291,11 +306,20 @@
         color: gray;
       }
     }
+
+    .message-send-button-container {
+      padding-left: 0px !important;
+    }
+
     .message-send-button{
-      max-width: 12%;
-      min-width: 10%;
-      right: 2px;
-      bottom: 1px;
+      //max-width: 12%;
+      //min-width: 10%;
+      //right: 2px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      //width: 90%;
+      bottom: 5px;
       position: absolute;
       background-color: #268ba3 !important;
     }
@@ -333,6 +357,9 @@
 page-commThread {
   ion-select {
     position: relative;
+  }
+  ion-icon {
+    padding-left: 5px !important;
   }
   .select-text{
     max-width: auto !important;
@@ -456,11 +483,20 @@ page-commThread {
       float: right;
     }
   }
+
+  .message-send-button-container {
+    padding-left: 0px !important;
+  }
+
   .message-send-button{
-    max-width: 12%;
-    min-width: 10%;
-    right: 2px;
-    bottom: 1px;
+    //max-width: 12%;
+    //min-width: 10%;
+    //right: 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //width: 96%;
+    bottom: 5px;
     position: absolute;
     background-color: #268ba3 !important;
   }

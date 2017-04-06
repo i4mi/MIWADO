@@ -3,6 +3,7 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
+import { ChooseMsg } from '../chooseMsg/chooseMsg';
 import { Calendar } from 'ionic-native';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
@@ -22,7 +23,6 @@ import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { ShareService } from '../../util/shareService';
 import { NotificationService } from '../../util/notification/notification';
-
 
 @Component({
   selector: 'page-commThread',
@@ -92,41 +92,6 @@ export class CommThreadPage {
       });
     }
 
-    if (this.mp.getRole() == 'provider') {
-      this.options = [
-          {
-            "name" : this.lang.commThread_TextBlock_Title_NewAppointment,
-            "tag" : "newAppointment"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice,
-            "tag" : "changeBackoffice"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Reminder,
-            "tag" : "reminder"
-          }
-      ]
-    } else {
-      this.options =[
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Confirmation,
-            "tag" : "confirmation"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling,
-            "tag" : "patientCancelationWillCall"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date,
-            "tag" : "patientCancelationNewDate"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation,
-            "tag" : "cancelationPatient"
-          }
-      ]
-    }
     this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
       console.log('in Comm Thread page');
       console.log(res);
@@ -765,8 +730,8 @@ export class CommThreadPage {
     return retVal;
   }
 
-   openSettings(){
-     this.nav.push(SettingPage);
+   chooseMsg(){
+     this.nav.push(ChooseMsg);
    }
 
   }

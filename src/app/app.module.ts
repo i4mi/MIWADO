@@ -14,6 +14,7 @@ import { NewAppointment } from '../util/textMessages/newAppointment/newAppointme
 import { PatientCancelationNewDate } from '../util/textMessages/patientCancelationNewDate/patientCancelationNewDate';
 import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
 import { Reminder } from '../util/textMessages/reminder/reminder';
+import { ChooseMsg } from '../pages/chooseMsg/chooseMsg';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
     NewAppointment,
     PatientCancelationNewDate,
     PatientCancelationWillCall,
-    Reminder
+    Reminder,
+    ChooseMsg
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -48,7 +50,8 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
     NewAppointment,
     PatientCancelationNewDate,
     PatientCancelationWillCall,
-    Reminder
+    Reminder,
+    ChooseMsg
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })
