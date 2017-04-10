@@ -31,7 +31,7 @@ import { ChooseMsg } from '../pages/chooseMsg/chooseMsg';
     PatientCancelationNewDate,
     PatientCancelationWillCall,
     Reminder,
-    ChooseMsg
+    ChooseMsg,
   ],
   imports: [
     IonicModule.forRoot(MyApp)

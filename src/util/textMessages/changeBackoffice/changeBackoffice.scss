@@ -86,3 +86,33 @@
   border-bottom-style: solid;
   border-bottom-color: black;
 }
+
+
+
+ion-select {
+position: relative;
+}
+ion-icon {
+padding-left: 5px !important;
+}
+
+.select-text{
+max-width: auto !important;
+box-sizing: initial;
+}
+
+.label-message-popUp{
+width: 0px;
+max-width: 0px;
+min-width: 0px;
+}
+
+.select{
+max-width: auto !important;
+box-sizing: initial;
+min-width: 100%;
+}
+
+.message-send-button{
+background-color: #268ba3 !important;
+}

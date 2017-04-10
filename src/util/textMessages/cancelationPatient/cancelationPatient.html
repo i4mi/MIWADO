@@ -1,22 +1,46 @@
-<div>
-  <ion-row>
-    {{ lang.TextBlock_Patient_Welcome }}
+<ion-header>
+ <ion-navbar class="navbar-content">
+   <ion-title>{{ lang.commThread_TextBlock_Title_Cancellation }}</ion-title>
+   <ion-buttons end>
+     <button (click)="openSettings()" ion-button icon-only>
+       <ion-icon name="settings"></ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #cancelationPatient>
+    <ion-row>
+      {{ lang.TextBlock_Patient_Welcome }}
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_PatientwillnotCome_1 }}
+    </ion-row>
+    <ion-row class="dateTimeStyler">
+      <ion-col>
+        <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerCancelation selectDate"></ion-datetime>
+      </ion-col>
+      {{ lang.TextBlock_at }}
+      <ion-col>
+        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerCancelation selectTime"></ion-datetime>
+      </ion-col>
+      <p class="textCancelation">{{ lang.TextBlock_PatientwillnotCome_2 }}</p>
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_Sincere_regards }}
+      {{ patientSenderName }}
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="message-item-wrapper">
+    <ion-item class="message-send-button-container">
+      <button ion-button block iocon-right class="message-send-button" (click)="checkAndSendMessage()">
+        {{ lang.commThread_Send_Message }}
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
   </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_PatientwillnotCome_1 }}
-  </ion-row>
-  <ion-row class="dateTimeStyler">
-    <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" class="datePickerCancelation selectDate"></ion-datetime>
-    </ion-col>
-    {{ lang.TextBlock_at }}
-    <ion-col>
-      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerCancelation selectTime"></ion-datetime>
-    </ion-col>
-    <p class="textCancelation">{{ lang.TextBlock_PatientwillnotCome_2 }}</p>
-  </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_Sincere_regards }}
-    {{ patientSenderName }}
-  </ion-row>
-</div>
+</ion-footer>

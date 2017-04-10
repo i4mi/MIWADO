@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 * - FR for France
 * - EN for English
 *
-* Version:    1.0 Test Version 
+* Version:    1.0 Test Version
 * Author(s):  isels1, zyssm4
 * Date:       Builded 24.03.2017
 */
@@ -85,6 +85,7 @@ export class LANGUAGE {
   public commThread_Message_Sent_Title : string;
   public commThread_Message_Sent : string;
   public commThread_Message_Received_Title : string;
+  public commThread_Send_Message: string;
 
   //Language variables for the TextBlocks
 
@@ -241,6 +242,7 @@ export class LANGUAGE {
     this.commThread_Message_Sent_Title = 'Gesendet';
     this.commThread_Message_Sent = 'Ihre Nachricht wurde gesendet.';
     this.commThread_Message_Received_Title = 'Neue Nachricht erhalten.';
+    this.commThread_Send_Message = "Nachricht senden"
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -345,6 +347,7 @@ export class LANGUAGE {
     this.commThread_Message_Sent_Title = 'none';
     this.commThread_Message_Sent = 'none';
     this.commThread_Message_Received_Title = 'none';
+    this.commThread_Send_Message = 'none';
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -446,6 +449,7 @@ export class LANGUAGE {
     this.commThread_Message_Sent_Title = 'Sent';
     this.commThread_Message_Sent = 'Your message has been sent.';
     this.commThread_Message_Received_Title = 'New message received.';
+    this.commThread_Send_Message = "Send message";
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_Patient_Welcome = 'Welcome, UDEM';
