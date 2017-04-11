@@ -9,6 +9,7 @@ import { Settings } from '../../util/settings';
 import { RolePage } from '../role/role';
 import { ShareService } from '../../util/shareService';
 import { NotificationService } from '../../util/notification/notification';
+import { ImpressumPage } from '../impressum/impressum';
 
   @Component({
     selector: 'page-setting',
@@ -124,5 +125,8 @@ export class SettingPage {
   }
   setGroup(selectedGroup){
     this.settings.setGroup(this.selectedGroup);
+  }
+  impressum() {
+    this.nav.push(ImpressumPage);
   }
 }

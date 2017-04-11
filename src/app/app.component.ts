@@ -16,6 +16,7 @@ import { PatientCancelationWillCall } from '../util/textMessages/patientCancelat
 import { Reminder } from '../util/textMessages/reminder/reminder';
 import { ShareService } from '../util/shareService';
 import { NotificationService } from '../util/notification/notification';
+import { ImpressumPage } from '../pages/impressum/impressum';
 
 @Component({
   templateUrl: 'app.html',
