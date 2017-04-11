@@ -51,11 +51,11 @@ export class PatientCancelationNewDate {
       alert.present();
       return '';
     }
-    retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+    retVal = this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientAfterDate_1 + ' ' +
              this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-             '¨' + dateInput + '¨' +
-             this.lang.TextBlock_Sincere_regards + ' ' +
+             '¨' + dateInput + '¨ \n' +
+             this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 
 

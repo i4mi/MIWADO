@@ -81,9 +81,9 @@ export class ChangeBackoffice {
 
     retVal = this.lang.TextBlock_Welcome + ' ' +
              this.displayGender + ' ' +
-             this.displayName + ' ' +
+             this.displayName + ' \n' +
              this.lang.TextBlock_Change_Backoffice_1 + ' ' +
-             '¨' + dateInput + '¨' +
+             '¨' + dateInput + '¨ ' +
              this.lang.TextBlock_Change_Backoffice_2 + ' ' +
              this.lang.TextBlock_Change_Backoffice_3 + ' ';
 
@@ -99,7 +99,7 @@ export class ChangeBackoffice {
        return '';
      }
 
-    retVal += "'" + dateInput + "'" +
+    retVal += "'" + dateInput + "' " +
               this.lang.TextBlock_at + ' ';
 
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[2].innerText;
@@ -115,9 +115,9 @@ export class ChangeBackoffice {
       return '';
     }
     retVal += '`' + timeInput + '`' +
-              this.lang.TextBlock_Change_Backoffice_4 + ' ' +
-              this.lang.TextBlock_Sincere_regards + '.';
-              //TODO: GREETINGS UDEM OR SO + '.';
+              this.lang.TextBlock_Change_Backoffice_4 + ' \n' +
+              this.lang.TextBlock_Sincere_regards + ' \n' +
+              this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

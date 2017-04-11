@@ -102,6 +102,7 @@ export class LANGUAGE {
   public TextBlock_Place: string;
   public TextBlock_on : string;
   public TextBlock_PlaceholderName : string;
+  public TextBlock_UDEM_Team: string;
 
 
   //Reminder
@@ -319,6 +320,7 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Markus Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
+    this.TextBlock_UDEM_Team = "Ihr UDEM";
 
     this.textMessages_Date_Title = "Datum eingeben";
     this.textMessages_Time_Title = "Zeit eingeben";
@@ -455,6 +457,7 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "none";
     this.TextBlock_fasting = "none";
+    this.TextBlock_UDEM_Team = "votre UDEM";
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";
@@ -575,6 +578,7 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
+    this.TextBlock_UDEM_Team = "Your UDEM";
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";

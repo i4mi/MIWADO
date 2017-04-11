@@ -82,9 +82,9 @@ export class NewAppointment {
 
     retVal = this.lang.TextBlock_Welcome + ' ' +
              this.displayGender + ' ' +
-             this.displayName + ' ' +
+             this.displayName + ' \n' +
              this.lang.TextBlock_newAppointment_1 + ' ' +
-             '¨' + dateInput + '¨' +
+             '¨' + dateInput + '¨ ' +
              this.lang.TextBlock_at + ' ';
 
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
@@ -120,9 +120,9 @@ export class NewAppointment {
               this.lang.TextBlock_newAppointment_4 + ' ' +
               this.lang.TextBlock_cancelation + ' ' +
               this.lang.TextBlock_cancelation_Costs + ' ' +
-              this.lang.TextBlock_Phonenumber + ' ' +
-              this.lang.TextBlock_Sincere_regards + '.';
-              //TODO: GREETINGS UDEM OR SO + '.';
+              this.lang.TextBlock_Phonenumber + ' \n' +
+              this.lang.TextBlock_Sincere_regards + ' \n' +
+              this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,
