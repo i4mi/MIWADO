@@ -10,39 +10,56 @@
 </ion-header>
 
 <ion-content>
-  <div #newAppointment>
+  <div #newAppointment class="form-style-5">
     <ion-row>
-      {{ lang.TextBlock_Welcome }}
-      {{ displayGender }}
-      {{ displayName }}
-    </ion-row>
-    <ion-row class="rowStyleNewAppointment">
-      {{ lang.TextBlock_newAppointment_1 }}
-      <ion-col>
-        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}}  [(ngModel)]="myDate" class="datePickerNewAppointment selectDate"></ion-datetime>
-      </ion-col>
-      {{ lang.TextBlock_at }}
-      <ion-col>
-        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerNewAppointment selectTime"></ion-datetime>
-      </ion-col>
+      <label>{{ lang.TextBlock_Welcome }}</label>
+      <label>{{ displayGender }}</label>
+      <label>{{ displayName }}</label>
     </ion-row>
     <ion-row>
-      {{ lang.TextBlock_newAppointment_2 }}
-      <ion-col>
-        <ion-select  class="departmentPickerNewAppointment selectSection" multiple="false">
+      <label>{{ lang.TextBlock_newAppointment_1 }}</label>
+    </ion-row>
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Date_Title }}</label>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}}  [(ngModel)]="myDate"></ion-datetime>
+      <span>{{ lang.textMessages_newAppointment_Date_Info }}</span>
+    </ion-row>
+    <ion-row>
+      <label>{{ lang.TextBlock_at }}</label>
+    </ion-row>
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Time_Title }}</label>
+      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45"></ion-datetime>
+      <span> {{lang.textMessages_newAppointment_Time_Info}} </span>
+    </ion-row>
+    <ion-row>
+      <label>{{ lang.TextBlock_newAppointment_2 }}</label>
+    </ion-row>
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Select_Department_Title }}</label>
+        <ion-select multiple="false">
           <ion-option>{{ lang.TextBlock_Diabetology }}</ion-option>
           <ion-option>{{ lang.TextBlock_endocrinology }}</ion-option>
           <ion-option>{{ lang.TextBlock_nutritional_medicine }}</ion-option>
           <ion-option>{{ lang.TextBlock_metabolism }}</ion-option>
         </ion-select>
-      </ion-col>
-      {{ lang.TextBlock_newAppointment_3 }} {{ lang.TextBlock_Place }}
-      {{ lang.TextBlock_newAppointment_4 }} {{ lang.TextBlock_cancelation }}
-      {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
+        <span>{{ lang.textMessages_newAppointment_Department_Info }}</span>
+    </ion-row>
+    <br />
+    <br />
+    <ion-row>
+      <label>{{ lang.TextBlock_newAppointment_3 }}
+      {{ lang.TextBlock_Place }}
+      {{ lang.TextBlock_newAppointment_4 }}
+      {{ lang.TextBlock_cancelation }}
+      {{ lang.TextBlock_cancelation_Costs }}
+      {{ lang.TextBlock_Phonenumber }}</label>
     </ion-row>
     <ion-row>
-      {{ lang.TextBlock_Sincere_regards }}
-      {{ senderName }}
+      <label>{{ lang.TextBlock_Sincere_regards }}</label>
+    </ion-row>
+    <ion-row>
+      <label>{{ senderName }}</label>
     </ion-row>
   </div>
 </ion-content>

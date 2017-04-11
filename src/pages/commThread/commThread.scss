@@ -163,6 +163,29 @@
     }
     }
   }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
+  }
 }
 //Android Style
 .platform-android{
@@ -328,6 +351,29 @@
       min-width: 20%;
     }
     }
+  }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
   }
 }
 
@@ -495,5 +541,27 @@ page-commThread {
 }
 .navbar-content{
   align-items: center;
+}
+.message-send-button-container ion-label {
+  margin: 0;
+}
+
+.item-md {
+    padding-left: 8px;
+    background-color: transparent;
+}
+
+.label-md {
+  margin-left: 8px;
+}
+
+.item-md .item-button {
+  height: 30px;
+  font-size: 15px;
+}
+
+.message-send-button{
+background-color: #268ba3 !important;
+height: 100%;
 }
 }

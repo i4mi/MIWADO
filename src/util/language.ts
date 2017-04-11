@@ -150,10 +150,18 @@ export class LANGUAGE {
   public TextBlock_metabolism : string;
 
   public textMessages_Date_Title :string;
-  public textMessages_changeBackoffice_Date1_Info : string;
   public textMessages_Time_Title : string;
+  public textMessages_Select_Department_Title: string;
+  public textMessages_Fastingstatus_Title: string;
+
+  public textMessages_changeBackoffice_Date1_Info : string;
   public textMessages_changeBackoffice_Date2_Info: string;
   public textMessages_changeBackoffice_Time_Info : string;
+  public textMessages_newAppointment_Date_Info: string;
+  public textMessages_newAppointment_Time_Info: string;
+  public textMessages_newAppointment_Department_Info: string;
+  public textMessages_reminder_Fastingstatus_Info : string;
+
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -256,7 +264,7 @@ export class LANGUAGE {
     this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
     this.TextBlock_cancelation_Costs = 'Absagen, welche später erfolgen, müssen wir Ihnen leider verrechnen.';
     this.TextBlock_Phonenumber = 'Sie erreichen uns unter 031 632 40 70.';
-    this.TextBlock_Place = 'Kinderklinik, Eingang 31, Stockwerk G ';
+    this.TextBlock_Place = 'Kinderklinik, Eingang 31, Stockwerk G.';
     this.TextBlock_on = 'am ';
     this.TextBlock_Reminder_1 = 'Ihr nächster Termin ist am ';
     this.TextBlock_Reminder_2 = 'Bitte seien Sie um ';
@@ -284,7 +292,7 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endokrinologie';
     this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
     this.TextBlock_metabolism = 'Metabolismus';
-    this.TextBlock_PlaceholderName = 'Lehrmann';
+    this.TextBlock_PlaceholderName = 'Markus Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
 
@@ -293,6 +301,13 @@ export class LANGUAGE {
     this.textMessages_changeBackoffice_Date1_Info = "Bitte das alte Datum angeben.";
     this.textMessages_changeBackoffice_Date2_Info = "Bitte das Datum des neuen Termin angeben.";
     this.textMessages_changeBackoffice_Time_Info = "Bitte die Zeit des neuen Termin angeben.";
+
+    this.textMessages_newAppointment_Date_Info = "Bitte das Datum des Termins angeben.";
+    this.textMessages_newAppointment_Time_Info = "Bitte die Zeit des Termins angeben.";
+    this.textMessages_Select_Department_Title = "Abteilung auswählen";
+    this.textMessages_newAppointment_Department_Info = "Bitte die Abteilung des Termins angeben.";
+    this.textMessages_Fastingstatus_Title = "Nüchtern?";
+    this.textMessages_reminder_Fastingstatus_Info = "Bitte angeben, ob der Patient nüchtern oder nicht erscheinen muss."
   }
 
 
@@ -403,6 +418,13 @@ export class LANGUAGE {
     this.textMessages_changeBackoffice_Date1_Info = "none";
     this.textMessages_changeBackoffice_Date2_Info = "none";
     this.textMessages_changeBackoffice_Time_Info = "none";
+
+    this.textMessages_newAppointment_Date_Info = "none";
+    this.textMessages_newAppointment_Time_Info = "none";
+    this.textMessages_Select_Department_Title = "none";
+    this.textMessages_newAppointment_Department_Info = "none";
+    this.textMessages_Fastingstatus_Title = "none";
+    this.textMessages_reminder_Fastingstatus_Info = "none";
   }
 
   private langEN(){
@@ -512,5 +534,12 @@ export class LANGUAGE {
     this.textMessages_changeBackoffice_Date1_Info = "none";
     this.textMessages_changeBackoffice_Date2_Info = "none";
     this.textMessages_changeBackoffice_Time_Info = "none";
+
+    this.textMessages_newAppointment_Date_Info = "none";
+    this.textMessages_newAppointment_Time_Info = "none";
+    this.textMessages_Select_Department_Title = "none";
+    this.textMessages_newAppointment_Department_Info = "none";
+    this.textMessages_Fastingstatus_Title = "none";
+    this.textMessages_reminder_Fastingstatus_Info = "none";
   }
 }
