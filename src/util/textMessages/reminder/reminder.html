@@ -10,41 +10,53 @@
 </ion-header>
 
 <ion-content>
-  <div #reminder>
+  <div #reminder class="form-style-5">
     <ion-row>
-      <p>
-        {{ lang.TextBlock_Welcome }}
-        {{ this.displayGender }}
-        {{ this.displayName }}
-      </p>
+        <label>{{ lang.TextBlock_Welcome }}</label>
+        <label>{{ this.displayGender }}</label>
+        <label>{{ this.displayName }}</label>
     </ion-row>
-    <ion-row class="rowStyleReminder">
-      {{ lang.TextBlock_Reminder_1 }}
-      <ion-col>
-        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerReminder selectDate"></ion-datetime>
-      </ion-col>
+    <ion-row>
+      <label> {{ lang.TextBlock_Reminder_1 }} </label>
     </ion-row>
-    <ion-row class="rowStyleReminder">
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Date_Title }}</label>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate"></ion-datetime>
+      <span> {{lang.textMessages_newAppointment_Date_Info}} </span>
+    </ion-row>
+    <ion-row >
       {{ lang.TextBlock_Reminder_2 }}
-      <ion-col>
-        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="datePickerReminder selectTime"></ion-datetime>
-      </ion-col>
-      {{ lang.TextBlock_Reminder_3 }}
-      {{ lang.TextBlock_Place }}
-      <ion-row>
-      <ion-col>
-        <ion-select  class="fastingPickerReminder selectSection" multiple="false" [(ngModel)]="value" (ionChange)="fastingStatusAction(value)">
+    </ion-row>
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Time_Title }}</label>
+      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45"></ion-datetime>
+      <span> {{lang.textMessages_newAppointment_Time_Info}} </span>
+    </ion-row>
+    <ion-row>
+      <label>{{ lang.TextBlock_Reminder_3 }}
+      {{ lang.TextBlock_Place }}</label>
+    </ion-row>
+    <br />
+    <br />
+    <ion-row class="li-style">
+      <label>{{ lang.textMessages_Fastingstatus_Title }}</label>
+        <ion-select multiple="false" [(ngModel)]="value" (ionChange)="fastingStatusAction(value)">
           <ion-option value="notfasting">{{ lang.TextBlock_not_fasting }}</ion-option>
           <ion-option value="fasting">{{ lang.TextBlock_fasting }}</ion-option>
         </ion-select>
-      </ion-col>
+        <span> {{lang.textMessages_reminder_Fastingstatus_Info}} </span>
     </ion-row>
-      {{ lang.TextBlock_cancelation }}
-      {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}
+    <br />
+    <br />
+    <ion-row>
+      <label>{{ lang.TextBlock_cancelation }}
+      {{ lang.TextBlock_cancelation_Costs }} {{ lang.TextBlock_Phonenumber }}</label>
     </ion-row>
     <ion-row>
-      {{ lang.TextBlock_Sincere_regards }}
-      {{ this.senderName }}
+      <label>{{ lang.TextBlock_Sincere_regards }}</label>
+    </ion-row>
+    <ion-row>
+      <label>{{ this.senderName }}</label>
     </ion-row>
   </div>
 </ion-content>

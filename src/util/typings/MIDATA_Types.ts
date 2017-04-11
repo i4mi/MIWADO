@@ -51,7 +51,7 @@ export interface DateToValue
    status:string;
    recipient:Array<any>;
    payload:Array<MIDATA_HL7CommRes_Payload_String|MIDATA_HL7CommRes_Payload_Attachment|MIDATA_HL7CommRes_Payload_Refernce>;
-   medium:Array<MIDATA_HL7CommRes_Medium>;
+   medium:Array<any>;
    encounter:any;
    sent:Date;
    received?:Date;

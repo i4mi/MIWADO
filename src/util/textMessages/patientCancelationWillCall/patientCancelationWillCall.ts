@@ -37,10 +37,10 @@ export class PatientCancelationWillCall {
   }
 
   checkAndSendMessage() {
-    var retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+    var retVal = this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientWillCall_1 + ' ' +
-             this.lang.TextBlock_PatientWillCall_2 + ' ' +
-             this.lang.TextBlock_Sincere_regards + ' ' +
+             this.lang.TextBlock_PatientWillCall_2 + ' \n' +
+             this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 
     this.nav.push(CommThreadPage, {

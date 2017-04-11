@@ -102,6 +102,7 @@ export class LANGUAGE {
   public TextBlock_Place: string;
   public TextBlock_on : string;
   public TextBlock_PlaceholderName : string;
+  public TextBlock_UDEM_Team: string;
 
 
   //Reminder
@@ -151,6 +152,39 @@ export class LANGUAGE {
   public TextBlock_nutritional_medicine : string;
   public TextBlock_metabolism : string;
 
+  public textMessages_Date_Title :string;
+  public textMessages_Time_Title : string;
+  public textMessages_Select_Department_Title: string;
+  public textMessages_Fastingstatus_Title: string;
+
+  public textMessages_changeBackoffice_Date1_Info : string;
+  public textMessages_changeBackoffice_Date2_Info: string;
+  public textMessages_changeBackoffice_Time_Info : string;
+  public textMessages_newAppointment_Date_Info: string;
+  public textMessages_newAppointment_Time_Info: string;
+  public textMessages_newAppointment_Department_Info: string;
+  public textMessages_reminder_Fastingstatus_Info : string;
+
+  //IMPRESSUM
+  public impressum_Title: string;
+  public impressum_Contact_Title : string;
+  public impressum_Contact_AppName : string;
+  public impressum_Contact_BFH: string;
+  public impressum_Contact_Adress: string;
+  public impressum_Contact_City: string;
+  public impressum_Contact_Email_Title: string;
+
+  public impressum_HA_Title: string;
+  public impressum_HA_Text_1: string;
+  public impressum_HA_Text_2: string;
+  public impressum_HA_Text_3: string;
+
+  public impressum_Rights_Title: string;
+  public impressum_Rights_Text: string;
+
+  public impressum_Data_Title: string;
+  public impressum_Data_Text_1: string;
+  public impressum_Data_Text_2: string;
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -248,44 +282,75 @@ export class LANGUAGE {
     this.commThread_Message_Received_Title = 'Neue Nachricht erhalten.';
     this.commThread_Send_Message = "Nachricht senden"
 
-    this.TextBlock_Welcome = 'Guten Tag';
+    this.TextBlock_Welcome = 'Guten Tag ';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
-    this.TextBlock_at = 'um';
-    this.TextBlock_Sincere_regards = 'Mit freundlichen Grüssen';
+    this.TextBlock_at = 'um ';
+    this.TextBlock_Sincere_regards = 'Mit freundlichen Grüssen ';
     this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
     this.TextBlock_cancelation_Costs = 'Absagen, welche später erfolgen, müssen wir Ihnen leider verrechnen.';
     this.TextBlock_Phonenumber = 'Sie erreichen uns unter 031 632 40 70.';
-    this.TextBlock_Place = 'Kinderklinik, Eingang 31, Stockwerk G';
-    this.TextBlock_on = 'am';
-    this.TextBlock_Reminder_1 = 'Ihr nächster Termin ist am';
-    this.TextBlock_Reminder_2 = 'Bitte seien Sie um';
-    this.TextBlock_Reminder_3 = 'in der';
+    this.TextBlock_Place = 'Kinderklinik, Eingang 31, Stockwerk G.';
+    this.TextBlock_on = 'am ';
+    this.TextBlock_Reminder_1 = 'Ihr nächster Termin ist am ';
+    this.TextBlock_Reminder_2 = 'Bitte seien Sie um ';
+    this.TextBlock_Reminder_3 = 'in der ';
     this.TextBlock_Reminder_4 = 'Bitte erscheinen Sie nüchtern, das heisst ohne Frühstück.';
     this.TextBlock_Reminder_5 = 'Jedoch sollten die Morgenmedikamente eingenommen werden ausser, wenn vom Arzt anders angeordnet.';
-    this.TextBlock_newAppointment_1 = 'Sie haben am';
-    this.TextBlock_newAppointment_2 = 'einen Termin in der Abteilung';
-    this.TextBlock_newAppointment_3 = 'Wir befinden uns in der';
+    this.TextBlock_newAppointment_1 = 'Sie haben am ';
+    this.TextBlock_newAppointment_2 = 'einen Termin in der Abteilung ';
+    this.TextBlock_newAppointment_3 = 'Wir befinden uns in der ';
     this.TextBlock_newAppointment_4 = 'Bitte nehmen Sie ihre Medikamentenliste und Versichertenkarte mit.';
     this.TextBlock_PatientWillCall_1 = 'Dieser Termin geht für mich leider nicht.';
     this.TextBlock_PatientWillCall_2 = 'Ich melde mich bei Ihnen für einen neuen Termin.';
     this.TextBlock_PatientAfterDate_1 = 'Dieser Termin geht für mich leider nicht.';
-    this.TextBlock_PatientAfterDate_2 = 'Bitte senden Sie mir einen neuen Termin nach dem';
-    this.TextBlock_Change_Backoffice_1 = 'Wir müssen Sie leider informieren, dass der Termin vom';
+    this.TextBlock_PatientAfterDate_2 = 'Bitte senden Sie mir einen neuen Termin nach dem ';
+    this.TextBlock_Change_Backoffice_1 = 'Wir müssen Sie leider informieren, dass der Termin vom ';
     this.TextBlock_Change_Backoffice_2 = 'verschoben werden muss.';
-    this.TextBlock_Change_Backoffice_3 = 'Ein möglicher anderer Termin wäre der';
+    this.TextBlock_Change_Backoffice_3 = 'Ein möglicher anderer Termin wäre der ';
     this.TextBlock_Change_Backoffice_4 = 'Bitte bestätigen Sie diesen Termin.';
-    this.TextBlock_PatientwillnotCome_1 = 'Ich muss mich leider für den Termin am';
+    this.TextBlock_PatientwillnotCome_1 = 'Ich muss mich leider für den Termin am ';
     this.TextBlock_PatientwillnotCome_2 = 'abmelden.';
-    this.TextBlock_AcceptAppointment_1 = 'Vielen Dank, gerne bestätige ich den Termin';
+    this.TextBlock_AcceptAppointment_1 = 'Vielen Dank, gerne bestätige ich den Termin ';
     this.TextBlock_Man = 'Herr';
     this.TextBlock_Woman = 'Frau';
     this.TextBlock_Diabetology = 'Diabetologie';
     this.TextBlock_endocrinology = 'Endokrinologie';
     this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
     this.TextBlock_metabolism = 'Metabolismus';
-    this.TextBlock_PlaceholderName = 'Lehrmann';
+    this.TextBlock_PlaceholderName = 'Markus Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
+    this.TextBlock_UDEM_Team = "Ihr UDEM";
+
+    this.textMessages_Date_Title = "Datum eingeben";
+    this.textMessages_Time_Title = "Zeit eingeben";
+    this.textMessages_changeBackoffice_Date1_Info = "Bitte das alte Datum angeben.";
+    this.textMessages_changeBackoffice_Date2_Info = "Bitte das Datum des neuen Termin angeben.";
+    this.textMessages_changeBackoffice_Time_Info = "Bitte die Zeit des neuen Termin angeben.";
+
+    this.textMessages_newAppointment_Date_Info = "Bitte das Datum des Termins angeben.";
+    this.textMessages_newAppointment_Time_Info = "Bitte die Zeit des Termins angeben.";
+    this.textMessages_Select_Department_Title = "Abteilung auswählen";
+    this.textMessages_newAppointment_Department_Info = "Bitte die Abteilung des Termins angeben.";
+    this.textMessages_Fastingstatus_Title = "Nüchtern?";
+    this.textMessages_reminder_Fastingstatus_Info = "Bitte angeben, ob der Patient nüchtern oder nicht erscheinen muss."
+
+    this.impressum_Title = "Impressum";
+    this.impressum_Contact_Title = "Kontakt";
+    this.impressum_Contact_AppName = "MIWADO";
+    this.impressum_Contact_BFH = "Berner Fachhochschule";
+    this.impressum_Contact_Adress = "Quellgasse 21";
+    this.impressum_Contact_City = " 2501 Biel";
+    this.impressum_Contact_Email_Title = "Email:";
+    this.impressum_HA_Title = "Haftungsausschluss";
+    this.impressum_HA_Text_1 = "Die Entwickler der MIWADO Applikation übernehmen keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.";
+    this.impressum_HA_Text_2 = "Haftungsansprüche gegen die Entwickler wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.";
+    this.impressum_HA_Text_3 = "Alle Angebote sind unverbindlich. Die Entwickler behalten es sich ausdrücklich vor, Teile der Applikation oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.";
+    this.impressum_Rights_Title = "Urheberrechte";
+    this.impressum_Rights_Text = "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien der Applikation gehören ausschliesslich den Entwicklern der MIWADO Applikation oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.";
+    this.impressum_Data_Title = "Datenschutz";
+    this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
+    this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
   }
 
 
@@ -392,6 +457,22 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "none";
     this.TextBlock_fasting = "none";
+    this.TextBlock_UDEM_Team = "votre UDEM";
+
+    this.textMessages_Date_Title = "none";
+    this.textMessages_Time_Title = "none";
+    this.textMessages_changeBackoffice_Date1_Info = "none";
+    this.textMessages_changeBackoffice_Date2_Info = "none";
+    this.textMessages_changeBackoffice_Time_Info = "none";
+
+    this.textMessages_newAppointment_Date_Info = "none";
+    this.textMessages_newAppointment_Time_Info = "none";
+    this.textMessages_Select_Department_Title = "none";
+    this.textMessages_newAppointment_Department_Info = "none";
+    this.textMessages_Fastingstatus_Title = "none";
+    this.textMessages_reminder_Fastingstatus_Info = "none";
+
+    this.impressum_Title = "none";
   }
 
   private langEN(){
@@ -497,5 +578,21 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
+    this.TextBlock_UDEM_Team = "Your UDEM";
+
+    this.textMessages_Date_Title = "none";
+    this.textMessages_Time_Title = "none";
+    this.textMessages_changeBackoffice_Date1_Info = "none";
+    this.textMessages_changeBackoffice_Date2_Info = "none";
+    this.textMessages_changeBackoffice_Time_Info = "none";
+
+    this.textMessages_newAppointment_Date_Info = "none";
+    this.textMessages_newAppointment_Time_Info = "none";
+    this.textMessages_Select_Department_Title = "none";
+    this.textMessages_newAppointment_Department_Info = "none";
+    this.textMessages_Fastingstatus_Title = "none";
+    this.textMessages_reminder_Fastingstatus_Info = "none";
+
+    this.impressum_Title = "none";
   }
 }

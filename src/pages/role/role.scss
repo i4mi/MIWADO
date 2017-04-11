@@ -1,11 +1,28 @@
 // iOS Style
 .platform-ios{
   page-role {
+    ion-row {
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+    }
+    ion-col {
+      width: 50%;
+    }
+    .content-container{
+        padding: 10px 20px;
+        margin: 10px 5px;
+        padding: 20px;
+    }
+    .login-img-container {
+        margin: auto;
+    }
     .login-img{
       display: block;
       margin: auto;
-      max-width: 50%;
-      max-height: 50%;
+      width: 60%;
+      height: auto;
+      max-width: 512px;
     }
     .login-list{
       margin-left: 10%;
@@ -19,17 +36,40 @@
     .type-img-hp {
       background-color: inherit;
       float: left;
+    }
+    .role-img{
+      display: block;
+      max-width: 150px;
+      max-height: 150px;
+      width: auto;
+      height: auto;
     }
   }
 }
 //Android Style
 .platform-android{
   page-role {
+    ion-row {
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+    }
+    ion-col {
+      width: 50%;
+    }
+    .content-container{
+        padding: 10px 20px;
+        margin: 10px 5px;
+        padding: 20px;
+    }
+    .login-img-container {
+        margin: auto;
+    }
     .login-img{
       display: block;
       margin: auto;
-      max-width: 50%;
-      max-height: 50%;
+      width: 60%;
+      height: auto;
     }
     .login-list{
       margin-left: 10%;
@@ -44,15 +84,39 @@
       background-color: inherit;
       float: left;
     }
+    .role-img {
+      display: block;
+      max-width: 150px;
+      max-height: 150px;
+      width: auto;
+      height: auto;
+    }
   }
 }
 
 page-role {
+  ion-row {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  ion-col {
+    width: 50%;
+  }
+  .content-container{
+      padding: 10px 20px;
+      margin: 10px 5px;
+      padding: 20px;
+  }
+  .login-img-container {
+      margin: auto;
+  }
   .login-img{
     display: block;
     margin: auto;
-    max-width: 20%;
-    max-height: 20%;
+    width: 60%;
+    height: auto;
+    max-width: 512px;
   }
   .login-list{
     margin-left: 20%;
@@ -72,7 +136,10 @@ page-role {
     float: left;
   }
   .role-img{
-    height: 200px;
-    width: 200px;
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
   }
 }
