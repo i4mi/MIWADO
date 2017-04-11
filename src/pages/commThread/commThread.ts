@@ -3,7 +3,8 @@ import { MidataPersistence } from '../../util/midataPersistence'
 import { NavController, NavParams } from 'ionic-angular/index';
 import { Storage } from '@ionic/storage';
 import { SettingPage } from '../setting/setting';
-import {Calendar} from 'ionic-native';
+import { ChooseMsg } from '../chooseMsg/chooseMsg';
+import { Calendar } from 'ionic-native';
 
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 import * as MidataTypes from '../../util/typings/MIDATA_Types';
@@ -21,7 +22,7 @@ import { Reminder } from '../../util/textMessages/reminder/reminder';
 import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { ShareService } from '../../util/shareService';
-
+import { NotificationService } from '../../util/notification/notification';
 
 @Component({
   selector: 'page-commThread',
@@ -30,13 +31,6 @@ import { ShareService } from '../../util/shareService';
 
 
 export class CommThreadPage {
-  @ViewChild('cancelationPatient') cancelationPatient:ElementRef;
-  @ViewChild('confirmation') confirmation:ElementRef;
-  @ViewChild('newAppointment') newAppointment:ElementRef;
-  @ViewChild('patientCancelationNewDate') patientCancelationNewDate:ElementRef;
-  @ViewChild('patientCancelationWillCall') patientCancelationWillCall:ElementRef;
-  @ViewChild('reminder') reminder:ElementRef;
-  @ViewChild('changeBackoffice') changeBackoffice:ElementRef;
   @ViewChild('messageWindow') messageWindow:Content;
 
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
@@ -53,26 +47,30 @@ export class CommThreadPage {
   private hideBackButton = false;
   private messages = new Array<any>();
   private resource = new Array<any>();
+  private scrollAt : number;
+  private messageSend = false;
 
   private displayName : string;
   private displayGender : string;
   private displaysender : string;
   private senderHealthProfesionalName : string;
-  private senderPatientName : string;
+
+  private messageToSend: string;
 
   constructor(private nav: NavController, private shareService: ShareService, public navParams: NavParams,
-              private platform: Platform, private storage: Storage, public alertCtrl: AlertController) {
+              private platform: Platform, private storage: Storage, public alertCtrl: AlertController,
+              private notificationService: NotificationService) {
 
 	  this.TextBlockChoosen = "";
-    this.senderPatientName = shareService.getSenderPatient();
     this.senderHealthProfesionalName = shareService.getSenderName();
+    notificationService.initNotification();
 
     if(this.mp.getRole() != 'member') {
       this.pat = navParams.get('pat');
       console.log('comm thread of patient: ' + this.pat.displayName);
       shareService.setPatient(this.pat.displayName, this.pat.gender);
       this.retreiveCommRes();
-    } else{
+    } else {
       this.hideBackButton = true;
       this.pat = {
           id: '',
@@ -81,47 +79,25 @@ export class CommThreadPage {
       }
       this.settings.getUser().then((user) => {
         this.pat.id = user.auth.owner;
-
+        //SCROLL
+        this.scrollAt = 0;
         this.retreiveCommRes();
       });
     }
 
-    if (this.mp.getRole() == 'provider') {
-      this.options = [
-          {
-            "name" : this.lang.commThread_TextBlock_Title_NewAppointment,
-            "tag" : "newAppointment"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Change_BackOffice,
-            "tag" : "changeBackoffice"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Reminder,
-            "tag" : "reminder"
-          }
-      ]
-    } else {
-      this.options =[
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Confirmation,
-            "tag" : "confirmation"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_Calling,
-            "tag" : "patientCancelationWillCall"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date,
-            "tag" : "patientCancelationNewDate"
-          },
-          {
-            "name" : this.lang.commThread_TextBlock_Title_Cancellation,
-            "tag" : "cancelationPatient"
-          }
-      ]
-    }
+    this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
+      console.log('in Comm Thread page');
+      console.log(res);
+    });
 
+    if (this.navParams.get('type')) {
+      console.log('there is something in nav');
+      this.TextBlock = this.navParams.get('type');
+      console.log(this.navParams.get('type'));
+      this.messageToSend = this.navParams.get('msg');
+      console.log(this.navParams.get('msg'));
+      this.storeCommRes();
+    }
   }
 
   addToCalendar(message, messagepayload){
@@ -200,16 +176,15 @@ export class CommThreadPage {
       ]
     });
     alert.present();
+    }
+    }
   }
-  }
-  }
-
 
   retreiveCommRes() {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       this.resource = res.reverse();
-      console.log(res);
-
+      //this.resource = res;
+      //console.log(res);
       this.settings.getUser().then((user) => {
         this.messages = []
         for(var i = 0; i < this.resource.length; i++) {
@@ -223,10 +198,57 @@ export class CommThreadPage {
           } else {
             this.resource[i].ownership = 'other';
           }
+
+          var date = new Date(this.resource[i].sent);
+          var day = date.getDate().toString();
+          var month = date.getMonth().toString();
+          var years = date.getFullYear().toString();
+          var hours = date.getHours().toString();
+          var minutes = date.getMinutes().toString();
+
+          if (day.length == 1) {
+            day = "0" + day;
+          }
+          if (month.length == 1) {
+            month = "0" + month;
+          }
+          if (hours.length == 1) {
+            hours = "0" + hours;
+          }
+          if (minutes.length == 1) {
+            minutes = "0" + minutes;
+          }
+
+          this.resource[i].sent = hours + ":" + minutes + " - " +
+                                  day + "." + month + "." + years;
+
           this.messages.push(this.resource[i]);
-          this.messageWindow.scrollToBottom();
-          console.log(this.messages);
+
+          /*for (var j = this.scrollAt; j < 5; j++) {
+            if (this.scrollAt < this.resource.length) {
+              this.messages.push(this.resource[j]);
+              this.scrollAt ++;
+            } else {
+              this.scrollAt = this.resource.length;
+            }
+          }*/
+          //this.messageWindow.scrollToBottom(300);
         }
+
+        if (this.messageSend) {
+          this.messageSend = false;
+          let alert = this.alertCtrl.create({
+            title: this.lang.commThread_Message_Sent_Title,
+            subTitle: this.lang.commThread_Message_Sent,
+            buttons: ['OK']
+          });
+
+          alert.present();
+        }
+
+        setTimeout(() => {
+          this.messageWindow.scrollToBottom();
+        }, 500);
       });
 
     }).catch((ex) => {
@@ -234,9 +256,34 @@ export class CommThreadPage {
     });
   }
 
-  storeCommRes() {
-    console.log('store started');
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    infiniteScroll.position = "top";
 
+    setTimeout(() => {
+      let max = this.scrollAt + 3;
+      for (var i = this.scrollAt; i < max; i++) {
+        if (this.scrollAt < this.resource.length) {
+          this.messages.push(this.resource[i]);
+          this.scrollAt ++;
+          this.messageWindow.scrollToBottom(300);
+        } else {
+          this.scrollAt = this.resource.length;
+          infiniteScroll.enable(false);
+        }
+      }
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 200);
+
+    /*setTimeout(() => {
+      this.messageWindow.scrollToBottom(300);
+    }, 500);*/
+  }
+
+
+  storeCommRes() {
+    //console.log('store started');
     if(this.TextBlock == undefined) {
       let alert = this.alertCtrl.create({
         title: this.lang.commTread_No_Message_Choosen_Title,
@@ -248,27 +295,28 @@ export class CommThreadPage {
     }
 
     this.mp.search('Group').then((res) => {
-          var group: any;
-          for(var i = 0; i < res.length; i++) {
-            console.log('Group nr: ' + i + ' name: ' + res[i].name);
-            if(!this.settings.getGroup()) {
-              console.log('no group choosen in settings');
-
-              let alert = this.alertCtrl.create({
-                title: this.lang.commTread_No_Group_Choosen_Title,
-                subTitle: this.lang.commTread_No_Group_Choosen,
-                buttons: ['OK']
-              });
-
-              return alert.present();
-
-            } else if(res[i].name == this.settings.getGroup()) {
-              group = res[i];
-              this.settings.getUser().then((user) => {
-                var commRes = this.defineCommRes(user.auth.owner, group);
-              });
-            }
+      var group: any;
+      //console.log('Group nr: ' + i + ' name: ' + res[i].name);
+      this.settings.getGroup().then((group) => {
+        for(var i = 0; i < res.length; i++) {
+          if(!group) {
+            //console.log('no group choosen in settings');
+            let alert = this.alertCtrl.create({
+              title: this.lang.commTread_No_Group_Choosen_Title,
+              subTitle: this.lang.commTread_No_Group_Choosen,
+              buttons: ['OK']
+            });
+            return alert.present();
+          } else if(res[i].name == group) {
+            group = res[i];
+            this.settings.getUser().then((user) => {
+              this.messageSend = true;
+              var commRes = this.defineCommRes(user.auth.owner, group);
+            });
           }
+        }
+      });
+
     }).catch((ex) => {
       console.error('Error fetching group members', ex);
     })
@@ -315,7 +363,7 @@ export class CommThreadPage {
 
     rec.push({"reference":"Group/" + grp.id });
 
-    var text = this.getText();
+    var text = this.messageToSend;
     if (text == '') {
       return '';
     }
@@ -344,325 +392,42 @@ export class CommThreadPage {
       requestDetail:{}
     }
 
-    console.log(commRes);
+    //console.log(commRes);
     this.mp.save(commRes).then((res) => {
       console.log('stored?? ');
       console.log(res);
-      //TODO HERE NOTIFY
+
+      if (this.mp.getRole() != 'member') {
+        this.notificationService.getFCMTokenToNotifyMIDATA(this.pat.id).then((res) => {
+          console.log('in Comm Thread page');
+          console.log(res);
+
+          let not = {
+            title: this.lang.commThread_Message_Received_Title,
+            type: 'NEWMSG'
+          } as MiwadoTypes.Notification;
+
+          for(var i = 0; i < res.length; i++) {
+            this.notificationService.notify(not, res[i]).then((result) => {
+              console.log('done notify');
+            }).catch((ex) => {
+              console.error('Error while send notification', ex)
+            });
+          }
+        }).catch((ex) => {
+          console.error('Error while get FCM token: ', ex);
+        });
+      }
       this.retreiveCommRes();
     }).catch((ex) => {
       console.error('Error while saving comm res: ', ex);
     });
   }
-
-  getText(): string {
-    var innerHTML: any;
-    var retVal: string;
-    if (this.TextBlockChoosen == 'confirmation') {
-      // BESTÄTIGUNG --> NR 1 PAT
-      innerHTML = this.confirmation.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText; //.getElementsByTagName('input')[0].getAttribute('ng-reflect-model');
-      console.log(dateInput);
-      if(dateInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
-               this.lang.TextBlock_AcceptAppointment_1 + ' ' +
-               this.lang.TextBlock_on + ' ' +
-               '¨' + dateInput + '¨' +
-               this.lang.TextBlock_Sincere_regards + ' ' +
-               this.senderPatientName + '.';
-
-    } else if (this.TextBlockChoosen == 'patientCancelationWillCall') {
-      // ABSAGE, NEU TELEFON --> NR 2 PAT
-      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
-               this.lang.TextBlock_PatientWillCall_1 + ' ' +
-               this.lang.TextBlock_PatientWillCall_2 + ' ' +
-               this.lang.TextBlock_Sincere_regards + ' ' +
-               this.senderPatientName + '.';
-
-    } else if (this.TextBlockChoosen == 'patientCancelationNewDate') {
-      // ABSAGE, NEU TERMIN --> NR 3 PAT
-      innerHTML = this.patientCancelationNewDate.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
-      console.log(dateInput);
-      if(dateInput == '') {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
-               this.lang.TextBlock_PatientAfterDate_1 + ' ' +
-               this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-               '¨' + dateInput + '¨' +
-               this.lang.TextBlock_Sincere_regards + ' ' +
-               this.senderPatientName + '.';
-
-    } else if (this.TextBlockChoosen == 'cancelationPatient') {
-      // ABSAGE --> NR 4 PAT
-      innerHTML = this.cancelationPatient.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
-      console.log(dateInput);
-      if(dateInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-      retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
-               this.lang.TextBlock_PatientwillnotCome_1 + ' ' +
-               this.lang.TextBlock_on + ' ' +
-               '¨' + dateInput + '¨';
-      var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
-      console.log(timeInput);
-      if(timeInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Time_Choosen_Title,
-          subTitle: this.lang.commThread_No_Time_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-      retVal += this.lang.TextBlock_at + ' ' +
-                '`' + timeInput + '`' +
-                this.lang.TextBlock_PatientwillnotCome_2 + ' ' +
-                this.lang.TextBlock_Sincere_regards + ' ' +
-                this.senderPatientName + '.';
-
-    } else if (this.TextBlockChoosen == 'newAppointment') {
-      // NEUER TERMIN --> NR 1 HP
-      innerHTML = this.newAppointment.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
-      console.log(dateInput);
-      if(dateInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-
-      var gender = this.shareService.getPatientGender();
-      this.displayName =  this.shareService.getPatientDisplayname();
-
-      if(gender == "male"){
-        this.displayGender = this.lang.TextBlock_Man;
-      } else if(gender == "female"){
-        this.displayGender = this.lang.TextBlock_Woman;
-      }
-
-      retVal = this.lang.TextBlock_Welcome + ' ' +
-               this.displayGender + ' ' +
-               this.displayName + ' ' +
-               this.lang.TextBlock_newAppointment_1 + ' ' +
-               '¨' + dateInput + '¨' +
-               this.lang.TextBlock_at + ' ';
-
-      var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
-      console.log(timeInput);
-      if(timeInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Time_Choosen_Title,
-          subTitle: this.lang.commThread_No_Time_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-      retVal += '`' + timeInput + '`' +
-                this.lang.TextBlock_newAppointment_2 + ' ';
-
-      var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
-      console.log(selectSection);
-      if(selectSection == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Section_Choosen_Title,
-          subTitle: this.lang.commThread_No_Section_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-      retVal += selectSection +
-                this.lang.TextBlock_newAppointment_3 + ' ' +
-                this.lang.TextBlock_Place + ' ' +
-                this.lang.TextBlock_newAppointment_4 + ' ' +
-                this.lang.TextBlock_cancelation + ' ' +
-                this.lang.TextBlock_cancelation_Costs + ' ' +
-                this.lang.TextBlock_Phonenumber + ' ' +
-                this.lang.TextBlock_Sincere_regards + ' ' +
-                this.senderHealthProfesionalName + '.';
-
-    } else if (this.TextBlockChoosen == 'changeBackoffice') {
-      // Verschieben --> NR 2 HP
-      innerHTML = this.changeBackoffice.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
-      console.log(dateInput);
-      if(dateInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-
-      var gender = this.shareService.getPatientGender();
-      this.displayName =  this.shareService.getPatientDisplayname();
-
-      if(gender == "male"){
-        this.displayGender = this.lang.TextBlock_Man;
-      } else if(gender == "female"){
-        this.displayGender = this.lang.TextBlock_Woman;
-      }
-
-      retVal = this.lang.TextBlock_Welcome + ' ' +
-               this.displayGender + ' ' +
-               this.displayName + ' ' +
-               this.lang.TextBlock_Change_Backoffice_1 + ' ' +
-               '¨' + dateInput + '¨' +
-               this.lang.TextBlock_Change_Backoffice_2 + ' ' +
-               this.lang.TextBlock_Change_Backoffice_3 + ' ';
-
-       var dateInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
-       console.log(dateInput);
-       if(dateInput == "") {
-         let alert = this.alertCtrl.create({
-           title: this.lang.commThread_No_Date_Choosen_Title,
-           subTitle: this.lang.commThread_No_Date_Choosen,
-           buttons: ['OK']
-         });
-         alert.present();
-         return '';
-       }
-
-      retVal += "'" + dateInput + "'" +
-                this.lang.TextBlock_at + ' ';
-
-      var timeInput = innerHTML.getElementsByClassName('datetime-text')[2].innerText;
-      console.log(timeInput);
-      if(timeInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Time_Choosen_Title,
-          subTitle: this.lang.commThread_No_Time_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-      retVal += '`' + timeInput + '`' +
-                this.lang.TextBlock_Change_Backoffice_4 + ' ' +
-                this.lang.TextBlock_Sincere_regards + ' ' +
-                this.senderHealthProfesionalName + '.';
-
-    } else if (this.TextBlockChoosen == 'reminder') {
-      // ERINNERUNG --> NR 3 HP
-      innerHTML = this.reminder.nativeElement.getElementsByTagName( 'div' )[0];
-      var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
-      console.log(dateInput);
-      if(dateInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Date_Choosen_Title,
-          subTitle: this.lang.commThread_No_Date_Choosen,
-          buttons: ['OK']
-        });
-        alert.present();
-        return '';
-      }
-
-      var gender = this.shareService.getPatientGender();
-      this.displayName =  this.shareService.getPatientDisplayname();
-
-      if(gender == "male"){
-        this.displayGender = this.lang.TextBlock_Man;
-      } else if(gender == "female"){
-        this.displayGender = this.lang.TextBlock_Woman;
-      }
-
-
-      retVal = this.lang.TextBlock_Welcome + ' ' +
-               this.displayGender + ' ' +
-               this.displayName + ' ' +
-               this.lang.TextBlock_Reminder_1 + ' ' +
-               '¨' + dateInput + '¨' +
-               this.lang.TextBlock_Reminder_2 + ' ';
-
-      var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
-      console.log(timeInput);
-      if(timeInput == "") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_Time_Choosen_Title,
-          subTitle: this.lang.commThread_No_Time_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-
-      if(this.shareService.getFastingStatus() != "fasting" || this.shareService.getFastingStatus() != "notfasting") {
-        let alert = this.alertCtrl.create({
-          title: this.lang.commThread_No_FastingStatus_Choosen_Title,
-          subTitle: this.lang.commThread_No_FastingStatus_Choosen,
-          buttons: ['OK']
-        });
-
-        alert.present();
-        return '';
-      }
-
-      if( this.shareService.getFastingStatus() == "fasting"){
-      retVal += '`' + timeInput + '`' +
-                this.lang.TextBlock_Reminder_3 + ' ' +
-                this.lang.TextBlock_Place + ' ' +
-                this.lang.TextBlock_Reminder_4 + ' ' +
-                this.lang.TextBlock_Reminder_5 + ' ' +
-                this.lang.TextBlock_cancelation + ' ' +
-                this.lang.TextBlock_cancelation_Costs + ' ' +
-                this.lang.TextBlock_Phonenumber + ' ' +
-                this.lang.TextBlock_Sincere_regards + ' ' +
-                this.senderHealthProfesionalName + '.';
-      }else if(this.shareService.getFastingStatus() == "notfasting"){
-        retVal += '`' + timeInput + '`' +
-                  this.lang.TextBlock_Reminder_3 + ' ' +
-                  this.lang.TextBlock_Place + ' ' +
-                  this.lang.TextBlock_cancelation + ' ' +
-                  this.lang.TextBlock_cancelation_Costs + ' ' +
-                  this.lang.TextBlock_Phonenumber + ' ' +
-                  this.lang.TextBlock_Sincere_regards + ' ' +
-                  this.senderHealthProfesionalName + '.';
-      }
-    }
-
-    console.log(innerHTML);
-    console.log(retVal);
-    document.getElementById(this.TextBlockChoosen).hidden = true;
-    this.TextBlockChoosen = '';
-    this.TextBlock = null;
-
-    return retVal;
-  }
+   chooseMsg(){
+     this.nav.push(ChooseMsg, {
+       pat: this.pat
+     });
+   }
 
    openSettings(){
      this.nav.push(SettingPage);

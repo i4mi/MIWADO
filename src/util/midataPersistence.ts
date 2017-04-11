@@ -1,8 +1,7 @@
 import { Midata } from 'midata';
+import { Injectable } from '@angular/core';
 import * as MidataTypes from './typings/MIDATA_Types';
 import * as MiwadoTypes from './typings/MIWADO_Types';
-
-import { Injectable } from '@angular/core';
 
 /*----------------------------------------------------------------------------*/
 /* MidataPersitence (^.^) (not realy persistence... but almost)
@@ -11,27 +10,31 @@ import { Injectable } from '@angular/core';
 /* It should handle all "search queries" and map the result from
    the received JSON into a TypeScript object. It also should convert new
    values from TypeScript objects to the correct JSON object to store on MIDATA.
+/* Version 1.0
 /*----------------------------------------------------------------------------*/
 @Injectable()
 export class MidataPersistence {
+
   private static mp:MidataPersistence;
   private md: any;
-
   private appname = 'MIWADO';
   private appsecr = 'g82xlcisy4zneu5n9k3dgxgcifr6vfmx';
   private server = 'https://test.midata.coop:9000';
   private role: string;
   private username: string;
   private password: string;
-
   private authResponse: MidataTypes.MIDATA_authResponse;
 
   private constructor(){
     this.md = new Midata(this.server, this.appname, this.appsecr);
   }
 
-  // Getter for getting the instance
-  // EXAMPLE:           var mp = MidataPersistence.midataPersistence();
+  /* Public static getInstance()
+  * This method gets the instance of the class. If no instance exists,
+  * it will create a new one.
+  *
+  * EXAMPLE:           var mp = MidataPersistence.midataPersistence();
+  */
   static getInstance():MidataPersistence {
     if (this.mp == null) {
       this.mp = new MidataPersistence();
@@ -39,21 +42,48 @@ export class MidataPersistence {
     return this.mp;
   }
 
-  // Set the role of the user to login.
+  /* setRole(r: string)
+  * This method sets the role to login.
+  * "r" can contain one of the following strings:
+  * - "member" (for patients)
+  * - "provider" (for healh professionals)
+  * - "developer" (for developer)
+  * - "research" (for research organisation)
+  */
   setRole(r: string) {
     this.role = r;
   }
 
+  /* getRole(): string
+  * This method returns the selected role as string.
+  * Return value could be one of the following:
+  * - "member" (for patients)
+  * - "provider" (for healh professionals)
+  * - "developer" (for developer)
+  * - "research" (for research organisation)
+  */
   getRole() : string {
     return this.role;
   }
 
-  // Login function (call it with MidataPersistence.login(un, pw, role))
-  // Returns the authResponse
-  // -->  un:   Unsername
-  // -->  pw:   Passwort
-  // -->  role: User-role
-  //            The user Role can be 'member', 'provider', 'developer' or 'research'
+  /* login(un: string, pw: string)
+  * This method logs the user into midata.
+  * The following parameters needed to login:
+  * - un:   Unsername
+  * - pw:   Passwort
+  *
+  * It is also needed, that the function "setRole"
+  * is executed with a valid value BEFORE the login.
+  * Local variable used:
+  * - this.role:  Role of midata user to login.
+  *
+  * Returns a promise with the authResponse as value.
+  * authResponse contains the following data:
+  * - authToken:    Token of the active session
+  * - refreshToken: Token needed if site/view get refreshed
+  * - status:       Status of the login
+  * - owner:        Id of logged in user
+  */
   login(un: string, pw: string){
     this.username = un;
     this.password = pw;
@@ -78,42 +108,99 @@ export class MidataPersistence {
     })
   }
 
-  // Check if logged in (call it with MidataPersistence.loggedIn())
-  // returns true if logged in and false if not
+  /* loggedIn()
+  * This method returns a boolean if the user is
+  * logged in or not.
+  *
+  * Returns true if logged in.
+  */
   loggedIn() {
     return this.md.loggedIn;
   }
 
-  // Logout function (call it with MidataPersistence.logout())
+  /* logout()
+  * This method logs the user out from midata.
+  */
   logout() {
     this.md.logout();
     console.log("logged out");
   }
 
-  getLoggedInId(){
+  /* getLoggedInId()
+  * This method returns the id of the current logged
+  * in user.
+  *
+  * Returns id as string of logged in user.
+  */
+  getLoggedInId() {
     console.log('logged in id... ' + this.authResponse.owner);
     return this.authResponse.owner;
   }
 
+  /* save(res: any)
+  * This method saves the parameter
+  * The parameter has to be a fhir resource in json format
+  */
   save(res: any) {
     return this.md.save(res);
   }
 
-  // Search function (call it with MidataPersistence.search(Resource, {}))
-  // Searches for a resrouce with a defined type
-  // If the params are defined, it will look up for the resource with the given params
-  // --> resourceTyoe:  Can be any 'fhir' resource as a string. Example: "Patient", "Person" or "Observation"
-  // --> params:        A JSON object with the given params. Can also be empty "{}"
-  //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
-  // IMPORTANT:         This is an asynchronus call. You have to use the '.then(function (response) {})' notation.
-  // EXAMPLE:           var mp = MidataPersistence.midataPersistence();
-  //                    mp.search("Person", {}).then(function(personList) {
-  //                      console.log(personList);
-  //                    });
+  /* search(resourceType: string, params?: any)
+  * This method searches for a resrouce with a defined type.
+  * If the params are defined, it will look up for the resource with the given params
+  * --> resourceTyoe:  Can be any 'fhir' resource as a string. Example: "Patient", "Person" or "Observation"
+  * --> params:        A JSON object with the given params. Can also be empty "{}"
+  *                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
+  * IMPORTANT:         This is an asynchronus call. You have to use the '.then(function (response) {})' notation.
+  * EXAMPLE:           var mp = MidataPersistence.midataPersistence();
+  *                    mp.search("Person", {}).then(function(personList) {
+  *                      console.log(personList);
+  *                    });
+  */
   search(resourceType: string, params?: any) {
     return this.md.search(resourceType, params);
   }
 
+  /* delete(resourceType: string, id: string)
+  * This method deletes the resrouce with the defined id.
+  * The following parameters needs to be defined for delet a record:
+  * - resourceType: Can be any 'fhir' resource as a string. Example: "Patient", "Person" or "Observation"
+  * - id:           The id of the object to delete
+  *
+  * IMPORTANT:      DO NOT USE THIS METHOD. MIDATA IS STILL NOT READY TO DELETE RECORDS.
+  *                 IF YOU STILL TRY IT, IT WILL END IN A CATASTROPH! (-.-)
+  */
+  delete(resourceType: string, id: string) {
+    return this.md.delete(resourceType, id);
+  }
+
+  /* retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any)
+  * This method searches and returns the saved fhir communication resoruce on midata.
+  * The following parameters are needed:
+  * - pat:      Patient object to retreive the resources from.
+  *             The id of the patient is used to look up the subject of the communication resource.
+  * - params?:  any additional search parameters (*not implemented jet)
+  *
+  * Returns a promise with an array of all fhir communication resources found.
+  * communication resource contains the following data:
+  * - identifier:        The unique id of the record
+  * - status:            The statues of the record. While messeging this will always be "in-progress"
+  * - category:          The category of the record as codable concept.
+  * - medium:            The medium contains array of the sending "medium" app name
+  * - subject:           The Subject always referes to the patient the communication is with!
+  * - recipient:         Recipient contains an array of all recipient. Mostly a group and a patient.
+  * - sent:              The date when sent
+  * - received:          The date time when received. (not set until now!)
+  * - sender:            Sender of the resource. Mostly a reference to a patient or a health profesisonal
+  * - payload:           The content of the message. Can contains a array of one the following three "contents":
+  *                      -  contentString:      Content is a simple string message.
+  *                      -  contentAttachment:  Content is a attachement file. Something like pdf or img
+  *                      -  contentReference:   Content is a reference to any other resource on midata.
+  * - encounter:         Not used
+  * - reason:            Array of reasons while msg was sent (not used)
+  * - requestDetail:     Details of the request (not used)
+  * - ownership:         Ownership not part of original resource. This will always be empty when received from midata.
+  */
   retreiveCommRes(pat: MiwadoTypes.MIWADO_Patient, params?: any){
     return this.search('Communication', { "patient": pat.id }).then((result) => {
       //console.log("resources" + JSON.stringify(result));
@@ -130,6 +217,19 @@ export class MidataPersistence {
     });
   }
 
+  /* retreivePatients()
+  * This method searches and returns all patients that have consents with
+  * the logged in user or a group the logged in user is a member of.
+  *
+  * Returns a promise with an array of all patients found.
+  * Patient resource contains the following data:
+  * - id:             Id of the patient resource
+  * - displayName:    Display Name (Firstname and surename of patient)
+  * - fcmToken?:      FMC Token object (maybe? - not used)
+  * - commThreadId?:  Internal id of communication thread... (not part of original resource and not used here)
+  * - gender:         Gender of the patient
+  * - icon?:          Icon is not part of the original resource. The icon will be set according the gender.
+  */
   retreivePatients(){
     //normally a search query callback: any
     return this.search('Patient').then((result) => {
@@ -145,9 +245,41 @@ export class MidataPersistence {
     });
   }
 
+  /* retreiveFCMToken()
+  * This method searches and returns all device recource (for FCM Token) a patient has.
+  * Ether way, if own resource or if part of a patient with a consent.
+  * A FCM Token is used for notifications. Therefore you will need an additional service called
+  * FIREBASE CLOUD MESSAGIN!
+  *
+  * Returns a promise with an array of device resource found.
+  * Device resource contains the following data:
+  * - id:             Id of the device resource
+  * - lotNumber:      The lotNumber is used to store the FCM Token
+  * - type:           Codable consept of a type. Should be "FCMToken" to distiguish from other device resources.
+  * - status:         The status will be active.
+  * - manufacturer:   Manufacturer is used to set the user the token is for.
+  */
   retreiveFCMToken(){
     return this.search('Device').then((result) => {
       console.log('token resources:');
+      console.log(result);
+      return result;
+    }).catch((error) => {
+        console.error('Error fetching users', error);
+    });
+  }
+
+  /* deleteFCMToken(id: string)
+  * This method deletes the resrouce with the defined id.
+  * The following parameters needs to be defined for delet a record:
+  * - id:           The id of the device reource to delete
+  *
+  * IMPORTANT:      DO NOT USE THIS METHOD. MIDATA IS STILL NOT READY TO DELETE RECORDS.
+  *                 IF YOU STILL TRY IT, IT WILL END IN A CATASTROPH! (-.-)
+  */
+  deleteFCMToken(id: string) {
+    return this.delete('Device', id).then((result) => {
+      console.log('deleted token resource:');
       console.log(result);
       return result;
     }).catch((error) => {
@@ -375,6 +507,4 @@ export class MidataPersistence {
   private instanceofContentReference(object: any): object is MidataTypes.MIDATA_HL7CommRes_Payload_Refernce {
     return true;
   }
-
-
 }

@@ -33,6 +33,15 @@ export interface MIWADO_Message {
   time:Date;
 }
 
+export interface FCMToken_Device {
+  id?: string;
+  resourceType: string;
+  lotNumber: string;
+  type: any;
+  status: string;
+  manufacturer: string;
+}
+
 /**
  *  Structure of a notification after all the decryption and unwrapping
  *  has been done.

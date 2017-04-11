@@ -1,35 +1,59 @@
-<div>
-  <ion-row>
-    {{ lang.TextBlock_Welcome }}
-    {{ this.displayGender }}
-    {{ this.displayName }}
+<ion-header>
+ <ion-navbar class="navbar-content">
+   <ion-title>{{ lang.commThread_TextBlock_Title_Change_BackOffice }}</ion-title>
+   <ion-buttons end>
+     <button (click)="openSettings()" ion-button icon-only>
+       <ion-icon name="settings"></ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #changeBackoffice>
+    <ion-row>
+      {{ lang.TextBlock_Welcome }}
+      {{ this.displayGender }}
+      {{ this.displayName }}
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_Change_Backoffice_1 }}
+    </ion-row>
+    <ion-row class="rowStyleChangeBackoffice">
+      <ion-col>
+        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDate"></ion-datetime>
+      </ion-col>
+      {{ lang.TextBlock_Change_Backoffice_2 }}
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_Change_Backoffice_3 }}
+    </ion-row>
+    <ion-row class="rowStyleChangeBackoffice">
+      <ion-col>
+        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDateTwo"></ion-datetime>
+      </ion-col>
+      {{ lang.TextBlock_at }}
+      <ion-col>
+        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerChangeBackoffice selectTime"></ion-datetime>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_Change_Backoffice_4 }}
+    </ion-row>
+    <ion-row>
+      {{ lang.TextBlock_Sincere_regards }}
+      {{ this.senderName }}
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="message-item-wrapper">
+    <ion-item class="message-send-button-container">
+      <button ion-button block iocon-right class="message-send-button" (click)="checkAndSendMessage()">
+        {{ lang.commThread_Send_Message }}
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
   </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_Change_Backoffice_1 }}
-  </ion-row>
-  <ion-row class="rowStyleChangeBackoffice">
-    <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDate"></ion-datetime>
-    </ion-col>
-    {{ lang.TextBlock_Change_Backoffice_2 }}
-  </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_Change_Backoffice_3 }}
-  </ion-row>
-  <ion-row class="rowStyleChangeBackoffice">
-    <ion-col>
-      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" class="datePickerChangeBackoffice selectDateTwo"></ion-datetime>
-    </ion-col>
-    {{ lang.TextBlock_at }}
-    <ion-col>
-      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" class="timePickerChangeBackoffice selectTime"></ion-datetime>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_Change_Backoffice_4 }}
-  </ion-row>
-  <ion-row>
-    {{ lang.TextBlock_Sincere_regards }}
-    {{ this.senderName }}
-  </ion-row>
-</div>
+</ion-footer>

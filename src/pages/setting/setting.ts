@@ -8,6 +8,7 @@ import { LANGUAGE } from '../../util/language';
 import { Settings } from '../../util/settings';
 import { RolePage } from '../role/role';
 import { ShareService } from '../../util/shareService';
+import { NotificationService } from '../../util/notification/notification';
 
   @Component({
     selector: 'page-setting',
@@ -26,9 +27,9 @@ export class SettingPage {
   private selectedGroup: string;
   private noStoredCred = false;
 
-
   constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,
-              public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
+              public alertCtrl: AlertController, private platform: Platform, private storage: Storage,
+              private notificationService: NotificationService) {
 
     var deviceLang = window.navigator.language;
     if (this.platform.is('ios') && this.platform.is('mobile')){
@@ -76,8 +77,17 @@ export class SettingPage {
       {
         text: this.lang.settings_PopUp_Confirm,
         handler: () => {
-          this.mp.logout();
-          this.nav.push(RolePage);
+          this.settings.getUser().then((user) => {
+            this.notificationService.deleteFCMTokenMIDATA(user.auth.owner).then((deleted) => {
+              console.log("credential deleted!!!");
+              this.mp.logout();
+              this.nav.push(RolePage);
+            }).catch((ex) => {
+              console.error("Error in delete Credetials: " + ex);
+              this.mp.logout()
+              this.nav.push(RolePage);
+            });
+          });
         }
       }
     ]

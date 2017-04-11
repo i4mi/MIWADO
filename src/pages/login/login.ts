@@ -33,7 +33,7 @@ export class LoginPage {
   constructor(public nav: NavController,  private builder: FormBuilder,
               public alertCtrl: AlertController, private platform: Platform, private storage: Storage) {
 
-      if(this.mp.loggedIn() && this.settings.getGroup != undefined) {
+      if(this.mp.loggedIn() && this.settings.getGroup() != undefined) {
         this.nav.push(PatList);
       }
 

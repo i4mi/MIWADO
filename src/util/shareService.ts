@@ -1,3 +1,21 @@
+/*
+* Class ShareService
+* This class is used to handle the data
+* exchange between the views, without
+* saving the values in the storage.
+*
+* The data to exchange are:
+* - displayName
+* - gender
+* - role
+* - senderName
+* - senderPatientName
+* - fastingStatus
+*
+* Version:    1.0 Test Version
+* Author(s):  isels1, zyssm4
+* Date:       Builded 24.03.2017
+*/
 export class ShareService {
 
     displayName: string;
@@ -7,9 +25,9 @@ export class ShareService {
     senderPatientName : string;
     fastingStatus : string;
 
-    constructor() {
+    constructor() {}
 
-    }
+    
     setFastingStatus(status){
       this.fastingStatus = status;
     }

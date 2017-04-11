@@ -2,7 +2,20 @@ import { Settings } from './settings';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-
+/*
+* Class LANGUAGE
+* This class contains all string variables
+* to be displayed in different lanugages.
+*
+* The language can be one of the following:
+* - DE for German (default)
+* - FR for France
+* - EN for English
+*
+* Version:    1.0 Test Version
+* Author(s):  isels1, zyssm4
+* Date:       Builded 24.03.2017
+*/
 export class LANGUAGE {
 
   private static lang:LANGUAGE;
@@ -71,6 +84,10 @@ export class LANGUAGE {
   public commThread_exportAppointment_Location :string;
   public commThread_exportAppointment_Body :string;
   public commThread_Choose_Message_PopUp : string;
+  public commThread_Message_Sent_Title : string;
+  public commThread_Message_Sent : string;
+  public commThread_Message_Received_Title : string;
+  public commThread_Send_Message: string;
 
   //Language variables for the TextBlocks
 
@@ -156,8 +173,10 @@ export class LANGUAGE {
       this.langDE();
     } else if (s.getLanguage() == 'fr') {
       this.langFR();
-    } else {
+    } else if (s.getLanguage() == 'en') {
       this.langEN();
+    } else {
+      this.langDE();
     }
   }
 
@@ -194,9 +213,6 @@ export class LANGUAGE {
     this.setting_Credentials = 'Zugangsdaten';
     this.setting_Choose_Group = 'Gruppe auswählen';
 
-    this.commTread_No_Group_Choosen_Title = 'Keine Gruppe ausgewählt';
-    this.commTread_No_Group_Choosen = 'Bitte wähle eine verfügbare Gruppe in den Einstellungen aus.';
-
     this.patlist_View_title = 'Meine Patienten';
 
     this.commThread_TextBlock_Title_NewAppointment = 'Neuer Termin';
@@ -217,6 +233,8 @@ export class LANGUAGE {
     this.commThread_No_Time_Choosen_Title = 'Keine Zeit angegeben';
     this.commThread_No_Section_Choosen_Title = 'Keine Abteilung ausgewählt';
     this.commThread_No_Section_Choosen = 'Bitte wähle eine Abteilung aus.';
+    this.commTread_No_Group_Choosen_Title = 'Keine Gruppe ausgewählt';
+    this.commTread_No_Group_Choosen = 'Bitte wähle eine verfügbare Gruppe in den Einstellungen aus.';
     this.commThread_exportAppointment_PopUp_Title = "Termin exportieren";
     this.commThread_exportAppointment_PopUp_Text = "Wollen Sie diesen Termin in Ihren Kalender exportieren?";
     this.commThread_exportAppointment_Title = "MIWADO Termin";
@@ -225,7 +243,10 @@ export class LANGUAGE {
     this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
     this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
     this.commThread_Choose_Message_PopUp = 'Nachricht auswählen';
-
+    this.commThread_Message_Sent_Title = 'Gesendet';
+    this.commThread_Message_Sent = 'Ihre Nachricht wurde gesendet.';
+    this.commThread_Message_Received_Title = 'Neue Nachricht erhalten.';
+    this.commThread_Send_Message = "Nachricht senden"
 
     this.TextBlock_Welcome = 'Guten Tag';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
@@ -329,6 +350,10 @@ export class LANGUAGE {
     this.commThread_Choose_Message_PopUp = 'Choisir message';
     this.commThread_No_FastingStatus_Choosen_Title ="none";
     this.commThread_No_FastingStatus_Choosen = "none";
+    this.commThread_Message_Sent_Title = 'none';
+    this.commThread_Message_Sent = 'none';
+    this.commThread_Message_Received_Title = 'none';
+    this.commThread_Send_Message = 'none';
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -429,6 +454,10 @@ export class LANGUAGE {
     this.commThread_No_FastingStatus_Choosen_Title ="Fasting";
     this.commThread_No_FastingStatus_Choosen = "Please choose if the patient must be fasting or not.";
     this.commThread_Choose_Message_PopUp = 'Please choose message';
+    this.commThread_Message_Sent_Title = 'Sent';
+    this.commThread_Message_Sent = 'Your message has been sent.';
+    this.commThread_Message_Received_Title = 'New message received.';
+    this.commThread_Send_Message = "Send message";
 
     this.TextBlock_Welcome = 'Welcome';
     this.TextBlock_Patient_Welcome = 'Welcome, UDEM';

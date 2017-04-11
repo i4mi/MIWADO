@@ -4,12 +4,16 @@
     ion-scroll{
       margin:0 !important;
     }
+    ion-icon {
+      padding-left: 5px !important;
+    }
     .label-message-popUp{
       width: 0px;
       max-width: 0px;
       min-width: 0px;
     }
     .scroll-content {
+      background-color: #ebe7e5;
       padding:0 !important;
     }
     .select-text{
@@ -32,6 +36,8 @@
     .message-sendername{
       margin-left: 1%;
       margin-top: 1%;
+      font-weight: bolder;
+      font-size: smaller;
     }
     .day-wrapper .day-timestamp {
     margin-left: calc(50% - 64px);
@@ -48,7 +54,6 @@
 
   .messages {
     height: 100%;
-    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -80,7 +85,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine.png)
+          background-image: url(/assets/img/message-mine2.png)
         }
       }
 
@@ -118,19 +123,17 @@
       }
 
       .message-timestamp {
-        right: 5px;
+        margin-right: 5px;
         font-size: 10px;
         color: gray;
       }
     }
+
     .message-send-button{
-      max-width: 12%;
-      min-width: 10%;
-      right: 2px;
-      bottom: 1px;
-      position: absolute;
+
       background-color: #268ba3 !important;
     }
+
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -167,12 +170,16 @@
     ion-scroll{
       margin:0 !important;
     }
+    ion-icon {
+      padding-left: 5px !important;
+    }
     .label-message-popUp{
       width: 0px;
       max-width: 0px;
       min-width: 0px;
     }
     .scroll-content {
+      background-color: #ebe7e5;
       padding:0 !important;
     }
     .select-text{
@@ -195,6 +202,8 @@
     .message-sendername{
       margin-left: 1%;
       margin-top: 1%;
+      font-weight: bolder;
+      font-size: smaller;
     }
     .day-wrapper .day-timestamp {
     margin-left: calc(50% - 64px);
@@ -211,7 +220,6 @@
 
   .messages {
     height: 100%;
-    background-color: #ebe7e5;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 2%;
@@ -244,7 +252,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine.png)
+          background-image: url(/assets/img/message-mine2.png)
         }
       }
 
@@ -282,19 +290,16 @@
       }
 
       .message-timestamp {
-        right: 5px;
+        margin-right: 5px;
         font-size: 10px;
         color: gray;
       }
     }
+
     .message-send-button{
-      max-width: 12%;
-      min-width: 10%;
-      right: 2px;
-      bottom: 1px;
-      position: absolute;
       background-color: #268ba3 !important;
     }
+
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -327,6 +332,12 @@
 }
 
 page-commThread {
+  ion-select {
+    position: relative;
+  }
+  ion-icon {
+    padding-left: 5px !important;
+  }
   .select-text{
     max-width: auto !important;
     box-sizing: initial;
@@ -342,12 +353,18 @@ page-commThread {
     min-width: 100%;
   }
 
+  .scroll-content {
+    background-color: #ebe7e5;
+    padding: 0 !important;
+  }
   scroll-zoom-wrapper{
     padding: 0px;
   }
   .message-sendername{
     margin-left: 1%;
     margin-top: 1%;
+    font-weight: bolder;
+    font-size: smaller;
   }
   .day-wrapper .day-timestamp {
   margin-left: calc(50% - 64px);
@@ -364,7 +381,6 @@ page-commThread {
 
 .messages {
   height: 100%;
-  background-color: #ebe7e5;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -399,7 +415,7 @@ page-commThread {
 
       &::before {
         right: -11px;
-        background-image: url(/assets/img/message-mine.png)
+        background-image: url(/assets/img/message-mine2.png)
       }
     }
 
@@ -438,18 +454,14 @@ page-commThread {
     }
 
     .message-timestamp {
-      right: 5px;
+      margin-right: 5px;
       font-size: 10px;
       color: gray;
       float: right;
     }
   }
+
   .message-send-button{
-    max-width: 12%;
-    min-width: 10%;
-    right: 2px;
-    bottom: 1px;
-    position: absolute;
     background-color: #268ba3 !important;
   }
 

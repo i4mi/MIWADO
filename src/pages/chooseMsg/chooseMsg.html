@@ -1,0 +1,52 @@
+<ion-header>
+ <ion-navbar class="navbar-content">
+   <ion-title>{{ lang.commThread_Button_Choose_MessageType }}</ion-title>
+   <ion-buttons end>
+     <button (click)="openSettings()" ion-button icon-only>
+       <ion-icon name="settings"></ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--<ion-list>
+    <button ion-item *ngFor="let msg of options" (click)="openMsg(msg, $event)" >
+      <ion-icon class="docIcon" name="document"></ion-icon> {{ msg.name }}  <div class="item-note" item-right></div>
+    </button>
+  </ion-list>-->
+
+
+  <ion-list>
+    <div *ngFor="let msg of options">
+      <ion-item class="item-stable" (click)="openMsg(msg, $event)">
+        <ion-icon class="docIcon" name="document"></ion-icon>
+        {{ msg.name }}
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div class="messages-page-footer">
+    <div #cancelationPatient>
+      <cancelationPatient id="cancelationPatient" hidden></cancelationPatient>
+    </div>
+    <div #confirmation>
+      <confirmation id="confirmation" hidden></confirmation>
+    </div>
+    <div #newAppointment>
+      <newAppointment id="newAppointment" hidden></newAppointment>
+    </div>
+    <div #patientCancelationNewDate>
+      <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
+    </div>
+    <div #patientCancelationWillCall>
+      <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>
+    </div>
+    <div #reminder>
+      <reminder id="reminder" hidden></reminder>
+    </div>
+    <div #changeBackoffice>
+      <changeBackoffice id="changeBackoffice" hidden></changeBackoffice>
+    </div>
+  </div>
+</ion-content>

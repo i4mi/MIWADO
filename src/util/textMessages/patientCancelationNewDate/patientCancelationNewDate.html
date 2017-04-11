@@ -1,4 +1,16 @@
-<div>
+<ion-header>
+ <ion-navbar class="navbar-content">
+   <ion-title>{{ lang.commThread_TextBlock_Title_Cancellation_Pat_New_Date }}</ion-title>
+   <ion-buttons end>
+     <button (click)="openSettings()" ion-button icon-only>
+       <ion-icon name="settings"></ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div #patientCancelationNewDate>
   <ion-row>
     {{ lang.TextBlock_Patient_Welcome }}
   </ion-row>
@@ -16,3 +28,15 @@
     {{ patientSenderName }}
   </ion-row>
 </div>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="message-item-wrapper">
+    <ion-item class="message-send-button-container">
+      <button ion-button block iocon-right class="message-send-button" (click)="checkAndSendMessage()">
+        {{ lang.commThread_Send_Message }}
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-row>
+</ion-footer>

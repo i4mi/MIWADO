@@ -1,10 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { Storage } from '@ionic/storage';
-import { ListPage } from '../pages/list/list';
 import { RolePage } from '../pages/role/role';
 import { LoginPage } from '../pages/login/login';
 import { PatList } from '../pages/patlist/patlist';
@@ -17,13 +14,11 @@ import { NewAppointment } from '../util/textMessages/newAppointment/newAppointme
 import { PatientCancelationNewDate } from '../util/textMessages/patientCancelationNewDate/patientCancelationNewDate';
 import { PatientCancelationWillCall } from '../util/textMessages/patientCancelationWillCall/patientCancelationWillCall';
 import { Reminder } from '../util/textMessages/reminder/reminder';
+import { ChooseMsg } from '../pages/chooseMsg/chooseMsg';
 
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolePage,
     LoginPage,
     PatList,
@@ -35,7 +30,8 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
     NewAppointment,
     PatientCancelationNewDate,
     PatientCancelationWillCall,
-    Reminder
+    Reminder,
+    ChooseMsg,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -43,9 +39,6 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
     RolePage,
     LoginPage,
     PatList,
@@ -57,7 +50,8 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
     NewAppointment,
     PatientCancelationNewDate,
     PatientCancelationWillCall,
-    Reminder
+    Reminder,
+    ChooseMsg
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })
