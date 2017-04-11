@@ -48,6 +48,8 @@ export class LANGUAGE {
   public settings_PopUp_Text : string;
   public settings_PopUp_Cancel : string;
   public settings_PopUp_Confirm : string;
+  public settings_deleteCredentials_PopUp_Title : string;
+  public settings_deleteCredentials_PopUp_Text : string;
   public settings_IOS_NotChange : string;
   public settings_ChkBox_StoreCred : string;
   public setting_DeleteCredetials : string;
@@ -214,6 +216,8 @@ export class LANGUAGE {
     this.setting_Logout_Button = 'Logout';
     this.settings_PopUp_Title = 'Logout';
     this.settings_PopUp_Text = 'Möchten Sie sich wirklich abmelden?';
+    this.settings_deleteCredentials_PopUp_Title = 'Zugangsdaten löschen';
+    this.settings_deleteCredentials_PopUp_Text = 'Möchten Sie ihre Zugangsdaten löschen und sich abmelden?';
     this.settings_PopUp_Cancel = 'Abbrechen';
     this.settings_PopUp_Confirm = 'Bestätigen';
     this.settings_IOS_NotChange = 'Um die Sprache zu ändern, müssen Sie die Systemsprache des Gerätes angepasst.';
@@ -335,6 +339,8 @@ export class LANGUAGE {
     this.setting_Logout_Button = 'Déconnecter';
     this.settings_PopUp_Title = 'Déconnecter';
     this.settings_PopUp_Text = 'Voulez-vous réellement vous déconnecter?';
+    this.settings_deleteCredentials_PopUp_Title = "Effacer votre données d'entrée";
+    this.settings_deleteCredentials_PopUp_Text = "Voulez-vous effacer votre données d'entrée et réellement vous déconnecter?";
     this.settings_PopUp_Cancel = 'Annuler';
     this.settings_PopUp_Confirm = 'Confirmer';
     this.settings_IOS_NotChange = 'Pour changer la langue vous devez changer le language du système.';
@@ -410,7 +416,7 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = "Médecine de nutrition";
     this.TextBlock_metabolism = 'Métabolisme';
     this.TextBlock_PlaceholderName = 'Lehrmann'
-    this.TextBlock_not_fasting = "not none";
+    this.TextBlock_not_fasting = "none";
     this.TextBlock_fasting = "none";
 
     this.textMessages_Date_Title = "none";
@@ -450,6 +456,8 @@ export class LANGUAGE {
     this.setting_Logout_Button = 'Logout';
     this.settings_PopUp_Title = 'Logout';
     this.settings_PopUp_Text = 'Do you really want to log out?';
+    this.settings_deleteCredentials_PopUp_Title = "Delete your credentials";
+    this.settings_deleteCredentials_PopUp_Text = "Do you really want to delete your credentials and log out?";
     this.settings_PopUp_Cancel = 'Cancel';
     this.settings_PopUp_Confirm = 'Confirm';
     this.settings_IOS_NotChange = 'The language can be change in the system settings';
