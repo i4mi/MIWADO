@@ -85,7 +85,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine2.png)
+          background-image: url(../assets/img/message-mine2.png)
         }
       }
 
@@ -97,7 +97,7 @@
 
         &::before {
           left: -11px;
-          background-image: url(/assets/img/message-other.png)
+          background-image: url(../assets/img/message-other.png)
         }
       }
 
@@ -129,11 +129,6 @@
       }
     }
 
-    .message-send-button{
-
-      background-color: #268ba3 !important;
-    }
-
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -162,6 +157,10 @@
       min-width: 20%;
     }
     }
+  }
+
+  .message-send-button-container {
+    background-color: #fff !important;
   }
 
   .message-send-button-container ion-label {
@@ -275,7 +274,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine2.png)
+          background-image: url(../assets/img/message-mine2.png)
         }
       }
 
@@ -287,7 +286,7 @@
 
         &::before {
           left: -11px;
-          background-image: url(/assets/img/message-other.png)
+          background-image: url(../assets/img/message-other.png)
         }
       }
 
@@ -319,10 +318,6 @@
       }
     }
 
-    .message-send-button{
-      background-color: #268ba3 !important;
-    }
-
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -351,6 +346,10 @@
       min-width: 20%;
     }
     }
+  }
+
+  .message-send-button-container {
+    background-color: #fff !important;
   }
 
   .message-send-button-container ion-label {
@@ -461,7 +460,7 @@ page-commThread {
 
       &::before {
         right: -11px;
-        background-image: url(/assets/img/message-mine2.png)
+        background-image: url(../assets/img/message-mine2.png)
       }
     }
 
@@ -474,7 +473,7 @@ page-commThread {
 
       &::before {
         left: -11px;
-        background-image: url(/assets/img/message-other.png)
+        background-image: url(../assets/img/message-other.png)
       }
     }
 
@@ -505,10 +504,6 @@ page-commThread {
       color: gray;
       float: right;
     }
-  }
-
-  .message-send-button{
-    background-color: #268ba3 !important;
   }
 
   .message-select-typ{
@@ -542,6 +537,11 @@ page-commThread {
 .navbar-content{
   align-items: center;
 }
+
+.message-send-button-container {
+  background-color: #fff !important;
+}
+
 .message-send-button-container ion-label {
   margin: 0;
 }
