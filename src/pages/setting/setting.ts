@@ -91,7 +91,26 @@ export class SettingPage {
   }
 
   deleteCredentials(){
-    this.settings.setUser('', '');
+    let alert = this.alertCtrl.create({
+    title: this.lang.settings_deleteCredentials_PopUp_Title,
+    message: this.lang.settings_deleteCredentials_PopUp_Text,
+    buttons: [
+      {
+        text: this.lang.settings_PopUp_Cancel,
+        handler: () => {
+        }
+      },
+      {
+        text: this.lang.settings_PopUp_Confirm,
+        handler: () => {
+          this.settings.setUser('', '');
+          this.mp.logout();
+          this.nav.push(RolePage);
+        }
+      }
+    ]
+  });
+  alert.present();
   }
   setGroup(selectedGroup){
     this.settings.setGroup(this.selectedGroup);
