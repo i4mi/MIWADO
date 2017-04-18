@@ -22,6 +22,7 @@ export class LoginPage {
   myForm: FormGroup;
   private username: string;
   private password: string;
+  private hideBackButton = true;
   private input: any;
   private groups = new Array<any>();
   private selectedGroup: string;
@@ -58,9 +59,10 @@ export class LoginPage {
      this.nav.push(SettingPage);
    }
 
-  backToRole(){
+  goToRole(){
     this.nav.pop(LoginPage);
   }
+
 
   loginMIWADO(formData){
     var mp = MidataPersistence.getInstance();

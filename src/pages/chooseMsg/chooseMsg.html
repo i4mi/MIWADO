@@ -1,5 +1,10 @@
 <ion-header>
- <ion-navbar class="navbar-content">
+ <ion-navbar [hideBackButton]="hideBackButton" class="navbar-content">
+   <ion-buttons left>
+       <button ion-button (click)="goToCommThread()">
+           <ion-icon class="customIcon">{{ lang.util_backButton }}</ion-icon>
+       </button>
+   </ion-buttons>
    <ion-title>{{ lang.commThread_Button_Choose_MessageType }}</ion-title>
    <ion-buttons end>
      <button (click)="openSettings()" ion-button icon-only>

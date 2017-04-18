@@ -151,6 +151,8 @@ export class LANGUAGE {
   public TextBlock_nutritional_medicine : string;
   public TextBlock_metabolism : string;
 
+  //NavBar Items
+  private util_backButton : string;
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -286,6 +288,8 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
+
+    this.util_backButton = "Zurück";
   }
 
 
@@ -392,6 +396,8 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "none";
     this.TextBlock_fasting = "none";
+
+    this.util_backButton = "Retour";
   }
 
   private langEN(){
@@ -497,5 +503,8 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
+
+    this.util_backButton = "Back";
+
   }
 }

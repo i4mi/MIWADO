@@ -25,6 +25,7 @@ export class PatList {
   private patList: Array<MiwadoTypes.MIWADO_Patient>;
   private displaysender : string;
   private selectedGroup: string;
+  private hideBackButton = true;
 
   constructor(private nav: NavController, private shareService: ShareService,
               private platform: Platform, private storage: Storage, private notificationService : NotificationService,

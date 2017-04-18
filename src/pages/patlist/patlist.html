@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton class="navbar-content">
+  <ion-navbar hideBackButton class="navbar-content" [hideBackButton]="hideBackButton">
     <ion-title>{{ lang.patlist_View_title }}</ion-title>
     <ion-buttons end>
       <button (click)="openSettings()" ion-button icon-only>

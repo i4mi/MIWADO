@@ -1,5 +1,10 @@
  <ion-header>
   <ion-navbar [hideBackButton]="hideBackButton" class="navbar-content">
+    <ion-buttons left>
+        <button ion-button *ngIf=role (click)="goToPatList()">
+            <ion-icon class="customIcon">{{ lang.util_backButton }}</ion-icon>
+        </button>
+    </ion-buttons>
     <ion-title>{{ pat.displayName }}</ion-title>
     <ion-buttons end>
       <button (click)="openSettings()" ion-button icon-only>
@@ -34,7 +39,8 @@
       <newAppointment id="newAppointment" hidden></newAppointment>
     </div>
     <div #patientCancelationNewDate>
-      <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelationNewDate>
+      <patientCancelationNewDate id="patientCancelationNewDate" hidden></patientCancelat
+      ionNewDate>
     </div>
     <div #patientCancelationWillCall>
       <patientCancelationWillCall id="patientCancelationWillCall" hidden></patientCancelationWillCall>

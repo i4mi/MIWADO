@@ -25,6 +25,7 @@ export class SettingPage {
 //  private disableLogout = true;
   private groups = new Array<any>();
   private selectedGroup: string;
+  private hideBackButton = true;
   private noStoredCred = false;
 
   constructor(public nav: NavController, private builder: FormBuilder, private shareService: ShareService,

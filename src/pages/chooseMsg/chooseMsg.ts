@@ -7,6 +7,7 @@ import { LANGUAGE } from '../../util/language';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { ShareService } from '../../util/shareService';
 import { SettingPage } from '../setting/setting';
+import { CommThreadPage } from '../commThread/commThread';
 
 import { Reminder } from '../../util/textMessages/reminder/reminder';
 import { NewAppointment } from '../../util/textMessages/newAppointment/newAppointment';
@@ -32,6 +33,7 @@ export class ChooseMsg {
 
   //Variables for text-blocks
   private displayName : string;
+  private hideBackButton = true;
   private displayGender : string;
   private gender : string;
   private senderName : string;
@@ -129,6 +131,10 @@ export class ChooseMsg {
 
   openSettings(){
     this.nav.push(SettingPage);
+  }
+
+  goToCommThread(){
+  this.nav.push(CommThreadPage);
   }
 
 
