@@ -186,6 +186,10 @@ export class LANGUAGE {
   public impressum_Data_Text_1: string;
   public impressum_Data_Text_2: string;
 
+  //DateTime OK/Cancel
+  public dateTimePicker_Ok: string;
+  public dateTimePicker_Cancel: string;
+
   //Language variables for the PatList
   public patlist_View_title: string;
 
@@ -351,6 +355,9 @@ export class LANGUAGE {
     this.impressum_Data_Title = "Datenschutz";
     this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
     this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
+
+    this.dateTimePicker_Ok = "Auswählen";
+    this.dateTimePicker_Cancel = "Abbrechen";
   }
 
 
@@ -473,6 +480,24 @@ export class LANGUAGE {
     this.textMessages_reminder_Fastingstatus_Info = "none";
 
     this.impressum_Title = "none";
+    this.impressum_Contact_Title = "Kontakt";
+    this.impressum_Contact_AppName = "MIWADO";
+    this.impressum_Contact_BFH = "Berner Fachhochschule";
+    this.impressum_Contact_Adress = "Quellgasse 21";
+    this.impressum_Contact_City = " 2501 Biel";
+    this.impressum_Contact_Email_Title = "Email:";
+    this.impressum_HA_Title = "Haftungsausschluss";
+    this.impressum_HA_Text_1 = "Die Entwickler der MIWADO Applikation übernehmen keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.";
+    this.impressum_HA_Text_2 = "Haftungsansprüche gegen die Entwickler wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.";
+    this.impressum_HA_Text_3 = "Alle Angebote sind unverbindlich. Die Entwickler behalten es sich ausdrücklich vor, Teile der Applikation oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.";
+    this.impressum_Rights_Title = "Urheberrechte";
+    this.impressum_Rights_Text = "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien der Applikation gehören ausschliesslich den Entwicklern der MIWADO Applikation oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.";
+    this.impressum_Data_Title = "Datenschutz";
+    this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
+    this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
+
+    this.dateTimePicker_Ok = "Ok";
+    this.dateTimePicker_Cancel = "Abbrechen";
   }
 
   private langEN(){
@@ -594,5 +619,23 @@ export class LANGUAGE {
     this.textMessages_reminder_Fastingstatus_Info = "none";
 
     this.impressum_Title = "none";
+    this.impressum_Contact_Title = "Kontakt";
+    this.impressum_Contact_AppName = "MIWADO";
+    this.impressum_Contact_BFH = "Berner Fachhochschule";
+    this.impressum_Contact_Adress = "Quellgasse 21";
+    this.impressum_Contact_City = " 2501 Biel";
+    this.impressum_Contact_Email_Title = "Email:";
+    this.impressum_HA_Title = "Haftungsausschluss";
+    this.impressum_HA_Text_1 = "Die Entwickler der MIWADO Applikation übernehmen keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.";
+    this.impressum_HA_Text_2 = "Haftungsansprüche gegen die Entwickler wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.";
+    this.impressum_HA_Text_3 = "Alle Angebote sind unverbindlich. Die Entwickler behalten es sich ausdrücklich vor, Teile der Applikation oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.";
+    this.impressum_Rights_Title = "Urheberrechte";
+    this.impressum_Rights_Text = "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien der Applikation gehören ausschliesslich den Entwicklern der MIWADO Applikation oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.";
+    this.impressum_Data_Title = "Datenschutz";
+    this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
+    this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
+
+    this.dateTimePicker_Ok = "Ok";
+    this.dateTimePicker_Cancel = "Cancel";
   }
 }
