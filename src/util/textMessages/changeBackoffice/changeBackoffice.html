@@ -21,7 +21,7 @@
     </ion-row>
     <ion-row class="li-style"> <!--CLASS ROW class="rowStyleChangeBackoffice" // CLASS DATETIME class="datePickerChangeBackoffice selectDate"-->
         <label>{{ lang.textMessages_Date_Title }}</label>
-        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
         <span>{{ lang.textMessages_changeBackoffice_Date1_Info }}</span>
     </ion-row>
     <ion-row>
@@ -34,7 +34,7 @@
     </ion-row>
     <ion-row class="li-style">
         <label>{{ lang.textMessages_Date_Title }}</label>
-        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}} [(ngModel)]="myDate" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
         <span>{{ lang.textMessages_changeBackoffice_Date2_Info }}</span>
     </ion-row>
     <ion-row>
@@ -42,7 +42,7 @@
     </ion-row>
     <ion-row class="li-style"> <!-- timePickerChangeBackoffice-->
         <label>{{ lang.textMessages_Time_Title }}</label>
-        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45"></ion-datetime>
+        <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
         <span>{{ lang.textMessages_changeBackoffice_Time_Info }}</span>
     </ion-row>
     <br />

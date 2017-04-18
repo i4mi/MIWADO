@@ -20,7 +20,7 @@
   </ion-row>
   <ion-row class="li-style">
     <label>{{ lang.textMessages_Date_Title }}</label>
-    <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="myDate" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
     <span> {{lang.textMessages_newAppointment_Date_Info}} </span>
   </ion-row>
   <br />

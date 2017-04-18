@@ -8,4 +8,9 @@ page-chooseMsg {
   ion-datetime {
     position: relative;
   }
+  .customIcon{
+    background-image: url(assets/img/backButton.png);
+    height: 5%;
+    width: 5%;
+  }
 }

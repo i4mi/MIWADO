@@ -189,6 +189,8 @@ export class LANGUAGE {
   //DateTime OK/Cancel
   public dateTimePicker_Ok: string;
   public dateTimePicker_Cancel: string;
+  //NavBar Items
+  private util_backButton : string;
 
   //Language variables for the PatList
   public patlist_View_title: string;
@@ -358,7 +360,9 @@ export class LANGUAGE {
 
     this.dateTimePicker_Ok = "Auswählen";
     this.dateTimePicker_Cancel = "Abbrechen";
-  }
+
+    this.util_backButton = "Zurück";
+    }
 
 
   private langFR(){
@@ -498,6 +502,8 @@ export class LANGUAGE {
 
     this.dateTimePicker_Ok = "Ok";
     this.dateTimePicker_Cancel = "Abbrechen";
+
+    this.util_backButton = "Retour";
   }
 
   private langEN(){
@@ -637,5 +643,7 @@ export class LANGUAGE {
 
     this.dateTimePicker_Ok = "Ok";
     this.dateTimePicker_Cancel = "Cancel";
+
+    this.util_backButton = "Back";
   }
 }

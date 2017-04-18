@@ -16,6 +16,7 @@ import { ShareService } from '../../util/shareService';
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private mp = MidataPersistence.getInstance();
+  private hideBackButton = true;
 
   constructor(private nav: NavController, private shareService: ShareService, private platform: Platform,
               private storage: Storage) {

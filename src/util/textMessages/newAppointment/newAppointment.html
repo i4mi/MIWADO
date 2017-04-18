@@ -21,7 +21,7 @@
     </ion-row>
     <ion-row class="li-style">
       <label>{{ lang.textMessages_Date_Title }}</label>
-      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}}  [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YY" min={{myDateYear}} max={{myDateYearFutur}}  [(ngModel)]="myDate" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
       <span>{{ lang.textMessages_newAppointment_Date_Info }}</span>
     </ion-row>
     <ion-row>
@@ -29,7 +29,7 @@
     </ion-row>
     <ion-row class="li-style">
       <label>{{ lang.textMessages_Time_Title }}</label>
-      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm" hourValues="08,09,10,11,12,13,14,15,16,17" minuteValues="0,15,30,45" cancelText="{{lang.dateTimePicker_Cancel}}" doneText="{{lang.dateTimePicker_Ok}}"></ion-datetime>
       <span> {{lang.textMessages_newAppointment_Time_Info}} </span>
     </ion-row>
     <ion-row>
@@ -37,7 +37,7 @@
     </ion-row>
     <ion-row class="li-style">
       <label>{{ lang.textMessages_Select_Department_Title }}</label>
-        <ion-select multiple="false">
+        <ion-select multiple="false" cancelText="{{lang.dateTimePicker_Cancel}}" okText="{{lang.dateTimePicker_Ok}}">
           <ion-option>{{ lang.TextBlock_Diabetology }}</ion-option>
           <ion-option>{{ lang.TextBlock_endocrinology }}</ion-option>
           <ion-option>{{ lang.TextBlock_nutritional_medicine }}</ion-option>

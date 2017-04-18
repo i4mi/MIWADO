@@ -537,6 +537,7 @@ page-commThread {
 .navbar-content{
   align-items: center;
 }
+<<<<<<< HEAD
 
 .message-send-button-container {
   background-color: #fff !important;
@@ -563,5 +564,11 @@ page-commThread {
 .message-send-button{
 background-color: #268ba3 !important;
 height: 100%;
+=======
+.customIcon{
+  background-image: url(assets/img/backButton.png);
+  height: 5%;
+  width: 5%;
+>>>>>>> 98ed7cbd29c29698b3f4208d2e4403ffe6d8cdd6
 }
 }
