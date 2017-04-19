@@ -96,6 +96,7 @@ export class CommThreadPage {
     if (this.navParams.get('type')) {
       console.log('there is something in nav');
       this.TextBlock = this.navParams.get('type');
+      this.TextBlockChoosen = this.navParams.get('type');
       console.log(this.navParams.get('type'));
       this.messageToSend = this.navParams.get('msg');
       console.log(this.navParams.get('msg'));
@@ -355,10 +356,13 @@ export class CommThreadPage {
   defineCommRes(usrId: string, grp: any){
     var rec = new Array<any>();
     var content = new Array<any>();
-    var meds = new Array<MidataTypes.MIDATA_HL7CommRes_Medium>();
+    var meds = new Array<any>();
     var sent = new Date();
     var subj = {"reference":"Patient/" + this.pat.id};
-    var tg = this.TextBlockChoosen;
+    var tg = {
+      "coding" : [{ "type": this.TextBlockChoosen }], // Code defined by a terminology system
+      "text" :  "MIWADO_Message"// Plain text representation of the concept
+    }
     var sendr = "";
 
     if(this.mp.getRole() == 'provider') {
@@ -377,15 +381,15 @@ export class CommThreadPage {
     content.push({'contentString' : text});
 
     var med = {
-      type: 'APP',
-      name: 'MIWADO'
-    } as MidataTypes.MIDATA_HL7CommRes_Medium;
+      "coding" : [{ "type": "APP" }], // Code defined by a terminology system
+      "text" :  "MIWADO"// Plain text representation of the concept
+    };
 
     meds.push(med);
 
     var commRes = {
       resourceType:'Communication',
-      category:{tg},
+      category:tg,
       sender:sendr,
       status:'in-progress',
       recipient:rec,

@@ -10,17 +10,19 @@
 </ion-header>
 
 <ion-content>
-<div #patientCancelationWillCall>
+<div #patientCancelationWillCall class="form-style-5">
   <ion-row >
-    {{ lang.TextBlock_Patient_Welcome }}
+    <label>{{ lang.TextBlock_Patient_Welcome }}</label>
   </ion-row>
   <ion-row >
-    {{ lang.TextBlock_PatientWillCall_1 }}
-    {{ lang.TextBlock_PatientWillCall_2 }}
+    <label>{{ lang.TextBlock_PatientWillCall_1 }}
+    {{ lang.TextBlock_PatientWillCall_2 }}</label>
   </ion-row>
   <ion-row >
-    {{ lang.TextBlock_Sincere_regards }}
-    {{ patientSenderName }}
+    <label>{{ lang.TextBlock_Sincere_regards }}</label>
+  </ion-row>
+  <ion-row >
+    <label>{{ patientSenderName }}</label>
   </ion-row>
 </div>
 </ion-content>

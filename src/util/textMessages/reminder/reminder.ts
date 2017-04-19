@@ -80,9 +80,9 @@ export class Reminder {
 
     retVal = this.lang.TextBlock_Welcome + ' ' +
              this.displayGender + ' ' +
-             this.displayName + ' ' +
+             this.displayName + ' \n' +
              this.lang.TextBlock_Reminder_1 + ' ' +
-             '¨' + dateInput + '¨' +
+             '¨' + dateInput + '¨ ' +
              this.lang.TextBlock_Reminder_2 + ' ';
 
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
@@ -109,7 +109,7 @@ export class Reminder {
       return '';
     }
 
-    retVal += '`' + timeInput + '`' +
+    retVal += '`' + timeInput + '` ' +
               this.lang.TextBlock_Reminder_3 + ' ' +
               this.lang.TextBlock_Place + ' ';
 
@@ -120,9 +120,9 @@ export class Reminder {
 
     retVal += this.lang.TextBlock_cancelation + ' ' +
               this.lang.TextBlock_cancelation_Costs + ' ' +
-              this.lang.TextBlock_Phonenumber + ' ' +
-              this.lang.TextBlock_Sincere_regards + '.';
-              //TODO: GREETINGS UDEM OR SO + '.';
+              this.lang.TextBlock_Phonenumber + ' \n' +
+              this.lang.TextBlock_Sincere_regards + ' \n' +
+              this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

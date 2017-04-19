@@ -51,10 +51,10 @@ export class CancelationPatient {
       alert.present();
       return '';
     }
-    retVal = this.lang.TextBlock_Patient_Welcome + ' ' +
+    retVal = this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientwillnotCome_1 + ' ' +
              this.lang.TextBlock_on + ' ' +
-             '¨' + dateInput + '¨';
+             '¨' + dateInput + '¨ ';
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
     console.log(timeInput);
     if(timeInput == "") {
@@ -67,9 +67,9 @@ export class CancelationPatient {
       return '';
     }
     retVal += this.lang.TextBlock_at + ' ' +
-              '`' + timeInput + '`' +
-              this.lang.TextBlock_PatientwillnotCome_2 + ' ' +
-              this.lang.TextBlock_Sincere_regards + ' ' +
+              '`' + timeInput + '` ' +
+              this.lang.TextBlock_PatientwillnotCome_2 + ' \n' +
+              this.lang.TextBlock_Sincere_regards + ' \n' +
               this.patientSenderName + '.';
 
     this.nav.push(CommThreadPage, {

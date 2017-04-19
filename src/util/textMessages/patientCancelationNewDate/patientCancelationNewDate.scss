@@ -51,32 +51,140 @@
   border-bottom-color: black;
 }
 
+patientCancelationNewDate {
 
+  ion-select {
+  position: relative;
+  }
 
-ion-select {
-position: relative;
-}
-ion-icon {
-padding-left: 5px !important;
-}
+  ion-datetime {
+    position: relative;
+  }
 
-.select-text{
-max-width: auto !important;
-box-sizing: initial;
-}
+  ion-icon {
+    padding-left: 5px !important;
+  }
 
-.label-message-popUp{
-width: 0px;
-max-width: 0px;
-min-width: 0px;
-}
+  .select-text{
+    max-width: auto !important;
+    box-sizing: initial;
+  }
 
-.select{
-max-width: auto !important;
-box-sizing: initial;
-min-width: 100%;
-}
+  .label-message-popUp{
+    width: 0px;
+    max-width: 0px;
+    min-width: 0px;
+  }
 
-.message-send-button{
-background-color: #268ba3 !important;
+  .select {
+    max-width: auto !important;
+    box-sizing: initial;
+    min-width: 98%;
+  }
+
+  .select-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
+  }
+
+  .form-style-5{
+      max-width: 800px;
+      padding: 10px 20px;
+      background: #d6edf2;
+      margin: 10px 5px;
+      padding: 20px;
+      border-radius: 8px;
+  }
+
+  .form-style-5 label {
+      display: block;
+      margin-right: 5px;
+  }
+
+  .form-style-5 ion-label {
+      display: block;
+      margin-right: 5px;
+  }
+
+  .form-style-5 ion-row {
+      list-style:none;
+      padding:0;
+      margin-bottom:8px;
+  }
+
+  .form-style-5 .li-style {
+      display: block;
+      padding: 9px;
+      border:1px solid #DDDDDD;
+      margin-bottom: 5px;
+      border-radius: 3px;
+  }
+
+  .form-style-5 .li-style:last-child{
+      border:none;
+      margin-bottom: 0px;
+      text-align: center;
+  }
+
+  .form-style-5 .li-style > label{
+      position: absolute;
+      display: block;
+      float: left;
+      margin-top: -19px;
+      background: #d6edf2;
+      height: 14px;
+      padding: 2px 5px 2px 5px;
+      color: #B9B9B9;
+      font-size: 12px;
+  }
+
+  .form-style-5 .li-style > ion-label{
+      position: absolute;
+      display: block;
+      float: left;
+      margin-top: -19px;
+      background: #d6edf2;
+      height: 14px;
+      padding: 2px 5px 2px 5px;
+      color: #B9B9B9;
+      font-size: 12px;
+  }
+
+  .form-style-5 .li-style > span{
+      background: #F3F3F3;
+      display: block;
+      padding: 3px;
+      margin: 0 -9px -9px -9px;
+      text-align: center;
+      color: #C0C0C0;
+      font-size: 11px;
+  }
+
+  .form-style-5 ion-datetime {
+    font-weight: bold;
+    font-size: 16px;
+  }
 }

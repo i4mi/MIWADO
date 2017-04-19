@@ -85,7 +85,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine2.png)
+          background-image: url(../assets/img/message-mine2.png)
         }
       }
 
@@ -97,7 +97,7 @@
 
         &::before {
           left: -11px;
-          background-image: url(/assets/img/message-other.png)
+          background-image: url(../assets/img/message-other.png)
         }
       }
 
@@ -129,11 +129,6 @@
       }
     }
 
-    .message-send-button{
-
-      background-color: #268ba3 !important;
-    }
-
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -162,6 +157,33 @@
       min-width: 20%;
     }
     }
+  }
+
+  .message-send-button-container {
+    background-color: #fff !important;
+  }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
   }
 }
 //Android Style
@@ -252,7 +274,7 @@
 
         &::before {
           right: -11px;
-          background-image: url(/assets/img/message-mine2.png)
+          background-image: url(../assets/img/message-mine2.png)
         }
       }
 
@@ -264,7 +286,7 @@
 
         &::before {
           left: -11px;
-          background-image: url(/assets/img/message-other.png)
+          background-image: url(../assets/img/message-other.png)
         }
       }
 
@@ -296,10 +318,6 @@
       }
     }
 
-    .message-send-button{
-      background-color: #268ba3 !important;
-    }
-
     .message-select-typ{
       max-width: 70%;
       min-width: 70%;
@@ -328,6 +346,33 @@
       min-width: 20%;
     }
     }
+  }
+
+  .message-send-button-container {
+    background-color: #fff !important;
+  }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
   }
 }
 
@@ -415,7 +460,7 @@ page-commThread {
 
       &::before {
         right: -11px;
-        background-image: url(/assets/img/message-mine2.png)
+        background-image: url(../assets/img/message-mine2.png)
       }
     }
 
@@ -428,7 +473,7 @@ page-commThread {
 
       &::before {
         left: -11px;
-        background-image: url(/assets/img/message-other.png)
+        background-image: url(../assets/img/message-other.png)
       }
     }
 
@@ -461,10 +506,6 @@ page-commThread {
     }
   }
 
-  .message-send-button{
-    background-color: #268ba3 !important;
-  }
-
   .message-select-typ{
     max-width: 70%;
     min-width: 70%;
@@ -478,27 +519,56 @@ page-commThread {
   padding-top: 2%;
   background-color: white;
 
-  .message-editor {
-    margin-left: 2px;
-    background: white;
-    max-width: 70%;
-    min-width: 70%;
-    border-radius: 3px;
-    float: left;
+    .message-editor {
+      margin-left: 2px;
+      background: white;
+      max-width: 70%;
+      min-width: 70%;
+      border-radius: 3px;
+      float: left;
+    }
+
+    .message-editor-button {
+      box-shadow: none;
+      max-width: 20%;
+      min-width: 20%;
+    }
   }
 
-  .message-editor-button {
-    box-shadow: none;
-    max-width: 20%;
-    min-width: 20%;
+  .navbar-content{
+    align-items: center;
   }
-}
-.navbar-content{
-  align-items: center;
-}
-.customIcon{
-  background-image: url(assets/img/backButton.png);
-  height: 5%;
-  width: 5%;
-}
+
+  .message-send-button-container {
+    background-color: #fff !important;
+  }
+
+  .message-send-button-container ion-label {
+    margin: 0;
+  }
+
+  .item-md {
+      padding-left: 8px;
+      background-color: transparent;
+  }
+
+  .label-md {
+    margin-left: 8px;
+  }
+
+  .item-md .item-button {
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .message-send-button{
+  background-color: #268ba3 !important;
+  height: 100%;
+  }
+
+  .customIcon{
+    background-image: url(assets/img/backButton.png);
+    height: 5%;
+    width: 5%;
+  }
 }
