@@ -209,7 +209,8 @@ export class CommThreadPage {
 
           var date = new Date(this.resource[i].sent);
           var day = date.getDate().toString();
-          var month = date.getMonth().toString();
+          var m = date.getMonth() + 1;
+          var month = m.toString();
           var years = date.getFullYear().toString();
           var hours = date.getHours().toString();
           var minutes = date.getMinutes().toString();
