@@ -216,14 +216,25 @@ export class NotificationService {
             } else {
               this.getTokenForUser(userId).then((userToken) => {
                 // Check if token is present or wasn't found at all.
-                let userTokenFound = userToken !== undefined;
-                let userTokenChanged = userTokenFound && token !== userToken.lotNumber;
+                console.log("TOKKKEEEEEN");
+                console.log(userToken);
+
+                let userTokenFound = userToken.length !== 0;
+                var userTokenNewDevice = true;
+
+                for(var i = 0; i < userToken.length; i++) {
+                  if (userTokenFound && userToken[i].lotNumber == token) {
+                    userTokenNewDevice = false;
+                  }
+                }
+
                 // If no token found at all, save a new token
+                // If another token than already saved, save again a new device!
                 if (!userTokenFound) {
                   if(this.mp.getRole() != 'provider') {
                     resolve(this.storeFCMTokenMIDATA(token, false));
                   }
-                } else if (userTokenChanged) {
+                } else if (userTokenNewDevice) {
                   if(this.mp.getRole() != 'provider') {
                     resolve(this.storeFCMTokenMIDATA(token, true));
                   }
@@ -334,17 +345,17 @@ export class NotificationService {
   private getTokenForUser(userId: string): Promise<any> {
       console.log('get Token for user');
       return this.mp.retreiveFCMToken().then((tokens) => {
-        var tk:any;
+        var tk = new Array<any>();
         for(var i = 0; i < tokens.length; i++) {
           var owner = tokens[i].manufacturer;
           if(tokens[i].manufacturer == userId) {
-            tk = tokens[i];
+            tk.push(tokens[i]);
           }
         }
         if (!tk) {
             console.log('WARNINING: No token found for user: ' + userId);
         } else {
-            console.log(`Token for user ${userId} found: ${tk.lotNumber}`);
+            console.log(`Token for user ${userId} found: ${tk}`);
         }
         return tk;
       });
