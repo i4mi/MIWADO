@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { Settings } from '../../util/settings';
+import { LocalNotifications } from 'ionic-native';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
 declare var FCMPlugin;
@@ -290,13 +291,20 @@ export class NotificationService {
       if (data.secure) {
           let message: MiwadoTypes.Notification = this.decrypt(data.secure);
           this.notificationsSubj.next(<MiwadoTypes.Notification> message);
-          let alert = this.alertCtrl.create({
+          LocalNotifications.schedule({
+            id: 1,
+            text: message.title,
+            data: { secret: message.title },
+            icon: './assets/img/logo.png'
+          });
+
+          /*let alert = this.alertCtrl.create({
             title: message.title,
             subTitle: message.title,
             buttons: ['OK']
           });
 
-          alert.present();
+          alert.present();*/
       } else {
           console.log('Unknown notification from FCM');
           console.log(data);

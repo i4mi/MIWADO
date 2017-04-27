@@ -73,9 +73,9 @@
     .message {
       display: inline-block;
       position: relative;
-      max-width: 65vh;
       border-radius: 7px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      max-width: 85%;
 
       &.message-mine {
         float: right;
@@ -101,7 +101,19 @@
         }
       }
 
-      &.message-other::before, &.message-mine::before {
+      &.message-otherHp {
+        float: left;
+        background-color: #d6edf2;
+        right: 0px;
+        margin: 10px;
+
+        &::before {
+          left: -11px;
+          background-image: url(../assets/img/message-otherHp.png)
+        }
+      }
+
+      &.message-other::before, &.message-mine::before, &.message-otherHp::before {
         content: "";
         position: absolute;
         bottom: 3px;
@@ -261,7 +273,7 @@
     .message {
       display: inline-block;
       position: relative;
-      max-width: 100%;
+      max-width: 85%;
       border-radius: 7px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 
@@ -290,7 +302,19 @@
         }
       }
 
-      &.message-other::before, &.message-mine::before {
+      &.message-otherHp {
+        float: left;
+        background-color: #d6edf2;
+        right: 0px;
+        margin: 10px;
+
+        &::before {
+          left: -11px;
+          background-image: url(../assets/img/message-otherHp.png)
+        }
+      }
+
+      &.message-other::before, &.message-mine::before, &.message-otherHp::before {
         content: "";
         position: absolute;
         bottom: 3px;
@@ -477,7 +501,19 @@ page-commThread {
       }
     }
 
-    &.message-other::before, &.message-mine::before {
+    &.message-otherHp {
+      float: left;
+      background-color: #d6edf2;
+      right: 0px;
+      margin: 10px;
+
+      &::before {
+        left: -11px;
+        background-image: url(../assets/img/message-otherHp.png)
+      }
+    }
+
+    &.message-other::before, &.message-mine::before, &.message-otherHp::before {
       content: "";
       position: absolute;
       bottom: 3px;
