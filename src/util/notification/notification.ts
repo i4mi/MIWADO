@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { MidataPersistence } from '../../util/midataPersistence'
 import { Settings } from '../../util/settings';
+import { LocalNotifications } from 'ionic-native';
 import * as MiwadoTypes from '../../util/typings/MIWADO_Types';
 
 declare var FCMPlugin;
@@ -216,14 +217,25 @@ export class NotificationService {
             } else {
               this.getTokenForUser(userId).then((userToken) => {
                 // Check if token is present or wasn't found at all.
-                let userTokenFound = userToken !== undefined;
-                let userTokenChanged = userTokenFound && token !== userToken.lotNumber;
+                console.log("TOKKKEEEEEN");
+                console.log(userToken);
+
+                let userTokenFound = userToken.length !== 0;
+                var userTokenNewDevice = true;
+
+                for(var i = 0; i < userToken.length; i++) {
+                  if (userTokenFound && userToken[i].lotNumber == token) {
+                    userTokenNewDevice = false;
+                  }
+                }
+
                 // If no token found at all, save a new token
+                // If another token than already saved, save again a new device!
                 if (!userTokenFound) {
                   if(this.mp.getRole() != 'provider') {
                     resolve(this.storeFCMTokenMIDATA(token, false));
                   }
-                } else if (userTokenChanged) {
+                } else if (userTokenNewDevice) {
                   if(this.mp.getRole() != 'provider') {
                     resolve(this.storeFCMTokenMIDATA(token, true));
                   }
@@ -279,13 +291,20 @@ export class NotificationService {
       if (data.secure) {
           let message: MiwadoTypes.Notification = this.decrypt(data.secure);
           this.notificationsSubj.next(<MiwadoTypes.Notification> message);
-          let alert = this.alertCtrl.create({
+          LocalNotifications.schedule({
+            id: 1,
+            text: message.title,
+            data: { secret: message.title },
+            icon: './assets/img/logo.png'
+          });
+
+          /*let alert = this.alertCtrl.create({
             title: message.title,
             subTitle: message.title,
             buttons: ['OK']
           });
 
-          alert.present();
+          alert.present();*/
       } else {
           console.log('Unknown notification from FCM');
           console.log(data);
@@ -334,17 +353,17 @@ export class NotificationService {
   private getTokenForUser(userId: string): Promise<any> {
       console.log('get Token for user');
       return this.mp.retreiveFCMToken().then((tokens) => {
-        var tk:any;
+        var tk = new Array<any>();
         for(var i = 0; i < tokens.length; i++) {
           var owner = tokens[i].manufacturer;
           if(tokens[i].manufacturer == userId) {
-            tk = tokens[i];
+            tk.push(tokens[i]);
           }
         }
         if (!tk) {
             console.log('WARNINING: No token found for user: ' + userId);
         } else {
-            console.log(`Token for user ${userId} found: ${tk.lotNumber}`);
+            console.log(`Token for user ${userId} found: ${tk}`);
         }
         return tk;
       });

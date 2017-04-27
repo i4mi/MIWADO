@@ -192,7 +192,8 @@ export class CommThreadPage {
     this.mp.retreiveCommRes(this.pat).then((res) => {
       this.resource = res.reverse();
       //this.resource = res;
-      //console.log(res);
+      console.log("MESSAGES:")
+      console.log(res);
       this.settings.getUser().then((user) => {
         this.messages = []
         for(var i = 0; i < this.resource.length; i++) {
@@ -204,7 +205,12 @@ export class CommThreadPage {
           if(user.auth.owner == sId) {
             this.resource[i].ownership = 'mine';
           } else {
-            this.resource[i].ownership = 'other';
+            if(this.mp.getRole() == 'provider' &&
+              this.resource[i].sender.reference.indexOf('Practitioner') > -1) {
+              this.resource[i].ownership = 'otherHp';
+            } else {
+              this.resource[i].ownership = 'other';
+            }
           }
 
           var date = new Date(this.resource[i].sent);
