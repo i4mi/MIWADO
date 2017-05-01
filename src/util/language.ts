@@ -129,6 +129,9 @@ export class LANGUAGE {
   //Patient cancelation, new Date
   public TextBlock_PatientAfterDate_1 : string;
   public TextBlock_PatientAfterDate_2 : string;
+  public TextBlock_time_morning : string;
+  public TextBlock_time_afternoon : string;
+  public TextBlock_time_none : string;
 
   //Change Backoffice
   public TextBlock_Change_Backoffice_1 : string;
@@ -341,6 +344,11 @@ export class LANGUAGE {
     this.textMessages_Fastingstatus_Title = "Nüchtern?";
     this.textMessages_reminder_Fastingstatus_Info = "Bitte angeben, ob der Patient nüchtern oder nicht erscheinen muss."
 
+
+    this.TextBlock_time_morning = "am Morgen";
+    this.TextBlock_time_afternoon = "am Nachmittag";
+    this.TextBlock_time_none = "jederzeit";
+
     this.impressum_Title = "Impressum";
     this.impressum_Contact_Title = "Kontakt";
     this.impressum_Contact_AppName = "MIWADO";
@@ -482,6 +490,10 @@ export class LANGUAGE {
     this.textMessages_newAppointment_Department_Info = "none";
     this.textMessages_Fastingstatus_Title = "none";
     this.textMessages_reminder_Fastingstatus_Info = "none";
+
+    this.TextBlock_time_morning = "none";
+    this.TextBlock_time_afternoon = "none";
+    this.TextBlock_time_none = "none";
 
     this.impressum_Title = "none";
     this.impressum_Contact_Title = "Kontakt";
@@ -626,6 +638,9 @@ export class LANGUAGE {
 
     this.impressum_Title = "About the App";
     this.impressum_Contact_Title = "Contact";
+    this.TextBlock_time_morning = "in the morning";
+    this.TextBlock_time_afternoon = "in the afternoon";
+    this.TextBlock_time_none = "At any time";
     this.impressum_Contact_AppName = "MIWADO";
     this.impressum_Contact_BFH = "Berner Fachhochschule";
     this.impressum_Contact_Adress = "Quellgasse 21";
