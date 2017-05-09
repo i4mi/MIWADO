@@ -77,14 +77,6 @@ export class Reminder {
       this.displayGender = this.lang.TextBlock_Woman;
     }
 
-
-    retVal = this.lang.TextBlock_Welcome + ' ' +
-             this.displayGender + ' ' +
-             this.displayName + ' \n' +
-             this.lang.TextBlock_Reminder_1 + ' ' +
-             '¨' + dateInput + '¨ ' +
-             this.lang.TextBlock_Reminder_2 + ' ';
-
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
     console.log(timeInput);
     if(timeInput == "") {
@@ -109,20 +101,28 @@ export class Reminder {
       return '';
     }
 
-    retVal += '`' + timeInput + '` ' +
-              this.lang.TextBlock_Reminder_3 + ' ' +
-              this.lang.TextBlock_Place + ' ';
+    //FIRST META
+    retVal = "|" + dateInput + "," + timeInput + "|" +
+             this.lang.TextBlock_Welcome + ' ' +
+             this.displayGender + ' ' +
+             this.displayName + ' \n' +
+             this.lang.TextBlock_Reminder_1 + ' ' +
+             dateInput + ' ' +
+             this.lang.TextBlock_Reminder_2 + ' ' +
+             timeInput + ' ' +
+             this.lang.TextBlock_Reminder_3 + ' ' +
+             this.lang.TextBlock_Place + ' ';
 
-    if( this.shareService.getFastingStatus() == "fasting"){
-      retVal += this.lang.TextBlock_Reminder_4 + ' ' +
-                this.lang.TextBlock_Reminder_5 + ' ';
-    }
+     if( this.shareService.getFastingStatus() == "fasting"){
+       retVal += this.lang.TextBlock_Reminder_4 + ' ' +
+                 this.lang.TextBlock_Reminder_5 + ' ';
+     }
 
-    retVal += this.lang.TextBlock_cancelation + ' ' +
-              this.lang.TextBlock_cancelation_Costs + ' ' +
-              this.lang.TextBlock_Phonenumber + ' \n' +
-              this.lang.TextBlock_Sincere_regards + ' \n' +
-              this.lang.TextBlock_UDEM_Team;
+     retVal += this.lang.TextBlock_cancelation + ' ' +
+               this.lang.TextBlock_cancelation_Costs + ' ' +
+               this.lang.TextBlock_Phonenumber + ' \n' +
+               this.lang.TextBlock_Sincere_regards + ' \n' +
+               this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

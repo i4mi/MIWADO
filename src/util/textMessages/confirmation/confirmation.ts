@@ -51,10 +51,12 @@ export class Confirmation {
       alert.present();
       return '';
     }
-    retVal = this.lang.TextBlock_Patient_Welcome + ' \n' +
+
+    retVal = '|' + dateInput + '|' +
+             this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_AcceptAppointment_1 + ' ' +
              this.lang.TextBlock_on + ' ' +
-             '¨' + dateInput + '¨ \n' +
+             dateInput + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 

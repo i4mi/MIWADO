@@ -342,7 +342,8 @@ export class MidataPersistence {
       reason: [],
       subject: s,
       requestDetail: '',
-      ownership:''
+      ownership:'',
+      messageDisplay: ''
     };
 
     TS.resourceType = JSON.resourceType;

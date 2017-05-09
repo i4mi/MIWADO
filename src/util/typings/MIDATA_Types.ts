@@ -45,8 +45,7 @@ export interface DateToValue
 
  export interface MIDATA_HL7CommRes {
    resourceType:string;
-
-   category:string;
+   category:any;
    sender:MIDATA_HL7CommRes_Person;
    status:string;
    recipient:Array<any>;
@@ -60,6 +59,7 @@ export interface DateToValue
    requestDetail:any;
    ownership?:string;
    display?:string;
+   messageDisplay?:string;
  }
 
  export interface MIDATA_HL7CommRes_Person {

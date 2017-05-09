@@ -23,6 +23,7 @@ export interface MIWADO_User {
   password:string;
   auth?:MidataTypes.MIDATA_authResponse;
   messageList?:Array<MIWADO_Message>;
+  role?: string;
 }
 
 export interface MIWADO_Message {
