@@ -129,6 +129,9 @@ export class LANGUAGE {
   //Patient cancelation, new Date
   public TextBlock_PatientAfterDate_1 : string;
   public TextBlock_PatientAfterDate_2 : string;
+  public TextBlock_time_morning : string;
+  public TextBlock_time_afternoon : string;
+  public TextBlock_time_none : string;
 
   //Change Backoffice
   public TextBlock_Change_Backoffice_1 : string;
@@ -327,6 +330,10 @@ export class LANGUAGE {
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
     this.TextBlock_UDEM_Team = "Ihr UDEM";
+    this.TextBlock_time_morning = "am Morgen";
+    this.TextBlock_time_afternoon = "am Nachmittag";
+    this.TextBlock_time_none = "jederzeit";
+
 
     this.textMessages_Date_Title = "Datum eingeben";
     this.textMessages_Time_Title = "Zeit eingeben";
@@ -469,6 +476,9 @@ export class LANGUAGE {
     this.TextBlock_not_fasting = "none";
     this.TextBlock_fasting = "none";
     this.TextBlock_UDEM_Team = "votre UDEM";
+    this.TextBlock_time_morning = "none";
+    this.TextBlock_time_afternoon = "none";
+    this.TextBlock_time_none = "none";
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";
@@ -610,6 +620,9 @@ export class LANGUAGE {
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
     this.TextBlock_UDEM_Team = "Your UDEM";
+    this.TextBlock_time_morning = "in the morning";
+    this.TextBlock_time_afternoon = "in the afternoon";
+    this.TextBlock_time_none = "At any time";
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";

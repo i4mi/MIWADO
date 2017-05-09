@@ -25,6 +25,17 @@
   </ion-row>
   <br />
   <br />
+  <ion-row class="li-style">
+    <ion-select multiple="false" cancelText="{{lang.dateTimePicker_Cancel}}" okText="{{lang.dateTimePicker_Ok}}">
+      <label>{{ lang.textMessages_Time_Title }}</label>
+      <ion-option>{{ lang.TextBlock_time_morning }}</ion-option>
+      <ion-option>{{ lang.TextBlock_time_afternoon }}</ion-option>
+      <ion-option>{{ lang.TextBlock_time_none }}</ion-option>
+      <span> {{lang.textMessages_newAppointment_Time_Info}} </span>
+    </ion-select>
+  </ion-row>
+  <br />
+  <br />
   <ion-row>
     <label>{{ lang.TextBlock_Sincere_regards }}</label>
   </ion-row>

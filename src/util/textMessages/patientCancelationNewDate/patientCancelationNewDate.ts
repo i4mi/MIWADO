@@ -51,11 +51,24 @@ export class PatientCancelationNewDate {
       alert.present();
       return '';
     }
+    var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
+             console.log(selectSection);
+             if(selectSection == "") {
+               let alert = this.alertCtrl.create({
+                 title: this.lang.commThread_No_Section_Choosen_Title,
+                 subTitle: this.lang.commThread_No_Section_Choosen,
+                 buttons: ['OK']
+               });
+
+               alert.present();
+               return '';
+    }
+
     retVal = '|' + dateInput + '|' +
              this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientAfterDate_1 + ' ' +
              this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-             dateInput + ' \n' +
+             dateInput + selectSection + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 
