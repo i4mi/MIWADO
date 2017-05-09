@@ -70,9 +70,9 @@ export class Confirmation {
              this.lang.TextBlock_on + ' ' +
              dateInput + ' ' +
              this.lang.TextBlock_at + ' ' +
-             timeInput + ' \n' +
+             timeInput + '. \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
-             this.patientSenderName + '.';
+             this.patientSenderName;
 
     this.nav.push(CommThreadPage, {
     pat: this.patTemp,

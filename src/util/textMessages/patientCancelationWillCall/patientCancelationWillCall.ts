@@ -1,3 +1,4 @@
+
 import { NavController, NavParams } from 'ionic-angular';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
@@ -72,7 +73,7 @@ export class PatientCancelationWillCall {
              this.lang.TextBlock_PatientWillCall_3 + ' \n ' +
              this.lang.TextBlock_PatientWillCall_2 + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
-             this.patientSenderName + '.';
+             this.patientSenderName;
 
     this.nav.push(CommThreadPage, {
     pat: this.patTemp,

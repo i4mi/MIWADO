@@ -66,7 +66,6 @@ export class CancelationPatient {
     retVal = '|' + dateInput + ',' + timeInput + '|' +
              this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientwillnotCome_1 + ' ' +
-             this.lang.TextBlock_on + ' ' +
              dateInput + ' ' +
              this.lang.TextBlock_at + ' ' +
              timeInput + ' ' +

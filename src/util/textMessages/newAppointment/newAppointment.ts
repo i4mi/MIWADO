@@ -117,7 +117,7 @@ export class NewAppointment {
              this.lang.TextBlock_newAppointment_2 + ' ' +
              selectSection + '. ' +
              this.lang.TextBlock_newAppointment_3 + ' ' +
-             this.lang.TextBlock_Place + '. ' +
+             this.lang.TextBlock_Place + ' ' +
              this.lang.TextBlock_newAppointment_4 + ' ' +
              this.lang.TextBlock_cancelation + ' ' +
              this.lang.TextBlock_cancelation_Costs + ' ' +

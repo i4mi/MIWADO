@@ -33,10 +33,22 @@
       <span> {{lang.textMessages_newAppointment_Time_Info}} </span>
     </ion-row>
     <ion-row>
-      <label>{{ lang.TextBlock_Reminder_3 }}
-      {{ lang.TextBlock_Place }}</label>
+      <label>{{ lang.TextBlock_Reminder_3 }}</label>
+      <ion-row class="li-style">
+        <label>{{ lang.textMessages_Select_Department_Title }}</label>
+          <ion-select multiple="false" cancelText="{{lang.dateTimePicker_Cancel}}" okText="{{lang.dateTimePicker_Ok}}">
+            <ion-option>{{ lang.TextBlock_Diabetology }}</ion-option>
+            <ion-option>{{ lang.TextBlock_endocrinology }}</ion-option>
+            <ion-option>{{ lang.TextBlock_nutritional_medicine }}</ion-option>
+            <ion-option>{{ lang.TextBlock_metabolism }}</ion-option>
+          </ion-select>
+          <span>{{ lang.textMessages_newAppointment_Department_Info }}</span>
+      </ion-row>
+      <br />
+      <label>
+      {{ lang.TextBlock_Place }}
+    </label>
     </ion-row>
-    <br />
     <br />
     <ion-row class="li-style">
       <label>{{ lang.textMessages_Fastingstatus_Title }}</label>

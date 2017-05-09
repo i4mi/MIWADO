@@ -96,9 +96,9 @@ export class PatientCancelationNewDate {
              timeInput + ' ' +
              this.lang.TextBlock_PatientAfterDate_3 + ' ' +
              this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-             dateInput2 + selectSection + ' \n' +
+             dateInput2 + ' ' + selectSection + '. \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
-             this.patientSenderName + '.';
+             this.patientSenderName;
 
 
     this.nav.push(CommThreadPage, {

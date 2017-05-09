@@ -134,6 +134,8 @@ export class LANGUAGE {
   public TextBlock_time_morning : string;
   public TextBlock_time_afternoon : string;
   public TextBlock_time_none : string;
+  public textMessages_DayTime_Title : string;
+  public textMessages_patientCancelationNewDate_DayTime_Info : string;
 
   //Change Backoffice
   public TextBlock_Change_Backoffice_1 : string;
@@ -296,7 +298,7 @@ export class LANGUAGE {
     this.TextBlock_Welcome = 'Guten Tag ';
     this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
     this.TextBlock_at = 'um ';
-    this.TextBlock_Sincere_regards = 'Mit freundlichen Grüssen ';
+    this.TextBlock_Sincere_regards = 'Freundliche Grüsse ';
     this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
     this.TextBlock_cancelation_Costs = 'Absagen, welche später erfolgen, müssen wir Ihnen leider verrechnen.';
     this.TextBlock_Phonenumber = 'Sie erreichen uns unter 031 632 40 70.';
@@ -337,7 +339,8 @@ export class LANGUAGE {
     this.TextBlock_time_morning = "am Morgen";
     this.TextBlock_time_afternoon = "am Nachmittag";
     this.TextBlock_time_none = "jederzeit";
-
+    this.textMessages_DayTime_Title = "Tageszeit wählen";
+    this.textMessages_patientCancelationNewDate_DayTime_Info = "Bitte die Tageszeit auswählen.";
 
     this.textMessages_Date_Title = "Datum eingeben";
     this.textMessages_Time_Title = "Zeit eingeben";
@@ -461,7 +464,7 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_4 = "Veuillez prendre votre liste de médication et votre carte d'assurance avec.";
     this.TextBlock_PatientWillCall_1 = 'Der Termin vom';
     this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
-      this.TextBlock_PatientWillCall_2 = 'Je vous contacte pour une nouvelle date.';
+    this.TextBlock_PatientWillCall_2 = 'Je vous contacte pour une nouvelle date.';
     this.TextBlock_PatientAfterDate_1 = 'Der Termin vom';
     this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientAfterDate_2 = "Veuillez m'envoyer une nouvelle date après le";
@@ -485,6 +488,9 @@ export class LANGUAGE {
     this.TextBlock_time_morning = "none";
     this.TextBlock_time_afternoon = "none";
     this.TextBlock_time_none = "none";
+    this.textMessages_DayTime_Title = "none";
+    this.textMessages_patientCancelationNewDate_DayTime_Info = "none";
+
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";
@@ -631,6 +637,8 @@ export class LANGUAGE {
     this.TextBlock_time_morning = "in the morning";
     this.TextBlock_time_afternoon = "in the afternoon";
     this.TextBlock_time_none = "At any time";
+    this.textMessages_DayTime_Title = "Choose daytime";
+    this.textMessages_patientCancelationNewDate_DayTime_Info = "Please choose the wanted daytime.";
 
     this.textMessages_Date_Title = "none";
     this.textMessages_Time_Title = "none";
