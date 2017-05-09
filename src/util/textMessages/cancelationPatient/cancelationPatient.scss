@@ -1,5 +1,16 @@
 // iOS Style
 .platform-ios{
+  cancelationPatient {
+    .label-ios {
+      height: 35px;
+      padding-left: 8px !important;
+    }
+    .item-ios{
+      padding-left: 0px;
+      max-width: 100%;
+      float: left;
+    }
+  }
   ion-row {
     flex-wrap:wrap;
   }

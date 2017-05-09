@@ -50,7 +50,8 @@ export class Confirmation {
 
       alert.present();
       return '';
-    
+    }
+
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
     console.log(timeInput);
     if(timeInput == "") {

@@ -127,6 +127,7 @@ export class CommThreadPage {
         var date : any;
         var dateSplited : any;
         var time : any;
+        var dateTo : any;
 
         if(code == 'reminder' || code == 'newAppointment') {
           dateSplited = meta[0].split('/');
@@ -136,6 +137,8 @@ export class CommThreadPage {
           date.setHours(parseInt(time[0]));
           date.setMinutes(parseInt(time[1]));
 
+          var asd = date.getTime() + 30*60000;
+          dateTo = new Date(asd);
         } else if (code == 'changeBackoffice') {
           dateSplited = meta[1].split('/');
           date = new Date(parseInt(dateSplited[2])+2000, parseInt(dateSplited[1])-1, dateSplited[0]);
@@ -144,6 +147,7 @@ export class CommThreadPage {
           date.setHours(parseInt(time[0]));
           date.setMinutes(parseInt(time[1]));
 
+          dateTo = new Date(date.getTime() + 30*60000);
         }
       }
     }
@@ -166,10 +170,10 @@ export class CommThreadPage {
               this.lang.commThread_exportAppointment_Location,
               this.lang.commThread_exportAppointment_Body,
               date,
-              date
+              dateTo
             ).then(function (result) {
-              console.log(date)
-              console.log(date)
+              console.log(date);
+              console.log(dateTo);
                 console.log('success');console.dir(result);
               }, function (err) {
                 console.log('error');console.dir(err);

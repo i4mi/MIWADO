@@ -63,7 +63,7 @@ export class PatientCancelationWillCall {
       return '';
     }
 
-    var retVal = '|' dateInput + ',' + timeInput + '|' +
+    var retVal = '|' + dateInput + ',' + timeInput + '|' +
              this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientWillCall_1 + ' ' +
              dateInput + ' ' +

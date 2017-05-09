@@ -84,6 +84,11 @@ export class Settings {
         u.role = r;
         return this.storage.set('user', JSON.stringify(u));
       } else {
+        this.user = {
+          username: '',
+          password: '',
+          role: ''
+        } as MiwadoTypes.MIWADO_User;
         this.user.role = r;
         return this.storage.set('user', JSON.stringify(this.user));
       }

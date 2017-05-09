@@ -83,17 +83,35 @@ export class NotificationService {
   storeFCMTokenMIDATA(token: string, update: boolean) : Promise<MiwadoTypes.FCMToken_Device> {
     return this.settings.getUser().then((user) => {
       let userId = user.auth.owner;
-        var tk = {
-          resourceType: "Device",
-          lotNumber: token,
-          type: { 'type': 'FCMToken'},
-          status: 'available',
-          manufacturer: userId
-        } as MiwadoTypes.FCMToken_Device;
-        this.saveFCMTokenMIDATA(tk).then((token) => {
-          return tk;
-        });
-
+      var tokenType = {
+          "coding" : [{
+                        "system" : "MIWADO", // Identity of the terminology system
+                        "version" : "1.0", // Version of the system - if relevant
+                        "code" : "FCMToken" , // Symbol in syntax defined by the system
+                        "display" : "FCMToken" , // Representation defined by the system
+                        "userSelected" : false // If this coding was chosen directly by the user
+                      }], // Code defined by a terminology system
+          "text" :  "FCMToken"// Plain text representation of the concept
+      }
+      var tk = {
+        resourceType: "Device",
+        lotNumber: token,
+        type: tokenType,
+        status: 'active',
+        manufacturer: userId,
+        udi : { // Unique Device Identifier (UDI) Barcode string
+          deviceIdentifier : "FCMToken", // Mandatory fixed portion of UDI
+          name : "Notification Token", // Device Name as appears on UDI label
+          jurisdiction : "fcm.com", // Regional UDI authority
+          carrierHRF : "-", // UDI Human Readable Barcode String
+          carrierAIDC : "-", // UDI Machine Readable Barcode String
+          issuer : "MIWADO", // UDI Issuing Organization
+          entryType : "manual" // barcode | rfid | manual +
+        }
+      } as MiwadoTypes.FCMToken_Device;
+      this.saveFCMTokenMIDATA(tk).then((token) => {
+        return tk;
+      });
     });
   }
 

@@ -45,6 +45,17 @@
     max-width: 50%;
     min-width: 50%;
   }
+  reminder {
+    .label-ios {
+      height: 35px;
+      padding-left: 8px !important;
+    }
+    .item-ios{
+      padding-left: 0px;
+      max-width: 100%;
+      float: left;
+    }
+  }
 }
 
 //Android Style
