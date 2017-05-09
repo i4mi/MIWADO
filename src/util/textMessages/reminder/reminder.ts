@@ -100,9 +100,22 @@ export class Reminder {
       alert.present();
       return '';
     }
+    var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
+    console.log(selectSection);
+    if(selectSection == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Section_Choosen_Title,
+        subTitle: this.lang.commThread_No_Section_Choosen,
+        buttons: ['OK']
+      });
+
+      alert.present();
+      return '';
+    }
+
 
     //FIRST META
-    retVal = "|" + dateInput + "," + timeInput + "|" +
+    retVal = "|" + dateInput + "," + timeInput + "," + selectSection + "|" +
              this.lang.TextBlock_Welcome + ' ' +
              this.displayGender + ' ' +
              this.displayName + ' \n' +
@@ -111,6 +124,7 @@ export class Reminder {
              this.lang.TextBlock_Reminder_2 + ' ' +
              timeInput + ' ' +
              this.lang.TextBlock_Reminder_3 + ' ' +
+             selectSection + '. ' +
              this.lang.TextBlock_Place + ' ';
 
      if( this.shareService.getFastingStatus() == "fasting"){

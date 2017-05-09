@@ -125,9 +125,11 @@ export class LANGUAGE {
   //Patient cancelation, will Call
   public TextBlock_PatientWillCall_1 : string;
   public TextBlock_PatientWillCall_2 : string;
+  public TextBlock_PatientWillCall_3 : string;
 
   //Patient cancelation, new Date
   public TextBlock_PatientAfterDate_1 : string;
+  public TextBlock_PatientAfterDate_3 : string;
   public TextBlock_PatientAfterDate_2 : string;
   public TextBlock_time_morning : string;
   public TextBlock_time_afternoon : string;
@@ -309,9 +311,11 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_2 = 'einen Termin in der Abteilung ';
     this.TextBlock_newAppointment_3 = 'Wir befinden uns in der ';
     this.TextBlock_newAppointment_4 = 'Bitte nehmen Sie ihre Medikamentenliste und Versichertenkarte mit.';
-    this.TextBlock_PatientWillCall_1 = 'Dieser Termin geht für mich leider nicht.';
+    this.TextBlock_PatientWillCall_1 = 'Der Termin vom ';
+    this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientWillCall_2 = 'Ich melde mich bei Ihnen für einen neuen Termin.';
-    this.TextBlock_PatientAfterDate_1 = 'Dieser Termin geht für mich leider nicht.';
+    this.TextBlock_PatientAfterDate_1 = 'Der Termin vom ';
+    this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientAfterDate_2 = 'Bitte senden Sie mir einen neuen Termin nach dem ';
     this.TextBlock_Change_Backoffice_1 = 'Wir müssen Sie leider informieren, dass der Termin vom ';
     this.TextBlock_Change_Backoffice_2 = 'verschoben werden muss.';
@@ -455,9 +459,11 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_2 = 'un rendez-vous dans le département';
     this.TextBlock_newAppointment_3 = "Vous nous trouverez à l'";
     this.TextBlock_newAppointment_4 = "Veuillez prendre votre liste de médication et votre carte d'assurance avec.";
-    this.TextBlock_PatientWillCall_1 = 'Je ne suis pas disponible pour ce rendez-vous.';
-    this.TextBlock_PatientWillCall_2 = 'Je vous contacte pour une nouvelle date.';
-    this.TextBlock_PatientAfterDate_1 = 'Je ne suis pas disponible pour ce rendez-vous.';
+    this.TextBlock_PatientWillCall_1 = 'Der Termin vom';
+    this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
+      this.TextBlock_PatientWillCall_2 = 'Je vous contacte pour une nouvelle date.';
+    this.TextBlock_PatientAfterDate_1 = 'Der Termin vom';
+    this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientAfterDate_2 = "Veuillez m'envoyer une nouvelle date après le";
     this.TextBlock_Change_Backoffice_1 = 'Nous devons vous informer, que la date du';
     this.TextBlock_Change_Backoffice_2 = 'doit être répoussée.';
@@ -599,9 +605,11 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_2 = 'an appointment in the department of ';
     this.TextBlock_newAppointment_3 = 'We are located in the ';
     this.TextBlock_newAppointment_4 = 'Please take your medicationlist as well as your insurance card.';
-    this.TextBlock_PatientWillCall_1 = 'I\'am not able to attend the given appointment. ';
+    this.TextBlock_PatientWillCall_1 = 'Der Termin vom';
+    this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientWillCall_2 = 'I will call you for a new appointment';
-    this.TextBlock_PatientAfterDate_1 = 'I\'am not able to attend the given appointment. ';
+    this.TextBlock_PatientAfterDate_1 = 'Der Termin vom';
+    this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
     this.TextBlock_PatientAfterDate_2 = 'Please send me a new appointment after the ';
     this.TextBlock_Change_Backoffice_1 = 'We must inform you that the appointment of the ';
     this.TextBlock_Change_Backoffice_2 = 'isn\'t viable anymore. So we need to change the appointment.';

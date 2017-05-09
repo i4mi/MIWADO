@@ -116,7 +116,7 @@ export class ChangeBackoffice {
              this.lang.TextBlock_Change_Backoffice_3 + ' ' +
              dateInputTo + ' ' +
              this.lang.TextBlock_at + ' ' +
-             timeInput + ' ' +
+             timeInput + '. ' +
              this.lang.TextBlock_Change_Backoffice_4 + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.lang.TextBlock_UDEM_Team;

@@ -40,9 +40,33 @@ export class PatientCancelationNewDate {
     var retVal = "";
 
     var innerHTML = this.patientCancelationNewDate.nativeElement;
+
     var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
     console.log(dateInput);
-    if(dateInput == '') {
+    if(dateInput == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Date_Choosen_Title,
+        subTitle: this.lang.commThread_No_Date_Choosen,
+        buttons: ['OK']
+      });
+      alert.present();
+      return '';
+    }
+
+    var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
+    console.log(timeInput);
+    if(timeInput == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Time_Choosen_Title,
+        subTitle: this.lang.commThread_No_Time_Choosen,
+        buttons: ['OK']
+      });
+      alert.present();
+      return '';
+    }
+    var dateInput2 = innerHTML.getElementsByClassName('datetime-text')[2].innerText;
+    console.log(dateInput2);
+    if(dateInput2 == '') {
       let alert = this.alertCtrl.create({
         title: this.lang.commThread_No_Date_Choosen_Title,
         subTitle: this.lang.commThread_No_Date_Choosen,
@@ -64,11 +88,15 @@ export class PatientCancelationNewDate {
                return '';
     }
 
-    retVal = '|' + dateInput + '|' +
+    retVal = '|' + dateInput + ',' + timeInput  + ',' + dateInput2 + '|' +
              this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientAfterDate_1 + ' ' +
+             dateInput + ' ' +
+             this.lang.TextBlock_at  + ' ' +
+             timeInput + ' ' +
+             this.lang.TextBlock_PatientAfterDate_3 + ' ' +
              this.lang.TextBlock_PatientAfterDate_2 + ' ' +
-             dateInput + selectSection + ' \n' +
+             dateInput2 + selectSection + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 

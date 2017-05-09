@@ -50,13 +50,26 @@ export class Confirmation {
 
       alert.present();
       return '';
+    
+    var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
+    console.log(timeInput);
+    if(timeInput == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Time_Choosen_Title,
+        subTitle: this.lang.commThread_No_Time_Choosen,
+        buttons: ['OK']
+      });
+      alert.present();
+      return '';
     }
 
-    retVal = '|' + dateInput + '|' +
+    retVal = '|' + dateInput + ',' + timeInput +'|' +
              this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_AcceptAppointment_1 + ' ' +
              this.lang.TextBlock_on + ' ' +
-             dateInput + ' \n' +
+             dateInput + ' ' +
+             this.lang.TextBlock_at + ' ' +
+             timeInput + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName + '.';
 
