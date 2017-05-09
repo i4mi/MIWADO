@@ -120,11 +120,11 @@ export class Reminder {
              this.displayGender + ' ' +
              this.displayName + ' \n' +
              this.lang.TextBlock_Reminder_1 + ' ' +
-             dateInput + ' ' +
+             dateInput + '. ' +
              this.lang.TextBlock_Reminder_2 + ' ' +
              timeInput + ' ' +
              this.lang.TextBlock_Reminder_3 + ' ' +
-             selectSection + '. ' +
+             selectSection + ', ' +
              this.lang.TextBlock_Place + ' ';
 
      if( this.shareService.getFastingStatus() == "fasting"){

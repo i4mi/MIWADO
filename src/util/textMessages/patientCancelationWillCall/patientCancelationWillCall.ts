@@ -22,6 +22,7 @@ export class PatientCancelationWillCall {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
   private patientSenderName : string ;
+  private myDate : String = new Date().toISOString();
 
   private patTemp : any;
 
@@ -70,7 +71,7 @@ export class PatientCancelationWillCall {
              dateInput + ' ' +
              this.lang.TextBlock_at  + ' ' +
              timeInput + ' ' +
-             this.lang.TextBlock_PatientWillCall_3 + ' \n ' +
+             this.lang.TextBlock_PatientWillCall_3 + ' \n' +
              this.lang.TextBlock_PatientWillCall_2 + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName;

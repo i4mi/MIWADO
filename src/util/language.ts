@@ -308,7 +308,7 @@ export class LANGUAGE {
     this.TextBlock_Reminder_2 = 'Bitte seien Sie um ';
     this.TextBlock_Reminder_3 = 'in der ';
     this.TextBlock_Reminder_4 = 'Bitte erscheinen Sie nüchtern, das heisst ohne Frühstück.';
-    this.TextBlock_Reminder_5 = 'Jedoch sollten die Morgenmedikamente eingenommen werden ausser, wenn vom Arzt anders angeordnet.';
+    this.TextBlock_Reminder_5 = 'Jedoch sollten die Morgenmedikamente eingenommen werden. Ausser, wenn vom Arzt anders angeordnet.';
     this.TextBlock_newAppointment_1 = 'Sie haben am ';
     this.TextBlock_newAppointment_2 = 'einen Termin in der Abteilung ';
     this.TextBlock_newAppointment_3 = 'Wir befinden uns in der ';
