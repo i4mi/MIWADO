@@ -15,10 +15,10 @@
 </ion-header>
 
 <ion-content padding class="messages-page-content messages" #messageWindow>
-    <div *ngFor="let message of messages" class="day-wrapper" (click)="addToCalendar(message, message.payload[0])" >
+    <div *ngFor="let message of messages; let i = index;" class="day-wrapper" (click)="addToCalendar(message, message.payload[0], i)" >
         <div [class]="'message message-' + message.ownership">
           <div class="message-sendername">{{message.sender.display}}</div>
-          <div class="message-content message-content-text">{{message.payload[0]}}</div>
+          <div class="message-content message-content-text">{{message.messageDisplay}}</div>
           <span class="message-timestamp">{{ message.sent }}</span>
       </div>
     </div>

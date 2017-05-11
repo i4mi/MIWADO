@@ -104,52 +104,55 @@ export class CommThreadPage {
     }
   }
 
-  addToCalendar(message, messagepayload){
-    if(this.mp.getRole() == 'member'){
-      var date : any;
-      var dateDay : any;
-      var dateMonth : any;
-      var dateYear : any;
-      var time : any;
-      var timeHour: any;
-      var timeMinute : any;
-      var timeSeconds = 0;
-      var timeMiliSeconds = 0;
-      var startdate : any;
-      var enddate : any;
+  splitMeta(res: any) {
+    var firstChart = res.payload[0].charAt(0);
+    if (firstChart == "|") {
+      console.log('AIAIAI -- it is newww')
+      var splitedString = res.payload[0].split('|');
+      return splitedString[1].split(',');
+    }
+  }
 
-      if(messagepayload.indexOf("'") > 0){
-        date = messagepayload.substr(messagepayload.indexOf("'")+ 1, 8);
-        time =messagepayload.substr(messagepayload.indexOf("`") + 1, 5);
+  addToCalendar(message, messagepayload, id){
+    var clickedMsg = this.messages[id];
+    var messageCategory = clickedMsg.category[0];
 
-        dateDay = date.substr(0,2)
-        dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
-        dateYear = (parseInt(date.substr(6,2)) + 2000).toString();
+    if (messageCategory.text == "MIWADO_Message") {
+      if(messageCategory.coding) {
+        console.log("MESSAGE TYPE");
+        console.log(messageCategory.coding[0].code);
+        var code = messageCategory.coding[0].code;
+        var meta = this.splitMeta(clickedMsg);
 
-        timeHour = time.substr(0,2);
-        timeMinute = time.substr(3,2);
+        var date : any;
+        var dateSplited : any;
+        var time : any;
+        var dateTo : any;
 
+        if(code == 'reminder' || code == 'newAppointment') {
+          dateSplited = meta[0].split('/');
+          date = new Date(parseInt(dateSplited[2])+2000, parseInt(dateSplited[1])-1, dateSplited[0]);
 
-      }else{
-        date = messagepayload.substr(messagepayload.indexOf("¨")+ 1, 8);
-        time = messagepayload.substr(messagepayload.indexOf("`") + 1, 5);
+          time = meta[1].split(':');
+          date.setHours(parseInt(time[0]));
+          date.setMinutes(parseInt(time[1]));
 
-        dateDay = date.substr(0,2)
-        dateMonth = (parseInt(date.substr(3,2)) - 1).toString();
-        dateYear = (parseInt(date.substr(6,2)) + 2000).toString();
+          var asd = date.getTime() + 30*60000;
+          dateTo = new Date(asd);
+        } else if (code == 'changeBackoffice') {
+          dateSplited = meta[1].split('/');
+          date = new Date(parseInt(dateSplited[2])+2000, parseInt(dateSplited[1])-1, dateSplited[0]);
 
-        timeHour = time.substr(0,2);
-        timeMinute = time.substr(3,2);
+          time = meta[2].split(':');
+          date.setHours(parseInt(time[0]));
+          date.setMinutes(parseInt(time[1]));
 
+          dateTo = new Date(date.getTime() + 30*60000);
+        }
       }
-      startdate = new Date(dateYear, dateMonth, dateDay)
-      enddate = new Date(dateYear, dateMonth, dateDay)
+    }
 
-      startdate.setHours(parseInt(timeHour));
-      startdate.setMinutes(parseInt(timeMinute));
-      enddate.setHours(parseInt(timeHour));
-      enddate.setMinutes(parseInt(timeMinute));
-      if( messagepayload.indexOf("¨") > 0 && messagepayload.indexOf("`") > 0 || messagepayload.indexOf("`") > 0 && messagepayload.indexOf("'") > 0){
+    if(this.mp.getRole() == 'member' && this.platform.is('mobile') && clickedMsg.ownership != 'mine'){
       let alert = this.alertCtrl.create({
       title: this.lang.commThread_exportAppointment_PopUp_Title,
       message: this.lang.commThread_exportAppointment_PopUp_Text,
@@ -166,11 +169,11 @@ export class CommThreadPage {
               this.lang.commThread_exportAppointment_Title,
               this.lang.commThread_exportAppointment_Location,
               this.lang.commThread_exportAppointment_Body,
-              startdate,
-              enddate
+              date,
+              dateTo
             ).then(function (result) {
-              console.log(startdate)
-              console.log(enddate)
+              console.log(date);
+              console.log(dateTo);
                 console.log('success');console.dir(result);
               }, function (err) {
                 console.log('error');console.dir(err);
@@ -180,7 +183,6 @@ export class CommThreadPage {
       ]
     });
     alert.present();
-    }
     }
   }
 
@@ -208,6 +210,9 @@ export class CommThreadPage {
             if(this.mp.getRole() == 'provider' &&
               this.resource[i].sender.reference.indexOf('Practitioner') > -1) {
               this.resource[i].ownership = 'otherHp';
+            } else if (this.mp.getRole() == 'member'){
+              this.resource[i].sender.display = this.lang.commThread_exportAppointment_Location;
+              this.resource[i].ownership = 'other';
             } else {
               this.resource[i].ownership = 'other';
             }
@@ -236,6 +241,9 @@ export class CommThreadPage {
 
           this.resource[i].sent = hours + ":" + minutes + " - " +
                                   day + "." + month + "." + years;
+
+          var displayMsg = this.splitDisplay(this.resource[i]);
+          this.resource[i].messageDisplay = displayMsg;
 
           this.messages.push(this.resource[i]);
 
@@ -269,6 +277,17 @@ export class CommThreadPage {
     }).catch((ex) => {
     console.error('Error fetching users', ex);
     });
+  }
+
+  splitDisplay(res: any) {
+    var firstChart = res.payload[0].charAt(0);
+    if (firstChart == "|") {
+      console.log('AIAIAI -- it is newww')
+      var splitedString = res.payload[0].split('|');
+      return splitedString[2];
+    } else {
+      return res.payload[0];
+    }
   }
 
   doInfinite(infiniteScroll) {
@@ -359,7 +378,6 @@ export class CommThreadPage {
     }
   }
 
-
   defineCommRes(usrId: string, grp: any){
     var rec = new Array<any>();
     var content = new Array<any>();
@@ -367,7 +385,13 @@ export class CommThreadPage {
     var sent = new Date();
     var subj = {"reference":"Patient/" + this.pat.id};
     var tg = {
-      "coding" : [{ "type": this.TextBlockChoosen }], // Code defined by a terminology system
+      "coding" : [{
+                    "system" : "MIWADO", // Identity of the terminology system
+                    "version" : "1.0", // Version of the system - if relevant
+                    "code" : this.TextBlockChoosen , // Symbol in syntax defined by the system
+                    "display" : this.TextBlockChoosen , // Representation defined by the system
+                    "userSelected" : false // If this coding was chosen directly by the user
+                  }], // Code defined by a terminology system
       "text" :  "MIWADO_Message"// Plain text representation of the concept
     }
     var sendr = "";

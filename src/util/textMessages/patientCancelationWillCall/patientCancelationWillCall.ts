@@ -1,3 +1,4 @@
+
 import { NavController, NavParams } from 'ionic-angular';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { MidataPersistence } from '../../util/midataPersistence'
@@ -21,6 +22,7 @@ export class PatientCancelationWillCall {
   private lang = LANGUAGE.getInstance(this.platform);
   private look : any;
   private patientSenderName : string ;
+  private myDate : String = new Date().toISOString();
 
   private patTemp : any;
 
@@ -37,11 +39,42 @@ export class PatientCancelationWillCall {
   }
 
   checkAndSendMessage() {
-    var retVal = this.lang.TextBlock_Patient_Welcome + ' \n' +
+    var innerHTML = this.patientCancelationWillCall.nativeElement;
+
+    var dateInput = innerHTML.getElementsByClassName('datetime-text')[0].innerText;
+    console.log(dateInput);
+    if(dateInput == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Date_Choosen_Title,
+        subTitle: this.lang.commThread_No_Date_Choosen,
+        buttons: ['OK']
+      });
+      alert.present();
+      return '';
+    }
+
+    var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
+    console.log(timeInput);
+    if(timeInput == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Time_Choosen_Title,
+        subTitle: this.lang.commThread_No_Time_Choosen,
+        buttons: ['OK']
+      });
+      alert.present();
+      return '';
+    }
+
+    var retVal = '|' + dateInput + ',' + timeInput + '|' +
+             this.lang.TextBlock_Patient_Welcome + ' \n' +
              this.lang.TextBlock_PatientWillCall_1 + ' ' +
+             dateInput + ' ' +
+             this.lang.TextBlock_at  + ' ' +
+             timeInput + ' ' +
+             this.lang.TextBlock_PatientWillCall_3 + ' \n' +
              this.lang.TextBlock_PatientWillCall_2 + ' \n' +
              this.lang.TextBlock_Sincere_regards + ' \n' +
-             this.patientSenderName + '.';
+             this.patientSenderName;
 
     this.nav.push(CommThreadPage, {
     pat: this.patTemp,

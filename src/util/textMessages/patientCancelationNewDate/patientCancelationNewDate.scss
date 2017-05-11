@@ -18,6 +18,17 @@
     max-width: 40%;
     min-width: 40%;
   }
+  patientCancelationNewDate {
+      .label-ios {
+        height: 35px;
+        padding-left: 8px !important;
+      }
+      .item-ios{
+        padding-left: 0px;
+        max-width: 100%;
+        float: left;
+    }
+  }
 
 }
 

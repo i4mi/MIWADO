@@ -80,13 +80,6 @@ export class NewAppointment {
       this.displayGender = this.lang.TextBlock_Woman;
     }
 
-    retVal = this.lang.TextBlock_Welcome + ' ' +
-             this.displayGender + ' ' +
-             this.displayName + ' \n' +
-             this.lang.TextBlock_newAppointment_1 + ' ' +
-             '¨' + dateInput + '¨ ' +
-             this.lang.TextBlock_at + ' ';
-
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
     console.log(timeInput);
     if(timeInput == "") {
@@ -99,8 +92,6 @@ export class NewAppointment {
       alert.present();
       return '';
     }
-    retVal += '`' + timeInput + '`' +
-              this.lang.TextBlock_newAppointment_2 + ' ';
 
     var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
     console.log(selectSection);
@@ -114,15 +105,24 @@ export class NewAppointment {
       alert.present();
       return '';
     }
-    retVal += selectSection + '. ' +
-              this.lang.TextBlock_newAppointment_3 + ' ' +
-              this.lang.TextBlock_Place + '. ' +
-              this.lang.TextBlock_newAppointment_4 + ' ' +
-              this.lang.TextBlock_cancelation + ' ' +
-              this.lang.TextBlock_cancelation_Costs + ' ' +
-              this.lang.TextBlock_Phonenumber + ' \n' +
-              this.lang.TextBlock_Sincere_regards + ' \n' +
-              this.lang.TextBlock_UDEM_Team;
+    retVal = "|" + dateInput + "," + timeInput + "," + selectSection + "|" +
+             this.lang.TextBlock_Welcome + ' ' +
+             this.displayGender + ' ' +
+             this.displayName + ' \n' +
+             this.lang.TextBlock_newAppointment_1 + ' ' +
+             dateInput + ' ' +
+             this.lang.TextBlock_at + ' ' +
+             timeInput + ' ' +
+             this.lang.TextBlock_newAppointment_2 + ' ' +
+             selectSection + '. ' +
+             this.lang.TextBlock_newAppointment_3 + ' ' +
+             this.lang.TextBlock_Place + ' ' +
+             this.lang.TextBlock_newAppointment_4 + ' ' +
+             this.lang.TextBlock_cancelation + ' ' +
+             this.lang.TextBlock_cancelation_Costs + ' ' +
+             this.lang.TextBlock_Phonenumber + ' \n' +
+             this.lang.TextBlock_Sincere_regards + ' \n' +
+             this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

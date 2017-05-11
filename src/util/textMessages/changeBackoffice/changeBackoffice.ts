@@ -25,6 +25,7 @@ export class ChangeBackoffice {
   private gender : string;
   private senderName: string;
   myDate : String = new Date().toISOString();
+  myDate2 : String = new Date().toISOString();
   myDateYear : any;
   myDateYearFutur : any;
 
@@ -79,17 +80,9 @@ export class ChangeBackoffice {
       this.displayGender = this.lang.TextBlock_Woman;
     }
 
-    retVal = this.lang.TextBlock_Welcome + ' ' +
-             this.displayGender + ' ' +
-             this.displayName + ' \n' +
-             this.lang.TextBlock_Change_Backoffice_1 + ' ' +
-             '¨' + dateInput + '¨ ' +
-             this.lang.TextBlock_Change_Backoffice_2 + ' ' +
-             this.lang.TextBlock_Change_Backoffice_3 + ' ';
-
-     var dateInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
-     console.log(dateInput);
-     if(dateInput == "") {
+     var dateInputTo = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
+     console.log(dateInputTo);
+     if(dateInputTo == "") {
        let alert = this.alertCtrl.create({
          title: this.lang.commThread_No_Date_Choosen_Title,
          subTitle: this.lang.commThread_No_Date_Choosen,
@@ -98,9 +91,6 @@ export class ChangeBackoffice {
        alert.present();
        return '';
      }
-
-    retVal += "'" + dateInput + "' " +
-              this.lang.TextBlock_at + ' ';
 
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[2].innerText;
     console.log(timeInput);
@@ -114,10 +104,23 @@ export class ChangeBackoffice {
       alert.present();
       return '';
     }
-    retVal += '`' + timeInput + '`' +
-              this.lang.TextBlock_Change_Backoffice_4 + ' \n' +
-              this.lang.TextBlock_Sincere_regards + ' \n' +
-              this.lang.TextBlock_UDEM_Team;
+
+    //FIRST META
+    retVal = "|" + dateInput + "," + dateInputTo + "," + timeInput + "|" +
+             this.lang.TextBlock_Welcome + ' ' +
+             this.displayGender + ' ' +
+             this.displayName + ' \n' +
+             this.lang.TextBlock_Change_Backoffice_1 + ' ' +
+             dateInput + ' ' +
+             this.lang.TextBlock_Change_Backoffice_2 + ' ' +
+             this.lang.TextBlock_Change_Backoffice_3 + ' ' +
+             dateInputTo + ' ' +
+             this.lang.TextBlock_at + ' ' +
+             timeInput + '. ' +
+             this.lang.TextBlock_Change_Backoffice_4 + ' \n' +
+             this.lang.TextBlock_Sincere_regards + ' \n' +
+             this.lang.TextBlock_UDEM_Team;
+
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

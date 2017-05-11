@@ -77,14 +77,6 @@ export class Reminder {
       this.displayGender = this.lang.TextBlock_Woman;
     }
 
-
-    retVal = this.lang.TextBlock_Welcome + ' ' +
-             this.displayGender + ' ' +
-             this.displayName + ' \n' +
-             this.lang.TextBlock_Reminder_1 + ' ' +
-             '¨' + dateInput + '¨ ' +
-             this.lang.TextBlock_Reminder_2 + ' ';
-
     var timeInput = innerHTML.getElementsByClassName('datetime-text')[1].innerText;
     console.log(timeInput);
     if(timeInput == "") {
@@ -108,21 +100,43 @@ export class Reminder {
       alert.present();
       return '';
     }
+    var selectSection = innerHTML.getElementsByClassName('select-text')[0].innerText;
+    console.log(selectSection);
+    if(selectSection == "") {
+      let alert = this.alertCtrl.create({
+        title: this.lang.commThread_No_Section_Choosen_Title,
+        subTitle: this.lang.commThread_No_Section_Choosen,
+        buttons: ['OK']
+      });
 
-    retVal += '`' + timeInput + '` ' +
-              this.lang.TextBlock_Reminder_3 + ' ' +
-              this.lang.TextBlock_Place + ' ';
-
-    if( this.shareService.getFastingStatus() == "fasting"){
-      retVal += this.lang.TextBlock_Reminder_4 + ' ' +
-                this.lang.TextBlock_Reminder_5 + ' ';
+      alert.present();
+      return '';
     }
 
-    retVal += this.lang.TextBlock_cancelation + ' ' +
-              this.lang.TextBlock_cancelation_Costs + ' ' +
-              this.lang.TextBlock_Phonenumber + ' \n' +
-              this.lang.TextBlock_Sincere_regards + ' \n' +
-              this.lang.TextBlock_UDEM_Team;
+
+    //FIRST META
+    retVal = "|" + dateInput + "," + timeInput + "," + selectSection + "|" +
+             this.lang.TextBlock_Welcome + ' ' +
+             this.displayGender + ' ' +
+             this.displayName + ' \n' +
+             this.lang.TextBlock_Reminder_1 + ' ' +
+             dateInput + '. ' +
+             this.lang.TextBlock_Reminder_2 + ' ' +
+             timeInput + ' ' +
+             this.lang.TextBlock_Reminder_3 + ' ' +
+             selectSection + ', ' +
+             this.lang.TextBlock_Place + ' ';
+
+     if( this.shareService.getFastingStatus() == "fasting"){
+       retVal += this.lang.TextBlock_Reminder_4 + ' ' +
+                 this.lang.TextBlock_Reminder_5 + ' ';
+     }
+
+     retVal += this.lang.TextBlock_cancelation + ' ' +
+               this.lang.TextBlock_cancelation_Costs + ' ' +
+               this.lang.TextBlock_Phonenumber + ' \n' +
+               this.lang.TextBlock_Sincere_regards + ' \n' +
+               this.lang.TextBlock_UDEM_Team;
 
     this.nav.push(CommThreadPage, {
       pat: this.patTemp,

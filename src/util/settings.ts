@@ -33,6 +33,7 @@ export class Settings {
       this.user = {
         username: '',
         password: '',
+        role: ''
       } as MiwadoTypes.MIWADO_User;
   }
 
@@ -77,6 +78,23 @@ export class Settings {
     return this.lang;
   }
 
+  setRole(r: string) {
+    return this.getUser().then((u) => {
+      if(u) {
+        u.role = r;
+        return this.storage.set('user', JSON.stringify(u));
+      } else {
+        this.user = {
+          username: '',
+          password: '',
+          role: ''
+        } as MiwadoTypes.MIWADO_User;
+        this.user.role = r;
+        return this.storage.set('user', JSON.stringify(this.user));
+      }
+    });
+  }
+
   /* setUser(un: string, pw: string, auth?: any)
   * This method saves the user into the local storage.
   * Format of saved user is MIWADO_Types.MIWADO_User.
@@ -88,18 +106,19 @@ export class Settings {
   * Returns promise from storage.
   */
   setUser(un: string, pw: string, auth?: any) {
-    if(this.user == null) {
-      this.user = {
-        username: '',
-        password: '',
-      } as MiwadoTypes.MIWADO_User;
-    }
-
-    this.user.username = un;
-    this.user.password = pw;
-    this.user.auth = <MidataTypes.MIDATA_authResponse> auth;
-
-    return this.storage.set('user', JSON.stringify(this.user));
+    return this.getUser().then((u) => {
+      if(u) {
+        u.username = un;
+        u.password = pw;
+        u.auth = <MidataTypes.MIDATA_authResponse> auth;
+        return this.storage.set('user', JSON.stringify(u));
+      } else {
+        this.user.username = un;
+        this.user.password = pw;
+        this.user.auth = <MidataTypes.MIDATA_authResponse> auth;
+        return this.storage.set('user', JSON.stringify(this.user));
+      }
+    });
   }
 
   /* getUser()
