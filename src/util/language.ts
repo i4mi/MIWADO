@@ -24,7 +24,8 @@ export class LANGUAGE {
   // Language variables for the role view
   public role_View_Title: string;
   public role_View_Pat: string;
-  public role_View_Hp: string;
+  public role_View_Hp: string
+  public role_View_Parter : string;
 
   //Language variables for the role view
   public login_View_Title: string;
@@ -231,6 +232,7 @@ export class LANGUAGE {
     this.role_View_Title = 'Willkommen';
     this.role_View_Pat = 'Ich bin Patient';
     this.role_View_Hp = 'Ich bin Mitarbeiter';
+    this.role_View_Parter = 'Partner:';
 
     this.login_View_Title = 'Login';
     this.login_View_Username = 'Benutzername';
@@ -384,6 +386,7 @@ export class LANGUAGE {
     this.TextBlock_Patient_Welcome = 'Bienvenue, chère UDEM';
     this.role_View_Pat = 'Je suis un patient';
     this.role_View_Hp = 'Je suis un professionnel de la Santé';
+    this.role_View_Parter = 'none';
 
     this.login_View_Title = 'Login';
     this.login_View_Username = "nom d'utilisateur";
@@ -532,6 +535,7 @@ export class LANGUAGE {
     this.role_View_Title = 'Welcome';
     this.role_View_Pat = "I'm a Patient";
     this.role_View_Hp = "I'm a Health Professional";
+    this.role_View_Parter = 'Partner:';
 
     this.login_View_Title = 'Login';
     this.login_View_Username = 'Username';
