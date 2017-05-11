@@ -105,7 +105,6 @@ export class NewAppointment {
       alert.present();
       return '';
     }
-
     retVal = "|" + dateInput + "," + timeInput + "," + selectSection + "|" +
              this.lang.TextBlock_Welcome + ' ' +
              this.displayGender + ' ' +

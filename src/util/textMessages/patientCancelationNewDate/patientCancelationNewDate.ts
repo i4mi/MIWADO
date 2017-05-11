@@ -100,7 +100,6 @@ export class PatientCancelationNewDate {
              this.lang.TextBlock_Sincere_regards + ' \n' +
              this.patientSenderName;
 
-
     this.nav.push(CommThreadPage, {
     pat: this.patTemp,
     type: 'patientCancelationNewDate',

@@ -290,7 +290,7 @@ export class LANGUAGE {
     this.commThread_exportAppointment_Location = "UDEM";
     this.commThread_exportAppointment_Body = "Termin";
     this.commThread_No_FastingStatus_Choosen_Title ="Bitte Auswahl treffen";
-    this.commThread_No_FastingStatus_Choosen = "Bittw wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
+    this.commThread_No_FastingStatus_Choosen = "Bitte wählen Sie ob der Patient nüchtern erscheinen soll oder nicht";
     this.commThread_Choose_Message_PopUp = 'Nachricht auswählen';
     this.commThread_Message_Sent_Title = 'Gesendet';
     this.commThread_Message_Sent = 'Ihre Nachricht wurde gesendet.';
@@ -356,6 +356,11 @@ export class LANGUAGE {
     this.textMessages_newAppointment_Department_Info = "Bitte die Abteilung des Termins angeben.";
     this.textMessages_Fastingstatus_Title = "Nüchtern?";
     this.textMessages_reminder_Fastingstatus_Info = "Bitte angeben, ob der Patient nüchtern oder nicht erscheinen muss."
+
+
+    this.TextBlock_time_morning = "am Morgen";
+    this.TextBlock_time_afternoon = "am Nachmittag";
+    this.TextBlock_time_none = "jederzeit";
 
     this.impressum_Title = "Impressum";
     this.impressum_Contact_Title = "Kontakt";
@@ -508,6 +513,10 @@ export class LANGUAGE {
     this.textMessages_Fastingstatus_Title = "none";
     this.textMessages_reminder_Fastingstatus_Info = "none";
 
+    this.TextBlock_time_morning = "none";
+    this.TextBlock_time_afternoon = "none";
+    this.TextBlock_time_none = "none";
+
     this.impressum_Title = "none";
     this.impressum_Contact_Title = "Kontakt";
     this.impressum_Contact_AppName = "MIWADO";
@@ -644,35 +653,38 @@ export class LANGUAGE {
     this.textMessages_DayTime_Title = "Choose daytime";
     this.textMessages_patientCancelationNewDate_DayTime_Info = "Please choose the wanted daytime.";
 
-    this.textMessages_Date_Title = "none";
-    this.textMessages_Time_Title = "none";
-    this.textMessages_changeBackoffice_Date1_Info = "none";
-    this.textMessages_changeBackoffice_Date2_Info = "none";
-    this.textMessages_changeBackoffice_Time_Info = "none";
+    this.textMessages_Date_Title = "Choose date";
+    this.textMessages_Time_Title = "Set time";
+    this.textMessages_changeBackoffice_Date1_Info = "Please choose the date of the previous appointment";
+    this.textMessages_changeBackoffice_Date2_Info = "Please choose the date of the new appointment";
+    this.textMessages_changeBackoffice_Time_Info = "Please set the time of the appointment";
 
-    this.textMessages_newAppointment_Date_Info = "none";
-    this.textMessages_newAppointment_Time_Info = "none";
-    this.textMessages_Select_Department_Title = "none";
-    this.textMessages_newAppointment_Department_Info = "none";
-    this.textMessages_Fastingstatus_Title = "none";
-    this.textMessages_reminder_Fastingstatus_Info = "none";
+    this.textMessages_newAppointment_Date_Info = "Please choose the date of the appointment";
+    this.textMessages_newAppointment_Time_Info = "Please set the time of the appointment";
+    this.textMessages_Select_Department_Title = "Choose the department";
+    this.textMessages_newAppointment_Department_Info = "Please choose the department";
+    this.textMessages_Fastingstatus_Title = "Should the patient be fasting?";
+    this.textMessages_reminder_Fastingstatus_Info = "Please choose if the patient should be fasting.";
 
-    this.impressum_Title = "none";
-    this.impressum_Contact_Title = "Kontakt";
+    this.impressum_Title = "About the App";
+    this.impressum_Contact_Title = "Contact";
+    this.TextBlock_time_morning = "in the morning";
+    this.TextBlock_time_afternoon = "in the afternoon";
+    this.TextBlock_time_none = "At any time";
     this.impressum_Contact_AppName = "MIWADO";
     this.impressum_Contact_BFH = "Berner Fachhochschule";
     this.impressum_Contact_Adress = "Quellgasse 21";
     this.impressum_Contact_City = " 2501 Biel";
     this.impressum_Contact_Email_Title = "Email:";
-    this.impressum_HA_Title = "Haftungsausschluss";
-    this.impressum_HA_Text_1 = "Die Entwickler der MIWADO Applikation übernehmen keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.";
-    this.impressum_HA_Text_2 = "Haftungsansprüche gegen die Entwickler wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.";
-    this.impressum_HA_Text_3 = "Alle Angebote sind unverbindlich. Die Entwickler behalten es sich ausdrücklich vor, Teile der Applikation oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.";
-    this.impressum_Rights_Title = "Urheberrechte";
-    this.impressum_Rights_Text = "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien der Applikation gehören ausschliesslich den Entwicklern der MIWADO Applikation oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.";
+    this.impressum_HA_Title = "Disclaimer";
+    this.impressum_HA_Text_1 = "The information contained on the MIWADO mobile app is for general information purposes only.";
+    this.impressum_HA_Text_2 = "MIWADO assumes no responsibility for errors or omissions in the contents on the Service.";
+    this.impressum_HA_Text_3 = "In no event shall MIWADO be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. MIWADO reserves the right to make additions, deletions, or modification to the contents on the Service at any time without prior notice.";
+    this.impressum_Rights_Title = "Copyright";
+    this.impressum_Rights_Text = "For the avoidance of doubt, you must not adapt, edit, change, transform, publish, republish, distribute, redistribute, broadcast, rebroadcast or show or play in public this App or the material on this App (in any form or media) without MIWADO's prior written permission.";
     this.impressum_Data_Title = "Datenschutz";
-    this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
-    this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
+    this.impressum_Data_Text_1 = "The privacy regulations are based on Article 13 of the Federal Constitution and the data protection regulations (DSG). Personal data is handled secure and discrete and all data is saved on the MIDATA Platform. The data proctection of data which is saved on the MIDATA Platform obligate MIDATA. The data will not be shared unless the person owning the data wants to.";
+    this.impressum_Data_Text_2 = "Privacy and security responsibility of the MIDATA Platform belongs to MIDATA.";
 
     this.dateTimePicker_Ok = "Ok";
     this.dateTimePicker_Cancel = "Cancel";
