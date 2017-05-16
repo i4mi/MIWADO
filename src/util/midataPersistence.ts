@@ -19,7 +19,7 @@ export class MidataPersistence {
   private md: any;
   private appname = 'MIWADO';
   private appsecr = 'g82xlcisy4zneu5n9k3dgxgcifr6vfmx';
-  private server = 'https://test.midata.coop:9000';
+  private server = 'https://demo.midata.coop:9000';
   private role: string;
   private username: string;
   private password: string;
