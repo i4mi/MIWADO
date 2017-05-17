@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.bfh.miwado" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.bfh.miwado" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MIWADO</name>
     <description>Easy Secure Communication</description>
     <author email="stefandaniel.iseli@gmail.com" href="">Stefan Iseli (isels1) and Maurice Zysset (zyssm4)</author>
@@ -64,6 +64,9 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <config-file parent="NSCalendarsUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Der Kalender ermöglicht Ihnen den Export Ihrer erhaltenen Termindaten.</string>
+        </config-file>
     </platform>
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
@@ -85,8 +88,9 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-fcm" spec="~2.1.1" />
-    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <plugin name="cordova-plugin-calendar" spec="~4.5.5">
         <variable name="CALENDAR_USAGE_DESCRIPTION" value="Der Kalender ermöglicht Ihnen den Export Ihrer erhaltenen Termindaten." />
     </plugin>
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <plugin name="cordova-custom-config" spec="~3.2.0" />
 </widget>
