@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.bfh.miwado" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.bfh.miwado" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MIWADO</name>
     <description>Easy Secure Communication</description>
     <author email="stefandaniel.iseli@gmail.com" href="">Stefan Iseli (isels1) and Maurice Zysset (zyssm4)</author>
