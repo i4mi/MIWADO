@@ -2,16 +2,25 @@
 
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-title>{{ lang.guide_Title }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
+    <h3>{{ lang.guide_Role_Title }}</h3>
+    <div>{{ lang.guide_Role_Text }}</div>
+
+    <h3>{{ lang.guide_Login_Title }}</h3>
+    <div>{{ lang.guide_Login_Text }}</div>
+
+    <h3>{{ lang.guide_export_Title }}</h3>
+    <div>{{ lang.guide_export_Text }}</div>
+
+    <h3>{{ lang.guide_Settings_Title }}</h3>
+    <div>
+      {{ lang.guide_Settings_Text1 }}
+      {{ lang.guide_Settings_Text2 }}
+    </div>
   </ion-content>
 
 </ion-menu>

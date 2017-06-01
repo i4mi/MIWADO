@@ -17,6 +17,10 @@ import { Reminder } from '../util/textMessages/reminder/reminder';
 import { ShareService } from '../util/shareService';
 import { NotificationService } from '../util/notification/notification';
 import { ImpressumPage } from '../pages/impressum/impressum';
+import { LANGUAGE } from '../util/language';
+import { Storage } from '@ionic/storage';
+
+
 
 @Component({
   templateUrl: 'app.html',
@@ -29,11 +33,13 @@ export class MyApp {
   // make HelloIonicPage the root (or first) page
   rootPage: any = RolePage;
   pages: Array<{title: string, component: any}>;
+  private lang = LANGUAGE.getInstance(this.platform, this.storage);
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private storage: Storage
   ) {
     this.initializeApp();
       shareService.setPatient('','');

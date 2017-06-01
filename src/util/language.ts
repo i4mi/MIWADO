@@ -203,6 +203,18 @@ export class LANGUAGE {
   //Language variables for the PatList
   public patlist_View_title: string;
 
+  //Guide Test form the SideMenu
+  public guide_Title : string;
+  public guide_Role_Title : string;
+  public guide_Role_Text : string;
+  public guide_Login_Title : string;
+  public guide_Login_Text : string;
+  public guide_export_Title : string;
+  public guide_export_Text : string;
+  public guide_Settings_Title : string;
+  public guide_Settings_Text1 : string;
+  public guide_Settings_Text2 : string;
+
   private constructor(p: Platform, private storage: Storage) {
     this.platform = p;
     this.changeLanguage();
@@ -383,6 +395,18 @@ export class LANGUAGE {
     this.dateTimePicker_Cancel = "Abbrechen";
 
     this.util_backButton = "Zurück";
+
+    this.guide_Title = "Anleitung";
+    this.guide_Role_Title = "Rolle auswählen";
+    this.guide_Role_Text = "Bitte wählen Sie die ihnen zutreffende Rolle aus.";
+    this.guide_Login_Title = "Login";
+    this.guide_Login_Text = "Um sich in die MIWADO App einloggen zu können bentöigen sie ein MIDATA Konto. Dieses können Sie unter demo.midata.coop erstellen";
+    this.guide_export_Title = "Termin exportieren";
+    this.guide_export_Text = "Um einen Termin zu exportieren, klicken Sie auf die Nachricht mit dem gewünschten Termin. Danach werden Sie aufgefordert diesen zu exportieren. Bestätigen Sie das exportieren finden Sie den Termin im Geräte eigenen Terminkalender";
+    this.guide_Settings_Title = "Einstellungen";
+    this.guide_Settings_Text1 = "In den Einstellungen können Sie die Sprache einstellen, bei iPhones muss die Sprache direkt in den Geräteeinstellungen geändert werden. Unterstütz sind Deutsch, Französisch und Englisch.";
+    this.guide_Settings_Text2 = "Das Logout erfolgt ebenfalls über die Einstellungen. Das Impressum ist auch in den Einstellungen vorzufinden.";
+
     }
 
 
@@ -538,6 +562,17 @@ export class LANGUAGE {
     this.dateTimePicker_Cancel = "Abbrechen";
 
     this.util_backButton = "Retour";
+
+    this.guide_Title = "";
+    this.guide_Role_Title = "";
+    this.guide_Role_Text = "";
+    this.guide_Login_Title = "";
+    this.guide_Login_Text = "";
+    this.guide_export_Title = "";
+    this.guide_export_Text = "";
+    this.guide_Settings_Title = "";
+    this.guide_Settings_Text1 = "";
+    this.guide_Settings_Text2 = "";
   }
 
   private langEN(){
@@ -624,11 +659,11 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_2 = 'an appointment in the department of ';
     this.TextBlock_newAppointment_3 = 'We are located in the ';
     this.TextBlock_newAppointment_4 = 'Please take your medicationlist as well as your insurance card.';
-    this.TextBlock_PatientWillCall_1 = 'Der Termin vom';
-    this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
+    this.TextBlock_PatientWillCall_1 = 'The appointment of';
+    this.TextBlock_PatientWillCall_3 = 'is not possible for me to attend.';
     this.TextBlock_PatientWillCall_2 = 'I will call you for a new appointment';
-    this.TextBlock_PatientAfterDate_1 = 'Der Termin vom';
-    this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
+    this.TextBlock_PatientAfterDate_1 = 'The appointment of';
+    this.TextBlock_PatientAfterDate_3 = 'is not possible for me to attend.';
     this.TextBlock_PatientAfterDate_2 = 'Please send me a new appointment after the ';
     this.TextBlock_Change_Backoffice_1 = 'We must inform you that the appointment of the ';
     this.TextBlock_Change_Backoffice_2 = 'isn\'t viable anymore. So we need to change the appointment.';
@@ -682,7 +717,7 @@ export class LANGUAGE {
     this.impressum_HA_Text_3 = "In no event shall MIWADO be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. MIWADO reserves the right to make additions, deletions, or modification to the contents on the Service at any time without prior notice.";
     this.impressum_Rights_Title = "Copyright";
     this.impressum_Rights_Text = "For the avoidance of doubt, you must not adapt, edit, change, transform, publish, republish, distribute, redistribute, broadcast, rebroadcast or show or play in public this App or the material on this App (in any form or media) without MIWADO's prior written permission.";
-    this.impressum_Data_Title = "Datenschutz";
+    this.impressum_Data_Title = "Privacy policy";
     this.impressum_Data_Text_1 = "The privacy regulations are based on Article 13 of the Federal Constitution and the data protection regulations (DSG). Personal data is handled secure and discrete and all data is saved on the MIDATA Platform. The data proctection of data which is saved on the MIDATA Platform obligate MIDATA. The data will not be shared unless the person owning the data wants to.";
     this.impressum_Data_Text_2 = "Privacy and security responsibility of the MIDATA Platform belongs to MIDATA.";
 
@@ -690,5 +725,16 @@ export class LANGUAGE {
     this.dateTimePicker_Cancel = "Cancel";
 
     this.util_backButton = "Back";
+
+    this.guide_Title = "Manual";
+    this.guide_Role_Title = "Choose Role";
+    this.guide_Role_Text = "Please choose the role which fits your activity.";
+    this.guide_Login_Title = "Login";
+    this.guide_Login_Text = "If you want to login in the MIWADO App, you must create a MIWADO Account under the following link demo.midata.coop. ";
+    this.guide_export_Title = "Export appointment";
+    this.guide_export_Text = "To export an appoinment you have to click on the message with the wanted appointment. The appoinment will be saved in the given device calendar. ";
+    this.guide_Settings_Title = "Settings";
+    this.guide_Settings_Text1 = "You can change the Language of the App in the Settings if you are using a Android Device. If you use a iPhone must change the Language in the Devicesettings. The suporrtet language are German, French and English. ";
+    this.guide_Settings_Text2 = "The logout is located in the settings same as the imprint about the App. ";
   }
 }
