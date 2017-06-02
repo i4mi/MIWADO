@@ -415,7 +415,7 @@ export class LANGUAGE {
     this.TextBlock_Patient_Welcome = 'Bienvenue, chère UDEM';
     this.role_View_Pat = 'Je suis un patient';
     this.role_View_Hp = 'Je suis un professionnel de la Santé';
-    this.role_View_Parter = 'none';
+    this.role_View_Parter = 'Partenaire';
 
     this.login_View_Title = 'Login';
     this.login_View_Username = "nom d'utilisateur";
@@ -443,8 +443,8 @@ export class LANGUAGE {
     this.settings_ChkBox_StoreCred = 'Stocker les identifiants';
     this.setting_DeleteCredetials = 'Effacer les identifiants';
     this.setting_Credentials = 'Identifiants';
-    this.setting_Choose_Group = 'none';
-    this.setting_Selected_Group = 'none';
+    this.setting_Choose_Group = 'Choisir groupe';
+    this.setting_Selected_Group = 'Groupe choisi';
 
     this.patlist_View_title = 'Mes patients ';
 
@@ -457,25 +457,25 @@ export class LANGUAGE {
     this.commThread_Button_Choose_MessageType = 'Choisir message';
     this.commThread_TextBlock_Alert_Title = 'Type de message';
     this.commThread_TextBlock_Title_Cancellation = 'Annulation';
-    this.commTread_No_Message_Choosen = 'none';
-    this.commTread_No_Message_Choosen_Title = 'none';
+    this.commTread_No_Message_Choosen = 'Veuillez choisir un message.';
+    this.commTread_No_Message_Choosen_Title = 'Pas de message sélectionné';
     this.commThread_my_chat = 'Mes messages';
-    this.commThread_No_Section_Choosen_Title = 'none';
-    this.commThread_No_Section_Choosen = 'none';
-    this.commTread_No_Group_Choosen_Title = 'none';
-    this.commTread_No_Group_Choosen = 'none';
-    this.commThread_exportAppointment_PopUp_Title = "none";
-    this.commThread_exportAppointment_PopUp_Text = "none";
+    this.commThread_No_Section_Choosen_Title = 'Pas de département choisi';
+    this.commThread_No_Section_Choosen = 'Veuillez choisir un département.';
+    this.commTread_No_Group_Choosen_Title = 'Pas de groupe sélectionné';
+    this.commTread_No_Group_Choosen = 'Veuillez choisir un des groupes disponibles dans la section paramètres.';
+    this.commThread_exportAppointment_PopUp_Title = "Exporter le rendez-vous";
+    this.commThread_exportAppointment_PopUp_Text = "Est-ce que vous voudrez exporter ce rendez-vous?";
     this.commThread_exportAppointment_Title = "MIWADO Rendez-vous";
     this.commThread_exportAppointment_Location = "UDEM";
     this.commThread_exportAppointment_Body = "Rendez-vous";
     this.commThread_Choose_Message_PopUp = 'Choisir message';
-    this.commThread_No_FastingStatus_Choosen_Title ="none";
-    this.commThread_No_FastingStatus_Choosen = "none";
-    this.commThread_Message_Sent_Title = 'none';
-    this.commThread_Message_Sent = 'none';
-    this.commThread_Message_Received_Title = 'none';
-    this.commThread_Send_Message = 'none';
+    this.commThread_No_FastingStatus_Choosen_Title ="Veuillez faire votre choix";
+    this.commThread_No_FastingStatus_Choosen = "Veuillez choisir si le patient doit se présenter à jeun ou non.";
+    this.commThread_Message_Sent_Title = 'Envoyé';
+    this.commThread_Message_Sent = 'Votre message a été envoyé.';
+    this.commThread_Message_Received_Title = 'Nouveau message';
+    this.commThread_Send_Message = 'Envoyer message';
 
     this.TextBlock_Welcome = 'Bonjour';
     this.TextBlock_at = 'à';
@@ -494,11 +494,11 @@ export class LANGUAGE {
     this.TextBlock_newAppointment_2 = 'un rendez-vous dans le département';
     this.TextBlock_newAppointment_3 = "Vous nous trouverez à l'";
     this.TextBlock_newAppointment_4 = "Veuillez prendre votre liste de médication et votre carte d'assurance avec.";
-    this.TextBlock_PatientWillCall_1 = 'Der Termin vom';
-    this.TextBlock_PatientWillCall_3 = 'geht mir leider nicht.';
+    this.TextBlock_PatientWillCall_1 = 'Je ne serais pas disponible pour le rendez-vous du';
+    this.TextBlock_PatientWillCall_3 = '.';
     this.TextBlock_PatientWillCall_2 = 'Je vous contacte pour une nouvelle date.';
-    this.TextBlock_PatientAfterDate_1 = 'Der Termin vom';
-    this.TextBlock_PatientAfterDate_3 = 'geht mir leider nicht.';
+    this.TextBlock_PatientAfterDate_1 = 'Je ne serais pas disponible pour le rendez-vous du';
+    this.TextBlock_PatientAfterDate_3 = '.';
     this.TextBlock_PatientAfterDate_2 = "Veuillez m'envoyer une nouvelle date après le";
     this.TextBlock_Change_Backoffice_1 = 'Nous devons vous informer, que la date du';
     this.TextBlock_Change_Backoffice_2 = 'doit être répoussée.';
@@ -514,65 +514,65 @@ export class LANGUAGE {
     this.TextBlock_nutritional_medicine = "Médecine de nutrition";
     this.TextBlock_metabolism = 'Métabolisme';
     this.TextBlock_PlaceholderName = 'Lehrmann'
-    this.TextBlock_not_fasting = "none";
-    this.TextBlock_fasting = "none";
+    this.TextBlock_not_fasting = "pas à jeun";
+    this.TextBlock_fasting = "à jeun";
     this.TextBlock_UDEM_Team = "votre UDEM";
-    this.TextBlock_time_morning = "none";
-    this.TextBlock_time_afternoon = "none";
-    this.TextBlock_time_none = "none";
-    this.textMessages_DayTime_Title = "none";
-    this.textMessages_patientCancelationNewDate_DayTime_Info = "none";
+    this.TextBlock_time_morning = "le matin";
+    this.TextBlock_time_afternoon = "l'après-midi";
+    this.TextBlock_time_none = "à tout moment";
+    this.textMessages_DayTime_Title = "Choisir heure du jour";
+    this.textMessages_patientCancelationNewDate_DayTime_Info = "Veuillez choisir l'heure du jour";
 
 
-    this.textMessages_Date_Title = "none";
-    this.textMessages_Time_Title = "none";
-    this.textMessages_changeBackoffice_Date1_Info = "none";
-    this.textMessages_changeBackoffice_Date2_Info = "none";
-    this.textMessages_changeBackoffice_Time_Info = "none";
+    this.textMessages_Date_Title = "Saisir la date";
+    this.textMessages_Time_Title = "Saisir l'heure";
+    this.textMessages_changeBackoffice_Date1_Info = "Veuillez saisir la vieille date.";
+    this.textMessages_changeBackoffice_Date2_Info = "Veuillez saisir la date du nouveau rendez-vous.";
+    this.textMessages_changeBackoffice_Time_Info = "Veuillez saisir l'heure du nouveau rendez-vous.";
 
-    this.textMessages_newAppointment_Date_Info = "none";
-    this.textMessages_newAppointment_Time_Info = "none";
-    this.textMessages_Select_Department_Title = "none";
-    this.textMessages_newAppointment_Department_Info = "none";
-    this.textMessages_Fastingstatus_Title = "none";
-    this.textMessages_reminder_Fastingstatus_Info = "none";
+    this.textMessages_newAppointment_Date_Info = "Veuillez saisir la date du rendez-vous.";
+    this.textMessages_newAppointment_Time_Info = "Veuillez saisir l'heure du rendez-vous.";
+    this.textMessages_Select_Department_Title = "Choisir section";
+    this.textMessages_newAppointment_Department_Info = "Veuillez selectionnez le département du rendez-vous.";
+    this.textMessages_Fastingstatus_Title = "à jeun?";
+    this.textMessages_reminder_Fastingstatus_Info = "Veuillez indiquer, si le patient doit se presenter à jeun ou non.";
 
-    this.TextBlock_time_morning = "none";
-    this.TextBlock_time_afternoon = "none";
-    this.TextBlock_time_none = "none";
+    this.TextBlock_time_morning = "le matin";
+    this.TextBlock_time_afternoon = "l'après-midi";
+    this.TextBlock_time_none = "à tout moment";
 
-    this.impressum_Title = "none";
-    this.impressum_Contact_Title = "Kontakt";
+    this.impressum_Title = "Mentions légales";
+    this.impressum_Contact_Title = "Contact:";
     this.impressum_Contact_AppName = "MIWADO";
     this.impressum_Contact_BFH = "Berner Fachhochschule";
     this.impressum_Contact_Adress = "Quellgasse 21";
     this.impressum_Contact_City = " 2501 Biel";
     this.impressum_Contact_Email_Title = "Email:";
-    this.impressum_HA_Title = "Haftungsausschluss";
-    this.impressum_HA_Text_1 = "Die Entwickler der MIWADO Applikation übernehmen keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.";
-    this.impressum_HA_Text_2 = "Haftungsansprüche gegen die Entwickler wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.";
-    this.impressum_HA_Text_3 = "Alle Angebote sind unverbindlich. Die Entwickler behalten es sich ausdrücklich vor, Teile der Applikation oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.";
-    this.impressum_Rights_Title = "Urheberrechte";
-    this.impressum_Rights_Text = "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien der Applikation gehören ausschliesslich den Entwicklern der MIWADO Applikation oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.";
-    this.impressum_Data_Title = "Datenschutz";
-    this.impressum_Data_Text_1 = "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und jegliche Daten werden auf der MIDATA Plattform gespeichert und durch diese geschützt. Eine Weitergabe der Daten erfolgt lediglich wenn der Ersteller der Daten dies so auf der MIDATA Plattform ausdrücklich eingewilligt hat.";
-    this.impressum_Data_Text_2 = "Der Schutz vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung wird durch die MIDATA.coop gewährleistet.";
+    this.impressum_HA_Title = "Clause de non-responsabilité";
+    this.impressum_HA_Text_1 = "";
+    this.impressum_HA_Text_2 = "Tout contenu téléchargé se fait aux risques et périls de l'utilisateur et sous sa seule responsabilité. En conséquence, ne saurait être tenu responsable d'un quelconque dommage subi par l'ordinateur de l'utilisateur ou d'une quelconque perte de données consécutives au téléchargement.";
+    this.impressum_HA_Text_3 = "MIWADO met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet. Toutefois, des erreurs ou omissions peuvent survenir. L'internaute devra donc s'assurer de l'exactitude des informations auprès de , et signaler toutes modifications du site qu'il jugerait utile. n'est en aucun cas responsable de l'utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.";
+    this.impressum_Rights_Title = "Copyright";
+    this.impressum_Rights_Text = "Tout le contenu du MIWADO, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de la société à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.";
+    this.impressum_Data_Title = "Protection des données";
+    this.impressum_Data_Text_1 = "Sur la base de l'article 13 de la Constitution fédérale et les dispositions relatives à la protection des données de la (Loi sur la protection des données, DSG) fédéral toute personne a droit à la vie privée et à la protection contre une utilisation abusive de leurs données personnelles. Un transfert de données a lieu que lorsque le créateur des données a expressément consenti à la plate-forme MIDATA.";
+    this.impressum_Data_Text_2 = "La protection contre l'accès non autorisé, la perte, l'abus ou la falsification est garantie par la MIDATA.coop.";
 
     this.dateTimePicker_Ok = "Ok";
-    this.dateTimePicker_Cancel = "Abbrechen";
+    this.dateTimePicker_Cancel = "Annuler";
 
     this.util_backButton = "Retour";
 
-    this.guide_Title = "";
-    this.guide_Role_Title = "";
-    this.guide_Role_Text = "";
-    this.guide_Login_Title = "";
-    this.guide_Login_Text = "";
-    this.guide_export_Title = "";
-    this.guide_export_Text = "";
-    this.guide_Settings_Title = "";
-    this.guide_Settings_Text1 = "";
-    this.guide_Settings_Text2 = "";
+    this.guide_Title = "Instruction";
+    this.guide_Role_Title = "Choisir rôle";
+    this.guide_Role_Text = "Veuillez choisir le rôle pertinent.";
+    this.guide_Login_Title = "Login";
+    this.guide_Login_Text = "Pour pouvoir vous connecter dans l'application MIWADO, vous nécessitez un compte MIDATA.Vous pouvez en faire un sur demo.midata.coop.";
+    this.guide_export_Title = "Exporter la date";
+    this.guide_export_Text = "Pour exporter une date, appuyez sur le message du rendez-vous désiré. Ensuite vous devez confirmer que vous voulez exporter cette date et finalement vous la trouverez dans le calendrier de votre appareil.";
+    this.guide_Settings_Title = "Paramètres";
+    this.guide_Settings_Text1 = "Vous pouvez changer de langue dans la section paramètres. Pour utilisateurs d'iPhones il faudra changer la langue directement dans les paramètres de l'appareil. On vous met à disposition les langues Allemand, Français et Anglais.";
+    this.guide_Settings_Text2 = "La déconnection se fait dans les paramètres. L'impressum se trouvera à la fin de la section paramètres.";
   }
 
   private langEN(){
