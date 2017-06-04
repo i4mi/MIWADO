@@ -310,7 +310,7 @@ export class LANGUAGE {
     this.commThread_Send_Message = "Nachricht senden"
 
     this.TextBlock_Welcome = 'Guten Tag ';
-    this.TextBlock_Patient_Welcome = 'Guten Tag, liebes UDEM';
+    this.TextBlock_Patient_Welcome = 'Guten Tag, liebe UDEM';
     this.TextBlock_at = 'um ';
     this.TextBlock_Sincere_regards = 'Freundliche Grüsse ';
     this.TextBlock_cancelation = 'Die Absage des Termins kann bis 24 Stunden vor dem Termin erfolgen.';
@@ -349,7 +349,7 @@ export class LANGUAGE {
     this.TextBlock_PlaceholderName = 'Markus Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
-    this.TextBlock_UDEM_Team = "Ihr UDEM";
+    this.TextBlock_UDEM_Team = "Ihre UDEM";
     this.TextBlock_time_morning = "am Morgen";
     this.TextBlock_time_afternoon = "am Nachmittag";
     this.TextBlock_time_none = "jederzeit";
@@ -400,11 +400,11 @@ export class LANGUAGE {
     this.guide_Role_Title = "Rolle auswählen";
     this.guide_Role_Text = "Bitte wählen Sie die ihnen zutreffende Rolle aus.";
     this.guide_Login_Title = "Login";
-    this.guide_Login_Text = "Um sich in die MIWADO App einloggen zu können bentöigen sie ein MIDATA Konto. Dieses können Sie unter demo.midata.coop erstellen";
+    this.guide_Login_Text = "Um sich in die MIWADO App einloggen zu können, bentöigen sie ein MIDATA Konto. Dieses können Sie unter demo.midata.coop erstellen.";
     this.guide_export_Title = "Termin exportieren";
-    this.guide_export_Text = "Um einen Termin zu exportieren, klicken Sie auf die Nachricht mit dem gewünschten Termin. Danach werden Sie aufgefordert diesen zu exportieren. Bestätigen Sie das exportieren finden Sie den Termin im Geräte eigenen Terminkalender";
+    this.guide_export_Text = "Um einen Termin zu exportieren, klicken Sie auf die Nachricht mit dem gewünschten Termin. Danach werden Sie aufgefordert diesen zu exportieren. Bestätigen Sie das exportieren, finden Sie den Termin im Geräte eigenen Terminkalender.";
     this.guide_Settings_Title = "Einstellungen";
-    this.guide_Settings_Text1 = "In den Einstellungen können Sie die Sprache einstellen, bei iPhones muss die Sprache direkt in den Geräteeinstellungen geändert werden. Unterstütz sind Deutsch, Französisch und Englisch.";
+    this.guide_Settings_Text1 = "In den Einstellungen können Sie die Sprache einstellen. Bei iOS Geräten muss die Sprache direkt in den Geräteeinstellungen geändert werden. Unterstütz sind Deutsch, Französisch und Englisch.";
     this.guide_Settings_Text2 = "Das Logout erfolgt ebenfalls über die Einstellungen. Das Impressum ist auch in den Einstellungen vorzufinden.";
 
     }
