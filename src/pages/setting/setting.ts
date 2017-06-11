@@ -130,4 +130,16 @@ export class SettingPage {
   impressum() {
     this.nav.push(ImpressumPage);
   }
+
+  survey(){
+    if(this.settings.getLanguage() == 'de'){
+      window.location.href='https://de.surveymonkey.com/r/M257H36';
+    }
+    else if(this.settings.getLanguage() == 'fr'){
+      window.location.href='https://fr.surveymonkey.com/r/M2HKTBF';
+    }
+    else if(this.settings.getLanguage() == 'en'){
+      window.location.href='https://de.surveymonkey.com/r/M25NYWL';
+    }
+}
 }

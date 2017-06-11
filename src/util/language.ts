@@ -57,6 +57,7 @@ export class LANGUAGE {
   public setting_Credentials : string;
   public setting_Choose_Group : string;
   public setting_Selected_Group: string;
+  public survey_Title: string;
 
   //Language variables for the commThread
   public commThread_TextBlock_Title_NewAppointment : string;
@@ -214,6 +215,7 @@ export class LANGUAGE {
   public guide_Settings_Title : string;
   public guide_Settings_Text1 : string;
   public guide_Settings_Text2 : string;
+
 
   private constructor(p: Platform, private storage: Storage) {
     this.platform = p;
@@ -394,6 +396,8 @@ export class LANGUAGE {
     this.dateTimePicker_Ok = "Auswählen";
     this.dateTimePicker_Cancel = "Abbrechen";
 
+    this.survey_Title = "Umfrage";
+
     this.util_backButton = "Zurück";
 
     this.guide_Title = "Anleitung";
@@ -561,6 +565,8 @@ export class LANGUAGE {
     this.dateTimePicker_Ok = "Ok";
     this.dateTimePicker_Cancel = "Annuler";
 
+    this.survey_Title = "Sondage";
+
     this.util_backButton = "Retour";
 
     this.guide_Title = "Instruction";
@@ -725,6 +731,8 @@ export class LANGUAGE {
     this.dateTimePicker_Cancel = "Cancel";
 
     this.util_backButton = "Back";
+
+    this.survey_Title = "Survey";
 
     this.guide_Title = "Manual";
     this.guide_Role_Title = "Choose Role";
