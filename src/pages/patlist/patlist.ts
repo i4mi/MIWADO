@@ -18,6 +18,16 @@ import { ShareService } from '../../util/shareService';
   templateUrl: 'patlist.html'
 })
 
+/*
+* Class patlist
+* This class handels the loading of all the Patient which have
+* a consent with the logged in HealthProfessional
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class PatList {
   private settings = Settings.getInstance(this.platform, this.storage);
   private lang = LANGUAGE.getInstance(this.platform, this.storage);

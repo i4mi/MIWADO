@@ -23,6 +23,16 @@ import { PatientCancelationNewDate } from '../../util/textMessages/patientCancel
   templateUrl: 'chooseMsg.html'
 })
 
+/*
+* Class chooseMsg
+* This class handels the choosing of the Message
+*
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class ChooseMsg {
 
   private lang = LANGUAGE.getInstance(this.platform, this.storage);

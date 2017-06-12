@@ -14,6 +14,14 @@ import { CommThreadPage } from '../../../pages/commThread/commThread';
   templateUrl: './confirmation.html'
 })
 
+/*
+* Class confirmation
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class Confirmation {
   @ViewChild('confirmation') confirmation:ElementRef;
 

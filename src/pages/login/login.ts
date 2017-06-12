@@ -18,6 +18,16 @@ import { Settings } from '../../util/settings';
   templateUrl: 'login.html'
 })
 
+/*
+* Class login
+* This class handels the input of the logindata an does the login
+* via the midataPersistence Class
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class LoginPage {
   myForm: FormGroup;
   private username: string;

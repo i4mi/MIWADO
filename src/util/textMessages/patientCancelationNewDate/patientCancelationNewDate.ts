@@ -14,6 +14,14 @@ import { CommThreadPage } from '../../../pages/commThread/commThread';
   templateUrl: './patientCancelationNewDate.html'
 })
 
+/*
+* Class patientCancelationNewDate
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class PatientCancelationNewDate {
   @ViewChild('patientCancelationNewDate') patientCancelationNewDate:ElementRef;
 

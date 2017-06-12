@@ -31,6 +31,15 @@ import { NotificationService } from '../../util/notification/notification';
   templateUrl: 'commThread.html'
 })
 
+/*
+* Class commThread
+* This class loads and shows all the message belonging to the sign in Patient/HealthProfessional.
+* The function addToCalendar creates a new appointment in the devicecalendar
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
 
 export class CommThreadPage {
   @ViewChild('messageWindow') messageWindow:Content;

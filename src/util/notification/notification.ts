@@ -26,6 +26,7 @@ declare var FCMPlugin;
 * Author(s):  isels1, zyssm4
 * Date:       Builded 24.03.2017
 */
+
 @Injectable()
 export class NotificationService {
 

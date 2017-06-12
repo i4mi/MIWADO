@@ -14,8 +14,9 @@ import { Storage } from '@ionic/storage';
 *
 * Version:    1.0 Test Version
 * Author(s):  isels1, zyssm4
-* Date:       Builded 24.03.2017
+* Date:       Builded 15.06.2017
 */
+
 export class LANGUAGE {
 
   private static lang:LANGUAGE;
@@ -103,7 +104,6 @@ export class LANGUAGE {
   public TextBlock_Phonenumber: string;
   public TextBlock_Place: string;
   public TextBlock_on : string;
-  public TextBlock_PlaceholderName : string;
   public TextBlock_UDEM_Team: string;
 
 
@@ -348,7 +348,6 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endokrinologie';
     this.TextBlock_nutritional_medicine = 'Ernährungsmedizin';
     this.TextBlock_metabolism = 'Metabolismus';
-    this.TextBlock_PlaceholderName = 'Markus Lehrmann';
     this.TextBlock_not_fasting = "Nicht nüchtern";
     this.TextBlock_fasting = "Nüchtern";
     this.TextBlock_UDEM_Team = "Ihre UDEM";
@@ -517,7 +516,6 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endocrinologie';
     this.TextBlock_nutritional_medicine = "Médecine de nutrition";
     this.TextBlock_metabolism = 'Métabolisme';
-    this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "pas à jeun";
     this.TextBlock_fasting = "à jeun";
     this.TextBlock_UDEM_Team = "votre UDEM";
@@ -684,7 +682,6 @@ export class LANGUAGE {
     this.TextBlock_endocrinology = 'Endocrinology';
     this.TextBlock_nutritional_medicine = 'Nutritional medicine';
     this.TextBlock_metabolism = 'Metabolism';
-    this.TextBlock_PlaceholderName = 'Lehrmann'
     this.TextBlock_not_fasting = "Not fasting";
     this.TextBlock_fasting = "Fasting";
     this.TextBlock_UDEM_Team = "Your UDEM";

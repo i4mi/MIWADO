@@ -16,7 +16,7 @@ import * as MidataTypes from './typings/MIDATA_Types';
 *
 * Version:    1.0 Test Version
 * Author(s):  isels1, zyssm4
-* Date:       Builded 24.03.2017
+* Date:       Builded 15.06.2017
 */
 export class Settings {
 

@@ -16,6 +16,17 @@ import { ImpressumPage } from '../impressum/impressum';
     templateUrl: 'setting.html'
   })
 
+
+  /*
+  * Class setting
+  * This class handels the langauge and group setting.
+  * The input data is stored in the storage.
+  *
+  * Version:    1.0
+  * Author(s):  isels1, zyssm4
+  * Date:       Builded 15.06.2017
+  */
+
 export class SettingPage {
   myForm: FormGroup;
   private radioButton_Language : any;

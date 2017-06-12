@@ -14,6 +14,15 @@ import { Settings } from '../../util/settings';
   templateUrl: 'role.html'
 })
 
+/*
+* Class role
+* This class stores the choosen Role in the storage
+*
+* Version:    1.0
+* Author(s):  isels1, zyssm4
+* Date:       Builded 15.06.2017
+*/
+
 export class RolePage {
   private lang = LANGUAGE.getInstance(this.platform, this.storage);
   private settings = Settings.getInstance(this.platform, this.storage);
