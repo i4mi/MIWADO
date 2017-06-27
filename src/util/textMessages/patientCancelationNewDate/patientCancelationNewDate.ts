@@ -29,6 +29,7 @@ export class PatientCancelationNewDate {
   private look : any;
   private patientSenderName : string ;
   myDate : String = new Date().toISOString();
+  myDateNew : String = new Date().toISOString();
 
   private patTemp : any;
 

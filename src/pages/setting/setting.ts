@@ -144,13 +144,13 @@ export class SettingPage {
 
   survey(){
     if(this.settings.getLanguage() == 'de'){
-      window.location.href='https://de.surveymonkey.com/r/M257H36';
+      window.location.href='https://de.surveymonkey.com/r/MIWADOdeutsch';
     }
     else if(this.settings.getLanguage() == 'fr'){
-      window.location.href='https://fr.surveymonkey.com/r/M2HKTBF';
+      window.location.href='https://fr.surveymonkey.com/r/MIWADOfrancais';
     }
     else if(this.settings.getLanguage() == 'en'){
-      window.location.href='https://de.surveymonkey.com/r/M25NYWL';
+      window.location.href='https://de.surveymonkey.com/r/MIWADOenglish';
     }
 }
 }
